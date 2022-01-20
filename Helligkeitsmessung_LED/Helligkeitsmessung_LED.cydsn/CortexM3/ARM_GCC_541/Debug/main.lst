@@ -1,0 +1,1275 @@
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	Init, %function
+  25              	Init:
+  26              	.LFB65:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  * Helligkeitsmessung mit einfacher LED in Sperrrichtung
+   3:main.c        ****  * über Entladezeit der Sperrschichtkapazität
+   4:main.c        ****  * ========================================
+   5:main.c        **** */
+   6:main.c        **** #include "project.h"
+   7:main.c        **** #include <stdio.h>
+   8:main.c        **** 
+   9:main.c        **** void Init();
+  10:main.c        **** uint16_t MeasureBrightness();
+  11:main.c        **** 
+  12:main.c        **** int main(void)
+  13:main.c        **** {
+  14:main.c        ****     Init();
+  15:main.c        ****     UART_PutString("Initialized.\n\r");
+  16:main.c        ****     
+  17:main.c        ****     char max[20];
+  18:main.c        ****     sprintf(max, "max: %i", UINT16_MAX);
+  19:main.c        ****     UART_PutString(max);
+  20:main.c        ****     
+  21:main.c        ****     for(;;)
+  22:main.c        ****     {
+  23:main.c        ****         uint16_t measurement = MeasureBrightness();
+  24:main.c        ****         char result[40];
+  25:main.c        ****         sprintf(result, "%i\n\r", measurement);
+  26:main.c        ****         UART_PutString(result);
+  27:main.c        ****         CyDelay(1000);
+  28:main.c        ****     }
+  29:main.c        **** }
+  30:main.c        **** 
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 2
+
+
+  31:main.c        **** void Init()
+  32:main.c        **** {
+  28              		.loc 1 32 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  33:main.c        ****     UART_Start();
+  36              		.loc 1 33 0
+  37 0002 FFF7FEFF 		bl	UART_Start
+  38              	.LVL0:
+  39 0006 08BD     		pop	{r3, pc}
+  40              		.cfi_endproc
+  41              	.LFE65:
+  42              		.size	Init, .-Init
+  43              		.section	.text.MeasureBrightness,"ax",%progbits
+  44              		.align	2
+  45              		.global	MeasureBrightness
+  46              		.thumb
+  47              		.thumb_func
+  48              		.type	MeasureBrightness, %function
+  49              	MeasureBrightness:
+  50              	.LFB66:
+  34:main.c        **** }
+  35:main.c        **** 
+  36:main.c        **** uint16_t MeasureBrightness()
+  37:main.c        **** {
+  51              		.loc 1 37 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 8
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55 0000 10B5     		push	{r4, lr}
+  56              		.cfi_def_cfa_offset 8
+  57              		.cfi_offset 4, -8
+  58              		.cfi_offset 14, -4
+  59 0002 82B0     		sub	sp, sp, #8
+  60              		.cfi_def_cfa_offset 16
+  61              	.LVL1:
+  38:main.c        ****     uint16_t ticks = 0;
+  39:main.c        ****     volatile uint8_t pinState = 1;
+  62              		.loc 1 39 0
+  63 0004 0124     		movs	r4, #1
+  64 0006 8DF80740 		strb	r4, [sp, #7]
+  40:main.c        ****     
+  41:main.c        ****     // drive pin high to charge capacitance
+  42:main.c        ****     Sensor_Pin_SetDriveMode(Sensor_Pin_DM_OD_HI);
+  65              		.loc 1 42 0
+  66 000a 0A20     		movs	r0, #10
+  67 000c FFF7FEFF 		bl	Sensor_Pin_SetDriveMode
+  68              	.LVL2:
+  43:main.c        ****     Sensor_Pin_Write(1);    
+  69              		.loc 1 43 0
+  70 0010 2046     		mov	r0, r4
+  71 0012 FFF7FEFF 		bl	Sensor_Pin_Write
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 3
+
+
+  72              	.LVL3:
+  44:main.c        ****     // set pin to hiZ tri-state 
+  45:main.c        ****     Sensor_Pin_SetDriveMode(Sensor_Pin_DM_DIG_HIZ);  
+  73              		.loc 1 45 0
+  74 0016 0220     		movs	r0, #2
+  75 0018 FFF7FEFF 		bl	Sensor_Pin_SetDriveMode
+  76              	.LVL4:
+  46:main.c        ****     
+  47:main.c        ****     for(ticks = 0; (pinState && ( ticks < UINT16_MAX )); ticks++)
+  77              		.loc 1 47 0
+  78 001c 0024     		movs	r4, #0
+  79 001e 08E0     		b	.L4
+  80              	.LVL5:
+  81              	.L6:
+  48:main.c        ****     {
+  49:main.c        ****         ticks++;
+  50:main.c        ****         pinState = Sensor_Pin_Read();
+  82              		.loc 1 50 0 discriminator 4
+  83 0020 FFF7FEFF 		bl	Sensor_Pin_Read
+  84              	.LVL6:
+  85 0024 8DF80700 		strb	r0, [sp, #7]
+  51:main.c        ****         CyDelayUs(1);
+  86              		.loc 1 51 0 discriminator 4
+  87 0028 0120     		movs	r0, #1
+  88 002a FFF7FEFF 		bl	CyDelayUs
+  89              	.LVL7:
+  47:main.c        ****     {
+  90              		.loc 1 47 0 discriminator 4
+  91 002e 0234     		adds	r4, r4, #2
+  92              	.LVL8:
+  93 0030 A4B2     		uxth	r4, r4
+  94              	.LVL9:
+  95              	.L4:
+  47:main.c        ****     {
+  96              		.loc 1 47 0 is_stmt 0 discriminator 1
+  97 0032 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+  98 0036 13F0FF0F 		tst	r3, #255
+  99 003a 03D0     		beq	.L5
+  47:main.c        ****     {
+ 100              		.loc 1 47 0 discriminator 3
+ 101 003c 4FF6FF73 		movw	r3, #65535
+ 102 0040 9C42     		cmp	r4, r3
+ 103 0042 EDD1     		bne	.L6
+ 104              	.L5:
+  52:main.c        ****     }
+  53:main.c        ****     
+  54:main.c        ****     Sensor_Pin_SetDriveMode(Sensor_Pin_DM_OD_LO);          
+ 105              		.loc 1 54 0 is_stmt 1
+ 106 0044 0820     		movs	r0, #8
+ 107 0046 FFF7FEFF 		bl	Sensor_Pin_SetDriveMode
+ 108              	.LVL10:
+  55:main.c        ****     return ticks;
+  56:main.c        **** }
+ 109              		.loc 1 56 0
+ 110 004a 2046     		mov	r0, r4
+ 111 004c 02B0     		add	sp, sp, #8
+ 112              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 4
+
+
+ 113              		@ sp needed
+ 114 004e 10BD     		pop	{r4, pc}
+ 115              		.cfi_endproc
+ 116              	.LFE66:
+ 117              		.size	MeasureBrightness, .-MeasureBrightness
+ 118              		.section	.text.main,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	main
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.type	main, %function
+ 124              	main:
+ 125              	.LFB64:
+  13:main.c        ****     Init();
+ 126              		.loc 1 13 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 64
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130 0000 00B5     		push	{lr}
+ 131              		.cfi_def_cfa_offset 4
+ 132              		.cfi_offset 14, -4
+ 133 0002 91B0     		sub	sp, sp, #68
+ 134              		.cfi_def_cfa_offset 72
+  14:main.c        ****     UART_PutString("Initialized.\n\r");
+ 135              		.loc 1 14 0
+ 136 0004 FFF7FEFF 		bl	Init
+ 137              	.LVL11:
+  15:main.c        ****     
+ 138              		.loc 1 15 0
+ 139 0008 0D48     		ldr	r0, .L11
+ 140 000a FFF7FEFF 		bl	UART_PutString
+ 141              	.LVL12:
+  18:main.c        ****     UART_PutString(max);
+ 142              		.loc 1 18 0
+ 143 000e 4FF6FF72 		movw	r2, #65535
+ 144 0012 0C49     		ldr	r1, .L11+4
+ 145 0014 0BA8     		add	r0, sp, #44
+ 146 0016 FFF7FEFF 		bl	sprintf
+ 147              	.LVL13:
+  19:main.c        ****     
+ 148              		.loc 1 19 0
+ 149 001a 0BA8     		add	r0, sp, #44
+ 150 001c FFF7FEFF 		bl	UART_PutString
+ 151              	.LVL14:
+ 152              	.L9:
+ 153              	.LBB2:
+  23:main.c        ****         char result[40];
+ 154              		.loc 1 23 0 discriminator 1
+ 155 0020 FFF7FEFF 		bl	MeasureBrightness
+ 156              	.LVL15:
+  25:main.c        ****         UART_PutString(result);
+ 157              		.loc 1 25 0 discriminator 1
+ 158 0024 0246     		mov	r2, r0
+ 159 0026 0849     		ldr	r1, .L11+8
+ 160 0028 01A8     		add	r0, sp, #4
+ 161              	.LVL16:
+ 162 002a FFF7FEFF 		bl	sprintf
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 5
+
+
+ 163              	.LVL17:
+  26:main.c        ****         CyDelay(1000);
+ 164              		.loc 1 26 0 discriminator 1
+ 165 002e 01A8     		add	r0, sp, #4
+ 166 0030 FFF7FEFF 		bl	UART_PutString
+ 167              	.LVL18:
+  27:main.c        ****     }
+ 168              		.loc 1 27 0 discriminator 1
+ 169 0034 4FF47A70 		mov	r0, #1000
+ 170 0038 FFF7FEFF 		bl	CyDelay
+ 171              	.LVL19:
+ 172 003c F0E7     		b	.L9
+ 173              	.L12:
+ 174 003e 00BF     		.align	2
+ 175              	.L11:
+ 176 0040 00000000 		.word	.LC0
+ 177 0044 10000000 		.word	.LC1
+ 178 0048 18000000 		.word	.LC2
+ 179              	.LBE2:
+ 180              		.cfi_endproc
+ 181              	.LFE64:
+ 182              		.size	main, .-main
+ 183              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 184              		.align	2
+ 185              	.LC0:
+ 186 0000 496E6974 		.ascii	"Initialized.\012\015\000"
+ 186      69616C69 
+ 186      7A65642E 
+ 186      0A0D00
+ 187 000f 00       		.space	1
+ 188              	.LC1:
+ 189 0010 6D61783A 		.ascii	"max: %i\000"
+ 189      20256900 
+ 190              	.LC2:
+ 191 0018 25690A0D 		.ascii	"%i\012\015\000"
+ 191      00
+ 192              		.text
+ 193              	.Letext0:
+ 194              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 195              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 196              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 197              		.file 5 "Generated_Source\\PSoC5/UART.h"
+ 198              		.file 6 "Generated_Source\\PSoC5/Sensor_Pin.h"
+ 199              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+ 200              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 201              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 202              		.section	.debug_info,"",%progbits
+ 203              	.Ldebug_info0:
+ 204 0000 17030000 		.4byte	0x317
+ 205 0004 0400     		.2byte	0x4
+ 206 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 207 000a 04       		.byte	0x4
+ 208 000b 01       		.uleb128 0x1
+ 209 000c 53000000 		.4byte	.LASF33
+ 210 0010 0C       		.byte	0xc
+ 211 0011 FB010000 		.4byte	.LASF34
+ 212 0015 82010000 		.4byte	.LASF35
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 6
+
+
+ 213 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 214 001d 00000000 		.4byte	0
+ 215 0021 00000000 		.4byte	.Ldebug_line0
+ 216 0025 02       		.uleb128 0x2
+ 217 0026 01       		.byte	0x1
+ 218 0027 06       		.byte	0x6
+ 219 0028 53020000 		.4byte	.LASF0
+ 220 002c 03       		.uleb128 0x3
+ 221 002d 06000000 		.4byte	.LASF3
+ 222 0031 02       		.byte	0x2
+ 223 0032 1D       		.byte	0x1d
+ 224 0033 37000000 		.4byte	0x37
+ 225 0037 02       		.uleb128 0x2
+ 226 0038 01       		.byte	0x1
+ 227 0039 08       		.byte	0x8
+ 228 003a 45000000 		.4byte	.LASF1
+ 229 003e 02       		.uleb128 0x2
+ 230 003f 02       		.byte	0x2
+ 231 0040 05       		.byte	0x5
+ 232 0041 17020000 		.4byte	.LASF2
+ 233 0045 03       		.uleb128 0x3
+ 234 0046 21020000 		.4byte	.LASF4
+ 235 004a 02       		.byte	0x2
+ 236 004b 2B       		.byte	0x2b
+ 237 004c 50000000 		.4byte	0x50
+ 238 0050 02       		.uleb128 0x2
+ 239 0051 02       		.byte	0x2
+ 240 0052 07       		.byte	0x7
+ 241 0053 E1000000 		.4byte	.LASF5
+ 242 0057 03       		.uleb128 0x3
+ 243 0058 10000000 		.4byte	.LASF6
+ 244 005c 02       		.byte	0x2
+ 245 005d 3F       		.byte	0x3f
+ 246 005e 62000000 		.4byte	0x62
+ 247 0062 02       		.uleb128 0x2
+ 248 0063 04       		.byte	0x4
+ 249 0064 05       		.byte	0x5
+ 250 0065 3E020000 		.4byte	.LASF7
+ 251 0069 02       		.uleb128 0x2
+ 252 006a 04       		.byte	0x4
+ 253 006b 07       		.byte	0x7
+ 254 006c 22010000 		.4byte	.LASF8
+ 255 0070 02       		.uleb128 0x2
+ 256 0071 08       		.byte	0x8
+ 257 0072 05       		.byte	0x5
+ 258 0073 ED010000 		.4byte	.LASF9
+ 259 0077 02       		.uleb128 0x2
+ 260 0078 08       		.byte	0x8
+ 261 0079 07       		.byte	0x7
+ 262 007a 5C010000 		.4byte	.LASF10
+ 263 007e 04       		.uleb128 0x4
+ 264 007f 04       		.byte	0x4
+ 265 0080 05       		.byte	0x5
+ 266 0081 696E7400 		.ascii	"int\000"
+ 267 0085 02       		.uleb128 0x2
+ 268 0086 04       		.byte	0x4
+ 269 0087 07       		.byte	0x7
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 7
+
+
+ 270 0088 43010000 		.4byte	.LASF11
+ 271 008c 03       		.uleb128 0x3
+ 272 008d 73010000 		.4byte	.LASF12
+ 273 0091 03       		.byte	0x3
+ 274 0092 18       		.byte	0x18
+ 275 0093 2C000000 		.4byte	0x2c
+ 276 0097 03       		.uleb128 0x3
+ 277 0098 2C020000 		.4byte	.LASF13
+ 278 009c 03       		.byte	0x3
+ 279 009d 24       		.byte	0x24
+ 280 009e 45000000 		.4byte	0x45
+ 281 00a2 03       		.uleb128 0x3
+ 282 00a3 DC010000 		.4byte	.LASF14
+ 283 00a7 03       		.byte	0x3
+ 284 00a8 2C       		.byte	0x2c
+ 285 00a9 57000000 		.4byte	0x57
+ 286 00ad 05       		.uleb128 0x5
+ 287 00ae 3F000000 		.4byte	.LASF15
+ 288 00b2 04       		.byte	0x4
+ 289 00b3 E901     		.2byte	0x1e9
+ 290 00b5 37000000 		.4byte	0x37
+ 291 00b9 02       		.uleb128 0x2
+ 292 00ba 04       		.byte	0x4
+ 293 00bb 04       		.byte	0x4
+ 294 00bc 39000000 		.4byte	.LASF16
+ 295 00c0 02       		.uleb128 0x2
+ 296 00c1 08       		.byte	0x8
+ 297 00c2 04       		.byte	0x4
+ 298 00c3 32000000 		.4byte	.LASF17
+ 299 00c7 02       		.uleb128 0x2
+ 300 00c8 01       		.byte	0x1
+ 301 00c9 08       		.byte	0x8
+ 302 00ca 02020000 		.4byte	.LASF18
+ 303 00ce 02       		.uleb128 0x2
+ 304 00cf 08       		.byte	0x8
+ 305 00d0 04       		.byte	0x4
+ 306 00d1 47020000 		.4byte	.LASF19
+ 307 00d5 02       		.uleb128 0x2
+ 308 00d6 04       		.byte	0x4
+ 309 00d7 07       		.byte	0x7
+ 310 00d8 E4010000 		.4byte	.LASF20
+ 311 00dc 06       		.uleb128 0x6
+ 312 00dd 8C000000 		.4byte	0x8c
+ 313 00e1 07       		.uleb128 0x7
+ 314 00e2 FF000000 		.4byte	.LASF36
+ 315 00e6 01       		.byte	0x1
+ 316 00e7 1F       		.byte	0x1f
+ 317 00e8 00000000 		.4byte	.LFB65
+ 318 00ec 08000000 		.4byte	.LFE65-.LFB65
+ 319 00f0 01       		.uleb128 0x1
+ 320 00f1 9C       		.byte	0x9c
+ 321 00f2 00010000 		.4byte	0x100
+ 322 00f6 08       		.uleb128 0x8
+ 323 00f7 06000000 		.4byte	.LVL0
+ 324 00fb C2020000 		.4byte	0x2c2
+ 325 00ff 00       		.byte	0
+ 326 0100 09       		.uleb128 0x9
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 8
+
+
+ 327 0101 7E020000 		.4byte	.LASF37
+ 328 0105 01       		.byte	0x1
+ 329 0106 24       		.byte	0x24
+ 330 0107 97000000 		.4byte	0x97
+ 331 010b 00000000 		.4byte	.LFB66
+ 332 010f 50000000 		.4byte	.LFE66-.LFB66
+ 333 0113 01       		.uleb128 0x1
+ 334 0114 9C       		.byte	0x9c
+ 335 0115 9C010000 		.4byte	0x19c
+ 336 0119 0A       		.uleb128 0xa
+ 337 011a 00000000 		.4byte	.LASF21
+ 338 011e 01       		.byte	0x1
+ 339 011f 26       		.byte	0x26
+ 340 0120 97000000 		.4byte	0x97
+ 341 0124 00000000 		.4byte	.LLST0
+ 342 0128 0B       		.uleb128 0xb
+ 343 0129 35020000 		.4byte	.LASF22
+ 344 012d 01       		.byte	0x1
+ 345 012e 27       		.byte	0x27
+ 346 012f DC000000 		.4byte	0xdc
+ 347 0133 02       		.uleb128 0x2
+ 348 0134 91       		.byte	0x91
+ 349 0135 77       		.sleb128 -9
+ 350 0136 0C       		.uleb128 0xc
+ 351 0137 10000000 		.4byte	.LVL2
+ 352 013b CD020000 		.4byte	0x2cd
+ 353 013f 49010000 		.4byte	0x149
+ 354 0143 0D       		.uleb128 0xd
+ 355 0144 01       		.uleb128 0x1
+ 356 0145 50       		.byte	0x50
+ 357 0146 01       		.uleb128 0x1
+ 358 0147 3A       		.byte	0x3a
+ 359 0148 00       		.byte	0
+ 360 0149 0C       		.uleb128 0xc
+ 361 014a 16000000 		.4byte	.LVL3
+ 362 014e D8020000 		.4byte	0x2d8
+ 363 0152 5D010000 		.4byte	0x15d
+ 364 0156 0D       		.uleb128 0xd
+ 365 0157 01       		.uleb128 0x1
+ 366 0158 50       		.byte	0x50
+ 367 0159 02       		.uleb128 0x2
+ 368 015a 74       		.byte	0x74
+ 369 015b 00       		.sleb128 0
+ 370 015c 00       		.byte	0
+ 371 015d 0C       		.uleb128 0xc
+ 372 015e 1C000000 		.4byte	.LVL4
+ 373 0162 CD020000 		.4byte	0x2cd
+ 374 0166 70010000 		.4byte	0x170
+ 375 016a 0D       		.uleb128 0xd
+ 376 016b 01       		.uleb128 0x1
+ 377 016c 50       		.byte	0x50
+ 378 016d 01       		.uleb128 0x1
+ 379 016e 32       		.byte	0x32
+ 380 016f 00       		.byte	0
+ 381 0170 08       		.uleb128 0x8
+ 382 0171 24000000 		.4byte	.LVL6
+ 383 0175 E3020000 		.4byte	0x2e3
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 9
+
+
+ 384 0179 0C       		.uleb128 0xc
+ 385 017a 2E000000 		.4byte	.LVL7
+ 386 017e EE020000 		.4byte	0x2ee
+ 387 0182 8C010000 		.4byte	0x18c
+ 388 0186 0D       		.uleb128 0xd
+ 389 0187 01       		.uleb128 0x1
+ 390 0188 50       		.byte	0x50
+ 391 0189 01       		.uleb128 0x1
+ 392 018a 31       		.byte	0x31
+ 393 018b 00       		.byte	0
+ 394 018c 0E       		.uleb128 0xe
+ 395 018d 4A000000 		.4byte	.LVL10
+ 396 0191 CD020000 		.4byte	0x2cd
+ 397 0195 0D       		.uleb128 0xd
+ 398 0196 01       		.uleb128 0x1
+ 399 0197 50       		.byte	0x50
+ 400 0198 01       		.uleb128 0x1
+ 401 0199 38       		.byte	0x38
+ 402 019a 00       		.byte	0
+ 403 019b 00       		.byte	0
+ 404 019c 0F       		.uleb128 0xf
+ 405 019d 34010000 		.4byte	.LASF38
+ 406 01a1 01       		.byte	0x1
+ 407 01a2 0C       		.byte	0xc
+ 408 01a3 7E000000 		.4byte	0x7e
+ 409 01a7 00000000 		.4byte	.LFB64
+ 410 01ab 4C000000 		.4byte	.LFE64-.LFB64
+ 411 01af 01       		.uleb128 0x1
+ 412 01b0 9C       		.byte	0x9c
+ 413 01b1 91020000 		.4byte	0x291
+ 414 01b5 10       		.uleb128 0x10
+ 415 01b6 6D617800 		.ascii	"max\000"
+ 416 01ba 01       		.byte	0x1
+ 417 01bb 11       		.byte	0x11
+ 418 01bc 91020000 		.4byte	0x291
+ 419 01c0 02       		.uleb128 0x2
+ 420 01c1 91       		.byte	0x91
+ 421 01c2 64       		.sleb128 -28
+ 422 01c3 11       		.uleb128 0x11
+ 423 01c4 20000000 		.4byte	.LBB2
+ 424 01c8 2C000000 		.4byte	.LBE2-.LBB2
+ 425 01cc 3C020000 		.4byte	0x23c
+ 426 01d0 0A       		.uleb128 0xa
+ 427 01d1 50010000 		.4byte	.LASF23
+ 428 01d5 01       		.byte	0x1
+ 429 01d6 17       		.byte	0x17
+ 430 01d7 97000000 		.4byte	0x97
+ 431 01db 2C000000 		.4byte	.LLST1
+ 432 01df 0B       		.uleb128 0xb
+ 433 01e0 7B010000 		.4byte	.LASF24
+ 434 01e4 01       		.byte	0x1
+ 435 01e5 18       		.byte	0x18
+ 436 01e6 A1020000 		.4byte	0x2a1
+ 437 01ea 03       		.uleb128 0x3
+ 438 01eb 91       		.byte	0x91
+ 439 01ec BC7F     		.sleb128 -68
+ 440 01ee 08       		.uleb128 0x8
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 10
+
+
+ 441 01ef 24000000 		.4byte	.LVL15
+ 442 01f3 00010000 		.4byte	0x100
+ 443 01f7 0C       		.uleb128 0xc
+ 444 01f8 2E000000 		.4byte	.LVL17
+ 445 01fc F9020000 		.4byte	0x2f9
+ 446 0200 15020000 		.4byte	0x215
+ 447 0204 0D       		.uleb128 0xd
+ 448 0205 01       		.uleb128 0x1
+ 449 0206 50       		.byte	0x50
+ 450 0207 03       		.uleb128 0x3
+ 451 0208 91       		.byte	0x91
+ 452 0209 BC7F     		.sleb128 -68
+ 453 020b 0D       		.uleb128 0xd
+ 454 020c 01       		.uleb128 0x1
+ 455 020d 51       		.byte	0x51
+ 456 020e 05       		.uleb128 0x5
+ 457 020f 03       		.byte	0x3
+ 458 0210 18000000 		.4byte	.LC2
+ 459 0214 00       		.byte	0
+ 460 0215 0C       		.uleb128 0xc
+ 461 0216 34000000 		.4byte	.LVL18
+ 462 021a 04030000 		.4byte	0x304
+ 463 021e 2A020000 		.4byte	0x22a
+ 464 0222 0D       		.uleb128 0xd
+ 465 0223 01       		.uleb128 0x1
+ 466 0224 50       		.byte	0x50
+ 467 0225 03       		.uleb128 0x3
+ 468 0226 91       		.byte	0x91
+ 469 0227 BC7F     		.sleb128 -68
+ 470 0229 00       		.byte	0
+ 471 022a 0E       		.uleb128 0xe
+ 472 022b 3C000000 		.4byte	.LVL19
+ 473 022f 0F030000 		.4byte	0x30f
+ 474 0233 0D       		.uleb128 0xd
+ 475 0234 01       		.uleb128 0x1
+ 476 0235 50       		.byte	0x50
+ 477 0236 03       		.uleb128 0x3
+ 478 0237 0A       		.byte	0xa
+ 479 0238 E803     		.2byte	0x3e8
+ 480 023a 00       		.byte	0
+ 481 023b 00       		.byte	0
+ 482 023c 08       		.uleb128 0x8
+ 483 023d 08000000 		.4byte	.LVL11
+ 484 0241 E1000000 		.4byte	0xe1
+ 485 0245 0C       		.uleb128 0xc
+ 486 0246 0E000000 		.4byte	.LVL12
+ 487 024a 04030000 		.4byte	0x304
+ 488 024e 5C020000 		.4byte	0x25c
+ 489 0252 0D       		.uleb128 0xd
+ 490 0253 01       		.uleb128 0x1
+ 491 0254 50       		.byte	0x50
+ 492 0255 05       		.uleb128 0x5
+ 493 0256 03       		.byte	0x3
+ 494 0257 00000000 		.4byte	.LC0
+ 495 025b 00       		.byte	0
+ 496 025c 0C       		.uleb128 0xc
+ 497 025d 1A000000 		.4byte	.LVL13
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 11
+
+
+ 498 0261 F9020000 		.4byte	0x2f9
+ 499 0265 80020000 		.4byte	0x280
+ 500 0269 0D       		.uleb128 0xd
+ 501 026a 01       		.uleb128 0x1
+ 502 026b 50       		.byte	0x50
+ 503 026c 02       		.uleb128 0x2
+ 504 026d 91       		.byte	0x91
+ 505 026e 64       		.sleb128 -28
+ 506 026f 0D       		.uleb128 0xd
+ 507 0270 01       		.uleb128 0x1
+ 508 0271 51       		.byte	0x51
+ 509 0272 05       		.uleb128 0x5
+ 510 0273 03       		.byte	0x3
+ 511 0274 10000000 		.4byte	.LC1
+ 512 0278 0D       		.uleb128 0xd
+ 513 0279 01       		.uleb128 0x1
+ 514 027a 52       		.byte	0x52
+ 515 027b 03       		.uleb128 0x3
+ 516 027c 0A       		.byte	0xa
+ 517 027d FFFF     		.2byte	0xffff
+ 518 027f 00       		.byte	0
+ 519 0280 0E       		.uleb128 0xe
+ 520 0281 20000000 		.4byte	.LVL14
+ 521 0285 04030000 		.4byte	0x304
+ 522 0289 0D       		.uleb128 0xd
+ 523 028a 01       		.uleb128 0x1
+ 524 028b 50       		.byte	0x50
+ 525 028c 02       		.uleb128 0x2
+ 526 028d 91       		.byte	0x91
+ 527 028e 64       		.sleb128 -28
+ 528 028f 00       		.byte	0
+ 529 0290 00       		.byte	0
+ 530 0291 12       		.uleb128 0x12
+ 531 0292 C7000000 		.4byte	0xc7
+ 532 0296 A1020000 		.4byte	0x2a1
+ 533 029a 13       		.uleb128 0x13
+ 534 029b D5000000 		.4byte	0xd5
+ 535 029f 13       		.byte	0x13
+ 536 02a0 00       		.byte	0
+ 537 02a1 12       		.uleb128 0x12
+ 538 02a2 C7000000 		.4byte	0xc7
+ 539 02a6 B1020000 		.4byte	0x2b1
+ 540 02aa 13       		.uleb128 0x13
+ 541 02ab D5000000 		.4byte	0xd5
+ 542 02af 27       		.byte	0x27
+ 543 02b0 00       		.byte	0
+ 544 02b1 14       		.uleb128 0x14
+ 545 02b2 04010000 		.4byte	.LASF39
+ 546 02b6 09       		.byte	0x9
+ 547 02b7 1207     		.2byte	0x712
+ 548 02b9 BD020000 		.4byte	0x2bd
+ 549 02bd 06       		.uleb128 0x6
+ 550 02be A2000000 		.4byte	0xa2
+ 551 02c2 15       		.uleb128 0x15
+ 552 02c3 F4000000 		.4byte	.LASF25
+ 553 02c7 F4000000 		.4byte	.LASF25
+ 554 02cb 05       		.byte	0x5
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 12
+
+
+ 555 02cc 54       		.byte	0x54
+ 556 02cd 15       		.uleb128 0x15
+ 557 02ce 1A000000 		.4byte	.LASF26
+ 558 02d2 1A000000 		.4byte	.LASF26
+ 559 02d6 06       		.byte	0x6
+ 560 02d7 27       		.byte	0x27
+ 561 02d8 15       		.uleb128 0x15
+ 562 02d9 11010000 		.4byte	.LASF27
+ 563 02dd 11010000 		.4byte	.LASF27
+ 564 02e1 06       		.byte	0x6
+ 565 02e2 26       		.byte	0x26
+ 566 02e3 15       		.uleb128 0x15
+ 567 02e4 07020000 		.4byte	.LASF28
+ 568 02e8 07020000 		.4byte	.LASF28
+ 569 02ec 06       		.byte	0x6
+ 570 02ed 29       		.byte	0x29
+ 571 02ee 15       		.uleb128 0x15
+ 572 02ef 39010000 		.4byte	.LASF29
+ 573 02f3 39010000 		.4byte	.LASF29
+ 574 02f7 07       		.byte	0x7
+ 575 02f8 77       		.byte	0x77
+ 576 02f9 15       		.uleb128 0x15
+ 577 02fa 6E020000 		.4byte	.LASF30
+ 578 02fe 6E020000 		.4byte	.LASF30
+ 579 0302 08       		.byte	0x8
+ 580 0303 E7       		.byte	0xe7
+ 581 0304 15       		.uleb128 0x15
+ 582 0305 5F020000 		.4byte	.LASF31
+ 583 0309 5F020000 		.4byte	.LASF31
+ 584 030d 05       		.byte	0x5
+ 585 030e 8B       		.byte	0x8b
+ 586 030f 15       		.uleb128 0x15
+ 587 0310 76020000 		.4byte	.LASF32
+ 588 0314 76020000 		.4byte	.LASF32
+ 589 0318 07       		.byte	0x7
+ 590 0319 76       		.byte	0x76
+ 591 031a 00       		.byte	0
+ 592              		.section	.debug_abbrev,"",%progbits
+ 593              	.Ldebug_abbrev0:
+ 594 0000 01       		.uleb128 0x1
+ 595 0001 11       		.uleb128 0x11
+ 596 0002 01       		.byte	0x1
+ 597 0003 25       		.uleb128 0x25
+ 598 0004 0E       		.uleb128 0xe
+ 599 0005 13       		.uleb128 0x13
+ 600 0006 0B       		.uleb128 0xb
+ 601 0007 03       		.uleb128 0x3
+ 602 0008 0E       		.uleb128 0xe
+ 603 0009 1B       		.uleb128 0x1b
+ 604 000a 0E       		.uleb128 0xe
+ 605 000b 55       		.uleb128 0x55
+ 606 000c 17       		.uleb128 0x17
+ 607 000d 11       		.uleb128 0x11
+ 608 000e 01       		.uleb128 0x1
+ 609 000f 10       		.uleb128 0x10
+ 610 0010 17       		.uleb128 0x17
+ 611 0011 00       		.byte	0
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 13
+
+
+ 612 0012 00       		.byte	0
+ 613 0013 02       		.uleb128 0x2
+ 614 0014 24       		.uleb128 0x24
+ 615 0015 00       		.byte	0
+ 616 0016 0B       		.uleb128 0xb
+ 617 0017 0B       		.uleb128 0xb
+ 618 0018 3E       		.uleb128 0x3e
+ 619 0019 0B       		.uleb128 0xb
+ 620 001a 03       		.uleb128 0x3
+ 621 001b 0E       		.uleb128 0xe
+ 622 001c 00       		.byte	0
+ 623 001d 00       		.byte	0
+ 624 001e 03       		.uleb128 0x3
+ 625 001f 16       		.uleb128 0x16
+ 626 0020 00       		.byte	0
+ 627 0021 03       		.uleb128 0x3
+ 628 0022 0E       		.uleb128 0xe
+ 629 0023 3A       		.uleb128 0x3a
+ 630 0024 0B       		.uleb128 0xb
+ 631 0025 3B       		.uleb128 0x3b
+ 632 0026 0B       		.uleb128 0xb
+ 633 0027 49       		.uleb128 0x49
+ 634 0028 13       		.uleb128 0x13
+ 635 0029 00       		.byte	0
+ 636 002a 00       		.byte	0
+ 637 002b 04       		.uleb128 0x4
+ 638 002c 24       		.uleb128 0x24
+ 639 002d 00       		.byte	0
+ 640 002e 0B       		.uleb128 0xb
+ 641 002f 0B       		.uleb128 0xb
+ 642 0030 3E       		.uleb128 0x3e
+ 643 0031 0B       		.uleb128 0xb
+ 644 0032 03       		.uleb128 0x3
+ 645 0033 08       		.uleb128 0x8
+ 646 0034 00       		.byte	0
+ 647 0035 00       		.byte	0
+ 648 0036 05       		.uleb128 0x5
+ 649 0037 16       		.uleb128 0x16
+ 650 0038 00       		.byte	0
+ 651 0039 03       		.uleb128 0x3
+ 652 003a 0E       		.uleb128 0xe
+ 653 003b 3A       		.uleb128 0x3a
+ 654 003c 0B       		.uleb128 0xb
+ 655 003d 3B       		.uleb128 0x3b
+ 656 003e 05       		.uleb128 0x5
+ 657 003f 49       		.uleb128 0x49
+ 658 0040 13       		.uleb128 0x13
+ 659 0041 00       		.byte	0
+ 660 0042 00       		.byte	0
+ 661 0043 06       		.uleb128 0x6
+ 662 0044 35       		.uleb128 0x35
+ 663 0045 00       		.byte	0
+ 664 0046 49       		.uleb128 0x49
+ 665 0047 13       		.uleb128 0x13
+ 666 0048 00       		.byte	0
+ 667 0049 00       		.byte	0
+ 668 004a 07       		.uleb128 0x7
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 14
+
+
+ 669 004b 2E       		.uleb128 0x2e
+ 670 004c 01       		.byte	0x1
+ 671 004d 3F       		.uleb128 0x3f
+ 672 004e 19       		.uleb128 0x19
+ 673 004f 03       		.uleb128 0x3
+ 674 0050 0E       		.uleb128 0xe
+ 675 0051 3A       		.uleb128 0x3a
+ 676 0052 0B       		.uleb128 0xb
+ 677 0053 3B       		.uleb128 0x3b
+ 678 0054 0B       		.uleb128 0xb
+ 679 0055 11       		.uleb128 0x11
+ 680 0056 01       		.uleb128 0x1
+ 681 0057 12       		.uleb128 0x12
+ 682 0058 06       		.uleb128 0x6
+ 683 0059 40       		.uleb128 0x40
+ 684 005a 18       		.uleb128 0x18
+ 685 005b 9742     		.uleb128 0x2117
+ 686 005d 19       		.uleb128 0x19
+ 687 005e 01       		.uleb128 0x1
+ 688 005f 13       		.uleb128 0x13
+ 689 0060 00       		.byte	0
+ 690 0061 00       		.byte	0
+ 691 0062 08       		.uleb128 0x8
+ 692 0063 898201   		.uleb128 0x4109
+ 693 0066 00       		.byte	0
+ 694 0067 11       		.uleb128 0x11
+ 695 0068 01       		.uleb128 0x1
+ 696 0069 31       		.uleb128 0x31
+ 697 006a 13       		.uleb128 0x13
+ 698 006b 00       		.byte	0
+ 699 006c 00       		.byte	0
+ 700 006d 09       		.uleb128 0x9
+ 701 006e 2E       		.uleb128 0x2e
+ 702 006f 01       		.byte	0x1
+ 703 0070 3F       		.uleb128 0x3f
+ 704 0071 19       		.uleb128 0x19
+ 705 0072 03       		.uleb128 0x3
+ 706 0073 0E       		.uleb128 0xe
+ 707 0074 3A       		.uleb128 0x3a
+ 708 0075 0B       		.uleb128 0xb
+ 709 0076 3B       		.uleb128 0x3b
+ 710 0077 0B       		.uleb128 0xb
+ 711 0078 49       		.uleb128 0x49
+ 712 0079 13       		.uleb128 0x13
+ 713 007a 11       		.uleb128 0x11
+ 714 007b 01       		.uleb128 0x1
+ 715 007c 12       		.uleb128 0x12
+ 716 007d 06       		.uleb128 0x6
+ 717 007e 40       		.uleb128 0x40
+ 718 007f 18       		.uleb128 0x18
+ 719 0080 9742     		.uleb128 0x2117
+ 720 0082 19       		.uleb128 0x19
+ 721 0083 01       		.uleb128 0x1
+ 722 0084 13       		.uleb128 0x13
+ 723 0085 00       		.byte	0
+ 724 0086 00       		.byte	0
+ 725 0087 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 15
+
+
+ 726 0088 34       		.uleb128 0x34
+ 727 0089 00       		.byte	0
+ 728 008a 03       		.uleb128 0x3
+ 729 008b 0E       		.uleb128 0xe
+ 730 008c 3A       		.uleb128 0x3a
+ 731 008d 0B       		.uleb128 0xb
+ 732 008e 3B       		.uleb128 0x3b
+ 733 008f 0B       		.uleb128 0xb
+ 734 0090 49       		.uleb128 0x49
+ 735 0091 13       		.uleb128 0x13
+ 736 0092 02       		.uleb128 0x2
+ 737 0093 17       		.uleb128 0x17
+ 738 0094 00       		.byte	0
+ 739 0095 00       		.byte	0
+ 740 0096 0B       		.uleb128 0xb
+ 741 0097 34       		.uleb128 0x34
+ 742 0098 00       		.byte	0
+ 743 0099 03       		.uleb128 0x3
+ 744 009a 0E       		.uleb128 0xe
+ 745 009b 3A       		.uleb128 0x3a
+ 746 009c 0B       		.uleb128 0xb
+ 747 009d 3B       		.uleb128 0x3b
+ 748 009e 0B       		.uleb128 0xb
+ 749 009f 49       		.uleb128 0x49
+ 750 00a0 13       		.uleb128 0x13
+ 751 00a1 02       		.uleb128 0x2
+ 752 00a2 18       		.uleb128 0x18
+ 753 00a3 00       		.byte	0
+ 754 00a4 00       		.byte	0
+ 755 00a5 0C       		.uleb128 0xc
+ 756 00a6 898201   		.uleb128 0x4109
+ 757 00a9 01       		.byte	0x1
+ 758 00aa 11       		.uleb128 0x11
+ 759 00ab 01       		.uleb128 0x1
+ 760 00ac 31       		.uleb128 0x31
+ 761 00ad 13       		.uleb128 0x13
+ 762 00ae 01       		.uleb128 0x1
+ 763 00af 13       		.uleb128 0x13
+ 764 00b0 00       		.byte	0
+ 765 00b1 00       		.byte	0
+ 766 00b2 0D       		.uleb128 0xd
+ 767 00b3 8A8201   		.uleb128 0x410a
+ 768 00b6 00       		.byte	0
+ 769 00b7 02       		.uleb128 0x2
+ 770 00b8 18       		.uleb128 0x18
+ 771 00b9 9142     		.uleb128 0x2111
+ 772 00bb 18       		.uleb128 0x18
+ 773 00bc 00       		.byte	0
+ 774 00bd 00       		.byte	0
+ 775 00be 0E       		.uleb128 0xe
+ 776 00bf 898201   		.uleb128 0x4109
+ 777 00c2 01       		.byte	0x1
+ 778 00c3 11       		.uleb128 0x11
+ 779 00c4 01       		.uleb128 0x1
+ 780 00c5 31       		.uleb128 0x31
+ 781 00c6 13       		.uleb128 0x13
+ 782 00c7 00       		.byte	0
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 16
+
+
+ 783 00c8 00       		.byte	0
+ 784 00c9 0F       		.uleb128 0xf
+ 785 00ca 2E       		.uleb128 0x2e
+ 786 00cb 01       		.byte	0x1
+ 787 00cc 3F       		.uleb128 0x3f
+ 788 00cd 19       		.uleb128 0x19
+ 789 00ce 03       		.uleb128 0x3
+ 790 00cf 0E       		.uleb128 0xe
+ 791 00d0 3A       		.uleb128 0x3a
+ 792 00d1 0B       		.uleb128 0xb
+ 793 00d2 3B       		.uleb128 0x3b
+ 794 00d3 0B       		.uleb128 0xb
+ 795 00d4 27       		.uleb128 0x27
+ 796 00d5 19       		.uleb128 0x19
+ 797 00d6 49       		.uleb128 0x49
+ 798 00d7 13       		.uleb128 0x13
+ 799 00d8 8701     		.uleb128 0x87
+ 800 00da 19       		.uleb128 0x19
+ 801 00db 11       		.uleb128 0x11
+ 802 00dc 01       		.uleb128 0x1
+ 803 00dd 12       		.uleb128 0x12
+ 804 00de 06       		.uleb128 0x6
+ 805 00df 40       		.uleb128 0x40
+ 806 00e0 18       		.uleb128 0x18
+ 807 00e1 9742     		.uleb128 0x2117
+ 808 00e3 19       		.uleb128 0x19
+ 809 00e4 01       		.uleb128 0x1
+ 810 00e5 13       		.uleb128 0x13
+ 811 00e6 00       		.byte	0
+ 812 00e7 00       		.byte	0
+ 813 00e8 10       		.uleb128 0x10
+ 814 00e9 34       		.uleb128 0x34
+ 815 00ea 00       		.byte	0
+ 816 00eb 03       		.uleb128 0x3
+ 817 00ec 08       		.uleb128 0x8
+ 818 00ed 3A       		.uleb128 0x3a
+ 819 00ee 0B       		.uleb128 0xb
+ 820 00ef 3B       		.uleb128 0x3b
+ 821 00f0 0B       		.uleb128 0xb
+ 822 00f1 49       		.uleb128 0x49
+ 823 00f2 13       		.uleb128 0x13
+ 824 00f3 02       		.uleb128 0x2
+ 825 00f4 18       		.uleb128 0x18
+ 826 00f5 00       		.byte	0
+ 827 00f6 00       		.byte	0
+ 828 00f7 11       		.uleb128 0x11
+ 829 00f8 0B       		.uleb128 0xb
+ 830 00f9 01       		.byte	0x1
+ 831 00fa 11       		.uleb128 0x11
+ 832 00fb 01       		.uleb128 0x1
+ 833 00fc 12       		.uleb128 0x12
+ 834 00fd 06       		.uleb128 0x6
+ 835 00fe 01       		.uleb128 0x1
+ 836 00ff 13       		.uleb128 0x13
+ 837 0100 00       		.byte	0
+ 838 0101 00       		.byte	0
+ 839 0102 12       		.uleb128 0x12
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 17
+
+
+ 840 0103 01       		.uleb128 0x1
+ 841 0104 01       		.byte	0x1
+ 842 0105 49       		.uleb128 0x49
+ 843 0106 13       		.uleb128 0x13
+ 844 0107 01       		.uleb128 0x1
+ 845 0108 13       		.uleb128 0x13
+ 846 0109 00       		.byte	0
+ 847 010a 00       		.byte	0
+ 848 010b 13       		.uleb128 0x13
+ 849 010c 21       		.uleb128 0x21
+ 850 010d 00       		.byte	0
+ 851 010e 49       		.uleb128 0x49
+ 852 010f 13       		.uleb128 0x13
+ 853 0110 2F       		.uleb128 0x2f
+ 854 0111 0B       		.uleb128 0xb
+ 855 0112 00       		.byte	0
+ 856 0113 00       		.byte	0
+ 857 0114 14       		.uleb128 0x14
+ 858 0115 34       		.uleb128 0x34
+ 859 0116 00       		.byte	0
+ 860 0117 03       		.uleb128 0x3
+ 861 0118 0E       		.uleb128 0xe
+ 862 0119 3A       		.uleb128 0x3a
+ 863 011a 0B       		.uleb128 0xb
+ 864 011b 3B       		.uleb128 0x3b
+ 865 011c 05       		.uleb128 0x5
+ 866 011d 49       		.uleb128 0x49
+ 867 011e 13       		.uleb128 0x13
+ 868 011f 3F       		.uleb128 0x3f
+ 869 0120 19       		.uleb128 0x19
+ 870 0121 3C       		.uleb128 0x3c
+ 871 0122 19       		.uleb128 0x19
+ 872 0123 00       		.byte	0
+ 873 0124 00       		.byte	0
+ 874 0125 15       		.uleb128 0x15
+ 875 0126 2E       		.uleb128 0x2e
+ 876 0127 00       		.byte	0
+ 877 0128 3F       		.uleb128 0x3f
+ 878 0129 19       		.uleb128 0x19
+ 879 012a 3C       		.uleb128 0x3c
+ 880 012b 19       		.uleb128 0x19
+ 881 012c 6E       		.uleb128 0x6e
+ 882 012d 0E       		.uleb128 0xe
+ 883 012e 03       		.uleb128 0x3
+ 884 012f 0E       		.uleb128 0xe
+ 885 0130 3A       		.uleb128 0x3a
+ 886 0131 0B       		.uleb128 0xb
+ 887 0132 3B       		.uleb128 0x3b
+ 888 0133 0B       		.uleb128 0xb
+ 889 0134 00       		.byte	0
+ 890 0135 00       		.byte	0
+ 891 0136 00       		.byte	0
+ 892              		.section	.debug_loc,"",%progbits
+ 893              	.Ldebug_loc0:
+ 894              	.LLST0:
+ 895 0000 04000000 		.4byte	.LVL1
+ 896 0004 20000000 		.4byte	.LVL5
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 18
+
+
+ 897 0008 0200     		.2byte	0x2
+ 898 000a 30       		.byte	0x30
+ 899 000b 9F       		.byte	0x9f
+ 900 000c 20000000 		.4byte	.LVL5
+ 901 0010 30000000 		.4byte	.LVL8
+ 902 0014 0300     		.2byte	0x3
+ 903 0016 74       		.byte	0x74
+ 904 0017 01       		.sleb128 1
+ 905 0018 9F       		.byte	0x9f
+ 906 0019 32000000 		.4byte	.LVL9
+ 907 001d 50000000 		.4byte	.LFE66
+ 908 0021 0100     		.2byte	0x1
+ 909 0023 54       		.byte	0x54
+ 910 0024 00000000 		.4byte	0
+ 911 0028 00000000 		.4byte	0
+ 912              	.LLST1:
+ 913 002c 24000000 		.4byte	.LVL15
+ 914 0030 2A000000 		.4byte	.LVL16
+ 915 0034 0100     		.2byte	0x1
+ 916 0036 50       		.byte	0x50
+ 917 0037 00000000 		.4byte	0
+ 918 003b 00000000 		.4byte	0
+ 919              		.section	.debug_aranges,"",%progbits
+ 920 0000 2C000000 		.4byte	0x2c
+ 921 0004 0200     		.2byte	0x2
+ 922 0006 00000000 		.4byte	.Ldebug_info0
+ 923 000a 04       		.byte	0x4
+ 924 000b 00       		.byte	0
+ 925 000c 0000     		.2byte	0
+ 926 000e 0000     		.2byte	0
+ 927 0010 00000000 		.4byte	.LFB65
+ 928 0014 08000000 		.4byte	.LFE65-.LFB65
+ 929 0018 00000000 		.4byte	.LFB66
+ 930 001c 50000000 		.4byte	.LFE66-.LFB66
+ 931 0020 00000000 		.4byte	.LFB64
+ 932 0024 4C000000 		.4byte	.LFE64-.LFB64
+ 933 0028 00000000 		.4byte	0
+ 934 002c 00000000 		.4byte	0
+ 935              		.section	.debug_ranges,"",%progbits
+ 936              	.Ldebug_ranges0:
+ 937 0000 00000000 		.4byte	.LFB65
+ 938 0004 08000000 		.4byte	.LFE65
+ 939 0008 00000000 		.4byte	.LFB66
+ 940 000c 50000000 		.4byte	.LFE66
+ 941 0010 00000000 		.4byte	.LFB64
+ 942 0014 4C000000 		.4byte	.LFE64
+ 943 0018 00000000 		.4byte	0
+ 944 001c 00000000 		.4byte	0
+ 945              		.section	.debug_line,"",%progbits
+ 946              	.Ldebug_line0:
+ 947 0000 52020000 		.section	.debug_str,"MS",%progbits,1
+ 947      0200E401 
+ 947      00000201 
+ 947      FB0E0D00 
+ 947      01010101 
+ 948              	.LASF21:
+ 949 0000 7469636B 		.ascii	"ticks\000"
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 19
+
+
+ 949      7300
+ 950              	.LASF3:
+ 951 0006 5F5F7569 		.ascii	"__uint8_t\000"
+ 951      6E74385F 
+ 951      7400
+ 952              	.LASF6:
+ 953 0010 5F5F696E 		.ascii	"__int32_t\000"
+ 953      7433325F 
+ 953      7400
+ 954              	.LASF26:
+ 955 001a 53656E73 		.ascii	"Sensor_Pin_SetDriveMode\000"
+ 955      6F725F50 
+ 955      696E5F53 
+ 955      65744472 
+ 955      6976654D 
+ 956              	.LASF17:
+ 957 0032 646F7562 		.ascii	"double\000"
+ 957      6C6500
+ 958              	.LASF16:
+ 959 0039 666C6F61 		.ascii	"float\000"
+ 959      7400
+ 960              	.LASF15:
+ 961 003f 75696E74 		.ascii	"uint8\000"
+ 961      3800
+ 962              	.LASF1:
+ 963 0045 756E7369 		.ascii	"unsigned char\000"
+ 963      676E6564 
+ 963      20636861 
+ 963      7200
+ 964              	.LASF33:
+ 965 0053 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 965      43313120 
+ 965      352E342E 
+ 965      31203230 
+ 965      31363036 
+ 966 0086 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 966      20726576 
+ 966      6973696F 
+ 966      6E203233 
+ 966      37373135 
+ 967 00b9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 967      66756E63 
+ 967      74696F6E 
+ 967      2D736563 
+ 967      74696F6E 
+ 968              	.LASF5:
+ 969 00e1 73686F72 		.ascii	"short unsigned int\000"
+ 969      7420756E 
+ 969      7369676E 
+ 969      65642069 
+ 969      6E7400
+ 970              	.LASF25:
+ 971 00f4 55415254 		.ascii	"UART_Start\000"
+ 971      5F537461 
+ 971      727400
+ 972              	.LASF36:
+ 973 00ff 496E6974 		.ascii	"Init\000"
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 20
+
+
+ 973      00
+ 974              	.LASF39:
+ 975 0104 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 975      52784275 
+ 975      66666572 
+ 975      00
+ 976              	.LASF27:
+ 977 0111 53656E73 		.ascii	"Sensor_Pin_Write\000"
+ 977      6F725F50 
+ 977      696E5F57 
+ 977      72697465 
+ 977      00
+ 978              	.LASF8:
+ 979 0122 6C6F6E67 		.ascii	"long unsigned int\000"
+ 979      20756E73 
+ 979      69676E65 
+ 979      6420696E 
+ 979      7400
+ 980              	.LASF38:
+ 981 0134 6D61696E 		.ascii	"main\000"
+ 981      00
+ 982              	.LASF29:
+ 983 0139 43794465 		.ascii	"CyDelayUs\000"
+ 983      6C617955 
+ 983      7300
+ 984              	.LASF11:
+ 985 0143 756E7369 		.ascii	"unsigned int\000"
+ 985      676E6564 
+ 985      20696E74 
+ 985      00
+ 986              	.LASF23:
+ 987 0150 6D656173 		.ascii	"measurement\000"
+ 987      7572656D 
+ 987      656E7400 
+ 988              	.LASF10:
+ 989 015c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 989      206C6F6E 
+ 989      6720756E 
+ 989      7369676E 
+ 989      65642069 
+ 990              	.LASF12:
+ 991 0173 75696E74 		.ascii	"uint8_t\000"
+ 991      385F7400 
+ 992              	.LASF24:
+ 993 017b 72657375 		.ascii	"result\000"
+ 993      6C7400
+ 994              	.LASF35:
+ 995 0182 433A5C55 		.ascii	"C:\\Users\\Michi\\Documents\\PSoC Creator\\Helligke"
+ 995      73657273 
+ 995      5C4D6963 
+ 995      68695C44 
+ 995      6F63756D 
+ 996 01b0 6974736D 		.ascii	"itsmessung_LED\\Helligkeitsmessung_LED.cydsn\000"
+ 996      65737375 
+ 996      6E675F4C 
+ 996      45445C48 
+ 996      656C6C69 
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 21
+
+
+ 997              	.LASF14:
+ 998 01dc 696E7433 		.ascii	"int32_t\000"
+ 998      325F7400 
+ 999              	.LASF20:
+ 1000 01e4 73697A65 		.ascii	"sizetype\000"
+ 1000      74797065 
+ 1000      00
+ 1001              	.LASF9:
+ 1002 01ed 6C6F6E67 		.ascii	"long long int\000"
+ 1002      206C6F6E 
+ 1002      6720696E 
+ 1002      7400
+ 1003              	.LASF34:
+ 1004 01fb 6D61696E 		.ascii	"main.c\000"
+ 1004      2E6300
+ 1005              	.LASF18:
+ 1006 0202 63686172 		.ascii	"char\000"
+ 1006      00
+ 1007              	.LASF28:
+ 1008 0207 53656E73 		.ascii	"Sensor_Pin_Read\000"
+ 1008      6F725F50 
+ 1008      696E5F52 
+ 1008      65616400 
+ 1009              	.LASF2:
+ 1010 0217 73686F72 		.ascii	"short int\000"
+ 1010      7420696E 
+ 1010      7400
+ 1011              	.LASF4:
+ 1012 0221 5F5F7569 		.ascii	"__uint16_t\000"
+ 1012      6E743136 
+ 1012      5F7400
+ 1013              	.LASF13:
+ 1014 022c 75696E74 		.ascii	"uint16_t\000"
+ 1014      31365F74 
+ 1014      00
+ 1015              	.LASF22:
+ 1016 0235 70696E53 		.ascii	"pinState\000"
+ 1016      74617465 
+ 1016      00
+ 1017              	.LASF7:
+ 1018 023e 6C6F6E67 		.ascii	"long int\000"
+ 1018      20696E74 
+ 1018      00
+ 1019              	.LASF19:
+ 1020 0247 6C6F6E67 		.ascii	"long double\000"
+ 1020      20646F75 
+ 1020      626C6500 
+ 1021              	.LASF0:
+ 1022 0253 7369676E 		.ascii	"signed char\000"
+ 1022      65642063 
+ 1022      68617200 
+ 1023              	.LASF31:
+ 1024 025f 55415254 		.ascii	"UART_PutString\000"
+ 1024      5F507574 
+ 1024      53747269 
+ 1024      6E6700
+ 1025              	.LASF30:
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccSPMehu.s 			page 22
+
+
+ 1026 026e 73707269 		.ascii	"sprintf\000"
+ 1026      6E746600 
+ 1027              	.LASF32:
+ 1028 0276 43794465 		.ascii	"CyDelay\000"
+ 1028      6C617900 
+ 1029              	.LASF37:
+ 1030 027e 4D656173 		.ascii	"MeasureBrightness\000"
+ 1030      75726542 
+ 1030      72696768 
+ 1030      746E6573 
+ 1030      7300
+ 1031              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

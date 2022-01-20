@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Helligkeitsmessung_LED\Helligkeitsmessung_LED\Source Files\main.c">
+<ExpandedNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Pins</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Analog</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Clocks</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Interrupts</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\DMA</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\System</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Directives</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Flash Security</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\EEPROM</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Header Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Header Files\cyapicallbacks.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Source Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Source Files\main.c</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Pins</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Analog</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Clocks</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Interrupts</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\DMA</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\System</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Directives</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\Flash Security</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydwr\EEPROM</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Header Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Header Files\cyapicallbacks.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Source Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Source Files\main.c</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cy_boot</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\Sensor_Pin</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\UART</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\UART_IntClock</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevice.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfitter.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\cymetadata.c</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Generated_Source\PSoC5\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\Sensor_Pin.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.elf</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.hex</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.map</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.gpdsc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.rpt</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\Sensor_Pin.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.elf</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.hex</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CortexM3\ARM_GCC_541\Debug\Helligkeitsmessung_LED.map</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.gpdsc</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED.rpt</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\Helligkeitsmessung_LED_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\PSoC 5LP Architecture TRM</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CY8C58LP Family Datasheet</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\System Reference Guides</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\PSoC 5LP Architecture TRM</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\CY8C58LP Family Datasheet</v>
+<v>Helligkeitsmessung_LED\Helligkeitsmessung_LED\System Reference Guides</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Helligkeitsmessung_LED.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Helligkeitsmessung_LED.cydsn\Helligkeitsmessung_LED.cydwr" />
+<name v=".\Helligkeitsmessung_LED.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2226, 1071" SelectedTabbedMdiWindow="1ce1c2dc-4781-4b27-9e26-b2df3c79fbc4"><DocumentWindow Key="C:\Users\Michi\Documents\PSoC Creator\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydsn\TopDesign\TopDesign.cysch" Guid="c3576fe6-5af2-4689-8de4-861d9a796d54" /><DocumentWindow Key="C:\Users\Michi\Documents\PSoC Creator\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydsn\Helligkeitsmessung_LED.cydwr" Guid="284bd740-4467-4e79-942e-297b9a0d57ef" /><DocumentWindow Key="C:\Users\Michi\Documents\PSoC Creator\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydsn\main.c" Guid="1ce1c2dc-4781-4b27-9e26-b2df3c79fbc4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2849c1a6-ffd8-448a-8250-1f88ab7e8bef" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

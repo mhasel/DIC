@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|204918fe-74ea-440e-a604-c7da4544be65
+C:\Users\Michi\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|10c85673-a30d-4c73-8a22-c5434e850419
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a076d511-f2e7-43af-849e-ad726cc4984d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7ce5e1e8-8b83-4b40-b9ee-4eb25eb54bf2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|119abb1d-0d52-4c7b-818b-6b8474782c64
+C:\Users\Michi\Documents\PSoC Creator\Helligkeitsmessung_LED\Helligkeitsmessung_LED.cydsn\Helligkeitsmessung_LED.cyprj|3e4750fb-f5ff-47d8-81de-b9a1f61b0b39

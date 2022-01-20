@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c6490f20-188b-4cfc-a5c0-25a4d457c5a1
+C:\Users\hasel\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|e9119535-f71f-4dfe-bc1e-b370c29c7b98
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ba1d1578-285d-43f9-828a-3304370594f3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|156e747b-7ba0-45f7-8a51-815692d4a9bb
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|85d2ea70-e62c-47a6-adb8-465db0ca6663
+C:\Users\hasel\OneDrive\Dokumente\PSoC Creator\BridgeControlPanel\BridgeControlPanel.cydsn\BridgeControlPanel.cyprj|58d2471c-7574-4572-a7c9-a308a41ef6d4
