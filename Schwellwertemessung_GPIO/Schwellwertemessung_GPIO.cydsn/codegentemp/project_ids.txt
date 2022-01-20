@@ -1,0 +1,6 @@
+D:\Source\Repos\DIC\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydsn\Schwellwertemessung_GPIO.cyprj|f61c2114-d0d4-4017-a4ec-7e29676f9d2e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8f4dfe6a-b755-4389-b9c4-4f951521af0c
+C:\Users\Michi\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|1cda09f6-ad4f-4c24-b374-82f33a6efaa9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ded356ad-1fd9-4af9-b8a5-a5a4cd7241c1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ca43e483-c5d1-4fb1-9bb5-956e23769085
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7f9ad4d3-282c-401d-8599-bd654c8eb7ed

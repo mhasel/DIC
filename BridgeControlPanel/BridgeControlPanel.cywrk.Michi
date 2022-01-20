@@ -193,6 +193,11 @@
 <v>BridgeControlPanel\BridgeControlPanel\PSoC 5LP Architecture TRM</v>
 <v>BridgeControlPanel\BridgeControlPanel\CY8C58LP Family Datasheet</v>
 <v>BridgeControlPanel\BridgeControlPanel\System Reference Guides</v>
+<v>BridgeControlPanel\BridgeControlPanel\System Reference Guides\cy_boot_v6_10</v>
+<v>BridgeControlPanel\BridgeControlPanel\ADC_SAR_v3_10.pdf</v>
+<v>BridgeControlPanel\BridgeControlPanel\cy_pins_v2_20</v>
+<v>BridgeControlPanel\BridgeControlPanel\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>BridgeControlPanel\BridgeControlPanel\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>BridgeControlPanel</v>
@@ -200,6 +205,11 @@
 <v>BridgeControlPanel\BridgeControlPanel\PSoC 5LP Architecture TRM</v>
 <v>BridgeControlPanel\BridgeControlPanel\CY8C58LP Family Datasheet</v>
 <v>BridgeControlPanel\BridgeControlPanel\System Reference Guides</v>
+<v>BridgeControlPanel\BridgeControlPanel\System Reference Guides\cy_boot_v6_10</v>
+<v>BridgeControlPanel\BridgeControlPanel\ADC_SAR_v3_10.pdf</v>
+<v>BridgeControlPanel\BridgeControlPanel\cy_pins_v2_20</v>
+<v>BridgeControlPanel\BridgeControlPanel\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>BridgeControlPanel\BridgeControlPanel\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -209,6 +219,7 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\BridgeControlPanel.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\BridgeControlPanel.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
@@ -217,7 +228,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="749, 1551" SelectedTabbedMdiWindow="ac8dee13-e45c-47d7-a9ac-152de5634df6"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2849c1a6-ffd8-448a-8250-1f88ab7e8bef" /><DocumentWindow Key="C:\Users\Michi\OneDrive\Dokumente\PSoC Creator\BridgeControlPanel\BridgeControlPanel.cydsn\main.c" Guid="ac8dee13-e45c-47d7-a9ac-152de5634df6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2094, 1071" SelectedTabbedMdiWindow="3f7d20c9-0fa0-40f7-83e6-1215ed9ea937"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2849c1a6-ffd8-448a-8250-1f88ab7e8bef" /><DocumentWindow Key="D:\Source\Repos\DIC\BridgeControlPanel\BridgeControlPanel.cydsn\TopDesign\TopDesign.cysch" Guid="204a396c-5740-4079-8639-74932a201dd9" /><DocumentWindow Key="D:\Source\Repos\DIC\BridgeControlPanel\BridgeControlPanel.cydsn\main.c" Guid="3f7d20c9-0fa0-40f7-83e6-1215ed9ea937" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

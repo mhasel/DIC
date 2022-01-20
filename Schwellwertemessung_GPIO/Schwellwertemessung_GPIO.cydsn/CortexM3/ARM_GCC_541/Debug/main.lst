@@ -1,0 +1,1002 @@
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.tx_data,"ax",%progbits
+  20              		.align	2
+  21              		.global	tx_data
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	tx_data, %function
+  25              	tx_data:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** void tx_data(int32_t dword);
+   3:main.c        **** int main(void)
+   4:main.c        **** {   
+   5:main.c        ****     UART_Start();
+   6:main.c        ****     ADC_SAR_Start();
+   7:main.c        ****     ADC_SAR_StartConvert();  
+   8:main.c        ****     
+   9:main.c        ****     while(1)
+  10:main.c        ****     {          
+  11:main.c        ****         if(ADC_SAR_IsEndConversion(ADC_SAR_WAIT_FOR_RESULT)) 
+  12:main.c        ****         {
+  13:main.c        ****             int16_t data = ADC_SAR_GetResult16();   
+  14:main.c        ****             uint16_t pin_state = (VIN_Read()) ? 0x0FFF : 0x0000;
+  15:main.c        ****             tx_data((data << 16) | pin_state);
+  16:main.c        ****         }
+  17:main.c        ****     }
+  18:main.c        **** }
+  19:main.c        **** 
+  20:main.c        **** 
+  21:main.c        **** void tx_data(int32_t dword)
+  22:main.c        **** {
+  28              		.loc 1 22 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 2
+
+
+  36              		.cfi_offset 14, -4
+  37 0002 0446     		mov	r4, r0
+  23:main.c        ****     // sync
+  24:main.c        ****     UART_PutChar('M');
+  38              		.loc 1 24 0
+  39 0004 4D20     		movs	r0, #77
+  40              	.LVL1:
+  41 0006 FFF7FEFF 		bl	UART_PutChar
+  42              	.LVL2:
+  25:main.c        ****     
+  26:main.c        ****     // 0xADC ADC PIN PIN
+  27:main.c        ****     // ADC data:
+  28:main.c        ****     // high byte
+  29:main.c        ****     UART_PutChar(dword >> 24);
+  43              		.loc 1 29 0
+  44 000a 200E     		lsrs	r0, r4, #24
+  45 000c FFF7FEFF 		bl	UART_PutChar
+  46              	.LVL3:
+  30:main.c        ****     // low byte
+  31:main.c        ****     UART_PutChar((dword >> 16) & 0xFF);
+  47              		.loc 1 31 0
+  48 0010 C4F30740 		ubfx	r0, r4, #16, #8
+  49 0014 FFF7FEFF 		bl	UART_PutChar
+  50              	.LVL4:
+  32:main.c        ****     // pin state:
+  33:main.c        ****     // high byte
+  34:main.c        ****     UART_PutChar(dword >> 8);
+  51              		.loc 1 34 0
+  52 0018 C4F30720 		ubfx	r0, r4, #8, #8
+  53 001c FFF7FEFF 		bl	UART_PutChar
+  54              	.LVL5:
+  35:main.c        ****     // low byte
+  36:main.c        ****     UART_PutChar(dword & 0xFF);
+  55              		.loc 1 36 0
+  56 0020 E0B2     		uxtb	r0, r4
+  57 0022 FFF7FEFF 		bl	UART_PutChar
+  58              	.LVL6:
+  37:main.c        ****     CyDelayUs(1);
+  59              		.loc 1 37 0
+  60 0026 0120     		movs	r0, #1
+  61 0028 FFF7FEFF 		bl	CyDelayUs
+  62              	.LVL7:
+  63 002c 10BD     		pop	{r4, pc}
+  64              		.cfi_endproc
+  65              	.LFE64:
+  66              		.size	tx_data, .-tx_data
+  67 002e 00BF     		.section	.text.main,"ax",%progbits
+  68              		.align	2
+  69              		.global	main
+  70              		.thumb
+  71              		.thumb_func
+  72              		.type	main, %function
+  73              	main:
+  74              	.LFB63:
+   4:main.c        ****     UART_Start();
+  75              		.loc 1 4 0
+  76              		.cfi_startproc
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 3
+
+
+  77              		@ args = 0, pretend = 0, frame = 0
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79 0000 10B5     		push	{r4, lr}
+  80              		.cfi_def_cfa_offset 8
+  81              		.cfi_offset 4, -8
+  82              		.cfi_offset 14, -4
+   5:main.c        ****     ADC_SAR_Start();
+  83              		.loc 1 5 0
+  84 0002 FFF7FEFF 		bl	UART_Start
+  85              	.LVL8:
+   6:main.c        ****     ADC_SAR_StartConvert();  
+  86              		.loc 1 6 0
+  87 0006 FFF7FEFF 		bl	ADC_SAR_Start
+  88              	.LVL9:
+   7:main.c        ****     
+  89              		.loc 1 7 0
+  90 000a FFF7FEFF 		bl	ADC_SAR_StartConvert
+  91              	.LVL10:
+  92              	.L4:
+  11:main.c        ****         {
+  93              		.loc 1 11 0
+  94 000e 0020     		movs	r0, #0
+  95 0010 FFF7FEFF 		bl	ADC_SAR_IsEndConversion
+  96              	.LVL11:
+  97 0014 0028     		cmp	r0, #0
+  98 0016 FAD0     		beq	.L4
+  99              	.LBB2:
+  13:main.c        ****             uint16_t pin_state = (VIN_Read()) ? 0x0FFF : 0x0000;
+ 100              		.loc 1 13 0
+ 101 0018 FFF7FEFF 		bl	ADC_SAR_GetResult16
+ 102              	.LVL12:
+ 103 001c 0446     		mov	r4, r0
+ 104              	.LVL13:
+  14:main.c        ****             tx_data((data << 16) | pin_state);
+ 105              		.loc 1 14 0
+ 106 001e FFF7FEFF 		bl	VIN_Read
+ 107              	.LVL14:
+ 108 0022 10B1     		cbz	r0, .L7
+ 109 0024 40F6FF70 		movw	r0, #4095
+ 110 0028 00E0     		b	.L5
+ 111              	.L7:
+ 112 002a 0020     		movs	r0, #0
+ 113              	.L5:
+ 114              	.LVL15:
+  15:main.c        ****         }
+ 115              		.loc 1 15 0 discriminator 4
+ 116 002c 40EA0440 		orr	r0, r0, r4, lsl #16
+ 117              	.LVL16:
+ 118 0030 FFF7FEFF 		bl	tx_data
+ 119              	.LVL17:
+ 120 0034 EBE7     		b	.L4
+ 121              	.LBE2:
+ 122              		.cfi_endproc
+ 123              	.LFE63:
+ 124              		.size	main, .-main
+ 125 0036 00BF     		.text
+ 126              	.Letext0:
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 4
+
+
+ 127              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 128              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 129              		.file 4 "Generated_Source\\PSoC5/UART.h"
+ 130              		.file 5 "Generated_Source\\PSoC5/CyLib.h"
+ 131              		.file 6 "Generated_Source\\PSoC5/ADC_SAR.h"
+ 132              		.file 7 "Generated_Source\\PSoC5/VIN.h"
+ 133              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 134              		.section	.debug_info,"",%progbits
+ 135              	.Ldebug_info0:
+ 136 0000 65020000 		.4byte	0x265
+ 137 0004 0400     		.2byte	0x4
+ 138 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 139 000a 04       		.byte	0x4
+ 140 000b 01       		.uleb128 0x1
+ 141 000c 37000000 		.4byte	.LASF30
+ 142 0010 0C       		.byte	0xc
+ 143 0011 02020000 		.4byte	.LASF31
+ 144 0015 C5000000 		.4byte	.LASF32
+ 145 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 146 001d 00000000 		.4byte	0
+ 147 0021 00000000 		.4byte	.Ldebug_line0
+ 148 0025 02       		.uleb128 0x2
+ 149 0026 01       		.byte	0x1
+ 150 0027 06       		.byte	0x6
+ 151 0028 3E020000 		.4byte	.LASF0
+ 152 002c 02       		.uleb128 0x2
+ 153 002d 01       		.byte	0x1
+ 154 002e 08       		.byte	0x8
+ 155 002f 29000000 		.4byte	.LASF1
+ 156 0033 03       		.uleb128 0x3
+ 157 0034 00000000 		.4byte	.LASF3
+ 158 0038 02       		.byte	0x2
+ 159 0039 29       		.byte	0x29
+ 160 003a 3E000000 		.4byte	0x3e
+ 161 003e 02       		.uleb128 0x2
+ 162 003f 02       		.byte	0x2
+ 163 0040 05       		.byte	0x5
+ 164 0041 16020000 		.4byte	.LASF2
+ 165 0045 03       		.uleb128 0x3
+ 166 0046 63010000 		.4byte	.LASF4
+ 167 004a 02       		.byte	0x2
+ 168 004b 2B       		.byte	0x2b
+ 169 004c 50000000 		.4byte	0x50
+ 170 0050 02       		.uleb128 0x2
+ 171 0051 02       		.byte	0x2
+ 172 0052 07       		.byte	0x7
+ 173 0053 38010000 		.4byte	.LASF5
+ 174 0057 03       		.uleb128 0x3
+ 175 0058 0A000000 		.4byte	.LASF6
+ 176 005c 02       		.byte	0x2
+ 177 005d 3F       		.byte	0x3f
+ 178 005e 62000000 		.4byte	0x62
+ 179 0062 02       		.uleb128 0x2
+ 180 0063 04       		.byte	0x4
+ 181 0064 05       		.byte	0x5
+ 182 0065 29020000 		.4byte	.LASF7
+ 183 0069 02       		.uleb128 0x2
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 5
+
+
+ 184 006a 04       		.byte	0x4
+ 185 006b 07       		.byte	0x7
+ 186 006c 11010000 		.4byte	.LASF8
+ 187 0070 02       		.uleb128 0x2
+ 188 0071 08       		.byte	0x8
+ 189 0072 05       		.byte	0x5
+ 190 0073 F4010000 		.4byte	.LASF9
+ 191 0077 02       		.uleb128 0x2
+ 192 0078 08       		.byte	0x8
+ 193 0079 07       		.byte	0x7
+ 194 007a 91010000 		.4byte	.LASF10
+ 195 007e 04       		.uleb128 0x4
+ 196 007f 04       		.byte	0x4
+ 197 0080 05       		.byte	0x5
+ 198 0081 696E7400 		.ascii	"int\000"
+ 199 0085 02       		.uleb128 0x2
+ 200 0086 04       		.byte	0x4
+ 201 0087 07       		.byte	0x7
+ 202 0088 84010000 		.4byte	.LASF11
+ 203 008c 03       		.uleb128 0x3
+ 204 008d B6010000 		.4byte	.LASF12
+ 205 0091 03       		.byte	0x3
+ 206 0092 20       		.byte	0x20
+ 207 0093 33000000 		.4byte	0x33
+ 208 0097 03       		.uleb128 0x3
+ 209 0098 20020000 		.4byte	.LASF13
+ 210 009c 03       		.byte	0x3
+ 211 009d 24       		.byte	0x24
+ 212 009e 45000000 		.4byte	0x45
+ 213 00a2 03       		.uleb128 0x3
+ 214 00a3 BE010000 		.4byte	.LASF14
+ 215 00a7 03       		.byte	0x3
+ 216 00a8 2C       		.byte	0x2c
+ 217 00a9 57000000 		.4byte	0x57
+ 218 00ad 02       		.uleb128 0x2
+ 219 00ae 04       		.byte	0x4
+ 220 00af 04       		.byte	0x4
+ 221 00b0 14000000 		.4byte	.LASF15
+ 222 00b4 02       		.uleb128 0x2
+ 223 00b5 08       		.byte	0x8
+ 224 00b6 04       		.byte	0x4
+ 225 00b7 6E010000 		.4byte	.LASF16
+ 226 00bb 02       		.uleb128 0x2
+ 227 00bc 01       		.byte	0x1
+ 228 00bd 08       		.byte	0x8
+ 229 00be 09020000 		.4byte	.LASF17
+ 230 00c2 02       		.uleb128 0x2
+ 231 00c3 08       		.byte	0x8
+ 232 00c4 04       		.byte	0x4
+ 233 00c5 32020000 		.4byte	.LASF18
+ 234 00c9 02       		.uleb128 0x2
+ 235 00ca 04       		.byte	0x4
+ 236 00cb 07       		.byte	0x7
+ 237 00cc EB010000 		.4byte	.LASF19
+ 238 00d0 05       		.uleb128 0x5
+ 239 00d1 0E020000 		.4byte	.LASF33
+ 240 00d5 01       		.byte	0x1
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 6
+
+
+ 241 00d6 15       		.byte	0x15
+ 242 00d7 00000000 		.4byte	.LFB64
+ 243 00db 2E000000 		.4byte	.LFE64-.LFB64
+ 244 00df 01       		.uleb128 0x1
+ 245 00e0 9C       		.byte	0x9c
+ 246 00e1 76010000 		.4byte	0x176
+ 247 00e5 06       		.uleb128 0x6
+ 248 00e6 67020000 		.4byte	.LASF34
+ 249 00ea 01       		.byte	0x1
+ 250 00eb 15       		.byte	0x15
+ 251 00ec A2000000 		.4byte	0xa2
+ 252 00f0 00000000 		.4byte	.LLST0
+ 253 00f4 07       		.uleb128 0x7
+ 254 00f5 0A000000 		.4byte	.LVL2
+ 255 00f9 10020000 		.4byte	0x210
+ 256 00fd 08010000 		.4byte	0x108
+ 257 0101 08       		.uleb128 0x8
+ 258 0102 01       		.uleb128 0x1
+ 259 0103 50       		.byte	0x50
+ 260 0104 02       		.uleb128 0x2
+ 261 0105 08       		.byte	0x8
+ 262 0106 4D       		.byte	0x4d
+ 263 0107 00       		.byte	0
+ 264 0108 07       		.uleb128 0x7
+ 265 0109 10000000 		.4byte	.LVL3
+ 266 010d 10020000 		.4byte	0x210
+ 267 0111 1E010000 		.4byte	0x11e
+ 268 0115 08       		.uleb128 0x8
+ 269 0116 01       		.uleb128 0x1
+ 270 0117 50       		.byte	0x50
+ 271 0118 04       		.uleb128 0x4
+ 272 0119 74       		.byte	0x74
+ 273 011a 00       		.sleb128 0
+ 274 011b 48       		.byte	0x48
+ 275 011c 25       		.byte	0x25
+ 276 011d 00       		.byte	0
+ 277 011e 07       		.uleb128 0x7
+ 278 011f 18000000 		.4byte	.LVL4
+ 279 0123 10020000 		.4byte	0x210
+ 280 0127 38010000 		.4byte	0x138
+ 281 012b 08       		.uleb128 0x8
+ 282 012c 01       		.uleb128 0x1
+ 283 012d 50       		.byte	0x50
+ 284 012e 08       		.uleb128 0x8
+ 285 012f 74       		.byte	0x74
+ 286 0130 00       		.sleb128 0
+ 287 0131 09       		.byte	0x9
+ 288 0132 EC       		.byte	0xec
+ 289 0133 24       		.byte	0x24
+ 290 0134 09       		.byte	0x9
+ 291 0135 FC       		.byte	0xfc
+ 292 0136 25       		.byte	0x25
+ 293 0137 00       		.byte	0
+ 294 0138 07       		.uleb128 0x7
+ 295 0139 20000000 		.4byte	.LVL5
+ 296 013d 10020000 		.4byte	0x210
+ 297 0141 52010000 		.4byte	0x152
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 7
+
+
+ 298 0145 08       		.uleb128 0x8
+ 299 0146 01       		.uleb128 0x1
+ 300 0147 50       		.byte	0x50
+ 301 0148 08       		.uleb128 0x8
+ 302 0149 74       		.byte	0x74
+ 303 014a 00       		.sleb128 0
+ 304 014b 09       		.byte	0x9
+ 305 014c F4       		.byte	0xf4
+ 306 014d 24       		.byte	0x24
+ 307 014e 09       		.byte	0x9
+ 308 014f FC       		.byte	0xfc
+ 309 0150 25       		.byte	0x25
+ 310 0151 00       		.byte	0
+ 311 0152 07       		.uleb128 0x7
+ 312 0153 26000000 		.4byte	.LVL6
+ 313 0157 10020000 		.4byte	0x210
+ 314 015b 66010000 		.4byte	0x166
+ 315 015f 08       		.uleb128 0x8
+ 316 0160 01       		.uleb128 0x1
+ 317 0161 50       		.byte	0x50
+ 318 0162 02       		.uleb128 0x2
+ 319 0163 74       		.byte	0x74
+ 320 0164 00       		.sleb128 0
+ 321 0165 00       		.byte	0
+ 322 0166 09       		.uleb128 0x9
+ 323 0167 2C000000 		.4byte	.LVL7
+ 324 016b 1B020000 		.4byte	0x21b
+ 325 016f 08       		.uleb128 0x8
+ 326 0170 01       		.uleb128 0x1
+ 327 0171 50       		.byte	0x50
+ 328 0172 01       		.uleb128 0x1
+ 329 0173 31       		.byte	0x31
+ 330 0174 00       		.byte	0
+ 331 0175 00       		.byte	0
+ 332 0176 0A       		.uleb128 0xa
+ 333 0177 75010000 		.4byte	.LASF35
+ 334 017b 01       		.byte	0x1
+ 335 017c 03       		.byte	0x3
+ 336 017d 7E000000 		.4byte	0x7e
+ 337 0181 00000000 		.4byte	.LFB63
+ 338 0185 36000000 		.4byte	.LFE63-.LFB63
+ 339 0189 01       		.uleb128 0x1
+ 340 018a 9C       		.byte	0x9c
+ 341 018b FF010000 		.4byte	0x1ff
+ 342 018f 0B       		.uleb128 0xb
+ 343 0190 18000000 		.4byte	.LBB2
+ 344 0194 1E000000 		.4byte	.LBE2-.LBB2
+ 345 0198 D4010000 		.4byte	0x1d4
+ 346 019c 0C       		.uleb128 0xc
+ 347 019d 1A000000 		.4byte	.LASF20
+ 348 01a1 01       		.byte	0x1
+ 349 01a2 0D       		.byte	0xd
+ 350 01a3 8C000000 		.4byte	0x8c
+ 351 01a7 01       		.uleb128 0x1
+ 352 01a8 54       		.byte	0x54
+ 353 01a9 0D       		.uleb128 0xd
+ 354 01aa 1F000000 		.4byte	.LASF21
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 8
+
+
+ 355 01ae 01       		.byte	0x1
+ 356 01af 0E       		.byte	0xe
+ 357 01b0 97000000 		.4byte	0x97
+ 358 01b4 1E000000 		.4byte	.LLST1
+ 359 01b8 0E       		.uleb128 0xe
+ 360 01b9 1C000000 		.4byte	.LVL12
+ 361 01bd 26020000 		.4byte	0x226
+ 362 01c1 0E       		.uleb128 0xe
+ 363 01c2 22000000 		.4byte	.LVL14
+ 364 01c6 31020000 		.4byte	0x231
+ 365 01ca 0E       		.uleb128 0xe
+ 366 01cb 34000000 		.4byte	.LVL17
+ 367 01cf D0000000 		.4byte	0xd0
+ 368 01d3 00       		.byte	0
+ 369 01d4 0E       		.uleb128 0xe
+ 370 01d5 06000000 		.4byte	.LVL8
+ 371 01d9 3C020000 		.4byte	0x23c
+ 372 01dd 0E       		.uleb128 0xe
+ 373 01de 0A000000 		.4byte	.LVL9
+ 374 01e2 47020000 		.4byte	0x247
+ 375 01e6 0E       		.uleb128 0xe
+ 376 01e7 0E000000 		.4byte	.LVL10
+ 377 01eb 52020000 		.4byte	0x252
+ 378 01ef 09       		.uleb128 0x9
+ 379 01f0 14000000 		.4byte	.LVL11
+ 380 01f4 5D020000 		.4byte	0x25d
+ 381 01f8 08       		.uleb128 0x8
+ 382 01f9 01       		.uleb128 0x1
+ 383 01fa 50       		.byte	0x50
+ 384 01fb 01       		.uleb128 0x1
+ 385 01fc 30       		.byte	0x30
+ 386 01fd 00       		.byte	0
+ 387 01fe 00       		.byte	0
+ 388 01ff 0F       		.uleb128 0xf
+ 389 0200 56010000 		.4byte	.LASF36
+ 390 0204 08       		.byte	0x8
+ 391 0205 1207     		.2byte	0x712
+ 392 0207 0B020000 		.4byte	0x20b
+ 393 020b 10       		.uleb128 0x10
+ 394 020c A2000000 		.4byte	0xa2
+ 395 0210 11       		.uleb128 0x11
+ 396 0211 C6010000 		.4byte	.LASF22
+ 397 0215 C6010000 		.4byte	.LASF22
+ 398 0219 04       		.byte	0x4
+ 399 021a 8A       		.byte	0x8a
+ 400 021b 11       		.uleb128 0x11
+ 401 021c 7A010000 		.4byte	.LASF23
+ 402 0220 7A010000 		.4byte	.LASF23
+ 403 0224 05       		.byte	0x5
+ 404 0225 77       		.byte	0x77
+ 405 0226 11       		.uleb128 0x11
+ 406 0227 4A020000 		.4byte	.LASF24
+ 407 022b 4A020000 		.4byte	.LASF24
+ 408 022f 06       		.byte	0x6
+ 409 0230 3B       		.byte	0x3b
+ 410 0231 11       		.uleb128 0x11
+ 411 0232 5E020000 		.4byte	.LASF25
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 9
+
+
+ 412 0236 5E020000 		.4byte	.LASF25
+ 413 023a 07       		.byte	0x7
+ 414 023b 29       		.byte	0x29
+ 415 023c 11       		.uleb128 0x11
+ 416 023d 4B010000 		.4byte	.LASF26
+ 417 0241 4B010000 		.4byte	.LASF26
+ 418 0245 04       		.byte	0x4
+ 419 0246 54       		.byte	0x54
+ 420 0247 11       		.uleb128 0x11
+ 421 0248 A8010000 		.4byte	.LASF27
+ 422 024c A8010000 		.4byte	.LASF27
+ 423 0250 06       		.byte	0x6
+ 424 0251 34       		.byte	0x34
+ 425 0252 11       		.uleb128 0x11
+ 426 0253 23010000 		.4byte	.LASF28
+ 427 0257 23010000 		.4byte	.LASF28
+ 428 025b 06       		.byte	0x6
+ 429 025c D1       		.byte	0xd1
+ 430 025d 11       		.uleb128 0x11
+ 431 025e D3010000 		.4byte	.LASF29
+ 432 0262 D3010000 		.4byte	.LASF29
+ 433 0266 06       		.byte	0x6
+ 434 0267 39       		.byte	0x39
+ 435 0268 00       		.byte	0
+ 436              		.section	.debug_abbrev,"",%progbits
+ 437              	.Ldebug_abbrev0:
+ 438 0000 01       		.uleb128 0x1
+ 439 0001 11       		.uleb128 0x11
+ 440 0002 01       		.byte	0x1
+ 441 0003 25       		.uleb128 0x25
+ 442 0004 0E       		.uleb128 0xe
+ 443 0005 13       		.uleb128 0x13
+ 444 0006 0B       		.uleb128 0xb
+ 445 0007 03       		.uleb128 0x3
+ 446 0008 0E       		.uleb128 0xe
+ 447 0009 1B       		.uleb128 0x1b
+ 448 000a 0E       		.uleb128 0xe
+ 449 000b 55       		.uleb128 0x55
+ 450 000c 17       		.uleb128 0x17
+ 451 000d 11       		.uleb128 0x11
+ 452 000e 01       		.uleb128 0x1
+ 453 000f 10       		.uleb128 0x10
+ 454 0010 17       		.uleb128 0x17
+ 455 0011 00       		.byte	0
+ 456 0012 00       		.byte	0
+ 457 0013 02       		.uleb128 0x2
+ 458 0014 24       		.uleb128 0x24
+ 459 0015 00       		.byte	0
+ 460 0016 0B       		.uleb128 0xb
+ 461 0017 0B       		.uleb128 0xb
+ 462 0018 3E       		.uleb128 0x3e
+ 463 0019 0B       		.uleb128 0xb
+ 464 001a 03       		.uleb128 0x3
+ 465 001b 0E       		.uleb128 0xe
+ 466 001c 00       		.byte	0
+ 467 001d 00       		.byte	0
+ 468 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 10
+
+
+ 469 001f 16       		.uleb128 0x16
+ 470 0020 00       		.byte	0
+ 471 0021 03       		.uleb128 0x3
+ 472 0022 0E       		.uleb128 0xe
+ 473 0023 3A       		.uleb128 0x3a
+ 474 0024 0B       		.uleb128 0xb
+ 475 0025 3B       		.uleb128 0x3b
+ 476 0026 0B       		.uleb128 0xb
+ 477 0027 49       		.uleb128 0x49
+ 478 0028 13       		.uleb128 0x13
+ 479 0029 00       		.byte	0
+ 480 002a 00       		.byte	0
+ 481 002b 04       		.uleb128 0x4
+ 482 002c 24       		.uleb128 0x24
+ 483 002d 00       		.byte	0
+ 484 002e 0B       		.uleb128 0xb
+ 485 002f 0B       		.uleb128 0xb
+ 486 0030 3E       		.uleb128 0x3e
+ 487 0031 0B       		.uleb128 0xb
+ 488 0032 03       		.uleb128 0x3
+ 489 0033 08       		.uleb128 0x8
+ 490 0034 00       		.byte	0
+ 491 0035 00       		.byte	0
+ 492 0036 05       		.uleb128 0x5
+ 493 0037 2E       		.uleb128 0x2e
+ 494 0038 01       		.byte	0x1
+ 495 0039 3F       		.uleb128 0x3f
+ 496 003a 19       		.uleb128 0x19
+ 497 003b 03       		.uleb128 0x3
+ 498 003c 0E       		.uleb128 0xe
+ 499 003d 3A       		.uleb128 0x3a
+ 500 003e 0B       		.uleb128 0xb
+ 501 003f 3B       		.uleb128 0x3b
+ 502 0040 0B       		.uleb128 0xb
+ 503 0041 27       		.uleb128 0x27
+ 504 0042 19       		.uleb128 0x19
+ 505 0043 11       		.uleb128 0x11
+ 506 0044 01       		.uleb128 0x1
+ 507 0045 12       		.uleb128 0x12
+ 508 0046 06       		.uleb128 0x6
+ 509 0047 40       		.uleb128 0x40
+ 510 0048 18       		.uleb128 0x18
+ 511 0049 9742     		.uleb128 0x2117
+ 512 004b 19       		.uleb128 0x19
+ 513 004c 01       		.uleb128 0x1
+ 514 004d 13       		.uleb128 0x13
+ 515 004e 00       		.byte	0
+ 516 004f 00       		.byte	0
+ 517 0050 06       		.uleb128 0x6
+ 518 0051 05       		.uleb128 0x5
+ 519 0052 00       		.byte	0
+ 520 0053 03       		.uleb128 0x3
+ 521 0054 0E       		.uleb128 0xe
+ 522 0055 3A       		.uleb128 0x3a
+ 523 0056 0B       		.uleb128 0xb
+ 524 0057 3B       		.uleb128 0x3b
+ 525 0058 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 11
+
+
+ 526 0059 49       		.uleb128 0x49
+ 527 005a 13       		.uleb128 0x13
+ 528 005b 02       		.uleb128 0x2
+ 529 005c 17       		.uleb128 0x17
+ 530 005d 00       		.byte	0
+ 531 005e 00       		.byte	0
+ 532 005f 07       		.uleb128 0x7
+ 533 0060 898201   		.uleb128 0x4109
+ 534 0063 01       		.byte	0x1
+ 535 0064 11       		.uleb128 0x11
+ 536 0065 01       		.uleb128 0x1
+ 537 0066 31       		.uleb128 0x31
+ 538 0067 13       		.uleb128 0x13
+ 539 0068 01       		.uleb128 0x1
+ 540 0069 13       		.uleb128 0x13
+ 541 006a 00       		.byte	0
+ 542 006b 00       		.byte	0
+ 543 006c 08       		.uleb128 0x8
+ 544 006d 8A8201   		.uleb128 0x410a
+ 545 0070 00       		.byte	0
+ 546 0071 02       		.uleb128 0x2
+ 547 0072 18       		.uleb128 0x18
+ 548 0073 9142     		.uleb128 0x2111
+ 549 0075 18       		.uleb128 0x18
+ 550 0076 00       		.byte	0
+ 551 0077 00       		.byte	0
+ 552 0078 09       		.uleb128 0x9
+ 553 0079 898201   		.uleb128 0x4109
+ 554 007c 01       		.byte	0x1
+ 555 007d 11       		.uleb128 0x11
+ 556 007e 01       		.uleb128 0x1
+ 557 007f 31       		.uleb128 0x31
+ 558 0080 13       		.uleb128 0x13
+ 559 0081 00       		.byte	0
+ 560 0082 00       		.byte	0
+ 561 0083 0A       		.uleb128 0xa
+ 562 0084 2E       		.uleb128 0x2e
+ 563 0085 01       		.byte	0x1
+ 564 0086 3F       		.uleb128 0x3f
+ 565 0087 19       		.uleb128 0x19
+ 566 0088 03       		.uleb128 0x3
+ 567 0089 0E       		.uleb128 0xe
+ 568 008a 3A       		.uleb128 0x3a
+ 569 008b 0B       		.uleb128 0xb
+ 570 008c 3B       		.uleb128 0x3b
+ 571 008d 0B       		.uleb128 0xb
+ 572 008e 27       		.uleb128 0x27
+ 573 008f 19       		.uleb128 0x19
+ 574 0090 49       		.uleb128 0x49
+ 575 0091 13       		.uleb128 0x13
+ 576 0092 8701     		.uleb128 0x87
+ 577 0094 19       		.uleb128 0x19
+ 578 0095 11       		.uleb128 0x11
+ 579 0096 01       		.uleb128 0x1
+ 580 0097 12       		.uleb128 0x12
+ 581 0098 06       		.uleb128 0x6
+ 582 0099 40       		.uleb128 0x40
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 12
+
+
+ 583 009a 18       		.uleb128 0x18
+ 584 009b 9742     		.uleb128 0x2117
+ 585 009d 19       		.uleb128 0x19
+ 586 009e 01       		.uleb128 0x1
+ 587 009f 13       		.uleb128 0x13
+ 588 00a0 00       		.byte	0
+ 589 00a1 00       		.byte	0
+ 590 00a2 0B       		.uleb128 0xb
+ 591 00a3 0B       		.uleb128 0xb
+ 592 00a4 01       		.byte	0x1
+ 593 00a5 11       		.uleb128 0x11
+ 594 00a6 01       		.uleb128 0x1
+ 595 00a7 12       		.uleb128 0x12
+ 596 00a8 06       		.uleb128 0x6
+ 597 00a9 01       		.uleb128 0x1
+ 598 00aa 13       		.uleb128 0x13
+ 599 00ab 00       		.byte	0
+ 600 00ac 00       		.byte	0
+ 601 00ad 0C       		.uleb128 0xc
+ 602 00ae 34       		.uleb128 0x34
+ 603 00af 00       		.byte	0
+ 604 00b0 03       		.uleb128 0x3
+ 605 00b1 0E       		.uleb128 0xe
+ 606 00b2 3A       		.uleb128 0x3a
+ 607 00b3 0B       		.uleb128 0xb
+ 608 00b4 3B       		.uleb128 0x3b
+ 609 00b5 0B       		.uleb128 0xb
+ 610 00b6 49       		.uleb128 0x49
+ 611 00b7 13       		.uleb128 0x13
+ 612 00b8 02       		.uleb128 0x2
+ 613 00b9 18       		.uleb128 0x18
+ 614 00ba 00       		.byte	0
+ 615 00bb 00       		.byte	0
+ 616 00bc 0D       		.uleb128 0xd
+ 617 00bd 34       		.uleb128 0x34
+ 618 00be 00       		.byte	0
+ 619 00bf 03       		.uleb128 0x3
+ 620 00c0 0E       		.uleb128 0xe
+ 621 00c1 3A       		.uleb128 0x3a
+ 622 00c2 0B       		.uleb128 0xb
+ 623 00c3 3B       		.uleb128 0x3b
+ 624 00c4 0B       		.uleb128 0xb
+ 625 00c5 49       		.uleb128 0x49
+ 626 00c6 13       		.uleb128 0x13
+ 627 00c7 02       		.uleb128 0x2
+ 628 00c8 17       		.uleb128 0x17
+ 629 00c9 00       		.byte	0
+ 630 00ca 00       		.byte	0
+ 631 00cb 0E       		.uleb128 0xe
+ 632 00cc 898201   		.uleb128 0x4109
+ 633 00cf 00       		.byte	0
+ 634 00d0 11       		.uleb128 0x11
+ 635 00d1 01       		.uleb128 0x1
+ 636 00d2 31       		.uleb128 0x31
+ 637 00d3 13       		.uleb128 0x13
+ 638 00d4 00       		.byte	0
+ 639 00d5 00       		.byte	0
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 13
+
+
+ 640 00d6 0F       		.uleb128 0xf
+ 641 00d7 34       		.uleb128 0x34
+ 642 00d8 00       		.byte	0
+ 643 00d9 03       		.uleb128 0x3
+ 644 00da 0E       		.uleb128 0xe
+ 645 00db 3A       		.uleb128 0x3a
+ 646 00dc 0B       		.uleb128 0xb
+ 647 00dd 3B       		.uleb128 0x3b
+ 648 00de 05       		.uleb128 0x5
+ 649 00df 49       		.uleb128 0x49
+ 650 00e0 13       		.uleb128 0x13
+ 651 00e1 3F       		.uleb128 0x3f
+ 652 00e2 19       		.uleb128 0x19
+ 653 00e3 3C       		.uleb128 0x3c
+ 654 00e4 19       		.uleb128 0x19
+ 655 00e5 00       		.byte	0
+ 656 00e6 00       		.byte	0
+ 657 00e7 10       		.uleb128 0x10
+ 658 00e8 35       		.uleb128 0x35
+ 659 00e9 00       		.byte	0
+ 660 00ea 49       		.uleb128 0x49
+ 661 00eb 13       		.uleb128 0x13
+ 662 00ec 00       		.byte	0
+ 663 00ed 00       		.byte	0
+ 664 00ee 11       		.uleb128 0x11
+ 665 00ef 2E       		.uleb128 0x2e
+ 666 00f0 00       		.byte	0
+ 667 00f1 3F       		.uleb128 0x3f
+ 668 00f2 19       		.uleb128 0x19
+ 669 00f3 3C       		.uleb128 0x3c
+ 670 00f4 19       		.uleb128 0x19
+ 671 00f5 6E       		.uleb128 0x6e
+ 672 00f6 0E       		.uleb128 0xe
+ 673 00f7 03       		.uleb128 0x3
+ 674 00f8 0E       		.uleb128 0xe
+ 675 00f9 3A       		.uleb128 0x3a
+ 676 00fa 0B       		.uleb128 0xb
+ 677 00fb 3B       		.uleb128 0x3b
+ 678 00fc 0B       		.uleb128 0xb
+ 679 00fd 00       		.byte	0
+ 680 00fe 00       		.byte	0
+ 681 00ff 00       		.byte	0
+ 682              		.section	.debug_loc,"",%progbits
+ 683              	.Ldebug_loc0:
+ 684              	.LLST0:
+ 685 0000 00000000 		.4byte	.LVL0
+ 686 0004 06000000 		.4byte	.LVL1
+ 687 0008 0100     		.2byte	0x1
+ 688 000a 50       		.byte	0x50
+ 689 000b 06000000 		.4byte	.LVL1
+ 690 000f 2E000000 		.4byte	.LFE64
+ 691 0013 0100     		.2byte	0x1
+ 692 0015 54       		.byte	0x54
+ 693 0016 00000000 		.4byte	0
+ 694 001a 00000000 		.4byte	0
+ 695              	.LLST1:
+ 696 001e 2C000000 		.4byte	.LVL15
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 14
+
+
+ 697 0022 30000000 		.4byte	.LVL16
+ 698 0026 0100     		.2byte	0x1
+ 699 0028 50       		.byte	0x50
+ 700 0029 00000000 		.4byte	0
+ 701 002d 00000000 		.4byte	0
+ 702              		.section	.debug_aranges,"",%progbits
+ 703 0000 24000000 		.4byte	0x24
+ 704 0004 0200     		.2byte	0x2
+ 705 0006 00000000 		.4byte	.Ldebug_info0
+ 706 000a 04       		.byte	0x4
+ 707 000b 00       		.byte	0
+ 708 000c 0000     		.2byte	0
+ 709 000e 0000     		.2byte	0
+ 710 0010 00000000 		.4byte	.LFB64
+ 711 0014 2E000000 		.4byte	.LFE64-.LFB64
+ 712 0018 00000000 		.4byte	.LFB63
+ 713 001c 36000000 		.4byte	.LFE63-.LFB63
+ 714 0020 00000000 		.4byte	0
+ 715 0024 00000000 		.4byte	0
+ 716              		.section	.debug_ranges,"",%progbits
+ 717              	.Ldebug_ranges0:
+ 718 0000 00000000 		.4byte	.LFB64
+ 719 0004 2E000000 		.4byte	.LFE64
+ 720 0008 00000000 		.4byte	.LFB63
+ 721 000c 36000000 		.4byte	.LFE63
+ 722 0010 00000000 		.4byte	0
+ 723 0014 00000000 		.4byte	0
+ 724              		.section	.debug_line,"",%progbits
+ 725              	.Ldebug_line0:
+ 726 0000 9D010000 		.section	.debug_str,"MS",%progbits,1
+ 726      02006A01 
+ 726      00000201 
+ 726      FB0E0D00 
+ 726      01010101 
+ 727              	.LASF3:
+ 728 0000 5F5F696E 		.ascii	"__int16_t\000"
+ 728      7431365F 
+ 728      7400
+ 729              	.LASF6:
+ 730 000a 5F5F696E 		.ascii	"__int32_t\000"
+ 730      7433325F 
+ 730      7400
+ 731              	.LASF15:
+ 732 0014 666C6F61 		.ascii	"float\000"
+ 732      7400
+ 733              	.LASF20:
+ 734 001a 64617461 		.ascii	"data\000"
+ 734      00
+ 735              	.LASF21:
+ 736 001f 70696E5F 		.ascii	"pin_state\000"
+ 736      73746174 
+ 736      6500
+ 737              	.LASF1:
+ 738 0029 756E7369 		.ascii	"unsigned char\000"
+ 738      676E6564 
+ 738      20636861 
+ 738      7200
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 15
+
+
+ 739              	.LASF30:
+ 740 0037 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 740      43313120 
+ 740      352E342E 
+ 740      31203230 
+ 740      31363036 
+ 741 006a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 741      20726576 
+ 741      6973696F 
+ 741      6E203233 
+ 741      37373135 
+ 742 009d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 742      66756E63 
+ 742      74696F6E 
+ 742      2D736563 
+ 742      74696F6E 
+ 743              	.LASF32:
+ 744 00c5 443A5C53 		.ascii	"D:\\Source\\Repos\\DIC\\Schwellwertemessung_GPIO\\S"
+ 744      6F757263 
+ 744      655C5265 
+ 744      706F735C 
+ 744      4449435C 
+ 745 00f3 63687765 		.ascii	"chwellwertemessung_GPIO.cydsn\000"
+ 745      6C6C7765 
+ 745      7274656D 
+ 745      65737375 
+ 745      6E675F47 
+ 746              	.LASF8:
+ 747 0111 6C6F6E67 		.ascii	"long unsigned int\000"
+ 747      20756E73 
+ 747      69676E65 
+ 747      6420696E 
+ 747      7400
+ 748              	.LASF28:
+ 749 0123 4144435F 		.ascii	"ADC_SAR_StartConvert\000"
+ 749      5341525F 
+ 749      53746172 
+ 749      74436F6E 
+ 749      76657274 
+ 750              	.LASF5:
+ 751 0138 73686F72 		.ascii	"short unsigned int\000"
+ 751      7420756E 
+ 751      7369676E 
+ 751      65642069 
+ 751      6E7400
+ 752              	.LASF26:
+ 753 014b 55415254 		.ascii	"UART_Start\000"
+ 753      5F537461 
+ 753      727400
+ 754              	.LASF36:
+ 755 0156 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 755      52784275 
+ 755      66666572 
+ 755      00
+ 756              	.LASF4:
+ 757 0163 5F5F7569 		.ascii	"__uint16_t\000"
+ 757      6E743136 
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 16
+
+
+ 757      5F7400
+ 758              	.LASF16:
+ 759 016e 646F7562 		.ascii	"double\000"
+ 759      6C6500
+ 760              	.LASF35:
+ 761 0175 6D61696E 		.ascii	"main\000"
+ 761      00
+ 762              	.LASF23:
+ 763 017a 43794465 		.ascii	"CyDelayUs\000"
+ 763      6C617955 
+ 763      7300
+ 764              	.LASF11:
+ 765 0184 756E7369 		.ascii	"unsigned int\000"
+ 765      676E6564 
+ 765      20696E74 
+ 765      00
+ 766              	.LASF10:
+ 767 0191 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 767      206C6F6E 
+ 767      6720756E 
+ 767      7369676E 
+ 767      65642069 
+ 768              	.LASF27:
+ 769 01a8 4144435F 		.ascii	"ADC_SAR_Start\000"
+ 769      5341525F 
+ 769      53746172 
+ 769      7400
+ 770              	.LASF12:
+ 771 01b6 696E7431 		.ascii	"int16_t\000"
+ 771      365F7400 
+ 772              	.LASF14:
+ 773 01be 696E7433 		.ascii	"int32_t\000"
+ 773      325F7400 
+ 774              	.LASF22:
+ 775 01c6 55415254 		.ascii	"UART_PutChar\000"
+ 775      5F507574 
+ 775      43686172 
+ 775      00
+ 776              	.LASF29:
+ 777 01d3 4144435F 		.ascii	"ADC_SAR_IsEndConversion\000"
+ 777      5341525F 
+ 777      4973456E 
+ 777      64436F6E 
+ 777      76657273 
+ 778              	.LASF19:
+ 779 01eb 73697A65 		.ascii	"sizetype\000"
+ 779      74797065 
+ 779      00
+ 780              	.LASF9:
+ 781 01f4 6C6F6E67 		.ascii	"long long int\000"
+ 781      206C6F6E 
+ 781      6720696E 
+ 781      7400
+ 782              	.LASF31:
+ 783 0202 6D61696E 		.ascii	"main.c\000"
+ 783      2E6300
+ 784              	.LASF17:
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccbkjcLr.s 			page 17
+
+
+ 785 0209 63686172 		.ascii	"char\000"
+ 785      00
+ 786              	.LASF33:
+ 787 020e 74785F64 		.ascii	"tx_data\000"
+ 787      61746100 
+ 788              	.LASF2:
+ 789 0216 73686F72 		.ascii	"short int\000"
+ 789      7420696E 
+ 789      7400
+ 790              	.LASF13:
+ 791 0220 75696E74 		.ascii	"uint16_t\000"
+ 791      31365F74 
+ 791      00
+ 792              	.LASF7:
+ 793 0229 6C6F6E67 		.ascii	"long int\000"
+ 793      20696E74 
+ 793      00
+ 794              	.LASF18:
+ 795 0232 6C6F6E67 		.ascii	"long double\000"
+ 795      20646F75 
+ 795      626C6500 
+ 796              	.LASF0:
+ 797 023e 7369676E 		.ascii	"signed char\000"
+ 797      65642063 
+ 797      68617200 
+ 798              	.LASF24:
+ 799 024a 4144435F 		.ascii	"ADC_SAR_GetResult16\000"
+ 799      5341525F 
+ 799      47657452 
+ 799      6573756C 
+ 799      74313600 
+ 800              	.LASF25:
+ 801 025e 56494E5F 		.ascii	"VIN_Read\000"
+ 801      52656164 
+ 801      00
+ 802              	.LASF34:
+ 803 0267 64776F72 		.ascii	"dword\000"
+ 803      6400
+ 804              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
