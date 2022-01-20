@@ -1,0 +1,563 @@
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** // main.c, Haselberger Michael
+   2:main.c        **** // Description: 8x8 dot matrix patterns, endlessly.
+   3:main.c        **** #include "project.h"
+   4:main.c        **** #include <stdint.h>
+   5:main.c        **** #include "dot_matrix.h"
+   6:main.c        **** 
+   7:main.c        **** // LEDs rate of change should be 2Hz -> delay 500ms each iteration
+   8:main.c        **** const uint16_t DELAY = 500U;
+   9:main.c        **** 
+  10:main.c        **** int main(void)
+  11:main.c        **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  12:main.c        ****     CyGlobalIntEnable;
+  37              		.loc 1 12 0
+  38              		.syntax unified
+  39              	@ 12 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  13:main.c        ****     reset_matrix();
+  42              		.loc 1 13 0
+  43              		.thumb
+  44              		.syntax unified
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 2
+
+
+  45 0004 FFF7FEFF 		bl	reset_matrix
+  46              	.LVL0:
+  47              	.L2:
+  14:main.c        ****         
+  15:main.c        ****     while(1)
+  16:main.c        ****     {
+  17:main.c        ****         sweep_horizontal();
+  48              		.loc 1 17 0 discriminator 1
+  49 0008 FFF7FEFF 		bl	sweep_horizontal
+  50              	.LVL1:
+  51 000c FCE7     		b	.L2
+  52              		.cfi_endproc
+  53              	.LFE63:
+  54              		.size	main, .-main
+  55              		.global	DELAY
+  56 000e 00BF     		.section	.rodata
+  57              		.align	1
+  58              		.type	DELAY, %object
+  59              		.size	DELAY, 2
+  60              	DELAY:
+  61 0000 F401     		.short	500
+  62              		.text
+  63              	.Letext0:
+  64              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  65              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  66              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+  67              		.file 5 "dot_matrix.h"
+  68              		.section	.debug_info,"",%progbits
+  69              	.Ldebug_info0:
+  70 0000 20010000 		.4byte	0x120
+  71 0004 0400     		.2byte	0x4
+  72 0006 00000000 		.4byte	.Ldebug_abbrev0
+  73 000a 04       		.byte	0x4
+  74 000b 01       		.uleb128 0x1
+  75 000c 57000000 		.4byte	.LASF22
+  76 0010 0C       		.byte	0xc
+  77 0011 26000000 		.4byte	.LASF23
+  78 0015 2D000000 		.4byte	.LASF24
+  79 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  80 001d 00000000 		.4byte	0
+  81 0021 00000000 		.4byte	.Ldebug_line0
+  82 0025 02       		.uleb128 0x2
+  83 0026 01       		.byte	0x1
+  84 0027 06       		.byte	0x6
+  85 0028 77010000 		.4byte	.LASF0
+  86 002c 02       		.uleb128 0x2
+  87 002d 01       		.byte	0x1
+  88 002e 08       		.byte	0x8
+  89 002f 3D010000 		.4byte	.LASF1
+  90 0033 02       		.uleb128 0x2
+  91 0034 02       		.byte	0x2
+  92 0035 05       		.byte	0x5
+  93 0036 59010000 		.4byte	.LASF2
+  94 003a 03       		.uleb128 0x3
+  95 003b 32010000 		.4byte	.LASF4
+  96 003f 02       		.byte	0x2
+  97 0040 2B       		.byte	0x2b
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 3
+
+
+  98 0041 45000000 		.4byte	0x45
+  99 0045 02       		.uleb128 0x2
+ 100 0046 02       		.byte	0x2
+ 101 0047 07       		.byte	0x7
+ 102 0048 1F010000 		.4byte	.LASF3
+ 103 004c 03       		.uleb128 0x3
+ 104 004d 8F010000 		.4byte	.LASF5
+ 105 0051 02       		.byte	0x2
+ 106 0052 3F       		.byte	0x3f
+ 107 0053 57000000 		.4byte	0x57
+ 108 0057 02       		.uleb128 0x2
+ 109 0058 04       		.byte	0x4
+ 110 0059 05       		.byte	0x5
+ 111 005a 50010000 		.4byte	.LASF6
+ 112 005e 02       		.uleb128 0x2
+ 113 005f 04       		.byte	0x4
+ 114 0060 07       		.byte	0x7
+ 115 0061 F6000000 		.4byte	.LASF7
+ 116 0065 02       		.uleb128 0x2
+ 117 0066 08       		.byte	0x8
+ 118 0067 05       		.byte	0x5
+ 119 0068 00000000 		.4byte	.LASF8
+ 120 006c 02       		.uleb128 0x2
+ 121 006d 08       		.byte	0x8
+ 122 006e 07       		.byte	0x7
+ 123 006f 08010000 		.4byte	.LASF9
+ 124 0073 04       		.uleb128 0x4
+ 125 0074 04       		.byte	0x4
+ 126 0075 05       		.byte	0x5
+ 127 0076 696E7400 		.ascii	"int\000"
+ 128 007a 02       		.uleb128 0x2
+ 129 007b 04       		.byte	0x4
+ 130 007c 07       		.byte	0x7
+ 131 007d 14000000 		.4byte	.LASF10
+ 132 0081 03       		.uleb128 0x3
+ 133 0082 99010000 		.4byte	.LASF11
+ 134 0086 03       		.byte	0x3
+ 135 0087 24       		.byte	0x24
+ 136 0088 3A000000 		.4byte	0x3a
+ 137 008c 03       		.uleb128 0x3
+ 138 008d B5010000 		.4byte	.LASF12
+ 139 0091 03       		.byte	0x3
+ 140 0092 2C       		.byte	0x2c
+ 141 0093 4C000000 		.4byte	0x4c
+ 142 0097 02       		.uleb128 0x2
+ 143 0098 04       		.byte	0x4
+ 144 0099 04       		.byte	0x4
+ 145 009a A2010000 		.4byte	.LASF13
+ 146 009e 02       		.uleb128 0x2
+ 147 009f 08       		.byte	0x8
+ 148 00a0 04       		.byte	0x4
+ 149 00a1 63010000 		.4byte	.LASF14
+ 150 00a5 02       		.uleb128 0x2
+ 151 00a6 01       		.byte	0x1
+ 152 00a7 08       		.byte	0x8
+ 153 00a8 4B010000 		.4byte	.LASF15
+ 154 00ac 02       		.uleb128 0x2
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 4
+
+
+ 155 00ad 04       		.byte	0x4
+ 156 00ae 07       		.byte	0x7
+ 157 00af BD010000 		.4byte	.LASF16
+ 158 00b3 02       		.uleb128 0x2
+ 159 00b4 08       		.byte	0x8
+ 160 00b5 04       		.byte	0x4
+ 161 00b6 83010000 		.4byte	.LASF17
+ 162 00ba 05       		.uleb128 0x5
+ 163 00bb 21000000 		.4byte	.LASF25
+ 164 00bf 01       		.byte	0x1
+ 165 00c0 0A       		.byte	0xa
+ 166 00c1 73000000 		.4byte	0x73
+ 167 00c5 00000000 		.4byte	.LFB63
+ 168 00c9 0E000000 		.4byte	.LFE63-.LFB63
+ 169 00cd 01       		.uleb128 0x1
+ 170 00ce 9C       		.byte	0x9c
+ 171 00cf E6000000 		.4byte	0xe6
+ 172 00d3 06       		.uleb128 0x6
+ 173 00d4 08000000 		.4byte	.LVL0
+ 174 00d8 0D010000 		.4byte	0x10d
+ 175 00dc 06       		.uleb128 0x6
+ 176 00dd 0C000000 		.4byte	.LVL1
+ 177 00e1 18010000 		.4byte	0x118
+ 178 00e5 00       		.byte	0
+ 179 00e6 07       		.uleb128 0x7
+ 180 00e7 6A010000 		.4byte	.LASF18
+ 181 00eb 04       		.byte	0x4
+ 182 00ec 1207     		.2byte	0x712
+ 183 00ee F2000000 		.4byte	0xf2
+ 184 00f2 08       		.uleb128 0x8
+ 185 00f3 8C000000 		.4byte	0x8c
+ 186 00f7 09       		.uleb128 0x9
+ 187 00f8 0E000000 		.4byte	.LASF19
+ 188 00fc 01       		.byte	0x1
+ 189 00fd 08       		.byte	0x8
+ 190 00fe 08010000 		.4byte	0x108
+ 191 0102 05       		.uleb128 0x5
+ 192 0103 03       		.byte	0x3
+ 193 0104 00000000 		.4byte	DELAY
+ 194 0108 0A       		.uleb128 0xa
+ 195 0109 81000000 		.4byte	0x81
+ 196 010d 0B       		.uleb128 0xb
+ 197 010e A8010000 		.4byte	.LASF20
+ 198 0112 A8010000 		.4byte	.LASF20
+ 199 0116 05       		.byte	0x5
+ 200 0117 20       		.byte	0x20
+ 201 0118 0B       		.uleb128 0xb
+ 202 0119 E5000000 		.4byte	.LASF21
+ 203 011d E5000000 		.4byte	.LASF21
+ 204 0121 05       		.byte	0x5
+ 205 0122 21       		.byte	0x21
+ 206 0123 00       		.byte	0
+ 207              		.section	.debug_abbrev,"",%progbits
+ 208              	.Ldebug_abbrev0:
+ 209 0000 01       		.uleb128 0x1
+ 210 0001 11       		.uleb128 0x11
+ 211 0002 01       		.byte	0x1
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 5
+
+
+ 212 0003 25       		.uleb128 0x25
+ 213 0004 0E       		.uleb128 0xe
+ 214 0005 13       		.uleb128 0x13
+ 215 0006 0B       		.uleb128 0xb
+ 216 0007 03       		.uleb128 0x3
+ 217 0008 0E       		.uleb128 0xe
+ 218 0009 1B       		.uleb128 0x1b
+ 219 000a 0E       		.uleb128 0xe
+ 220 000b 55       		.uleb128 0x55
+ 221 000c 17       		.uleb128 0x17
+ 222 000d 11       		.uleb128 0x11
+ 223 000e 01       		.uleb128 0x1
+ 224 000f 10       		.uleb128 0x10
+ 225 0010 17       		.uleb128 0x17
+ 226 0011 00       		.byte	0
+ 227 0012 00       		.byte	0
+ 228 0013 02       		.uleb128 0x2
+ 229 0014 24       		.uleb128 0x24
+ 230 0015 00       		.byte	0
+ 231 0016 0B       		.uleb128 0xb
+ 232 0017 0B       		.uleb128 0xb
+ 233 0018 3E       		.uleb128 0x3e
+ 234 0019 0B       		.uleb128 0xb
+ 235 001a 03       		.uleb128 0x3
+ 236 001b 0E       		.uleb128 0xe
+ 237 001c 00       		.byte	0
+ 238 001d 00       		.byte	0
+ 239 001e 03       		.uleb128 0x3
+ 240 001f 16       		.uleb128 0x16
+ 241 0020 00       		.byte	0
+ 242 0021 03       		.uleb128 0x3
+ 243 0022 0E       		.uleb128 0xe
+ 244 0023 3A       		.uleb128 0x3a
+ 245 0024 0B       		.uleb128 0xb
+ 246 0025 3B       		.uleb128 0x3b
+ 247 0026 0B       		.uleb128 0xb
+ 248 0027 49       		.uleb128 0x49
+ 249 0028 13       		.uleb128 0x13
+ 250 0029 00       		.byte	0
+ 251 002a 00       		.byte	0
+ 252 002b 04       		.uleb128 0x4
+ 253 002c 24       		.uleb128 0x24
+ 254 002d 00       		.byte	0
+ 255 002e 0B       		.uleb128 0xb
+ 256 002f 0B       		.uleb128 0xb
+ 257 0030 3E       		.uleb128 0x3e
+ 258 0031 0B       		.uleb128 0xb
+ 259 0032 03       		.uleb128 0x3
+ 260 0033 08       		.uleb128 0x8
+ 261 0034 00       		.byte	0
+ 262 0035 00       		.byte	0
+ 263 0036 05       		.uleb128 0x5
+ 264 0037 2E       		.uleb128 0x2e
+ 265 0038 01       		.byte	0x1
+ 266 0039 3F       		.uleb128 0x3f
+ 267 003a 19       		.uleb128 0x19
+ 268 003b 03       		.uleb128 0x3
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 6
+
+
+ 269 003c 0E       		.uleb128 0xe
+ 270 003d 3A       		.uleb128 0x3a
+ 271 003e 0B       		.uleb128 0xb
+ 272 003f 3B       		.uleb128 0x3b
+ 273 0040 0B       		.uleb128 0xb
+ 274 0041 27       		.uleb128 0x27
+ 275 0042 19       		.uleb128 0x19
+ 276 0043 49       		.uleb128 0x49
+ 277 0044 13       		.uleb128 0x13
+ 278 0045 8701     		.uleb128 0x87
+ 279 0047 19       		.uleb128 0x19
+ 280 0048 11       		.uleb128 0x11
+ 281 0049 01       		.uleb128 0x1
+ 282 004a 12       		.uleb128 0x12
+ 283 004b 06       		.uleb128 0x6
+ 284 004c 40       		.uleb128 0x40
+ 285 004d 18       		.uleb128 0x18
+ 286 004e 9742     		.uleb128 0x2117
+ 287 0050 19       		.uleb128 0x19
+ 288 0051 01       		.uleb128 0x1
+ 289 0052 13       		.uleb128 0x13
+ 290 0053 00       		.byte	0
+ 291 0054 00       		.byte	0
+ 292 0055 06       		.uleb128 0x6
+ 293 0056 898201   		.uleb128 0x4109
+ 294 0059 00       		.byte	0
+ 295 005a 11       		.uleb128 0x11
+ 296 005b 01       		.uleb128 0x1
+ 297 005c 31       		.uleb128 0x31
+ 298 005d 13       		.uleb128 0x13
+ 299 005e 00       		.byte	0
+ 300 005f 00       		.byte	0
+ 301 0060 07       		.uleb128 0x7
+ 302 0061 34       		.uleb128 0x34
+ 303 0062 00       		.byte	0
+ 304 0063 03       		.uleb128 0x3
+ 305 0064 0E       		.uleb128 0xe
+ 306 0065 3A       		.uleb128 0x3a
+ 307 0066 0B       		.uleb128 0xb
+ 308 0067 3B       		.uleb128 0x3b
+ 309 0068 05       		.uleb128 0x5
+ 310 0069 49       		.uleb128 0x49
+ 311 006a 13       		.uleb128 0x13
+ 312 006b 3F       		.uleb128 0x3f
+ 313 006c 19       		.uleb128 0x19
+ 314 006d 3C       		.uleb128 0x3c
+ 315 006e 19       		.uleb128 0x19
+ 316 006f 00       		.byte	0
+ 317 0070 00       		.byte	0
+ 318 0071 08       		.uleb128 0x8
+ 319 0072 35       		.uleb128 0x35
+ 320 0073 00       		.byte	0
+ 321 0074 49       		.uleb128 0x49
+ 322 0075 13       		.uleb128 0x13
+ 323 0076 00       		.byte	0
+ 324 0077 00       		.byte	0
+ 325 0078 09       		.uleb128 0x9
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 7
+
+
+ 326 0079 34       		.uleb128 0x34
+ 327 007a 00       		.byte	0
+ 328 007b 03       		.uleb128 0x3
+ 329 007c 0E       		.uleb128 0xe
+ 330 007d 3A       		.uleb128 0x3a
+ 331 007e 0B       		.uleb128 0xb
+ 332 007f 3B       		.uleb128 0x3b
+ 333 0080 0B       		.uleb128 0xb
+ 334 0081 49       		.uleb128 0x49
+ 335 0082 13       		.uleb128 0x13
+ 336 0083 3F       		.uleb128 0x3f
+ 337 0084 19       		.uleb128 0x19
+ 338 0085 02       		.uleb128 0x2
+ 339 0086 18       		.uleb128 0x18
+ 340 0087 00       		.byte	0
+ 341 0088 00       		.byte	0
+ 342 0089 0A       		.uleb128 0xa
+ 343 008a 26       		.uleb128 0x26
+ 344 008b 00       		.byte	0
+ 345 008c 49       		.uleb128 0x49
+ 346 008d 13       		.uleb128 0x13
+ 347 008e 00       		.byte	0
+ 348 008f 00       		.byte	0
+ 349 0090 0B       		.uleb128 0xb
+ 350 0091 2E       		.uleb128 0x2e
+ 351 0092 00       		.byte	0
+ 352 0093 3F       		.uleb128 0x3f
+ 353 0094 19       		.uleb128 0x19
+ 354 0095 3C       		.uleb128 0x3c
+ 355 0096 19       		.uleb128 0x19
+ 356 0097 6E       		.uleb128 0x6e
+ 357 0098 0E       		.uleb128 0xe
+ 358 0099 03       		.uleb128 0x3
+ 359 009a 0E       		.uleb128 0xe
+ 360 009b 3A       		.uleb128 0x3a
+ 361 009c 0B       		.uleb128 0xb
+ 362 009d 3B       		.uleb128 0x3b
+ 363 009e 0B       		.uleb128 0xb
+ 364 009f 00       		.byte	0
+ 365 00a0 00       		.byte	0
+ 366 00a1 00       		.byte	0
+ 367              		.section	.debug_aranges,"",%progbits
+ 368 0000 1C000000 		.4byte	0x1c
+ 369 0004 0200     		.2byte	0x2
+ 370 0006 00000000 		.4byte	.Ldebug_info0
+ 371 000a 04       		.byte	0x4
+ 372 000b 00       		.byte	0
+ 373 000c 0000     		.2byte	0
+ 374 000e 0000     		.2byte	0
+ 375 0010 00000000 		.4byte	.LFB63
+ 376 0014 0E000000 		.4byte	.LFE63-.LFB63
+ 377 0018 00000000 		.4byte	0
+ 378 001c 00000000 		.4byte	0
+ 379              		.section	.debug_ranges,"",%progbits
+ 380              	.Ldebug_ranges0:
+ 381 0000 00000000 		.4byte	.LFB63
+ 382 0004 0E000000 		.4byte	.LFE63
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 8
+
+
+ 383 0008 00000000 		.4byte	0
+ 384 000c 00000000 		.4byte	0
+ 385              		.section	.debug_line,"",%progbits
+ 386              	.Ldebug_line0:
+ 387 0000 6B010000 		.section	.debug_str,"MS",%progbits,1
+ 387      02004F01 
+ 387      00000201 
+ 387      FB0E0D00 
+ 387      01010101 
+ 388              	.LASF8:
+ 389 0000 6C6F6E67 		.ascii	"long long int\000"
+ 389      206C6F6E 
+ 389      6720696E 
+ 389      7400
+ 390              	.LASF19:
+ 391 000e 44454C41 		.ascii	"DELAY\000"
+ 391      5900
+ 392              	.LASF10:
+ 393 0014 756E7369 		.ascii	"unsigned int\000"
+ 393      676E6564 
+ 393      20696E74 
+ 393      00
+ 394              	.LASF25:
+ 395 0021 6D61696E 		.ascii	"main\000"
+ 395      00
+ 396              	.LASF23:
+ 397 0026 6D61696E 		.ascii	"main.c\000"
+ 397      2E6300
+ 398              	.LASF24:
+ 399 002d 443A5C53 		.ascii	"D:\\Source\\Repos\\DotMatrix\\GPIO\\GPIO.cydsn\000"
+ 399      6F757263 
+ 399      655C5265 
+ 399      706F735C 
+ 399      446F744D 
+ 400              	.LASF22:
+ 401 0057 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 401      43313120 
+ 401      352E342E 
+ 401      31203230 
+ 401      31363036 
+ 402 008a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 402      20726576 
+ 402      6973696F 
+ 402      6E203233 
+ 402      37373135 
+ 403 00bd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 403      66756E63 
+ 403      74696F6E 
+ 403      2D736563 
+ 403      74696F6E 
+ 404              	.LASF21:
+ 405 00e5 73776565 		.ascii	"sweep_horizontal\000"
+ 405      705F686F 
+ 405      72697A6F 
+ 405      6E74616C 
+ 405      00
+ 406              	.LASF7:
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 9
+
+
+ 407 00f6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 407      20756E73 
+ 407      69676E65 
+ 407      6420696E 
+ 407      7400
+ 408              	.LASF9:
+ 409 0108 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 409      206C6F6E 
+ 409      6720756E 
+ 409      7369676E 
+ 409      65642069 
+ 410              	.LASF3:
+ 411 011f 73686F72 		.ascii	"short unsigned int\000"
+ 411      7420756E 
+ 411      7369676E 
+ 411      65642069 
+ 411      6E7400
+ 412              	.LASF4:
+ 413 0132 5F5F7569 		.ascii	"__uint16_t\000"
+ 413      6E743136 
+ 413      5F7400
+ 414              	.LASF1:
+ 415 013d 756E7369 		.ascii	"unsigned char\000"
+ 415      676E6564 
+ 415      20636861 
+ 415      7200
+ 416              	.LASF15:
+ 417 014b 63686172 		.ascii	"char\000"
+ 417      00
+ 418              	.LASF6:
+ 419 0150 6C6F6E67 		.ascii	"long int\000"
+ 419      20696E74 
+ 419      00
+ 420              	.LASF2:
+ 421 0159 73686F72 		.ascii	"short int\000"
+ 421      7420696E 
+ 421      7400
+ 422              	.LASF14:
+ 423 0163 646F7562 		.ascii	"double\000"
+ 423      6C6500
+ 424              	.LASF18:
+ 425 016a 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 425      52784275 
+ 425      66666572 
+ 425      00
+ 426              	.LASF0:
+ 427 0177 7369676E 		.ascii	"signed char\000"
+ 427      65642063 
+ 427      68617200 
+ 428              	.LASF17:
+ 429 0183 6C6F6E67 		.ascii	"long double\000"
+ 429      20646F75 
+ 429      626C6500 
+ 430              	.LASF5:
+ 431 018f 5F5F696E 		.ascii	"__int32_t\000"
+ 431      7433325F 
+ 431      7400
+ARM GAS  C:\Users\Michi\AppData\Local\Temp\ccA8rFdA.s 			page 10
+
+
+ 432              	.LASF11:
+ 433 0199 75696E74 		.ascii	"uint16_t\000"
+ 433      31365F74 
+ 433      00
+ 434              	.LASF13:
+ 435 01a2 666C6F61 		.ascii	"float\000"
+ 435      7400
+ 436              	.LASF20:
+ 437 01a8 72657365 		.ascii	"reset_matrix\000"
+ 437      745F6D61 
+ 437      74726978 
+ 437      00
+ 438              	.LASF12:
+ 439 01b5 696E7433 		.ascii	"int32_t\000"
+ 439      325F7400 
+ 440              	.LASF16:
+ 441 01bd 73697A65 		.ascii	"sizetype\000"
+ 441      74797065 
+ 441      00
+ 442              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

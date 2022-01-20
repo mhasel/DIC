@@ -1,0 +1,24 @@
+# GPIO
+# 2021-12-11 02:45:39Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "Pin_Col1(0)" iocell 2 6
+set_io "Pin_Col2(0)" iocell 2 3
+set_io "Pin_Col3(0)" iocell 2 0
+set_io "Pin_Col4(0)" iocell 1 2
+set_io "Pin_Col5(0)" iocell 12 2
+set_io "Pin_Col6(0)" iocell 2 7
+set_io "Pin_Col7(0)" iocell 2 5
+set_io "Pin_Col8(0)" iocell 2 4
+set_io "Pin_Row1(0)" iocell 1 3
+set_io "Pin_Row2(0)" iocell 1 5
+set_io "Pin_Row3(0)" iocell 3 7
+set_io "Pin_Row4(0)" iocell 1 4
+set_io "Pin_Row5(0)" iocell 1 6
+set_io "Pin_Row7(0)" iocell 1 7
+set_io "Pin_Row6(0)" iocell 3 6
+set_io "Pin_Row8(0)" iocell 3 4
