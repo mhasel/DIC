@@ -1,0 +1,1839 @@
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.trig,"ax",%progbits
+  20              		.align	2
+  21              		.global	trig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	trig, %function
+  25              	trig:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** #include <stdio.h>
+   3:main.c        **** 
+   4:main.c        **** typedef enum phase
+   5:main.c        **** {
+   6:main.c        ****     REF = 0,
+   7:main.c        ****     RESULT
+   8:main.c        **** }phase;
+   9:main.c        **** 
+  10:main.c        **** CY_ISR(trig)
+  11:main.c        **** {
+  28              		.loc 1 11 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE64:
+  36              		.size	trig, .-trig
+  37 0002 00BF     		.section	.text.write_adc_val,"ax",%progbits
+  38              		.align	2
+  39              		.global	write_adc_val
+  40              		.thumb
+  41              		.thumb_func
+  42              		.type	write_adc_val, %function
+  43              	write_adc_val:
+  44              	.LFB66:
+  12:main.c        **** 
+  13:main.c        **** }
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 2
+
+
+  14:main.c        **** void discharge(void);
+  15:main.c        **** void measure(enum phase p, uint32_t* dst);
+  16:main.c        **** void write_adc_val(void);
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  20:main.c        ****     CyGlobalIntEnable; 
+  21:main.c        **** //    ADC_SAR_Start();
+  22:main.c        **** //    ADC_SAR_StartConvert();
+  23:main.c        ****     UART_Start();
+  24:main.c        ****     UART_PutString("Starting...");
+  25:main.c        ****     char res[100];
+  26:main.c        ****     for(;;)
+  27:main.c        ****     {      
+  28:main.c        ****         static uint32_t ticks[2] = {0};
+  29:main.c        ****         discharge();       
+  30:main.c        ****         measure(REF, ticks);    
+  31:main.c        ****         
+  32:main.c        ****         sprintf(res, "Ref: %u\n\r",ticks[REF]);
+  33:main.c        ****         UART_PutString(res);
+  34:main.c        ****         
+  35:main.c        ****         discharge();        
+  36:main.c        ****         measure(RESULT, ticks);
+  37:main.c        ****         
+  38:main.c        ****         sprintf(res, "Result: %u\n\r",ticks[RESULT]);
+  39:main.c        ****         UART_PutString(res);  
+  40:main.c        ****         CyDelay(100);
+  41:main.c        ****     }
+  42:main.c        **** }
+  43:main.c        **** 
+  44:main.c        **** void write_adc_val()
+  45:main.c        **** {
+  45              		.loc 1 45 0
+  46              		.cfi_startproc
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		.loc 1 45 0
+  50 0000 10B5     		push	{r4, lr}
+  51              		.cfi_def_cfa_offset 8
+  52              		.cfi_offset 4, -8
+  53              		.cfi_offset 14, -4
+  46:main.c        ****     static char adc_res[100];
+  47:main.c        ****     if(ADC_SAR_IsEndConversion(ADC_SAR_WAIT_FOR_RESULT)!= 0) 
+  54              		.loc 1 47 0
+  55 0002 0020     		movs	r0, #0
+  56 0004 FFF7FEFF 		bl	ADC_SAR_IsEndConversion
+  57              	.LVL0:
+  58 0008 50B1     		cbz	r0, .L2
+  59              	.LBB2:
+  48:main.c        ****     {        
+  49:main.c        ****         int16 result = ADC_SAR_GetResult16();    
+  60              		.loc 1 49 0
+  61 000a FFF7FEFF 		bl	ADC_SAR_GetResult16
+  62              	.LVL1:
+  50:main.c        ****         sprintf(adc_res, "ADC reading: %d\n\r", result);
+  63              		.loc 1 50 0
+  64 000e 054C     		ldr	r4, .L5
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 3
+
+
+  65 0010 0246     		mov	r2, r0
+  66 0012 0549     		ldr	r1, .L5+4
+  67 0014 2046     		mov	r0, r4
+  68              	.LVL2:
+  69 0016 FFF7FEFF 		bl	sprintf
+  70              	.LVL3:
+  51:main.c        ****         UART_PutString(adc_res);
+  71              		.loc 1 51 0
+  72 001a 2046     		mov	r0, r4
+  73 001c FFF7FEFF 		bl	UART_PutString
+  74              	.LVL4:
+  75              	.L2:
+  76 0020 10BD     		pop	{r4, pc}
+  77              	.L6:
+  78 0022 00BF     		.align	2
+  79              	.L5:
+  80 0024 00000000 		.word	.LANCHOR0
+  81 0028 00000000 		.word	.LC0
+  82              	.LBE2:
+  83              		.cfi_endproc
+  84              	.LFE66:
+  85              		.size	write_adc_val, .-write_adc_val
+  86              		.section	.text.discharge,"ax",%progbits
+  87              		.align	2
+  88              		.global	discharge
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	discharge, %function
+  92              	discharge:
+  93              	.LFB67:
+  52:main.c        ****     }
+  53:main.c        **** }
+  54:main.c        **** 
+  55:main.c        **** void discharge()
+  56:main.c        **** {
+  94              		.loc 1 56 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98 0000 08B5     		push	{r3, lr}
+  99              		.cfi_def_cfa_offset 8
+ 100              		.cfi_offset 3, -8
+ 101              		.cfi_offset 14, -4
+  57:main.c        ****     P_discharge_Write(0);
+ 102              		.loc 1 57 0
+ 103 0002 0020     		movs	r0, #0
+ 104 0004 FFF7FEFF 		bl	P_discharge_Write
+ 105              	.LVL5:
+  58:main.c        ****     CyDelay(5);
+ 106              		.loc 1 58 0
+ 107 0008 0520     		movs	r0, #5
+ 108 000a FFF7FEFF 		bl	CyDelay
+ 109              	.LVL6:
+  59:main.c        ****     P_discharge_Write(1);
+ 110              		.loc 1 59 0
+ 111 000e 0120     		movs	r0, #1
+ 112 0010 FFF7FEFF 		bl	P_discharge_Write
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 4
+
+
+ 113              	.LVL7:
+ 114 0014 08BD     		pop	{r3, pc}
+ 115              		.cfi_endproc
+ 116              	.LFE67:
+ 117              		.size	discharge, .-discharge
+ 118 0016 00BF     		.section	.text.measure,"ax",%progbits
+ 119              		.align	2
+ 120              		.global	measure
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.type	measure, %function
+ 124              	measure:
+ 125              	.LFB68:
+  60:main.c        **** }
+  61:main.c        **** 
+  62:main.c        **** void measure(enum phase p, uint32_t* dst)
+  63:main.c        **** {    
+ 126              		.loc 1 63 0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 8
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              	.LVL8:
+ 131 0000 30B5     		push	{r4, r5, lr}
+ 132              		.cfi_def_cfa_offset 12
+ 133              		.cfi_offset 4, -12
+ 134              		.cfi_offset 5, -8
+ 135              		.cfi_offset 14, -4
+ 136 0002 83B0     		sub	sp, sp, #12
+ 137              		.cfi_def_cfa_offset 24
+ 138 0004 0D46     		mov	r5, r1
+  64:main.c        ****     volatile uint8_t pin_state = 0;
+ 139              		.loc 1 64 0
+ 140 0006 0023     		movs	r3, #0
+ 141 0008 8DF80730 		strb	r3, [sp, #7]
+  65:main.c        ****     uint32_t ticks;
+  66:main.c        ****     switch(p)
+ 142              		.loc 1 66 0
+ 143 000c 10B1     		cbz	r0, .L11
+ 144 000e 0128     		cmp	r0, #1
+ 145 0010 1BD0     		beq	.L12
+ 146 0012 34E0     		b	.L9
+ 147              	.L11:
+  67:main.c        ****     {
+  68:main.c        ****         case REF:
+  69:main.c        ****             P_charge_ref_Write(1);
+ 148              		.loc 1 69 0
+ 149 0014 0120     		movs	r0, #1
+ 150              	.LVL9:
+ 151 0016 FFF7FEFF 		bl	P_charge_ref_Write
+ 152              	.LVL10:
+  70:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 153              		.loc 1 70 0
+ 154 001a 0024     		movs	r4, #0
+ 155 001c 07E0     		b	.L13
+ 156              	.LVL11:
+ 157              	.L15:
+  71:main.c        ****             {        
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 5
+
+
+  72:main.c        ****                 pin_state = P_sense_Read();
+ 158              		.loc 1 72 0 discriminator 4
+ 159 001e FFF7FEFF 		bl	P_sense_Read
+ 160              	.LVL12:
+ 161 0022 8DF80700 		strb	r0, [sp, #7]
+  73:main.c        ****                 CyDelayUs(1);
+ 162              		.loc 1 73 0 discriminator 4
+ 163 0026 0120     		movs	r0, #1
+ 164 0028 FFF7FEFF 		bl	CyDelayUs
+ 165              	.LVL13:
+  70:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 166              		.loc 1 70 0 discriminator 4
+ 167 002c 0134     		adds	r4, r4, #1
+ 168              	.LVL14:
+ 169              	.L13:
+  70:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 170              		.loc 1 70 0 is_stmt 0 discriminator 1
+ 171 002e 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+ 172 0032 13F0FF0F 		tst	r3, #255
+ 173 0036 03D1     		bne	.L14
+  70:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 174              		.loc 1 70 0 discriminator 3
+ 175 0038 4FF6FE73 		movw	r3, #65534
+ 176 003c 9C42     		cmp	r4, r3
+ 177 003e EED9     		bls	.L15
+ 178              	.L14:
+  74:main.c        ****             }
+  75:main.c        ****             dst[REF] = ticks;
+ 179              		.loc 1 75 0 is_stmt 1
+ 180 0040 2C60     		str	r4, [r5]
+  76:main.c        ****             P_charge_ref_Write(0);
+ 181              		.loc 1 76 0
+ 182 0042 0020     		movs	r0, #0
+ 183 0044 FFF7FEFF 		bl	P_charge_ref_Write
+ 184              	.LVL15:
+  77:main.c        ****             break;
+ 185              		.loc 1 77 0
+ 186 0048 19E0     		b	.L9
+ 187              	.LVL16:
+ 188              	.L12:
+  78:main.c        ****         case RESULT:
+  79:main.c        ****             P_charge_Write(1);
+ 189              		.loc 1 79 0
+ 190 004a 0120     		movs	r0, #1
+ 191              	.LVL17:
+ 192 004c FFF7FEFF 		bl	P_charge_Write
+ 193              	.LVL18:
+  80:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 194              		.loc 1 80 0
+ 195 0050 0024     		movs	r4, #0
+ 196 0052 07E0     		b	.L16
+ 197              	.LVL19:
+ 198              	.L18:
+  81:main.c        ****             {        
+  82:main.c        ****                 pin_state = P_sense_Read();
+ 199              		.loc 1 82 0 discriminator 4
+ 200 0054 FFF7FEFF 		bl	P_sense_Read
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 6
+
+
+ 201              	.LVL20:
+ 202 0058 8DF80700 		strb	r0, [sp, #7]
+  83:main.c        ****                 CyDelayUs(1);
+ 203              		.loc 1 83 0 discriminator 4
+ 204 005c 0120     		movs	r0, #1
+ 205 005e FFF7FEFF 		bl	CyDelayUs
+ 206              	.LVL21:
+  80:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 207              		.loc 1 80 0 discriminator 4
+ 208 0062 0134     		adds	r4, r4, #1
+ 209              	.LVL22:
+ 210              	.L16:
+  80:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 211              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 212 0064 9DF80730 		ldrb	r3, [sp, #7]	@ zero_extendqisi2
+ 213 0068 13F0FF0F 		tst	r3, #255
+ 214 006c 03D1     		bne	.L17
+  80:main.c        ****             for(ticks = 0; (!pin_state && ( ticks < UINT16_MAX )); ticks++)
+ 215              		.loc 1 80 0 discriminator 3
+ 216 006e 4FF6FE73 		movw	r3, #65534
+ 217 0072 9C42     		cmp	r4, r3
+ 218 0074 EED9     		bls	.L18
+ 219              	.L17:
+  84:main.c        ****             }
+  85:main.c        ****             dst[RESULT] = ticks;
+ 220              		.loc 1 85 0 is_stmt 1
+ 221 0076 6C60     		str	r4, [r5, #4]
+  86:main.c        ****             P_charge_Write(0);
+ 222              		.loc 1 86 0
+ 223 0078 0020     		movs	r0, #0
+ 224 007a FFF7FEFF 		bl	P_charge_Write
+ 225              	.LVL23:
+ 226              	.L9:
+  87:main.c        ****             break;
+  88:main.c        ****     
+  89:main.c        ****     }
+  90:main.c        **** 
+  91:main.c        **** }...
+ 227              		.loc 1 91 0
+ 228 007e 03B0     		add	sp, sp, #12
+ 229              		.cfi_def_cfa_offset 12
+ 230              		@ sp needed
+ 231 0080 30BD     		pop	{r4, r5, pc}
+ 232              		.cfi_endproc
+ 233              	.LFE68:
+ 234              		.size	measure, .-measure
+ 235 0082 00BF     		.section	.text.main,"ax",%progbits
+ 236              		.align	2
+ 237              		.global	main
+ 238              		.thumb
+ 239              		.thumb_func
+ 240              		.type	main, %function
+ 241              	main:
+ 242              	.LFB65:
+  19:main.c        **** {
+ 243              		.loc 1 19 0
+ 244              		.cfi_startproc
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 7
+
+
+ 245              		@ args = 0, pretend = 0, frame = 104
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247 0000 30B5     		push	{r4, r5, lr}
+ 248              		.cfi_def_cfa_offset 12
+ 249              		.cfi_offset 4, -12
+ 250              		.cfi_offset 5, -8
+ 251              		.cfi_offset 14, -4
+ 252 0002 9BB0     		sub	sp, sp, #108
+ 253              		.cfi_def_cfa_offset 120
+  20:main.c        ****     CyGlobalIntEnable; 
+ 254              		.loc 1 20 0
+ 255              		.syntax unified
+ 256              	@ 20 "main.c" 1
+ 257 0004 62B6     		CPSIE   i
+ 258              	@ 0 "" 2
+  23:main.c        ****     UART_Start();
+ 259              		.loc 1 23 0
+ 260              		.thumb
+ 261              		.syntax unified
+ 262 0006 FFF7FEFF 		bl	UART_Start
+ 263              	.LVL24:
+  24:main.c        ****     UART_PutString("Starting...");
+ 264              		.loc 1 24 0
+ 265 000a 1348     		ldr	r0, .L23
+ 266 000c FFF7FEFF 		bl	UART_PutString
+ 267              	.LVL25:
+ 268              	.L21:
+ 269              	.LBB3:
+  29:main.c        ****         discharge();       
+ 270              		.loc 1 29 0 discriminator 1
+ 271 0010 FFF7FEFF 		bl	discharge
+ 272              	.LVL26:
+  30:main.c        ****         measure(REF, ticks);    
+ 273              		.loc 1 30 0 discriminator 1
+ 274 0014 114C     		ldr	r4, .L23+4
+ 275 0016 04F16405 		add	r5, r4, #100
+ 276 001a 2946     		mov	r1, r5
+ 277 001c 0020     		movs	r0, #0
+ 278 001e FFF7FEFF 		bl	measure
+ 279              	.LVL27:
+  32:main.c        ****         sprintf(res, "Ref: %u\n\r",ticks[REF]);
+ 280              		.loc 1 32 0 discriminator 1
+ 281 0022 626E     		ldr	r2, [r4, #100]
+ 282 0024 0E49     		ldr	r1, .L23+8
+ 283 0026 01A8     		add	r0, sp, #4
+ 284 0028 FFF7FEFF 		bl	sprintf
+ 285              	.LVL28:
+  33:main.c        ****         UART_PutString(res);
+ 286              		.loc 1 33 0 discriminator 1
+ 287 002c 01A8     		add	r0, sp, #4
+ 288 002e FFF7FEFF 		bl	UART_PutString
+ 289              	.LVL29:
+  35:main.c        ****         discharge();        
+ 290              		.loc 1 35 0 discriminator 1
+ 291 0032 FFF7FEFF 		bl	discharge
+ 292              	.LVL30:
+  36:main.c        ****         measure(RESULT, ticks);
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 8
+
+
+ 293              		.loc 1 36 0 discriminator 1
+ 294 0036 2946     		mov	r1, r5
+ 295 0038 0120     		movs	r0, #1
+ 296 003a FFF7FEFF 		bl	measure
+ 297              	.LVL31:
+  38:main.c        ****         sprintf(res, "Result: %u\n\r",ticks[RESULT]);
+ 298              		.loc 1 38 0 discriminator 1
+ 299 003e A26E     		ldr	r2, [r4, #104]
+ 300 0040 0849     		ldr	r1, .L23+12
+ 301 0042 01A8     		add	r0, sp, #4
+ 302 0044 FFF7FEFF 		bl	sprintf
+ 303              	.LVL32:
+  39:main.c        ****         UART_PutString(res);  
+ 304              		.loc 1 39 0 discriminator 1
+ 305 0048 01A8     		add	r0, sp, #4
+ 306 004a FFF7FEFF 		bl	UART_PutString
+ 307              	.LVL33:
+  40:main.c        ****         CyDelay(100);
+ 308              		.loc 1 40 0 discriminator 1
+ 309 004e 6420     		movs	r0, #100
+ 310 0050 FFF7FEFF 		bl	CyDelay
+ 311              	.LVL34:
+ 312 0054 DCE7     		b	.L21
+ 313              	.L24:
+ 314 0056 00BF     		.align	2
+ 315              	.L23:
+ 316 0058 14000000 		.word	.LC1
+ 317 005c 00000000 		.word	.LANCHOR0
+ 318 0060 20000000 		.word	.LC2
+ 319 0064 2C000000 		.word	.LC3
+ 320              	.LBE3:
+ 321              		.cfi_endproc
+ 322              	.LFE65:
+ 323              		.size	main, .-main
+ 324              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 325              		.align	2
+ 326              	.LC0:
+ 327 0000 41444320 		.ascii	"ADC reading: %d\012\015\000"
+ 327      72656164 
+ 327      696E673A 
+ 327      2025640A 
+ 327      0D00
+ 328 0012 0000     		.space	2
+ 329              	.LC1:
+ 330 0014 53746172 		.ascii	"Starting...\000"
+ 330      74696E67 
+ 330      2E2E2E00 
+ 331              	.LC2:
+ 332 0020 5265663A 		.ascii	"Ref: %u\012\015\000"
+ 332      2025750A 
+ 332      0D00
+ 333 002a 0000     		.space	2
+ 334              	.LC3:
+ 335 002c 52657375 		.ascii	"Result: %u\012\015\000"
+ 335      6C743A20 
+ 335      25750A0D 
+ 335      00
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 9
+
+
+ 336              		.bss
+ 337              		.align	2
+ 338              		.set	.LANCHOR0,. + 0
+ 339              		.type	adc_res.6586, %object
+ 340              		.size	adc_res.6586, 100
+ 341              	adc_res.6586:
+ 342 0000 00000000 		.space	100
+ 342      00000000 
+ 342      00000000 
+ 342      00000000 
+ 342      00000000 
+ 343              		.type	ticks.6582, %object
+ 344              		.size	ticks.6582, 8
+ 345              	ticks.6582:
+ 346 0064 00000000 		.space	8
+ 346      00000000 
+ 347              		.text
+ 348              	.Letext0:
+ 349              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 350              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 351              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 352              		.file 5 "Generated_Source\\PSoC5/ADC_SAR.h"
+ 353              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 354              		.file 7 "Generated_Source\\PSoC5/UART.h"
+ 355              		.file 8 "Generated_Source\\PSoC5/P_discharge.h"
+ 356              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 357              		.file 10 "Generated_Source\\PSoC5/P_charge_ref.h"
+ 358              		.file 11 "Generated_Source\\PSoC5/P_sense.h"
+ 359              		.file 12 "Generated_Source\\PSoC5/P_charge.h"
+ 360              		.file 13 "Generated_Source\\PSoC5/core_cm3.h"
+ 361              		.section	.debug_info,"",%progbits
+ 362              	.Ldebug_info0:
+ 363 0000 7D040000 		.4byte	0x47d
+ 364 0004 0400     		.2byte	0x4
+ 365 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 366 000a 04       		.byte	0x4
+ 367 000b 01       		.uleb128 0x1
+ 368 000c A7000000 		.4byte	.LASF40
+ 369 0010 0C       		.byte	0xc
+ 370 0011 53020000 		.4byte	.LASF41
+ 371 0015 1A000000 		.4byte	.LASF42
+ 372 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 373 001d 00000000 		.4byte	0
+ 374 0021 00000000 		.4byte	.Ldebug_line0
+ 375 0025 02       		.uleb128 0x2
+ 376 0026 01       		.byte	0x1
+ 377 0027 06       		.byte	0x6
+ 378 0028 A7020000 		.4byte	.LASF0
+ 379 002c 03       		.uleb128 0x3
+ 380 002d 06000000 		.4byte	.LASF4
+ 381 0031 02       		.byte	0x2
+ 382 0032 1D       		.byte	0x1d
+ 383 0033 37000000 		.4byte	0x37
+ 384 0037 02       		.uleb128 0x2
+ 385 0038 01       		.byte	0x1
+ 386 0039 08       		.byte	0x8
+ 387 003a AE010000 		.4byte	.LASF1
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 10
+
+
+ 388 003e 02       		.uleb128 0x2
+ 389 003f 02       		.byte	0x2
+ 390 0040 05       		.byte	0x5
+ 391 0041 6D020000 		.4byte	.LASF2
+ 392 0045 02       		.uleb128 0x2
+ 393 0046 02       		.byte	0x2
+ 394 0047 07       		.byte	0x7
+ 395 0048 68010000 		.4byte	.LASF3
+ 396 004c 03       		.uleb128 0x3
+ 397 004d 10000000 		.4byte	.LASF5
+ 398 0051 02       		.byte	0x2
+ 399 0052 3F       		.byte	0x3f
+ 400 0053 57000000 		.4byte	0x57
+ 401 0057 02       		.uleb128 0x2
+ 402 0058 04       		.byte	0x4
+ 403 0059 05       		.byte	0x5
+ 404 005a 80020000 		.4byte	.LASF6
+ 405 005e 03       		.uleb128 0x3
+ 406 005f C3010000 		.4byte	.LASF7
+ 407 0063 02       		.byte	0x2
+ 408 0064 41       		.byte	0x41
+ 409 0065 69000000 		.4byte	0x69
+ 410 0069 02       		.uleb128 0x2
+ 411 006a 04       		.byte	0x4
+ 412 006b 07       		.byte	0x7
+ 413 006c 43010000 		.4byte	.LASF8
+ 414 0070 02       		.uleb128 0x2
+ 415 0071 08       		.byte	0x8
+ 416 0072 05       		.byte	0x5
+ 417 0073 45020000 		.4byte	.LASF9
+ 418 0077 02       		.uleb128 0x2
+ 419 0078 08       		.byte	0x8
+ 420 0079 07       		.byte	0x7
+ 421 007a EA010000 		.4byte	.LASF10
+ 422 007e 04       		.uleb128 0x4
+ 423 007f 04       		.byte	0x4
+ 424 0080 05       		.byte	0x5
+ 425 0081 696E7400 		.ascii	"int\000"
+ 426 0085 02       		.uleb128 0x2
+ 427 0086 04       		.byte	0x4
+ 428 0087 07       		.byte	0x7
+ 429 0088 DD010000 		.4byte	.LASF11
+ 430 008c 03       		.uleb128 0x3
+ 431 008d 01020000 		.4byte	.LASF12
+ 432 0091 03       		.byte	0x3
+ 433 0092 18       		.byte	0x18
+ 434 0093 2C000000 		.4byte	0x2c
+ 435 0097 03       		.uleb128 0x3
+ 436 0098 8F000000 		.4byte	.LASF13
+ 437 009c 03       		.byte	0x3
+ 438 009d 2C       		.byte	0x2c
+ 439 009e 4C000000 		.4byte	0x4c
+ 440 00a2 03       		.uleb128 0x3
+ 441 00a3 77020000 		.4byte	.LASF14
+ 442 00a7 03       		.byte	0x3
+ 443 00a8 30       		.byte	0x30
+ 444 00a9 5E000000 		.4byte	0x5e
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 11
+
+
+ 445 00ad 05       		.uleb128 0x5
+ 446 00ae 3D010000 		.4byte	.LASF15
+ 447 00b2 04       		.byte	0x4
+ 448 00b3 ED01     		.2byte	0x1ed
+ 449 00b5 3E000000 		.4byte	0x3e
+ 450 00b9 02       		.uleb128 0x2
+ 451 00ba 04       		.byte	0x4
+ 452 00bb 04       		.byte	0x4
+ 453 00bc 97000000 		.4byte	.LASF16
+ 454 00c0 02       		.uleb128 0x2
+ 455 00c1 08       		.byte	0x8
+ 456 00c2 04       		.byte	0x4
+ 457 00c3 BC010000 		.4byte	.LASF17
+ 458 00c7 02       		.uleb128 0x2
+ 459 00c8 01       		.byte	0x1
+ 460 00c9 08       		.byte	0x8
+ 461 00ca 5A020000 		.4byte	.LASF18
+ 462 00ce 02       		.uleb128 0x2
+ 463 00cf 08       		.byte	0x8
+ 464 00d0 04       		.byte	0x4
+ 465 00d1 89020000 		.4byte	.LASF19
+ 466 00d5 02       		.uleb128 0x2
+ 467 00d6 04       		.byte	0x4
+ 468 00d7 07       		.byte	0x7
+ 469 00d8 1D020000 		.4byte	.LASF20
+ 470 00dc 06       		.uleb128 0x6
+ 471 00dd 8C000000 		.4byte	0x8c
+ 472 00e1 07       		.uleb128 0x7
+ 473 00e2 A2000000 		.4byte	0xa2
+ 474 00e6 F1000000 		.4byte	0xf1
+ 475 00ea 08       		.uleb128 0x8
+ 476 00eb D5000000 		.4byte	0xd5
+ 477 00ef 01       		.byte	0x1
+ 478 00f0 00       		.byte	0
+ 479 00f1 09       		.uleb128 0x9
+ 480 00f2 86010000 		.4byte	.LASF43
+ 481 00f6 01       		.byte	0x1
+ 482 00f7 37000000 		.4byte	0x37
+ 483 00fb 01       		.byte	0x1
+ 484 00fc 04       		.byte	0x4
+ 485 00fd 0E010000 		.4byte	0x10e
+ 486 0101 0A       		.uleb128 0xa
+ 487 0102 52454600 		.ascii	"REF\000"
+ 488 0106 00       		.byte	0
+ 489 0107 0B       		.uleb128 0xb
+ 490 0108 3E020000 		.4byte	.LASF21
+ 491 010c 01       		.byte	0x1
+ 492 010d 00       		.byte	0
+ 493 010e 0C       		.uleb128 0xc
+ 494 010f 18020000 		.4byte	.LASF44
+ 495 0113 01       		.byte	0x1
+ 496 0114 0A       		.byte	0xa
+ 497 0115 00000000 		.4byte	.LFB64
+ 498 0119 02000000 		.4byte	.LFE64-.LFB64
+ 499 011d 01       		.uleb128 0x1
+ 500 011e 9C       		.byte	0x9c
+ 501 011f 0D       		.uleb128 0xd
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 12
+
+
+ 502 0120 5F020000 		.4byte	.LASF24
+ 503 0124 01       		.byte	0x1
+ 504 0125 2C       		.byte	0x2c
+ 505 0126 00000000 		.4byte	.LFB66
+ 506 012a 2C000000 		.4byte	.LFE66-.LFB66
+ 507 012e 01       		.uleb128 0x1
+ 508 012f 9C       		.byte	0x9c
+ 509 0130 A8010000 		.4byte	0x1a8
+ 510 0134 0E       		.uleb128 0xe
+ 511 0135 A6010000 		.4byte	.LASF22
+ 512 0139 01       		.byte	0x1
+ 513 013a 2E       		.byte	0x2e
+ 514 013b A8010000 		.4byte	0x1a8
+ 515 013f 05       		.uleb128 0x5
+ 516 0140 03       		.byte	0x3
+ 517 0141 00000000 		.4byte	adc_res.6586
+ 518 0145 0F       		.uleb128 0xf
+ 519 0146 0A000000 		.4byte	.LBB2
+ 520 014a 22000000 		.4byte	.LBE2-.LBB2
+ 521 014e 98010000 		.4byte	0x198
+ 522 0152 10       		.uleb128 0x10
+ 523 0153 09020000 		.4byte	.LASF23
+ 524 0157 01       		.byte	0x1
+ 525 0158 31       		.byte	0x31
+ 526 0159 AD000000 		.4byte	0xad
+ 527 015d 00000000 		.4byte	.LLST0
+ 528 0161 11       		.uleb128 0x11
+ 529 0162 0E000000 		.4byte	.LVL1
+ 530 0166 07040000 		.4byte	0x407
+ 531 016a 12       		.uleb128 0x12
+ 532 016b 1A000000 		.4byte	.LVL3
+ 533 016f 12040000 		.4byte	0x412
+ 534 0173 87010000 		.4byte	0x187
+ 535 0177 13       		.uleb128 0x13
+ 536 0178 01       		.uleb128 0x1
+ 537 0179 50       		.byte	0x50
+ 538 017a 02       		.uleb128 0x2
+ 539 017b 74       		.byte	0x74
+ 540 017c 00       		.sleb128 0
+ 541 017d 13       		.uleb128 0x13
+ 542 017e 01       		.uleb128 0x1
+ 543 017f 51       		.byte	0x51
+ 544 0180 05       		.uleb128 0x5
+ 545 0181 03       		.byte	0x3
+ 546 0182 00000000 		.4byte	.LC0
+ 547 0186 00       		.byte	0
+ 548 0187 14       		.uleb128 0x14
+ 549 0188 20000000 		.4byte	.LVL4
+ 550 018c 1D040000 		.4byte	0x41d
+ 551 0190 13       		.uleb128 0x13
+ 552 0191 01       		.uleb128 0x1
+ 553 0192 50       		.byte	0x50
+ 554 0193 02       		.uleb128 0x2
+ 555 0194 74       		.byte	0x74
+ 556 0195 00       		.sleb128 0
+ 557 0196 00       		.byte	0
+ 558 0197 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 13
+
+
+ 559 0198 14       		.uleb128 0x14
+ 560 0199 08000000 		.4byte	.LVL0
+ 561 019d 28040000 		.4byte	0x428
+ 562 01a1 13       		.uleb128 0x13
+ 563 01a2 01       		.uleb128 0x1
+ 564 01a3 50       		.byte	0x50
+ 565 01a4 01       		.uleb128 0x1
+ 566 01a5 30       		.byte	0x30
+ 567 01a6 00       		.byte	0
+ 568 01a7 00       		.byte	0
+ 569 01a8 07       		.uleb128 0x7
+ 570 01a9 C7000000 		.4byte	0xc7
+ 571 01ad B8010000 		.4byte	0x1b8
+ 572 01b1 08       		.uleb128 0x8
+ 573 01b2 D5000000 		.4byte	0xd5
+ 574 01b6 63       		.byte	0x63
+ 575 01b7 00       		.byte	0
+ 576 01b8 0D       		.uleb128 0xd
+ 577 01b9 85000000 		.4byte	.LASF25
+ 578 01bd 01       		.byte	0x1
+ 579 01be 37       		.byte	0x37
+ 580 01bf 00000000 		.4byte	.LFB67
+ 581 01c3 16000000 		.4byte	.LFE67-.LFB67
+ 582 01c7 01       		.uleb128 0x1
+ 583 01c8 9C       		.byte	0x9c
+ 584 01c9 03020000 		.4byte	0x203
+ 585 01cd 12       		.uleb128 0x12
+ 586 01ce 08000000 		.4byte	.LVL5
+ 587 01d2 33040000 		.4byte	0x433
+ 588 01d6 E0010000 		.4byte	0x1e0
+ 589 01da 13       		.uleb128 0x13
+ 590 01db 01       		.uleb128 0x1
+ 591 01dc 50       		.byte	0x50
+ 592 01dd 01       		.uleb128 0x1
+ 593 01de 30       		.byte	0x30
+ 594 01df 00       		.byte	0
+ 595 01e0 12       		.uleb128 0x12
+ 596 01e1 0E000000 		.4byte	.LVL6
+ 597 01e5 3E040000 		.4byte	0x43e
+ 598 01e9 F3010000 		.4byte	0x1f3
+ 599 01ed 13       		.uleb128 0x13
+ 600 01ee 01       		.uleb128 0x1
+ 601 01ef 50       		.byte	0x50
+ 602 01f0 01       		.uleb128 0x1
+ 603 01f1 35       		.byte	0x35
+ 604 01f2 00       		.byte	0
+ 605 01f3 14       		.uleb128 0x14
+ 606 01f4 14000000 		.4byte	.LVL7
+ 607 01f8 33040000 		.4byte	0x433
+ 608 01fc 13       		.uleb128 0x13
+ 609 01fd 01       		.uleb128 0x1
+ 610 01fe 50       		.byte	0x50
+ 611 01ff 01       		.uleb128 0x1
+ 612 0200 31       		.byte	0x31
+ 613 0201 00       		.byte	0
+ 614 0202 00       		.byte	0
+ 615 0203 0D       		.uleb128 0xd
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 14
+
+
+ 616 0204 35010000 		.4byte	.LASF26
+ 617 0208 01       		.byte	0x1
+ 618 0209 3E       		.byte	0x3e
+ 619 020a 00000000 		.4byte	.LFB68
+ 620 020e 82000000 		.4byte	.LFE68-.LFB68
+ 621 0212 01       		.uleb128 0x1
+ 622 0213 9C       		.byte	0x9c
+ 623 0214 D2020000 		.4byte	0x2d2
+ 624 0218 15       		.uleb128 0x15
+ 625 0219 7000     		.ascii	"p\000"
+ 626 021b 01       		.byte	0x1
+ 627 021c 3E       		.byte	0x3e
+ 628 021d F1000000 		.4byte	0xf1
+ 629 0221 13000000 		.4byte	.LLST1
+ 630 0225 15       		.uleb128 0x15
+ 631 0226 64737400 		.ascii	"dst\000"
+ 632 022a 01       		.byte	0x1
+ 633 022b 3E       		.byte	0x3e
+ 634 022c D2020000 		.4byte	0x2d2
+ 635 0230 4D000000 		.4byte	.LLST2
+ 636 0234 0E       		.uleb128 0xe
+ 637 0235 9D000000 		.4byte	.LASF27
+ 638 0239 01       		.byte	0x1
+ 639 023a 40       		.byte	0x40
+ 640 023b DC000000 		.4byte	0xdc
+ 641 023f 02       		.uleb128 0x2
+ 642 0240 91       		.byte	0x91
+ 643 0241 6F       		.sleb128 -17
+ 644 0242 10       		.uleb128 0x10
+ 645 0243 00000000 		.4byte	.LASF28
+ 646 0247 01       		.byte	0x1
+ 647 0248 41       		.byte	0x41
+ 648 0249 A2000000 		.4byte	0xa2
+ 649 024d 81000000 		.4byte	.LLST3
+ 650 0251 12       		.uleb128 0x12
+ 651 0252 1A000000 		.4byte	.LVL10
+ 652 0256 49040000 		.4byte	0x449
+ 653 025a 64020000 		.4byte	0x264
+ 654 025e 13       		.uleb128 0x13
+ 655 025f 01       		.uleb128 0x1
+ 656 0260 50       		.byte	0x50
+ 657 0261 01       		.uleb128 0x1
+ 658 0262 31       		.byte	0x31
+ 659 0263 00       		.byte	0
+ 660 0264 11       		.uleb128 0x11
+ 661 0265 22000000 		.4byte	.LVL12
+ 662 0269 54040000 		.4byte	0x454
+ 663 026d 12       		.uleb128 0x12
+ 664 026e 2C000000 		.4byte	.LVL13
+ 665 0272 5F040000 		.4byte	0x45f
+ 666 0276 80020000 		.4byte	0x280
+ 667 027a 13       		.uleb128 0x13
+ 668 027b 01       		.uleb128 0x1
+ 669 027c 50       		.byte	0x50
+ 670 027d 01       		.uleb128 0x1
+ 671 027e 31       		.byte	0x31
+ 672 027f 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 15
+
+
+ 673 0280 12       		.uleb128 0x12
+ 674 0281 48000000 		.4byte	.LVL15
+ 675 0285 49040000 		.4byte	0x449
+ 676 0289 93020000 		.4byte	0x293
+ 677 028d 13       		.uleb128 0x13
+ 678 028e 01       		.uleb128 0x1
+ 679 028f 50       		.byte	0x50
+ 680 0290 01       		.uleb128 0x1
+ 681 0291 30       		.byte	0x30
+ 682 0292 00       		.byte	0
+ 683 0293 12       		.uleb128 0x12
+ 684 0294 50000000 		.4byte	.LVL18
+ 685 0298 6A040000 		.4byte	0x46a
+ 686 029c A6020000 		.4byte	0x2a6
+ 687 02a0 13       		.uleb128 0x13
+ 688 02a1 01       		.uleb128 0x1
+ 689 02a2 50       		.byte	0x50
+ 690 02a3 01       		.uleb128 0x1
+ 691 02a4 31       		.byte	0x31
+ 692 02a5 00       		.byte	0
+ 693 02a6 11       		.uleb128 0x11
+ 694 02a7 58000000 		.4byte	.LVL20
+ 695 02ab 54040000 		.4byte	0x454
+ 696 02af 12       		.uleb128 0x12
+ 697 02b0 62000000 		.4byte	.LVL21
+ 698 02b4 5F040000 		.4byte	0x45f
+ 699 02b8 C2020000 		.4byte	0x2c2
+ 700 02bc 13       		.uleb128 0x13
+ 701 02bd 01       		.uleb128 0x1
+ 702 02be 50       		.byte	0x50
+ 703 02bf 01       		.uleb128 0x1
+ 704 02c0 31       		.byte	0x31
+ 705 02c1 00       		.byte	0
+ 706 02c2 14       		.uleb128 0x14
+ 707 02c3 7E000000 		.4byte	.LVL23
+ 708 02c7 6A040000 		.4byte	0x46a
+ 709 02cb 13       		.uleb128 0x13
+ 710 02cc 01       		.uleb128 0x1
+ 711 02cd 50       		.byte	0x50
+ 712 02ce 01       		.uleb128 0x1
+ 713 02cf 30       		.byte	0x30
+ 714 02d0 00       		.byte	0
+ 715 02d1 00       		.byte	0
+ 716 02d2 16       		.uleb128 0x16
+ 717 02d3 04       		.byte	0x4
+ 718 02d4 A2000000 		.4byte	0xa2
+ 719 02d8 17       		.uleb128 0x17
+ 720 02d9 D8010000 		.4byte	.LASF45
+ 721 02dd 01       		.byte	0x1
+ 722 02de 12       		.byte	0x12
+ 723 02df 7E000000 		.4byte	0x7e
+ 724 02e3 00000000 		.4byte	.LFB65
+ 725 02e7 68000000 		.4byte	.LFE65-.LFB65
+ 726 02eb 01       		.uleb128 0x1
+ 727 02ec 9C       		.byte	0x9c
+ 728 02ed F6030000 		.4byte	0x3f6
+ 729 02f1 18       		.uleb128 0x18
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 16
+
+
+ 730 02f2 72657300 		.ascii	"res\000"
+ 731 02f6 01       		.byte	0x1
+ 732 02f7 19       		.byte	0x19
+ 733 02f8 A8010000 		.4byte	0x1a8
+ 734 02fc 03       		.uleb128 0x3
+ 735 02fd 91       		.byte	0x91
+ 736 02fe 8C7F     		.sleb128 -116
+ 737 0300 0F       		.uleb128 0xf
+ 738 0301 10000000 		.4byte	.LBB3
+ 739 0305 58000000 		.4byte	.LBE3-.LBB3
+ 740 0309 D9030000 		.4byte	0x3d9
+ 741 030d 0E       		.uleb128 0xe
+ 742 030e 00000000 		.4byte	.LASF28
+ 743 0312 01       		.byte	0x1
+ 744 0313 1C       		.byte	0x1c
+ 745 0314 E1000000 		.4byte	0xe1
+ 746 0318 05       		.uleb128 0x5
+ 747 0319 03       		.byte	0x3
+ 748 031a 64000000 		.4byte	ticks.6582
+ 749 031e 11       		.uleb128 0x11
+ 750 031f 14000000 		.4byte	.LVL26
+ 751 0323 B8010000 		.4byte	0x1b8
+ 752 0327 12       		.uleb128 0x12
+ 753 0328 22000000 		.4byte	.LVL27
+ 754 032c 03020000 		.4byte	0x203
+ 755 0330 40030000 		.4byte	0x340
+ 756 0334 13       		.uleb128 0x13
+ 757 0335 01       		.uleb128 0x1
+ 758 0336 50       		.byte	0x50
+ 759 0337 01       		.uleb128 0x1
+ 760 0338 30       		.byte	0x30
+ 761 0339 13       		.uleb128 0x13
+ 762 033a 01       		.uleb128 0x1
+ 763 033b 51       		.byte	0x51
+ 764 033c 02       		.uleb128 0x2
+ 765 033d 75       		.byte	0x75
+ 766 033e 00       		.sleb128 0
+ 767 033f 00       		.byte	0
+ 768 0340 12       		.uleb128 0x12
+ 769 0341 2C000000 		.4byte	.LVL28
+ 770 0345 12040000 		.4byte	0x412
+ 771 0349 5E030000 		.4byte	0x35e
+ 772 034d 13       		.uleb128 0x13
+ 773 034e 01       		.uleb128 0x1
+ 774 034f 50       		.byte	0x50
+ 775 0350 03       		.uleb128 0x3
+ 776 0351 91       		.byte	0x91
+ 777 0352 8C7F     		.sleb128 -116
+ 778 0354 13       		.uleb128 0x13
+ 779 0355 01       		.uleb128 0x1
+ 780 0356 51       		.byte	0x51
+ 781 0357 05       		.uleb128 0x5
+ 782 0358 03       		.byte	0x3
+ 783 0359 20000000 		.4byte	.LC2
+ 784 035d 00       		.byte	0
+ 785 035e 12       		.uleb128 0x12
+ 786 035f 32000000 		.4byte	.LVL29
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 17
+
+
+ 787 0363 1D040000 		.4byte	0x41d
+ 788 0367 73030000 		.4byte	0x373
+ 789 036b 13       		.uleb128 0x13
+ 790 036c 01       		.uleb128 0x1
+ 791 036d 50       		.byte	0x50
+ 792 036e 03       		.uleb128 0x3
+ 793 036f 91       		.byte	0x91
+ 794 0370 8C7F     		.sleb128 -116
+ 795 0372 00       		.byte	0
+ 796 0373 11       		.uleb128 0x11
+ 797 0374 36000000 		.4byte	.LVL30
+ 798 0378 B8010000 		.4byte	0x1b8
+ 799 037c 12       		.uleb128 0x12
+ 800 037d 3E000000 		.4byte	.LVL31
+ 801 0381 03020000 		.4byte	0x203
+ 802 0385 95030000 		.4byte	0x395
+ 803 0389 13       		.uleb128 0x13
+ 804 038a 01       		.uleb128 0x1
+ 805 038b 50       		.byte	0x50
+ 806 038c 01       		.uleb128 0x1
+ 807 038d 31       		.byte	0x31
+ 808 038e 13       		.uleb128 0x13
+ 809 038f 01       		.uleb128 0x1
+ 810 0390 51       		.byte	0x51
+ 811 0391 02       		.uleb128 0x2
+ 812 0392 75       		.byte	0x75
+ 813 0393 00       		.sleb128 0
+ 814 0394 00       		.byte	0
+ 815 0395 12       		.uleb128 0x12
+ 816 0396 48000000 		.4byte	.LVL32
+ 817 039a 12040000 		.4byte	0x412
+ 818 039e B3030000 		.4byte	0x3b3
+ 819 03a2 13       		.uleb128 0x13
+ 820 03a3 01       		.uleb128 0x1
+ 821 03a4 50       		.byte	0x50
+ 822 03a5 03       		.uleb128 0x3
+ 823 03a6 91       		.byte	0x91
+ 824 03a7 8C7F     		.sleb128 -116
+ 825 03a9 13       		.uleb128 0x13
+ 826 03aa 01       		.uleb128 0x1
+ 827 03ab 51       		.byte	0x51
+ 828 03ac 05       		.uleb128 0x5
+ 829 03ad 03       		.byte	0x3
+ 830 03ae 2C000000 		.4byte	.LC3
+ 831 03b2 00       		.byte	0
+ 832 03b3 12       		.uleb128 0x12
+ 833 03b4 4E000000 		.4byte	.LVL33
+ 834 03b8 1D040000 		.4byte	0x41d
+ 835 03bc C8030000 		.4byte	0x3c8
+ 836 03c0 13       		.uleb128 0x13
+ 837 03c1 01       		.uleb128 0x1
+ 838 03c2 50       		.byte	0x50
+ 839 03c3 03       		.uleb128 0x3
+ 840 03c4 91       		.byte	0x91
+ 841 03c5 8C7F     		.sleb128 -116
+ 842 03c7 00       		.byte	0
+ 843 03c8 14       		.uleb128 0x14
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 18
+
+
+ 844 03c9 54000000 		.4byte	.LVL34
+ 845 03cd 3E040000 		.4byte	0x43e
+ 846 03d1 13       		.uleb128 0x13
+ 847 03d2 01       		.uleb128 0x1
+ 848 03d3 50       		.byte	0x50
+ 849 03d4 02       		.uleb128 0x2
+ 850 03d5 08       		.byte	0x8
+ 851 03d6 64       		.byte	0x64
+ 852 03d7 00       		.byte	0
+ 853 03d8 00       		.byte	0
+ 854 03d9 11       		.uleb128 0x11
+ 855 03da 0A000000 		.4byte	.LVL24
+ 856 03de 75040000 		.4byte	0x475
+ 857 03e2 14       		.uleb128 0x14
+ 858 03e3 10000000 		.4byte	.LVL25
+ 859 03e7 1D040000 		.4byte	0x41d
+ 860 03eb 13       		.uleb128 0x13
+ 861 03ec 01       		.uleb128 0x1
+ 862 03ed 50       		.byte	0x50
+ 863 03ee 05       		.uleb128 0x5
+ 864 03ef 03       		.byte	0x3
+ 865 03f0 14000000 		.4byte	.LC1
+ 866 03f4 00       		.byte	0
+ 867 03f5 00       		.byte	0
+ 868 03f6 19       		.uleb128 0x19
+ 869 03f7 99010000 		.4byte	.LASF46
+ 870 03fb 0D       		.byte	0xd
+ 871 03fc 1207     		.2byte	0x712
+ 872 03fe 02040000 		.4byte	0x402
+ 873 0402 06       		.uleb128 0x6
+ 874 0403 97000000 		.4byte	0x97
+ 875 0407 1A       		.uleb128 0x1a
+ 876 0408 B3020000 		.4byte	.LASF29
+ 877 040c B3020000 		.4byte	.LASF29
+ 878 0410 05       		.byte	0x5
+ 879 0411 3B       		.byte	0x3b
+ 880 0412 1A       		.uleb128 0x1a
+ 881 0413 10020000 		.4byte	.LASF30
+ 882 0417 10020000 		.4byte	.LASF30
+ 883 041b 06       		.byte	0x6
+ 884 041c E7       		.byte	0xe7
+ 885 041d 1A       		.uleb128 0x1a
+ 886 041e C7020000 		.4byte	.LASF31
+ 887 0422 C7020000 		.4byte	.LASF31
+ 888 0426 07       		.byte	0x7
+ 889 0427 8B       		.byte	0x8b
+ 890 0428 1A       		.uleb128 0x1a
+ 891 0429 26020000 		.4byte	.LASF32
+ 892 042d 26020000 		.4byte	.LASF32
+ 893 0431 05       		.byte	0x5
+ 894 0432 39       		.byte	0x39
+ 895 0433 1A       		.uleb128 0x1a
+ 896 0434 95020000 		.4byte	.LASF33
+ 897 0438 95020000 		.4byte	.LASF33
+ 898 043c 08       		.byte	0x8
+ 899 043d 26       		.byte	0x26
+ 900 043e 1A       		.uleb128 0x1a
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 19
+
+
+ 901 043f D6020000 		.4byte	.LASF34
+ 902 0443 D6020000 		.4byte	.LASF34
+ 903 0447 09       		.byte	0x9
+ 904 0448 76       		.byte	0x76
+ 905 0449 1A       		.uleb128 0x1a
+ 906 044a 55010000 		.4byte	.LASF35
+ 907 044e 55010000 		.4byte	.LASF35
+ 908 0452 0A       		.byte	0xa
+ 909 0453 26       		.byte	0x26
+ 910 0454 1A       		.uleb128 0x1a
+ 911 0455 8C010000 		.4byte	.LASF36
+ 912 0459 8C010000 		.4byte	.LASF36
+ 913 045d 0B       		.byte	0xb
+ 914 045e 29       		.byte	0x29
+ 915 045f 1A       		.uleb128 0x1a
+ 916 0460 CE010000 		.4byte	.LASF37
+ 917 0464 CE010000 		.4byte	.LASF37
+ 918 0468 09       		.byte	0x9
+ 919 0469 77       		.byte	0x77
+ 920 046a 1A       		.uleb128 0x1a
+ 921 046b DE020000 		.4byte	.LASF38
+ 922 046f DE020000 		.4byte	.LASF38
+ 923 0473 0C       		.byte	0xc
+ 924 0474 26       		.byte	0x26
+ 925 0475 1A       		.uleb128 0x1a
+ 926 0476 7B010000 		.4byte	.LASF39
+ 927 047a 7B010000 		.4byte	.LASF39
+ 928 047e 07       		.byte	0x7
+ 929 047f 54       		.byte	0x54
+ 930 0480 00       		.byte	0
+ 931              		.section	.debug_abbrev,"",%progbits
+ 932              	.Ldebug_abbrev0:
+ 933 0000 01       		.uleb128 0x1
+ 934 0001 11       		.uleb128 0x11
+ 935 0002 01       		.byte	0x1
+ 936 0003 25       		.uleb128 0x25
+ 937 0004 0E       		.uleb128 0xe
+ 938 0005 13       		.uleb128 0x13
+ 939 0006 0B       		.uleb128 0xb
+ 940 0007 03       		.uleb128 0x3
+ 941 0008 0E       		.uleb128 0xe
+ 942 0009 1B       		.uleb128 0x1b
+ 943 000a 0E       		.uleb128 0xe
+ 944 000b 55       		.uleb128 0x55
+ 945 000c 17       		.uleb128 0x17
+ 946 000d 11       		.uleb128 0x11
+ 947 000e 01       		.uleb128 0x1
+ 948 000f 10       		.uleb128 0x10
+ 949 0010 17       		.uleb128 0x17
+ 950 0011 00       		.byte	0
+ 951 0012 00       		.byte	0
+ 952 0013 02       		.uleb128 0x2
+ 953 0014 24       		.uleb128 0x24
+ 954 0015 00       		.byte	0
+ 955 0016 0B       		.uleb128 0xb
+ 956 0017 0B       		.uleb128 0xb
+ 957 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 20
+
+
+ 958 0019 0B       		.uleb128 0xb
+ 959 001a 03       		.uleb128 0x3
+ 960 001b 0E       		.uleb128 0xe
+ 961 001c 00       		.byte	0
+ 962 001d 00       		.byte	0
+ 963 001e 03       		.uleb128 0x3
+ 964 001f 16       		.uleb128 0x16
+ 965 0020 00       		.byte	0
+ 966 0021 03       		.uleb128 0x3
+ 967 0022 0E       		.uleb128 0xe
+ 968 0023 3A       		.uleb128 0x3a
+ 969 0024 0B       		.uleb128 0xb
+ 970 0025 3B       		.uleb128 0x3b
+ 971 0026 0B       		.uleb128 0xb
+ 972 0027 49       		.uleb128 0x49
+ 973 0028 13       		.uleb128 0x13
+ 974 0029 00       		.byte	0
+ 975 002a 00       		.byte	0
+ 976 002b 04       		.uleb128 0x4
+ 977 002c 24       		.uleb128 0x24
+ 978 002d 00       		.byte	0
+ 979 002e 0B       		.uleb128 0xb
+ 980 002f 0B       		.uleb128 0xb
+ 981 0030 3E       		.uleb128 0x3e
+ 982 0031 0B       		.uleb128 0xb
+ 983 0032 03       		.uleb128 0x3
+ 984 0033 08       		.uleb128 0x8
+ 985 0034 00       		.byte	0
+ 986 0035 00       		.byte	0
+ 987 0036 05       		.uleb128 0x5
+ 988 0037 16       		.uleb128 0x16
+ 989 0038 00       		.byte	0
+ 990 0039 03       		.uleb128 0x3
+ 991 003a 0E       		.uleb128 0xe
+ 992 003b 3A       		.uleb128 0x3a
+ 993 003c 0B       		.uleb128 0xb
+ 994 003d 3B       		.uleb128 0x3b
+ 995 003e 05       		.uleb128 0x5
+ 996 003f 49       		.uleb128 0x49
+ 997 0040 13       		.uleb128 0x13
+ 998 0041 00       		.byte	0
+ 999 0042 00       		.byte	0
+ 1000 0043 06       		.uleb128 0x6
+ 1001 0044 35       		.uleb128 0x35
+ 1002 0045 00       		.byte	0
+ 1003 0046 49       		.uleb128 0x49
+ 1004 0047 13       		.uleb128 0x13
+ 1005 0048 00       		.byte	0
+ 1006 0049 00       		.byte	0
+ 1007 004a 07       		.uleb128 0x7
+ 1008 004b 01       		.uleb128 0x1
+ 1009 004c 01       		.byte	0x1
+ 1010 004d 49       		.uleb128 0x49
+ 1011 004e 13       		.uleb128 0x13
+ 1012 004f 01       		.uleb128 0x1
+ 1013 0050 13       		.uleb128 0x13
+ 1014 0051 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 21
+
+
+ 1015 0052 00       		.byte	0
+ 1016 0053 08       		.uleb128 0x8
+ 1017 0054 21       		.uleb128 0x21
+ 1018 0055 00       		.byte	0
+ 1019 0056 49       		.uleb128 0x49
+ 1020 0057 13       		.uleb128 0x13
+ 1021 0058 2F       		.uleb128 0x2f
+ 1022 0059 0B       		.uleb128 0xb
+ 1023 005a 00       		.byte	0
+ 1024 005b 00       		.byte	0
+ 1025 005c 09       		.uleb128 0x9
+ 1026 005d 04       		.uleb128 0x4
+ 1027 005e 01       		.byte	0x1
+ 1028 005f 03       		.uleb128 0x3
+ 1029 0060 0E       		.uleb128 0xe
+ 1030 0061 0B       		.uleb128 0xb
+ 1031 0062 0B       		.uleb128 0xb
+ 1032 0063 49       		.uleb128 0x49
+ 1033 0064 13       		.uleb128 0x13
+ 1034 0065 3A       		.uleb128 0x3a
+ 1035 0066 0B       		.uleb128 0xb
+ 1036 0067 3B       		.uleb128 0x3b
+ 1037 0068 0B       		.uleb128 0xb
+ 1038 0069 01       		.uleb128 0x1
+ 1039 006a 13       		.uleb128 0x13
+ 1040 006b 00       		.byte	0
+ 1041 006c 00       		.byte	0
+ 1042 006d 0A       		.uleb128 0xa
+ 1043 006e 28       		.uleb128 0x28
+ 1044 006f 00       		.byte	0
+ 1045 0070 03       		.uleb128 0x3
+ 1046 0071 08       		.uleb128 0x8
+ 1047 0072 1C       		.uleb128 0x1c
+ 1048 0073 0B       		.uleb128 0xb
+ 1049 0074 00       		.byte	0
+ 1050 0075 00       		.byte	0
+ 1051 0076 0B       		.uleb128 0xb
+ 1052 0077 28       		.uleb128 0x28
+ 1053 0078 00       		.byte	0
+ 1054 0079 03       		.uleb128 0x3
+ 1055 007a 0E       		.uleb128 0xe
+ 1056 007b 1C       		.uleb128 0x1c
+ 1057 007c 0B       		.uleb128 0xb
+ 1058 007d 00       		.byte	0
+ 1059 007e 00       		.byte	0
+ 1060 007f 0C       		.uleb128 0xc
+ 1061 0080 2E       		.uleb128 0x2e
+ 1062 0081 00       		.byte	0
+ 1063 0082 3F       		.uleb128 0x3f
+ 1064 0083 19       		.uleb128 0x19
+ 1065 0084 03       		.uleb128 0x3
+ 1066 0085 0E       		.uleb128 0xe
+ 1067 0086 3A       		.uleb128 0x3a
+ 1068 0087 0B       		.uleb128 0xb
+ 1069 0088 3B       		.uleb128 0x3b
+ 1070 0089 0B       		.uleb128 0xb
+ 1071 008a 27       		.uleb128 0x27
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 22
+
+
+ 1072 008b 19       		.uleb128 0x19
+ 1073 008c 11       		.uleb128 0x11
+ 1074 008d 01       		.uleb128 0x1
+ 1075 008e 12       		.uleb128 0x12
+ 1076 008f 06       		.uleb128 0x6
+ 1077 0090 40       		.uleb128 0x40
+ 1078 0091 18       		.uleb128 0x18
+ 1079 0092 9742     		.uleb128 0x2117
+ 1080 0094 19       		.uleb128 0x19
+ 1081 0095 00       		.byte	0
+ 1082 0096 00       		.byte	0
+ 1083 0097 0D       		.uleb128 0xd
+ 1084 0098 2E       		.uleb128 0x2e
+ 1085 0099 01       		.byte	0x1
+ 1086 009a 3F       		.uleb128 0x3f
+ 1087 009b 19       		.uleb128 0x19
+ 1088 009c 03       		.uleb128 0x3
+ 1089 009d 0E       		.uleb128 0xe
+ 1090 009e 3A       		.uleb128 0x3a
+ 1091 009f 0B       		.uleb128 0xb
+ 1092 00a0 3B       		.uleb128 0x3b
+ 1093 00a1 0B       		.uleb128 0xb
+ 1094 00a2 27       		.uleb128 0x27
+ 1095 00a3 19       		.uleb128 0x19
+ 1096 00a4 11       		.uleb128 0x11
+ 1097 00a5 01       		.uleb128 0x1
+ 1098 00a6 12       		.uleb128 0x12
+ 1099 00a7 06       		.uleb128 0x6
+ 1100 00a8 40       		.uleb128 0x40
+ 1101 00a9 18       		.uleb128 0x18
+ 1102 00aa 9742     		.uleb128 0x2117
+ 1103 00ac 19       		.uleb128 0x19
+ 1104 00ad 01       		.uleb128 0x1
+ 1105 00ae 13       		.uleb128 0x13
+ 1106 00af 00       		.byte	0
+ 1107 00b0 00       		.byte	0
+ 1108 00b1 0E       		.uleb128 0xe
+ 1109 00b2 34       		.uleb128 0x34
+ 1110 00b3 00       		.byte	0
+ 1111 00b4 03       		.uleb128 0x3
+ 1112 00b5 0E       		.uleb128 0xe
+ 1113 00b6 3A       		.uleb128 0x3a
+ 1114 00b7 0B       		.uleb128 0xb
+ 1115 00b8 3B       		.uleb128 0x3b
+ 1116 00b9 0B       		.uleb128 0xb
+ 1117 00ba 49       		.uleb128 0x49
+ 1118 00bb 13       		.uleb128 0x13
+ 1119 00bc 02       		.uleb128 0x2
+ 1120 00bd 18       		.uleb128 0x18
+ 1121 00be 00       		.byte	0
+ 1122 00bf 00       		.byte	0
+ 1123 00c0 0F       		.uleb128 0xf
+ 1124 00c1 0B       		.uleb128 0xb
+ 1125 00c2 01       		.byte	0x1
+ 1126 00c3 11       		.uleb128 0x11
+ 1127 00c4 01       		.uleb128 0x1
+ 1128 00c5 12       		.uleb128 0x12
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 23
+
+
+ 1129 00c6 06       		.uleb128 0x6
+ 1130 00c7 01       		.uleb128 0x1
+ 1131 00c8 13       		.uleb128 0x13
+ 1132 00c9 00       		.byte	0
+ 1133 00ca 00       		.byte	0
+ 1134 00cb 10       		.uleb128 0x10
+ 1135 00cc 34       		.uleb128 0x34
+ 1136 00cd 00       		.byte	0
+ 1137 00ce 03       		.uleb128 0x3
+ 1138 00cf 0E       		.uleb128 0xe
+ 1139 00d0 3A       		.uleb128 0x3a
+ 1140 00d1 0B       		.uleb128 0xb
+ 1141 00d2 3B       		.uleb128 0x3b
+ 1142 00d3 0B       		.uleb128 0xb
+ 1143 00d4 49       		.uleb128 0x49
+ 1144 00d5 13       		.uleb128 0x13
+ 1145 00d6 02       		.uleb128 0x2
+ 1146 00d7 17       		.uleb128 0x17
+ 1147 00d8 00       		.byte	0
+ 1148 00d9 00       		.byte	0
+ 1149 00da 11       		.uleb128 0x11
+ 1150 00db 898201   		.uleb128 0x4109
+ 1151 00de 00       		.byte	0
+ 1152 00df 11       		.uleb128 0x11
+ 1153 00e0 01       		.uleb128 0x1
+ 1154 00e1 31       		.uleb128 0x31
+ 1155 00e2 13       		.uleb128 0x13
+ 1156 00e3 00       		.byte	0
+ 1157 00e4 00       		.byte	0
+ 1158 00e5 12       		.uleb128 0x12
+ 1159 00e6 898201   		.uleb128 0x4109
+ 1160 00e9 01       		.byte	0x1
+ 1161 00ea 11       		.uleb128 0x11
+ 1162 00eb 01       		.uleb128 0x1
+ 1163 00ec 31       		.uleb128 0x31
+ 1164 00ed 13       		.uleb128 0x13
+ 1165 00ee 01       		.uleb128 0x1
+ 1166 00ef 13       		.uleb128 0x13
+ 1167 00f0 00       		.byte	0
+ 1168 00f1 00       		.byte	0
+ 1169 00f2 13       		.uleb128 0x13
+ 1170 00f3 8A8201   		.uleb128 0x410a
+ 1171 00f6 00       		.byte	0
+ 1172 00f7 02       		.uleb128 0x2
+ 1173 00f8 18       		.uleb128 0x18
+ 1174 00f9 9142     		.uleb128 0x2111
+ 1175 00fb 18       		.uleb128 0x18
+ 1176 00fc 00       		.byte	0
+ 1177 00fd 00       		.byte	0
+ 1178 00fe 14       		.uleb128 0x14
+ 1179 00ff 898201   		.uleb128 0x4109
+ 1180 0102 01       		.byte	0x1
+ 1181 0103 11       		.uleb128 0x11
+ 1182 0104 01       		.uleb128 0x1
+ 1183 0105 31       		.uleb128 0x31
+ 1184 0106 13       		.uleb128 0x13
+ 1185 0107 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 24
+
+
+ 1186 0108 00       		.byte	0
+ 1187 0109 15       		.uleb128 0x15
+ 1188 010a 05       		.uleb128 0x5
+ 1189 010b 00       		.byte	0
+ 1190 010c 03       		.uleb128 0x3
+ 1191 010d 08       		.uleb128 0x8
+ 1192 010e 3A       		.uleb128 0x3a
+ 1193 010f 0B       		.uleb128 0xb
+ 1194 0110 3B       		.uleb128 0x3b
+ 1195 0111 0B       		.uleb128 0xb
+ 1196 0112 49       		.uleb128 0x49
+ 1197 0113 13       		.uleb128 0x13
+ 1198 0114 02       		.uleb128 0x2
+ 1199 0115 17       		.uleb128 0x17
+ 1200 0116 00       		.byte	0
+ 1201 0117 00       		.byte	0
+ 1202 0118 16       		.uleb128 0x16
+ 1203 0119 0F       		.uleb128 0xf
+ 1204 011a 00       		.byte	0
+ 1205 011b 0B       		.uleb128 0xb
+ 1206 011c 0B       		.uleb128 0xb
+ 1207 011d 49       		.uleb128 0x49
+ 1208 011e 13       		.uleb128 0x13
+ 1209 011f 00       		.byte	0
+ 1210 0120 00       		.byte	0
+ 1211 0121 17       		.uleb128 0x17
+ 1212 0122 2E       		.uleb128 0x2e
+ 1213 0123 01       		.byte	0x1
+ 1214 0124 3F       		.uleb128 0x3f
+ 1215 0125 19       		.uleb128 0x19
+ 1216 0126 03       		.uleb128 0x3
+ 1217 0127 0E       		.uleb128 0xe
+ 1218 0128 3A       		.uleb128 0x3a
+ 1219 0129 0B       		.uleb128 0xb
+ 1220 012a 3B       		.uleb128 0x3b
+ 1221 012b 0B       		.uleb128 0xb
+ 1222 012c 27       		.uleb128 0x27
+ 1223 012d 19       		.uleb128 0x19
+ 1224 012e 49       		.uleb128 0x49
+ 1225 012f 13       		.uleb128 0x13
+ 1226 0130 8701     		.uleb128 0x87
+ 1227 0132 19       		.uleb128 0x19
+ 1228 0133 11       		.uleb128 0x11
+ 1229 0134 01       		.uleb128 0x1
+ 1230 0135 12       		.uleb128 0x12
+ 1231 0136 06       		.uleb128 0x6
+ 1232 0137 40       		.uleb128 0x40
+ 1233 0138 18       		.uleb128 0x18
+ 1234 0139 9742     		.uleb128 0x2117
+ 1235 013b 19       		.uleb128 0x19
+ 1236 013c 01       		.uleb128 0x1
+ 1237 013d 13       		.uleb128 0x13
+ 1238 013e 00       		.byte	0
+ 1239 013f 00       		.byte	0
+ 1240 0140 18       		.uleb128 0x18
+ 1241 0141 34       		.uleb128 0x34
+ 1242 0142 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 25
+
+
+ 1243 0143 03       		.uleb128 0x3
+ 1244 0144 08       		.uleb128 0x8
+ 1245 0145 3A       		.uleb128 0x3a
+ 1246 0146 0B       		.uleb128 0xb
+ 1247 0147 3B       		.uleb128 0x3b
+ 1248 0148 0B       		.uleb128 0xb
+ 1249 0149 49       		.uleb128 0x49
+ 1250 014a 13       		.uleb128 0x13
+ 1251 014b 02       		.uleb128 0x2
+ 1252 014c 18       		.uleb128 0x18
+ 1253 014d 00       		.byte	0
+ 1254 014e 00       		.byte	0
+ 1255 014f 19       		.uleb128 0x19
+ 1256 0150 34       		.uleb128 0x34
+ 1257 0151 00       		.byte	0
+ 1258 0152 03       		.uleb128 0x3
+ 1259 0153 0E       		.uleb128 0xe
+ 1260 0154 3A       		.uleb128 0x3a
+ 1261 0155 0B       		.uleb128 0xb
+ 1262 0156 3B       		.uleb128 0x3b
+ 1263 0157 05       		.uleb128 0x5
+ 1264 0158 49       		.uleb128 0x49
+ 1265 0159 13       		.uleb128 0x13
+ 1266 015a 3F       		.uleb128 0x3f
+ 1267 015b 19       		.uleb128 0x19
+ 1268 015c 3C       		.uleb128 0x3c
+ 1269 015d 19       		.uleb128 0x19
+ 1270 015e 00       		.byte	0
+ 1271 015f 00       		.byte	0
+ 1272 0160 1A       		.uleb128 0x1a
+ 1273 0161 2E       		.uleb128 0x2e
+ 1274 0162 00       		.byte	0
+ 1275 0163 3F       		.uleb128 0x3f
+ 1276 0164 19       		.uleb128 0x19
+ 1277 0165 3C       		.uleb128 0x3c
+ 1278 0166 19       		.uleb128 0x19
+ 1279 0167 6E       		.uleb128 0x6e
+ 1280 0168 0E       		.uleb128 0xe
+ 1281 0169 03       		.uleb128 0x3
+ 1282 016a 0E       		.uleb128 0xe
+ 1283 016b 3A       		.uleb128 0x3a
+ 1284 016c 0B       		.uleb128 0xb
+ 1285 016d 3B       		.uleb128 0x3b
+ 1286 016e 0B       		.uleb128 0xb
+ 1287 016f 00       		.byte	0
+ 1288 0170 00       		.byte	0
+ 1289 0171 00       		.byte	0
+ 1290              		.section	.debug_loc,"",%progbits
+ 1291              	.Ldebug_loc0:
+ 1292              	.LLST0:
+ 1293 0000 0E000000 		.4byte	.LVL1
+ 1294 0004 16000000 		.4byte	.LVL2
+ 1295 0008 0100     		.2byte	0x1
+ 1296 000a 50       		.byte	0x50
+ 1297 000b 00000000 		.4byte	0
+ 1298 000f 00000000 		.4byte	0
+ 1299              	.LLST1:
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 26
+
+
+ 1300 0013 00000000 		.4byte	.LVL8
+ 1301 0017 16000000 		.4byte	.LVL9
+ 1302 001b 0100     		.2byte	0x1
+ 1303 001d 50       		.byte	0x50
+ 1304 001e 16000000 		.4byte	.LVL9
+ 1305 0022 4A000000 		.4byte	.LVL16
+ 1306 0026 0400     		.2byte	0x4
+ 1307 0028 F3       		.byte	0xf3
+ 1308 0029 01       		.uleb128 0x1
+ 1309 002a 50       		.byte	0x50
+ 1310 002b 9F       		.byte	0x9f
+ 1311 002c 4A000000 		.4byte	.LVL16
+ 1312 0030 4C000000 		.4byte	.LVL17
+ 1313 0034 0100     		.2byte	0x1
+ 1314 0036 50       		.byte	0x50
+ 1315 0037 4C000000 		.4byte	.LVL17
+ 1316 003b 82000000 		.4byte	.LFE68
+ 1317 003f 0400     		.2byte	0x4
+ 1318 0041 F3       		.byte	0xf3
+ 1319 0042 01       		.uleb128 0x1
+ 1320 0043 50       		.byte	0x50
+ 1321 0044 9F       		.byte	0x9f
+ 1322 0045 00000000 		.4byte	0
+ 1323 0049 00000000 		.4byte	0
+ 1324              	.LLST2:
+ 1325 004d 00000000 		.4byte	.LVL8
+ 1326 0051 19000000 		.4byte	.LVL10-1
+ 1327 0055 0100     		.2byte	0x1
+ 1328 0057 51       		.byte	0x51
+ 1329 0058 19000000 		.4byte	.LVL10-1
+ 1330 005c 4A000000 		.4byte	.LVL16
+ 1331 0060 0100     		.2byte	0x1
+ 1332 0062 55       		.byte	0x55
+ 1333 0063 4A000000 		.4byte	.LVL16
+ 1334 0067 4F000000 		.4byte	.LVL18-1
+ 1335 006b 0100     		.2byte	0x1
+ 1336 006d 51       		.byte	0x51
+ 1337 006e 4F000000 		.4byte	.LVL18-1
+ 1338 0072 82000000 		.4byte	.LFE68
+ 1339 0076 0100     		.2byte	0x1
+ 1340 0078 55       		.byte	0x55
+ 1341 0079 00000000 		.4byte	0
+ 1342 007d 00000000 		.4byte	0
+ 1343              	.LLST3:
+ 1344 0081 1A000000 		.4byte	.LVL10
+ 1345 0085 1E000000 		.4byte	.LVL11
+ 1346 0089 0200     		.2byte	0x2
+ 1347 008b 30       		.byte	0x30
+ 1348 008c 9F       		.byte	0x9f
+ 1349 008d 1E000000 		.4byte	.LVL11
+ 1350 0091 4A000000 		.4byte	.LVL16
+ 1351 0095 0100     		.2byte	0x1
+ 1352 0097 54       		.byte	0x54
+ 1353 0098 50000000 		.4byte	.LVL18
+ 1354 009c 54000000 		.4byte	.LVL19
+ 1355 00a0 0200     		.2byte	0x2
+ 1356 00a2 30       		.byte	0x30
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 27
+
+
+ 1357 00a3 9F       		.byte	0x9f
+ 1358 00a4 54000000 		.4byte	.LVL19
+ 1359 00a8 7E000000 		.4byte	.LVL23
+ 1360 00ac 0100     		.2byte	0x1
+ 1361 00ae 54       		.byte	0x54
+ 1362 00af 00000000 		.4byte	0
+ 1363 00b3 00000000 		.4byte	0
+ 1364              		.section	.debug_aranges,"",%progbits
+ 1365 0000 3C000000 		.4byte	0x3c
+ 1366 0004 0200     		.2byte	0x2
+ 1367 0006 00000000 		.4byte	.Ldebug_info0
+ 1368 000a 04       		.byte	0x4
+ 1369 000b 00       		.byte	0
+ 1370 000c 0000     		.2byte	0
+ 1371 000e 0000     		.2byte	0
+ 1372 0010 00000000 		.4byte	.LFB64
+ 1373 0014 02000000 		.4byte	.LFE64-.LFB64
+ 1374 0018 00000000 		.4byte	.LFB66
+ 1375 001c 2C000000 		.4byte	.LFE66-.LFB66
+ 1376 0020 00000000 		.4byte	.LFB67
+ 1377 0024 16000000 		.4byte	.LFE67-.LFB67
+ 1378 0028 00000000 		.4byte	.LFB68
+ 1379 002c 82000000 		.4byte	.LFE68-.LFB68
+ 1380 0030 00000000 		.4byte	.LFB65
+ 1381 0034 68000000 		.4byte	.LFE65-.LFB65
+ 1382 0038 00000000 		.4byte	0
+ 1383 003c 00000000 		.4byte	0
+ 1384              		.section	.debug_ranges,"",%progbits
+ 1385              	.Ldebug_ranges0:
+ 1386 0000 00000000 		.4byte	.LFB64
+ 1387 0004 02000000 		.4byte	.LFE64
+ 1388 0008 00000000 		.4byte	.LFB66
+ 1389 000c 2C000000 		.4byte	.LFE66
+ 1390 0010 00000000 		.4byte	.LFB67
+ 1391 0014 16000000 		.4byte	.LFE67
+ 1392 0018 00000000 		.4byte	.LFB68
+ 1393 001c 82000000 		.4byte	.LFE68
+ 1394 0020 00000000 		.4byte	.LFB65
+ 1395 0024 68000000 		.4byte	.LFE65
+ 1396 0028 00000000 		.4byte	0
+ 1397 002c 00000000 		.4byte	0
+ 1398              		.section	.debug_line,"",%progbits
+ 1399              	.Ldebug_line0:
+ 1400 0000 EA020000 		.section	.debug_str,"MS",%progbits,1
+ 1400      02001F02 
+ 1400      00000201 
+ 1400      FB0E0D00 
+ 1400      01010101 
+ 1401              	.LASF28:
+ 1402 0000 7469636B 		.ascii	"ticks\000"
+ 1402      7300
+ 1403              	.LASF4:
+ 1404 0006 5F5F7569 		.ascii	"__uint8_t\000"
+ 1404      6E74385F 
+ 1404      7400
+ 1405              	.LASF5:
+ 1406 0010 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 28
+
+
+ 1406      7433325F 
+ 1406      7400
+ 1407              	.LASF42:
+ 1408 001a 433A5C55 		.ascii	"C:\\Users\\hasel\\OneDrive\\Dokumente\\PSoC Creator"
+ 1408      73657273 
+ 1408      5C686173 
+ 1408      656C5C4F 
+ 1408      6E654472 
+ 1409 0048 5C576964 		.ascii	"\\Widerstandsmessung_Digital\\Widerstandsmessung_Di"
+ 1409      65727374 
+ 1409      616E6473 
+ 1409      6D657373 
+ 1409      756E675F 
+ 1410 0079 67697461 		.ascii	"gital.cydsn\000"
+ 1410      6C2E6379 
+ 1410      64736E00 
+ 1411              	.LASF25:
+ 1412 0085 64697363 		.ascii	"discharge\000"
+ 1412      68617267 
+ 1412      6500
+ 1413              	.LASF13:
+ 1414 008f 696E7433 		.ascii	"int32_t\000"
+ 1414      325F7400 
+ 1415              	.LASF16:
+ 1416 0097 666C6F61 		.ascii	"float\000"
+ 1416      7400
+ 1417              	.LASF27:
+ 1418 009d 70696E5F 		.ascii	"pin_state\000"
+ 1418      73746174 
+ 1418      6500
+ 1419              	.LASF40:
+ 1420 00a7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1420      43313120 
+ 1420      352E342E 
+ 1420      31203230 
+ 1420      31363036 
+ 1421 00da 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1421      20726576 
+ 1421      6973696F 
+ 1421      6E203233 
+ 1421      37373135 
+ 1422 010d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1422      66756E63 
+ 1422      74696F6E 
+ 1422      2D736563 
+ 1422      74696F6E 
+ 1423              	.LASF26:
+ 1424 0135 6D656173 		.ascii	"measure\000"
+ 1424      75726500 
+ 1425              	.LASF15:
+ 1426 013d 696E7431 		.ascii	"int16\000"
+ 1426      3600
+ 1427              	.LASF8:
+ 1428 0143 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1428      20756E73 
+ 1428      69676E65 
+ 1428      6420696E 
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 29
+
+
+ 1428      7400
+ 1429              	.LASF35:
+ 1430 0155 505F6368 		.ascii	"P_charge_ref_Write\000"
+ 1430      61726765 
+ 1430      5F726566 
+ 1430      5F577269 
+ 1430      746500
+ 1431              	.LASF3:
+ 1432 0168 73686F72 		.ascii	"short unsigned int\000"
+ 1432      7420756E 
+ 1432      7369676E 
+ 1432      65642069 
+ 1432      6E7400
+ 1433              	.LASF39:
+ 1434 017b 55415254 		.ascii	"UART_Start\000"
+ 1434      5F537461 
+ 1434      727400
+ 1435              	.LASF43:
+ 1436 0186 70686173 		.ascii	"phase\000"
+ 1436      6500
+ 1437              	.LASF36:
+ 1438 018c 505F7365 		.ascii	"P_sense_Read\000"
+ 1438      6E73655F 
+ 1438      52656164 
+ 1438      00
+ 1439              	.LASF46:
+ 1440 0199 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1440      52784275 
+ 1440      66666572 
+ 1440      00
+ 1441              	.LASF22:
+ 1442 01a6 6164635F 		.ascii	"adc_res\000"
+ 1442      72657300 
+ 1443              	.LASF1:
+ 1444 01ae 756E7369 		.ascii	"unsigned char\000"
+ 1444      676E6564 
+ 1444      20636861 
+ 1444      7200
+ 1445              	.LASF17:
+ 1446 01bc 646F7562 		.ascii	"double\000"
+ 1446      6C6500
+ 1447              	.LASF7:
+ 1448 01c3 5F5F7569 		.ascii	"__uint32_t\000"
+ 1448      6E743332 
+ 1448      5F7400
+ 1449              	.LASF37:
+ 1450 01ce 43794465 		.ascii	"CyDelayUs\000"
+ 1450      6C617955 
+ 1450      7300
+ 1451              	.LASF45:
+ 1452 01d8 6D61696E 		.ascii	"main\000"
+ 1452      00
+ 1453              	.LASF11:
+ 1454 01dd 756E7369 		.ascii	"unsigned int\000"
+ 1454      676E6564 
+ 1454      20696E74 
+ 1454      00
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 30
+
+
+ 1455              	.LASF10:
+ 1456 01ea 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1456      206C6F6E 
+ 1456      6720756E 
+ 1456      7369676E 
+ 1456      65642069 
+ 1457              	.LASF12:
+ 1458 0201 75696E74 		.ascii	"uint8_t\000"
+ 1458      385F7400 
+ 1459              	.LASF23:
+ 1460 0209 72657375 		.ascii	"result\000"
+ 1460      6C7400
+ 1461              	.LASF30:
+ 1462 0210 73707269 		.ascii	"sprintf\000"
+ 1462      6E746600 
+ 1463              	.LASF44:
+ 1464 0218 74726967 		.ascii	"trig\000"
+ 1464      00
+ 1465              	.LASF20:
+ 1466 021d 73697A65 		.ascii	"sizetype\000"
+ 1466      74797065 
+ 1466      00
+ 1467              	.LASF32:
+ 1468 0226 4144435F 		.ascii	"ADC_SAR_IsEndConversion\000"
+ 1468      5341525F 
+ 1468      4973456E 
+ 1468      64436F6E 
+ 1468      76657273 
+ 1469              	.LASF21:
+ 1470 023e 52455355 		.ascii	"RESULT\000"
+ 1470      4C5400
+ 1471              	.LASF9:
+ 1472 0245 6C6F6E67 		.ascii	"long long int\000"
+ 1472      206C6F6E 
+ 1472      6720696E 
+ 1472      7400
+ 1473              	.LASF41:
+ 1474 0253 6D61696E 		.ascii	"main.c\000"
+ 1474      2E6300
+ 1475              	.LASF18:
+ 1476 025a 63686172 		.ascii	"char\000"
+ 1476      00
+ 1477              	.LASF24:
+ 1478 025f 77726974 		.ascii	"write_adc_val\000"
+ 1478      655F6164 
+ 1478      635F7661 
+ 1478      6C00
+ 1479              	.LASF2:
+ 1480 026d 73686F72 		.ascii	"short int\000"
+ 1480      7420696E 
+ 1480      7400
+ 1481              	.LASF14:
+ 1482 0277 75696E74 		.ascii	"uint32_t\000"
+ 1482      33325F74 
+ 1482      00
+ 1483              	.LASF6:
+ 1484 0280 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccDGC0vk.s 			page 31
+
+
+ 1484      20696E74 
+ 1484      00
+ 1485              	.LASF19:
+ 1486 0289 6C6F6E67 		.ascii	"long double\000"
+ 1486      20646F75 
+ 1486      626C6500 
+ 1487              	.LASF33:
+ 1488 0295 505F6469 		.ascii	"P_discharge_Write\000"
+ 1488      73636861 
+ 1488      7267655F 
+ 1488      57726974 
+ 1488      6500
+ 1489              	.LASF0:
+ 1490 02a7 7369676E 		.ascii	"signed char\000"
+ 1490      65642063 
+ 1490      68617200 
+ 1491              	.LASF29:
+ 1492 02b3 4144435F 		.ascii	"ADC_SAR_GetResult16\000"
+ 1492      5341525F 
+ 1492      47657452 
+ 1492      6573756C 
+ 1492      74313600 
+ 1493              	.LASF31:
+ 1494 02c7 55415254 		.ascii	"UART_PutString\000"
+ 1494      5F507574 
+ 1494      53747269 
+ 1494      6E6700
+ 1495              	.LASF34:
+ 1496 02d6 43794465 		.ascii	"CyDelay\000"
+ 1496      6C617900 
+ 1497              	.LASF38:
+ 1498 02de 505F6368 		.ascii	"P_charge_Write\000"
+ 1498      61726765 
+ 1498      5F577269 
+ 1498      746500
+ 1499              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
