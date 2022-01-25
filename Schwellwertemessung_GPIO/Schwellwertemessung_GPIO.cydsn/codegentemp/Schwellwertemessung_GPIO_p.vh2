@@ -1,5 +1,5 @@
 -- Project:   Schwellwertemessung_GPIO
--- Generated: 01/20/2022 13:12:53
+-- Generated: 01/20/2022 20:30:20
 -- PSoC Creator  4.4
 
 ENTITY Schwellwertemessung_GPIO IS

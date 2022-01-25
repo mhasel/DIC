@@ -2,7 +2,7 @@
 --	Conversion of Schwellwertemessung_GPIO.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Jan 20 13:12:53 2022
+--	Thu Jan 20 20:30:20 2022
 --
 
 USE cypress.cypress.all;

@@ -36,14 +36,14 @@ int main(void)
         static uint32_t ticks[2] = {0};
         discharge();       
         measure(REF, ticks);    
-        
-        sprintf(res, "Ref: %u\n\r",ticks[REF]);
-        UART_PutString(res);
+//        
+//        sprintf(res, "Ref: %u\n\r",ticks[REF]);
+//        UART_PutString(res);
         
         discharge();        
         measure(RESULT, ticks);
         
-        sprintf(res, "Result: %u\n\r",ticks[RESULT]);
+        sprintf(res, "Result: %u\n\r",calculate_resistance(ticks));
         UART_PutString(res);  
         CyDelay(100);
     }

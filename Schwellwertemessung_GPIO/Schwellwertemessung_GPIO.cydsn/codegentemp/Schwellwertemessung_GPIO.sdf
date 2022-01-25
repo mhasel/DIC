@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2022-01-20T12:12:55Z")
+ (DATE "2022-01-20T19:30:23Z")
  (DESIGN "Schwellwertemessung_GPIO")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

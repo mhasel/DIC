@@ -1,5 +1,5 @@
 -- Project:   D:\Source\Repos\DIC\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydsn\Schwellwertemessung_GPIO.cyprj
--- Generated: 01/20/2022 13:12:55
+-- Generated: 01/20/2022 20:30:23
 -- PSoC Creator  4.4
 
 ENTITY Schwellwertemessung_GPIO IS

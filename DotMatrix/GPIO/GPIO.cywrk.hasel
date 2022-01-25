@@ -38,6 +38,17 @@
 <v>GPIO\GPIO\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>GPIO</v>
+<v>GPIO\GPIO</v>
+<v>GPIO\GPIO\TopDesign</v>
+<v>GPIO\GPIO\GPIO.cydwr</v>
+<v>GPIO\GPIO\GPIO.cydwr\Pins</v>
+<v>GPIO\GPIO\GPIO.cydwr\Analog</v>
+<v>GPIO\GPIO\GPIO.cydwr\Clocks</v>
+<v>GPIO\GPIO\GPIO.cydwr\Interrupts</v>
+<v>GPIO\GPIO\GPIO.cydwr\DMA</v>
+<v>GPIO\GPIO\GPIO.cydwr\System</v>
+<v>GPIO\GPIO\GPIO.cydwr\Directives</v>
 <v>GPIO\GPIO\GPIO.cydwr\Flash Security</v>
 <v>GPIO\GPIO\GPIO.cydwr\EEPROM</v>
 <v>GPIO\GPIO\Header Files</v>
@@ -63,17 +74,6 @@
 <v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row3</v>
 <v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row4</v>
 <v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row5</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row6</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row7</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\Pin_Row8</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cycodeshareexport.ld</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cycodeshareimport.ld</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cycodeshareimport.scat</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cydevice.h</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cydevice_trm.h</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cydevicegnu.inc</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
-<v>GPIO\GPIO\Generated_Source\PSoC5\cydeviceiar.inc</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -171,6 +171,7 @@
 <v>GPIO\GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Row7.lst</v>
 <v>GPIO\GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Row8.lst</v>
 <v>GPIO\GPIO\CortexM3\ARM_GCC_541\Debug\GPIO.elf</v>
+<v>GPIO\GPIO\CortexM3\ARM_GCC_541\Debug\GPIO.hex</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -185,9 +186,6 @@
 <v>GPIO\GPIO\PSoC 5LP Architecture TRM</v>
 <v>GPIO\GPIO\CY8C58LP Family Datasheet</v>
 <v>GPIO\GPIO\System Reference Guides</v>
-<v>GPIO\GPIO\System Reference Guides\cy_boot_v6_10</v>
-<v>GPIO\GPIO\cy_pins_v2_20</v>
-<v>GPIO\GPIO\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>GPIO</v>
@@ -195,9 +193,6 @@
 <v>GPIO\GPIO\PSoC 5LP Architecture TRM</v>
 <v>GPIO\GPIO\CY8C58LP Family Datasheet</v>
 <v>GPIO\GPIO\System Reference Guides</v>
-<v>GPIO\GPIO\System Reference Guides\cy_boot_v6_10</v>
-<v>GPIO\GPIO\cy_pins_v2_20</v>
-<v>GPIO\GPIO\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -207,10 +202,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\GPIO.cydsn\dot_matrix.h" />
 <name v=".\GPIO.cydsn\main.c" />
 <name v=".\GPIO.cydsn\dot_matrix.c" />
-<name v=".\GPIO.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\GPIO.cydsn\dot_matrix.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -218,7 +212,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1039, 499" SelectedTabbedMdiWindow="8a91d6d6-5632-4482-a62c-6be5776ca734"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="96862f30-0966-4322-a811-ab9c606e6159" /><DocumentWindow Key="D:\source\repos\PSoC_GPIO\gpio\GPIO.cydsn\dot_matrix.h" Guid="8a91d6d6-5632-4482-a62c-6be5776ca734" /><DocumentWindow Key="D:\source\repos\PSoC_GPIO\gpio\GPIO.cydsn\main.c" Guid="fe1a138e-3cb1-452a-9acf-9194ef117a37" /><DocumentWindow Key="D:\source\repos\PSoC_GPIO\gpio\GPIO.cydsn\dot_matrix.c" Guid="26bdcc1c-049f-440b-97a9-69cff4181d8b" /><DocumentWindow Key="D:\source\repos\PSoC_GPIO\gpio\GPIO.cydsn\TopDesign\TopDesign.cysch" Guid="1b1eef30-edc7-4b9d-bed2-78a6d97ebc44" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1099, 541" SelectedTabbedMdiWindow="5f6f0c72-8e72-4b64-8785-fdfd7ec857b9"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="96862f30-0966-4322-a811-ab9c606e6159" /><DocumentWindow Key="D:\Source\Repos\DIC\DotMatrix\GPIO\GPIO.cydsn\main.c" Guid="5f6f0c72-8e72-4b64-8785-fdfd7ec857b9" /><DocumentWindow Key="D:\Source\Repos\DIC\DotMatrix\GPIO\GPIO.cydsn\dot_matrix.c" Guid="d70edba4-5c30-4e8d-acc0-5f3c91727c96" /><DocumentWindow Key="D:\Source\Repos\DIC\DotMatrix\GPIO\GPIO.cydsn\dot_matrix.h" Guid="1e490816-80f4-4f76-bdcb-4bdecf250945" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
