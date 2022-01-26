@@ -1,5 +1,6 @@
 #include "pseudo_adc.h"
 
+// static function prototypes
 static void _discharge(void);
 static void _measure(enum time);
 static void _set_discharge_pin(enum pin_state);
@@ -8,20 +9,23 @@ static void _set_charge_total_pin(enum pin_state);
 static void _read_sense_pin(enum pin_state);
 static uint32_t _calculate_r (void); 
 
+// internal state machine. not exposed outside of this translation unit
 struct _sm 
 {
     volatile state_t *state;
     volatile pin_state_t *pin_state;
     uint32_t *time_ref;
     uint32_t *time_total;
+    uint8_t _is_initialized;
     
     void (*discharge)(void);
     void (*measure)(enum time);
     void (*set_pin[3])(enum pin_state);    
     void (*read_sense_pin)(enum pin_state);
-    uint32_t (*calculate_r)(void);     
+    uint32_t (*calculate_r)(void); 
 } _sm ;
 
+// 
 void init_pseudo_adc(state_machine *sm_handle)
 {
     _sm.state = &sm_handle->state;
@@ -38,4 +42,18 @@ void init_pseudo_adc(state_machine *sm_handle)
     _sm.read_sense_pin = _read_sense_pin;
     _sm.calculate_r = _calculate_r;  
     
+    _sm._is_initialized = 1;
+}
+
+uint8_t run_state_machine(void)
+{
+    if (!_sm._is_initialized)
+    {
+        return 255;
+    }
+    
+    
+    
+    
+    return 0;
 }

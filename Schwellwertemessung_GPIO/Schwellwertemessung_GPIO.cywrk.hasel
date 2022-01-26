@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign">
+<ExpandedNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Pins</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Analog</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Clocks</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Interrupts</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\DMA</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\System</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Directives</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Flash Security</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\EEPROM</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Header Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Header Files\cyapicallbacks.h</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Source Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Source Files\main.c</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Pins</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Analog</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Clocks</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Interrupts</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\DMA</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\System</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Directives</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\Flash Security</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydwr\EEPROM</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Header Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Header Files\cyapicallbacks.h</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Source Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Source Files\main.c</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\ADC_SAR</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\ADC_SAR_Bypass</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\ADC_SAR_IRQ</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\ADC_SAR_theACLK</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cy_boot</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\LED</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\UART</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\UART_IntClock</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\VIN</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cydevice.h</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_IRQ.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_theACLK.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\VIN.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.elf</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.hex</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.map</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.gpdsc</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.rpt</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_IRQ.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_theACLK.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Listing Files\VIN.lst</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.elf</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.hex</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CortexM3\ARM_GCC_541\Debug\Schwellwertemessung_GPIO.map</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.gpdsc</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.rpt</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\PSoC 5LP Architecture TRM</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CY8C58LP Family Datasheet</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\System Reference Guides</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\PSoC 5LP Architecture TRM</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\CY8C58LP Family Datasheet</v>
+<v>Schwellwertemessung_GPIO\Schwellwertemessung_GPIO\System Reference Guides</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Schwellwertemessung_GPIO.cydsn\main.c" />
+<name v=".\Schwellwertemessung_GPIO.cydsn\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1099, 541" SelectedTabbedMdiWindow="96669723-c11f-4199-8093-9986889822a4"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="96862f30-0966-4322-a811-ab9c606e6159" /><DocumentWindow Key="D:\Source\Repos\DIC\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydsn\main.c" Guid="96669723-c11f-4199-8093-9986889822a4" /><DocumentWindow Key="D:\Source\Repos\DIC\Schwellwertemessung_GPIO\Schwellwertemessung_GPIO.cydsn\TopDesign\TopDesign.cysch" Guid="3c3d7cdd-f19f-4010-b238-bfb7fe5bc719" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

@@ -40,3 +40,6 @@ typedef struct state_machine
     uint32_t time_ref;
     uint32_t time_total;
 } state_machine;
+
+void init_pseudo_adc(state_machine *sm_handle);
+uint8_t run_state_machine(void);
