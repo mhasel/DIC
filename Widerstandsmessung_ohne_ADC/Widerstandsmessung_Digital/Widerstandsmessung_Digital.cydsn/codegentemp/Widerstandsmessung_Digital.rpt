@@ -1,4 +1,4 @@
-Loading plugins phase: Elapsed time ==> 0s.247ms
+Loading plugins phase: Elapsed time ==> 0s.265ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Widerstandsmessung_Digital.cyprj -d CY8C5888LTI-LP097 -s D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
@@ -7,7 +7,7 @@ cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabd
 Elaboration phase: Elapsed time ==> 1s.671ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.069ms
+HDL generation phase: Elapsed time ==> 0s.062ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Source\Repo
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Tue Jan 25 22:33:51 2022
+Thu Jan 27 18:33:48 2022
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 Widerstandsmessung_Digital.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Tue Jan 25 22:33:51 2022
+Thu Jan 27 18:33:48 2022
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'
@@ -62,6 +62,10 @@ Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\ps
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'
 
 vpp:  No errors.
 
@@ -86,6 +90,8 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComp
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1547, col 106):  Note: Substituting module 'cmp_vv_vv' for '<'.
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1603, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
 C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1604, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v (line 368, col 46):  Note: Substituting module 'cmp_vv_vv' for '='.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v (line 374, col 62):  Note: Substituting module 'add_vv_vv' for '+'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
@@ -99,7 +105,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Source\Repo
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Tue Jan 25 22:33:52 2022
+Thu Jan 27 18:33:48 2022
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -121,8 +127,13 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\conte
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
 
 tovif:  No errors.
 
@@ -134,7 +145,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Source\Repo
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Tue Jan 25 22:33:52 2022
+Thu Jan 27 18:33:49 2022
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -156,8 +167,13 @@ Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\conte
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\or_v1_0\or_v1_0.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
@@ -171,9 +187,37 @@ Detecting unused logic.
 	\UART:BUART:reset_sr\
 	Net_26
 	Net_21
+	\Timer:Net_260\
+	Net_42
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:albi_1\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:agbi_1\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:lt_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:gt_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:lt_1\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:gt_1\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:lti_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:gti_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:albi_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:agbi_0\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xneq\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xlt\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xlte\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xgt\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xgte\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:lt\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:gt\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:gte\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:lte\
+	\Timer:TimerUDB:sIntCapCount:MODULE_1:neq\
+	\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:b_1\
+	\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:b_0\
+	\Timer:TimerUDB:zeros_3\
+	\Timer:TimerUDB:zeros_2\
+	\Timer:Net_102\
+	\Timer:Net_266\
 
 
-Deleted 7 User equations/components.
+Deleted 35 User equations/components.
 Deleted 0 Synthesized equations/components.
 
 ------------------------------------------------------
@@ -203,43 +247,115 @@ Aliasing \ADC_SAR:tmpOE__Bypass_net_0\ to tmpOE__P_charge_net_0
 Aliasing \ADC_SAR:Net_383\ to zero
 Aliasing tmpOE__tx_net_0 to tmpOE__P_charge_net_0
 Aliasing tmpOE__P_adc_net_0 to tmpOE__P_charge_net_0
+Aliasing \Timer:TimerUDB:ctrl_cmode_1\ to zero
+Aliasing \Timer:TimerUDB:ctrl_cmode_0\ to tmpOE__P_charge_net_0
+Aliasing \Timer:TimerUDB:ctrl_tmode_1\ to zero
+Aliasing \Timer:TimerUDB:ctrl_tmode_0\ to tmpOE__P_charge_net_0
+Aliasing \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:aeqb_0\ to tmpOE__P_charge_net_0
+Aliasing \Timer:TimerUDB:sIntCapCount:MODIN3_1\ to \Timer:TimerUDB:sIntCapCount:MODIN1_1\
+Aliasing \Timer:TimerUDB:sIntCapCount:MODIN3_0\ to \Timer:TimerUDB:sIntCapCount:MODIN1_0\
+Aliasing \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ to tmpOE__P_charge_net_0
+Aliasing \Timer:TimerUDB:status_6\ to zero
+Aliasing \Timer:TimerUDB:status_5\ to zero
+Aliasing \Timer:TimerUDB:status_4\ to zero
+Aliasing \Timer:TimerUDB:status_0\ to \Timer:TimerUDB:tc_i\
 Aliasing \UART:BUART:reset_reg\\D\ to zero
 Aliasing Net_25D to zero
 Removing Lhs of wire one[6] = tmpOE__P_charge_net_0[1]
 Removing Lhs of wire tmpOE__P_charge_ref_net_0[9] = tmpOE__P_charge_net_0[1]
 Removing Lhs of wire tmpOE__P_discharge_net_0[15] = tmpOE__P_charge_net_0[1]
 Removing Lhs of wire tmpOE__P_sense_net_0[21] = tmpOE__P_charge_net_0[1]
-Removing Lhs of wire \UART:Net_61\[40] = \UART:Net_9\[39]
-Removing Lhs of wire \UART:BUART:tx_hd_send_break\[44] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalParityType_1\[46] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalParityType_0\[47] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[51] = zero[2]
-Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[62] = \UART:BUART:tx_bitclk_dp\[98]
-Removing Lhs of wire \UART:BUART:tx_counter_tc\[108] = \UART:BUART:tx_counter_dp\[99]
-Removing Lhs of wire \UART:BUART:tx_status_6\[109] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_5\[110] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_4\[111] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_1\[113] = \UART:BUART:tx_fifo_empty\[76]
-Removing Lhs of wire \UART:BUART:tx_status_3\[115] = \UART:BUART:tx_fifo_notfull\[75]
-Removing Lhs of wire \ADC_SAR:vp_ctl_0\[127] = zero[2]
-Removing Lhs of wire \ADC_SAR:vp_ctl_2\[128] = zero[2]
-Removing Lhs of wire \ADC_SAR:vn_ctl_1\[129] = zero[2]
-Removing Lhs of wire \ADC_SAR:vn_ctl_3\[130] = zero[2]
-Removing Lhs of wire \ADC_SAR:vp_ctl_1\[131] = zero[2]
-Removing Lhs of wire \ADC_SAR:vp_ctl_3\[132] = zero[2]
-Removing Lhs of wire \ADC_SAR:vn_ctl_0\[133] = zero[2]
-Removing Lhs of wire \ADC_SAR:vn_ctl_2\[134] = zero[2]
-Removing Rhs of wire \ADC_SAR:Net_188\[138] = \ADC_SAR:Net_221\[139]
-Removing Lhs of wire \ADC_SAR:soc\[145] = zero[2]
-Removing Lhs of wire \ADC_SAR:tmpOE__Bypass_net_0\[163] = tmpOE__P_charge_net_0[1]
-Removing Lhs of wire \ADC_SAR:Net_383\[178] = zero[2]
-Removing Lhs of wire tmpOE__tx_net_0[180] = tmpOE__P_charge_net_0[1]
-Removing Lhs of wire tmpOE__P_adc_net_0[186] = tmpOE__P_charge_net_0[1]
-Removing Lhs of wire \UART:BUART:reset_reg\\D\[191] = zero[2]
-Removing Lhs of wire Net_25D[196] = zero[2]
+Removing Rhs of wire Net_40[27] = \Timer:TimerUDB:capture_out_reg_i\[233]
+Removing Lhs of wire \UART:Net_61\[41] = \UART:Net_9\[40]
+Removing Lhs of wire \UART:BUART:tx_hd_send_break\[45] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalParityType_1\[47] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalParityType_0\[48] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[52] = zero[2]
+Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[63] = \UART:BUART:tx_bitclk_dp\[99]
+Removing Lhs of wire \UART:BUART:tx_counter_tc\[109] = \UART:BUART:tx_counter_dp\[100]
+Removing Lhs of wire \UART:BUART:tx_status_6\[110] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_5\[111] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_4\[112] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_1\[114] = \UART:BUART:tx_fifo_empty\[77]
+Removing Lhs of wire \UART:BUART:tx_status_3\[116] = \UART:BUART:tx_fifo_notfull\[76]
+Removing Lhs of wire \ADC_SAR:vp_ctl_0\[128] = zero[2]
+Removing Lhs of wire \ADC_SAR:vp_ctl_2\[129] = zero[2]
+Removing Lhs of wire \ADC_SAR:vn_ctl_1\[130] = zero[2]
+Removing Lhs of wire \ADC_SAR:vn_ctl_3\[131] = zero[2]
+Removing Lhs of wire \ADC_SAR:vp_ctl_1\[132] = zero[2]
+Removing Lhs of wire \ADC_SAR:vp_ctl_3\[133] = zero[2]
+Removing Lhs of wire \ADC_SAR:vn_ctl_0\[134] = zero[2]
+Removing Lhs of wire \ADC_SAR:vn_ctl_2\[135] = zero[2]
+Removing Rhs of wire \ADC_SAR:Net_188\[139] = \ADC_SAR:Net_221\[140]
+Removing Lhs of wire \ADC_SAR:soc\[146] = zero[2]
+Removing Lhs of wire \ADC_SAR:tmpOE__Bypass_net_0\[164] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \ADC_SAR:Net_383\[179] = zero[2]
+Removing Lhs of wire tmpOE__tx_net_0[181] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire tmpOE__P_adc_net_0[187] = tmpOE__P_charge_net_0[1]
+Removing Rhs of wire Net_43[198] = \Timer:Net_53\[199]
+Removing Rhs of wire Net_43[198] = \Timer:TimerUDB:tc_reg_i\[231]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_enable\[213] = \Timer:TimerUDB:control_7\[205]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_ten\[214] = \Timer:TimerUDB:control_4\[208]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_cmode_1\[215] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_cmode_0\[216] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_tmode_1\[217] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_tmode_0\[218] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_ic_1\[219] = \Timer:TimerUDB:control_1\[211]
+Removing Lhs of wire \Timer:TimerUDB:ctrl_ic_0\[220] = \Timer:TimerUDB:control_0\[212]
+Removing Rhs of wire \Timer:TimerUDB:timer_enable\[224] = \Timer:TimerUDB:runmode_enable\[296]
+Removing Rhs of wire \Timer:TimerUDB:run_mode\[225] = \Timer:TimerUDB:hwEnable_reg\[226]
+Removing Lhs of wire \Timer:TimerUDB:tc_i\[230] = \Timer:TimerUDB:status_tc\[227]
+Removing Lhs of wire \Timer:TimerUDB:hwEnable\[232] = \Timer:TimerUDB:control_7\[205]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:cmp_vv_vv_MODGEN_1\[235] = \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xeq\[274]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:add_vv_vv_MODGEN_2_1\[236] = \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_1\[291]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:add_vv_vv_MODGEN_2_0\[238] = \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_0\[292]
+Removing Lhs of wire \Timer:TimerUDB:capt_fifo_load_int\[240] = \Timer:TimerUDB:capt_int_temp\[239]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:newa_1\[241] = \Timer:TimerUDB:sIntCapCount:MODIN1_1\[242]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN1_1\[242] = \Timer:TimerUDB:int_capt_count_1\[234]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:newa_0\[243] = \Timer:TimerUDB:sIntCapCount:MODIN1_0\[244]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN1_0\[244] = \Timer:TimerUDB:int_capt_count_0\[237]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:newb_1\[245] = \Timer:TimerUDB:sIntCapCount:MODIN2_1\[246]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN2_1\[246] = \Timer:TimerUDB:control_1\[211]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:newb_0\[247] = \Timer:TimerUDB:sIntCapCount:MODIN2_0\[248]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN2_0\[248] = \Timer:TimerUDB:control_0\[212]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:dataa_1\[249] = \Timer:TimerUDB:int_capt_count_1\[234]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:dataa_0\[250] = \Timer:TimerUDB:int_capt_count_0\[237]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:datab_1\[251] = \Timer:TimerUDB:control_1\[211]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:datab_0\[252] = \Timer:TimerUDB:control_0\[212]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:a_1\[253] = \Timer:TimerUDB:int_capt_count_1\[234]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:a_0\[254] = \Timer:TimerUDB:int_capt_count_0\[237]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:b_1\[255] = \Timer:TimerUDB:control_1\[211]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:b_0\[256] = \Timer:TimerUDB:control_0\[212]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:aeqb_0\[259] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:eq_0\[260] = \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:xnor_array_0\[258]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:eqi_0\[262] = \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:eq_1\[261]
+Removing Rhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xeq\[274] = \Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:aeqb_1\[263]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:a_1\[285] = \Timer:TimerUDB:int_capt_count_1\[234]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN3_1\[286] = \Timer:TimerUDB:int_capt_count_1\[234]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:a_0\[287] = \Timer:TimerUDB:int_capt_count_0\[237]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODIN3_0\[288] = \Timer:TimerUDB:int_capt_count_0\[237]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\[294] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\[295] = tmpOE__P_charge_net_0[1]
+Removing Lhs of wire \Timer:TimerUDB:status_6\[304] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:status_5\[305] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:status_4\[306] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:status_0\[307] = \Timer:TimerUDB:status_tc\[227]
+Removing Lhs of wire \Timer:TimerUDB:status_1\[308] = \Timer:TimerUDB:capt_int_temp\[239]
+Removing Rhs of wire \Timer:TimerUDB:status_2\[309] = \Timer:TimerUDB:fifo_full\[310]
+Removing Rhs of wire \Timer:TimerUDB:status_3\[311] = \Timer:TimerUDB:fifo_nempty\[312]
+Removing Lhs of wire \Timer:TimerUDB:cs_addr_2\[314] = Net_46[194]
+Removing Lhs of wire \Timer:TimerUDB:cs_addr_1\[315] = \Timer:TimerUDB:trig_reg\[303]
+Removing Lhs of wire \Timer:TimerUDB:cs_addr_0\[316] = \Timer:TimerUDB:per_zero\[229]
+Removing Lhs of wire \UART:BUART:reset_reg\\D\[400] = zero[2]
+Removing Lhs of wire Net_25D[405] = zero[2]
+Removing Lhs of wire \Timer:TimerUDB:capture_last\\D\[410] = Net_39[22]
+Removing Lhs of wire \Timer:TimerUDB:hwEnable_reg\\D\[411] = \Timer:TimerUDB:control_7\[205]
+Removing Lhs of wire \Timer:TimerUDB:tc_reg_i\\D\[412] = \Timer:TimerUDB:status_tc\[227]
+Removing Lhs of wire \Timer:TimerUDB:capture_out_reg_i\\D\[413] = \Timer:TimerUDB:capt_fifo_load\[223]
+Removing Lhs of wire \Timer:TimerUDB:trig_last\\D\[419] = Net_44[299]
 
 ------------------------------------------------------
-Aliased 0 equations, 32 wires.
+Aliased 0 equations, 92 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -248,17 +364,78 @@ Circuit simplification
 
 Substituting virtuals - pass 1:
 
+Note:  Expanding virtual equation for 'tmpOE__P_charge_net_0' (cost = 0):
+tmpOE__P_charge_net_0 <=  ('1') ;
+
 Note:  Expanding virtual equation for 'zero' (cost = 0):
 zero <=  ('0') ;
 
+Note:  Expanding virtual equation for 'Net_46' (cost = 0):
+Net_46 <= (not Net_47);
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:fifo_load_polarized\' (cost = 1):
+\Timer:TimerUDB:fifo_load_polarized\ <= ((not \Timer:TimerUDB:capture_last\ and Net_39));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:capt_fifo_load\' (cost = 9):
+\Timer:TimerUDB:capt_fifo_load\ <= ((not \Timer:TimerUDB:capture_last\ and Net_39 and \Timer:TimerUDB:timer_enable\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:trigger_polarized\' (cost = 0):
+\Timer:TimerUDB:trigger_polarized\ <= (\Timer:TimerUDB:trig_rise_detected\);
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:xnor_array_1\' (cost = 2):
+\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:xnor_array_1\ <= ((not \Timer:TimerUDB:control_1\ and not \Timer:TimerUDB:int_capt_count_1\)
+	OR (\Timer:TimerUDB:control_1\ and \Timer:TimerUDB:int_capt_count_1\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:xnor_array_0\' (cost = 4):
+\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:xnor_array_0\ <= ((not \Timer:TimerUDB:control_0\ and not \Timer:TimerUDB:int_capt_count_0\)
+	OR (\Timer:TimerUDB:control_0\ and \Timer:TimerUDB:int_capt_count_0\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:eq_1\' (cost = 4):
+\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:gx:u0:eq_1\ <= ((not \Timer:TimerUDB:control_1\ and not \Timer:TimerUDB:control_0\ and not \Timer:TimerUDB:int_capt_count_1\ and not \Timer:TimerUDB:int_capt_count_0\)
+	OR (not \Timer:TimerUDB:control_1\ and not \Timer:TimerUDB:int_capt_count_1\ and \Timer:TimerUDB:control_0\ and \Timer:TimerUDB:int_capt_count_0\)
+	OR (not \Timer:TimerUDB:control_0\ and not \Timer:TimerUDB:int_capt_count_0\ and \Timer:TimerUDB:control_1\ and \Timer:TimerUDB:int_capt_count_1\)
+	OR (\Timer:TimerUDB:control_1\ and \Timer:TimerUDB:control_0\ and \Timer:TimerUDB:int_capt_count_1\ and \Timer:TimerUDB:int_capt_count_0\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xeq\' (cost = 60):
+\Timer:TimerUDB:sIntCapCount:MODULE_1:g1:a0:xeq\ <= ((not \Timer:TimerUDB:control_1\ and not \Timer:TimerUDB:control_0\ and not \Timer:TimerUDB:int_capt_count_1\ and not \Timer:TimerUDB:int_capt_count_0\)
+	OR (not \Timer:TimerUDB:control_1\ and not \Timer:TimerUDB:int_capt_count_1\ and \Timer:TimerUDB:control_0\ and \Timer:TimerUDB:int_capt_count_0\)
+	OR (not \Timer:TimerUDB:control_0\ and not \Timer:TimerUDB:int_capt_count_0\ and \Timer:TimerUDB:control_1\ and \Timer:TimerUDB:int_capt_count_1\)
+	OR (\Timer:TimerUDB:control_1\ and \Timer:TimerUDB:control_0\ and \Timer:TimerUDB:int_capt_count_1\ and \Timer:TimerUDB:int_capt_count_0\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\Timer:TimerUDB:int_capt_count_0\);
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_0\' (cost = 0):
+\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_0\ <= (not \Timer:TimerUDB:int_capt_count_0\);
+
+Note:  Expanding virtual equation for 'Net_44' (cost = 3):
+Net_44 <= (Net_57
+	OR Net_61);
+
 
 Substituting virtuals - pass 2:
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:trigger_enable\' (cost = 5):
+\Timer:TimerUDB:trigger_enable\ <= ((\Timer:TimerUDB:control_4\ and \Timer:TimerUDB:trig_rise_detected\));
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_1\' (cost = 8):
+\Timer:TimerUDB:sIntCapCount:MODULE_2:g2:a0:s_1\ <= ((not \Timer:TimerUDB:int_capt_count_0\ and \Timer:TimerUDB:int_capt_count_1\)
+	OR (not \Timer:TimerUDB:int_capt_count_1\ and \Timer:TimerUDB:int_capt_count_0\));
+
+
+Substituting virtuals - pass 3:
+
+Note:  Expanding virtual equation for '\Timer:TimerUDB:status_tc\' (cost = 5):
+\Timer:TimerUDB:status_tc\ <= ((\Timer:TimerUDB:control_4\ and \Timer:TimerUDB:run_mode\ and \Timer:TimerUDB:per_zero\ and \Timer:TimerUDB:trig_rise_detected\));
+
+
+Substituting virtuals - pass 4:
 
 
 ----------------------------------------------------------
 Circuit simplification results:
 
-	Expanded 1 signals.
+	Expanded 16 signals.
 	Turned 0 signals into soft nodes.
 	Maximum default expansion cost was set at 3.
 ----------------------------------------------------------
@@ -266,8 +443,8 @@ Circuit simplification results:
 ------------------------------------------------------
 Alias Detection
 ------------------------------------------------------
-Removing Lhs of wire \ADC_SAR:Net_188\[138] = \ADC_SAR:Net_385\[136]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[198] = \UART:BUART:tx_ctrl_mark_last\[119]
+Removing Lhs of wire \ADC_SAR:Net_188\[139] = \ADC_SAR:Net_385\[137]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[407] = \UART:BUART:tx_ctrl_mark_last\[120]
 
 ------------------------------------------------------
 Aliased 0 equations, 2 wires.
@@ -300,14 +477,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Widerstandsmessung_Digital.cyprj -dcpsoc3 Widerstandsmessung_Digital.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 2s.633ms
+Warp synthesis phase: Elapsed time ==> 2s.665ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Tuesday, 25 January 2022 22:33:53
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Thursday, 27 January 2022 18:33:49
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Widerstandsmessung_Digital.cyprj -d CY8C5888LTI-LP097 Widerstandsmessung_Digital.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.037ms
+Design parsing phase: Elapsed time ==> 0s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -315,7 +492,8 @@ Design parsing phase: Elapsed time ==> 0s.037ms
     Converted constant MacroCell: Net_25 from registered to combinatorial
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Analog  Clock 0: Automatic-assigning  clock 'ADC_SAR_theACLK'. Fanout=2, Signal=\ADC_SAR:Net_385\
-    Digital Clock 0: Automatic-assigning  clock 'UART_IntClock'. Fanout=1, Signal=\UART:Net_9\
+    Digital Clock 0: Automatic-assigning  clock 'timer_clock'. Fanout=2, Signal=Net_36
+    Digital Clock 1: Automatic-assigning  clock 'UART_IntClock'. Fanout=1, Signal=\UART:Net_9\
 </CYPRESSTAG>
 
 Removing unused cells resulting from optimization
@@ -325,6 +503,14 @@ Done removing unused cells.
         ClockIn: UART_IntClock was determined to be a global clock that is synchronous to BUS_CLK
         EnableIn: Constant 1 was determined to be synchronous to ClockIn
         ClockOut: UART_IntClock, EnableOut: Constant 1
+    UDB Clk/Enable \Timer:TimerUDB:clock_enable_block\: with output requested to be synchronous
+        ClockIn: timer_clock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: timer_clock, EnableOut: Constant 1
+    UDB Clk/Enable \Timer:TimerUDB:sCTRLReg:SyncCtl:cy_psoc3_udb_Ctl_Clk_Sync\: with output requested to be synchronous
+        ClockIn: timer_clock was determined to be a global clock that is synchronous to BUS_CLK
+        EnableIn: Constant 1 was determined to be synchronous to ClockIn
+        ClockOut: timer_clock, EnableOut: Constant 1
 </CYPRESSTAG>
 ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: \ADC_SAR:Bypass(0)\
 
@@ -408,11 +594,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
             pa_out => P_charge(0)__PA ,
+            fb => Net_61 ,
             pad => P_charge(0)_PAD );
         Properties:
         {
@@ -447,11 +634,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
             pa_out => P_charge_ref(0)__PA ,
+            fb => Net_57 ,
             pad => P_charge_ref(0)_PAD );
         Properties:
         {
@@ -486,11 +674,12 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 0
             IO Voltage: 0
         PORT MAP (
             pa_out => P_discharge(0)__PA ,
+            fb => Net_47 ,
             pad => P_discharge(0)_PAD );
         Properties:
         {
@@ -530,7 +719,7 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => P_sense(0)__PA ,
-            fb => Net_4 ,
+            fb => Net_39 ,
             pad => P_sense(0)_PAD );
         Properties:
         {
@@ -704,6 +893,49 @@ Design Equations
         );
         Output = \UART:BUART:tx_status_2\ (fanout=1)
 
+    MacroCell: Name=Net_46, Mode=(Combinatorial)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !Net_47
+        );
+        Output = Net_46 (fanout=2)
+
+    MacroCell: Name=\Timer:TimerUDB:capt_fifo_load\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\
+        );
+        Output = \Timer:TimerUDB:capt_fifo_load\ (fanout=2)
+
+    MacroCell: Name=\Timer:TimerUDB:status_tc\, Mode=(Combinatorial)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:status_tc\ (fanout=1)
+
+    MacroCell: Name=\Timer:TimerUDB:trig_reg\, Mode=(Combinatorial)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:trig_reg\ (fanout=2)
+
     MacroCell: Name=\UART:BUART:txn\, Mode=(D-Register)
         Total # of inputs        : 7
         Total # of product terms : 5
@@ -794,6 +1026,220 @@ Design Equations
             + !\UART:BUART:tx_bitclk_enable_pre\
         );
         Output = \UART:BUART:tx_bitclk\ (fanout=4)
+
+    MacroCell: Name=\Timer:TimerUDB:capture_last\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39
+        );
+        Output = \Timer:TimerUDB:capture_last\ (fanout=5)
+
+    MacroCell: Name=\Timer:TimerUDB:run_mode\, Mode=(D-Register)
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_7\
+        );
+        Output = \Timer:TimerUDB:run_mode\ (fanout=4)
+
+    MacroCell: Name=Net_43, Mode=(D-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = Net_43 (fanout=1)
+
+    MacroCell: Name=Net_40, Mode=(D-Register)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\
+        );
+        Output = Net_40 (fanout=1)
+
+    MacroCell: Name=\Timer:TimerUDB:int_capt_count_1\, Mode=(T-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !Net_47 * \Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_0\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\
+            + Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+        );
+        Output = \Timer:TimerUDB:int_capt_count_1\ (fanout=3)
+
+    MacroCell: Name=\Timer:TimerUDB:int_capt_count_0\, Mode=(T-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !Net_47 * \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_0\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\
+            + Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+        );
+        Output = \Timer:TimerUDB:int_capt_count_0\ (fanout=3)
+
+    MacroCell: Name=\Timer:TimerUDB:capt_int_temp\, Mode=(D-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\ * 
+              !\Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              \Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              !\Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              \Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+        );
+        Output = \Timer:TimerUDB:capt_int_temp\ (fanout=1)
+
+    MacroCell: Name=\Timer:TimerUDB:timer_enable\, Mode=(D-Register)
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:run_mode\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:per_zero\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:timer_enable\ (fanout=8)
+
+    MacroCell: Name=\Timer:TimerUDB:trig_disable\, Mode=(D-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_47 * \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:timer_enable\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:trig_disable\
+        );
+        Output = \Timer:TimerUDB:trig_disable\ (fanout=2)
+
+    MacroCell: Name=\Timer:TimerUDB:trig_last\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !Net_61 * !Net_57
+        );
+        Output = \Timer:TimerUDB:trig_last\ (fanout=2)
+
+    MacroCell: Name=\Timer:TimerUDB:trig_rise_detected\, Mode=(D-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              Net_61 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:trig_last\
+            + Net_57 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:trig_last\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:trig_rise_detected\ (fanout=6)
+
+    MacroCell: Name=\Timer:TimerUDB:trig_fall_detected\, Mode=(D-Register)
+        Total # of inputs        : 7
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_61 * !Net_57 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:trig_last\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:trig_fall_detected\
+        );
+        Output = \Timer:TimerUDB:trig_fall_detected\ (fanout=1)
     </CYPRESSTAG>
     <CYPRESSTAG name="Datapath listing">
 
@@ -869,6 +1315,81 @@ Design Equations
         }
         Clock Polarity: Active High
         Clock Enable: True
+
+    datapathcell: Name =\Timer:TimerUDB:sT16:timerdp:u0\
+        PORT MAP (
+            clock => Net_36 ,
+            cs_addr_2 => Net_46 ,
+            cs_addr_1 => \Timer:TimerUDB:trig_reg\ ,
+            cs_addr_0 => \Timer:TimerUDB:per_zero\ ,
+            f0_load => \Timer:TimerUDB:capt_fifo_load\ ,
+            chain_out => \Timer:TimerUDB:sT16:timerdp:carry\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Next in chain : \Timer:TimerUDB:sT16:timerdp:u1\
+
+    datapathcell: Name =\Timer:TimerUDB:sT16:timerdp:u1\
+        PORT MAP (
+            clock => Net_36 ,
+            cs_addr_2 => Net_46 ,
+            cs_addr_1 => \Timer:TimerUDB:trig_reg\ ,
+            cs_addr_0 => \Timer:TimerUDB:per_zero\ ,
+            f0_load => \Timer:TimerUDB:capt_fifo_load\ ,
+            z0_comb => \Timer:TimerUDB:per_zero\ ,
+            f0_bus_stat_comb => \Timer:TimerUDB:status_3\ ,
+            f0_blk_stat_comb => \Timer:TimerUDB:status_2\ ,
+            chain_in => \Timer:TimerUDB:sT16:timerdp:carry\ );
+        Properties:
+        {
+            a0_init = "00000000"
+            a1_init = "00000000"
+            ce0_sync = 1
+            ce1_sync = 1
+            cl0_sync = 1
+            cl1_sync = 1
+            cmsb_sync = 1
+            co_msb_sync = 1
+            cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000"
+            d0_init = "00000000"
+            d1_init = "00000000"
+            f0_blk_sync = 1
+            f0_bus_sync = 1
+            f1_blk_sync = 1
+            f1_bus_sync = 1
+            ff0_sync = 1
+            ff1_sync = 1
+            ov_msb_sync = 1
+            so_sync = 1
+            z0_sync = 1
+            z1_sync = 1
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
+        Previous in chain : \Timer:TimerUDB:sT16:timerdp:u0\
     </CYPRESSTAG>
     <CYPRESSTAG name="Status register listing">
     </CYPRESSTAG>
@@ -893,10 +1414,53 @@ Design Equations
         }
         Clock Polarity: Active High
         Clock Enable: True
+
+    statusicell: Name =\Timer:TimerUDB:rstSts:stsreg\
+        PORT MAP (
+            reset => Net_47 ,
+            clock => Net_36 ,
+            status_3 => \Timer:TimerUDB:status_3\ ,
+            status_2 => \Timer:TimerUDB:status_2\ ,
+            status_1 => \Timer:TimerUDB:capt_int_temp\ ,
+            status_0 => \Timer:TimerUDB:status_tc\ );
+        Properties:
+        {
+            cy_force_order = 1
+            cy_int_mask = "1111111"
+            cy_md_select = "0000011"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
     </CYPRESSTAG>
     <CYPRESSTAG name="Sync listing">
     </CYPRESSTAG>
     <CYPRESSTAG name="Control register listing">
+
+    ------------------------------------------------------------
+    Control register listing
+    ------------------------------------------------------------
+
+    controlcell: Name =\Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\
+        PORT MAP (
+            clock => Net_36 ,
+            control_7 => \Timer:TimerUDB:control_7\ ,
+            control_6 => \Timer:TimerUDB:control_6\ ,
+            control_5 => \Timer:TimerUDB:control_5\ ,
+            control_4 => \Timer:TimerUDB:control_4\ ,
+            control_3 => \Timer:TimerUDB:control_3\ ,
+            control_2 => \Timer:TimerUDB:control_2\ ,
+            control_1 => \Timer:TimerUDB:control_1\ ,
+            control_0 => \Timer:TimerUDB:control_0\ );
+        Properties:
+        {
+            cy_ctrl_mode_0 = "11111111"
+            cy_ctrl_mode_1 = "00000000"
+            cy_ext_reset = 0
+            cy_force_order = 1
+            cy_init_value = "00000000"
+        }
+        Clock Polarity: Active High
+        Clock Enable: True
     </CYPRESSTAG>
     <CYPRESSTAG name="Count7 listing">
     </CYPRESSTAG>
@@ -910,7 +1474,7 @@ Design Equations
 
     interrupt: Name =isr_p_sense
         PORT MAP (
-            interrupt => Net_4 );
+            interrupt => Net_40 );
         Properties:
         {
             int_type = "00"
@@ -925,6 +1489,15 @@ Design Equations
             int_type = "10"
             is_nmi = 0
         }
+
+    interrupt: Name =isr_timeout
+        PORT MAP (
+            interrupt => Net_43 );
+        Properties:
+        {
+            int_type = "00"
+            is_nmi = 0
+        }
     </CYPRESSTAG>
 </CYPRESSTAG>
 <CYPRESSTAG name="Technology mapping summary" expanded>
@@ -935,11 +1508,11 @@ Technology mapping summary
 
 Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
-Digital Clocks                :    1 :    7 :    8 : 12.50 %
+Digital Clocks                :    2 :    6 :    8 : 25.00 %
 Analog Clocks                 :    1 :    3 :    4 : 25.00 %
 CapSense Buffers              :    0 :    2 :    2 :  0.00 %
 Digital Filter Block          :    0 :    1 :    1 :  0.00 %
-Interrupts                    :    2 :   30 :   32 :  6.25 %
+Interrupts                    :    3 :   29 :   32 :  9.38 %
 IO                            :   10 :   38 :   48 : 20.83 %
 Segment LCD                   :    0 :    1 :    1 :  0.00 %
 CAN 2.0b                      :    0 :    1 :    1 :  0.00 %
@@ -948,13 +1521,14 @@ USB                           :    0 :    1 :    1 :  0.00 %
 DMA Channels                  :    0 :   24 :   24 :  0.00 %
 Timer                         :    0 :    4 :    4 :  0.00 %
 UDB                           :      :      :      :        
-  Macrocells                  :    9 :  183 :  192 :  4.69 %
-  Unique P-terms              :   20 :  364 :  384 :  5.21 %
-  Total P-terms               :   23 :      :      :        
-  Datapath Cells              :    2 :   22 :   24 :  8.33 %
-  Status Cells                :    1 :   23 :   24 :  4.17 %
-    StatusI Registers         :    1 :      :      :        
-  Control Cells               :    0 :   24 :   24 :  0.00 %
+  Macrocells                  :   25 :  167 :  192 : 13.02 %
+  Unique P-terms              :   51 :  333 :  384 : 13.28 %
+  Total P-terms               :   56 :      :      :        
+  Datapath Cells              :    4 :   20 :   24 : 16.67 %
+  Status Cells                :    2 :   22 :   24 :  8.33 %
+    StatusI Registers         :    2 :      :      :        
+  Control Cells               :    1 :   23 :   24 :  4.17 %
+    Control Registers         :    1 :      :      :        
 Opamp                         :    0 :    4 :    4 :  0.00 %
 Comparator                    :    0 :    4 :    4 :  0.00 %
 Delta-Sigma ADC               :    0 :    1 :    1 :  0.00 %
@@ -964,8 +1538,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    0 :    4 :    4 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.122ms
-Tech Mapping phase: Elapsed time ==> 0s.200ms
+Technology Mapping: Elapsed time ==> 0s.140ms
+Tech Mapping phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Initial Analog Placement Results:
@@ -989,7 +1563,7 @@ SAR[1]@[FFB(SAR,1)] : \ADC_SAR:ADC_SAR\ (SAR-ExtVref)
 IO_2@[IOP=(0)][IoId=(2)] : \ADC_SAR:Bypass(0)\ (SAR-ExtVref)
 Vref[3]@[FFB(Vref,3)] : \ADC_SAR:vRef_1024\
 
-Analog Placement phase: Elapsed time ==> 0s.062ms
+Analog Placement phase: Elapsed time ==> 0s.031ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 Analog Routing phase: Elapsed time ==> 0s.000ms
@@ -1047,11 +1621,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.316ms
+Analog Code Generation phase: Elapsed time ==> 0s.296ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 0.8 sec.
+I2076: Total run-time: 1.0 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -1062,15 +1636,15 @@ PLD Packing Summary
 ------------------------------------------------------------
             Resource Type : Used : Free :  Max :  % Used
     ====================================================
-                     PLDs :    3 :   45 :   48 :   6.25%
+                     PLDs :   11 :   37 :   48 :  22.92%
 
 <CYPRESSTAG name="PLD Statistics">
 
         PLD Resource Type :     Average/LAB
     =======================================
-                   Inputs :            8.00
-                   Pterms :            7.33
-               Macrocells :            3.00
+                   Inputs :            7.27
+                   Pterms :            5.00
+               Macrocells :            2.27
 </CYPRESSTAG>
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
@@ -1082,7 +1656,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.015ms
+Partitioning: Elapsed time ==> 0s.031ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -1092,60 +1666,67 @@ Final Placement Summary
 
        Resource Type :      Count : Avg Inputs : Avg Outputs
     ========================================================
-                 UDB :          2 :       8.00 :       4.50
+                 UDB :          6 :      11.50 :       4.17
 <CYPRESSTAG name="Final Placement Details">
 <CYPRESSTAG name="Component Details">
 
 ------------------------------------------------------------
 Component Placement Details
 ------------------------------------------------------------
-UDB [UDB=(0,0)] contents:
-LAB@[UDB=(0,0)][LB=0] #macrocells=4, #inputs=9, #pterms=8
+UDB [UDB=(0,0)] is empty.
+UDB [UDB=(0,1)] is empty.
+UDB [UDB=(0,2)] is empty.
+UDB [UDB=(0,3)] is empty.
+UDB [UDB=(0,4)] is empty.
+UDB [UDB=(0,5)] is empty.
+UDB [UDB=(1,0)] is empty.
+UDB [UDB=(1,1)] is empty.
+UDB [UDB=(1,2)] is empty.
+UDB [UDB=(1,3)] is empty.
+UDB [UDB=(1,4)] is empty.
+UDB [UDB=(1,5)] is empty.
+UDB [UDB=(2,0)] is empty.
+UDB [UDB=(2,1)] contents:
+LAB@[UDB=(2,1)][LB=0] #macrocells=1, #inputs=8, #pterms=5
 {
-    [McSlotId=0]:     MacroCell: Name=\UART:BUART:tx_state_0\, Mode=(T-Register) @ [UDB=(0,0)][LB=0][MC=0]
-        Total # of inputs        : 6
-        Total # of product terms : 4
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:int_capt_count_1\, Mode=(T-Register) @ [UDB=(2,1)][LB=0][MC=0]
+        Total # of inputs        : 8
+        Total # of product terms : 5
         List of special equations: 
-            Clock  = (\UART:Net_9\) => Global
+            Clock  = (Net_36) => Global
             Clock Enable: True
-        Main Equation            : 4 pterms
+        Main Equation            : 5 pterms
         (
-              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
-              \UART:BUART:tx_bitclk_enable_pre\ * !\UART:BUART:tx_fifo_empty\
-            + !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
-              !\UART:BUART:tx_fifo_empty\ * !\UART:BUART:tx_state_2\
-            + \UART:BUART:tx_state_1\ * \UART:BUART:tx_state_0\ * 
-              \UART:BUART:tx_bitclk_enable_pre\ * \UART:BUART:tx_fifo_empty\ * 
-              \UART:BUART:tx_state_2\
-            + \UART:BUART:tx_state_0\ * !\UART:BUART:tx_state_2\ * 
-              \UART:BUART:tx_bitclk\
+              !Net_47 * \Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_0\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\
+            + Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
         );
-        Output = \UART:BUART:tx_state_0\ (fanout=8)
+        Output = \Timer:TimerUDB:int_capt_count_1\ (fanout=3)
         Properties               : 
         {
         }
 
-    [McSlotId=1]:     MacroCell: Name=\UART:BUART:tx_state_1\, Mode=(T-Register) @ [UDB=(0,0)][LB=0][MC=1]
-        Total # of inputs        : 6
-        Total # of product terms : 3
-        List of special equations: 
-            Clock  = (\UART:Net_9\) => Global
-            Clock Enable: True
-        Main Equation            : 3 pterms
-        (
-              \UART:BUART:tx_state_1\ * \UART:BUART:tx_state_0\ * 
-              \UART:BUART:tx_bitclk_enable_pre\ * \UART:BUART:tx_state_2\
-            + \UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_2\ * 
-              \UART:BUART:tx_counter_dp\ * \UART:BUART:tx_bitclk\
-            + \UART:BUART:tx_state_0\ * !\UART:BUART:tx_state_2\ * 
-              \UART:BUART:tx_bitclk\
-        );
-        Output = \UART:BUART:tx_state_1\ (fanout=8)
-        Properties               : 
-        {
-        }
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
 
-    [McSlotId=2]:     MacroCell: Name=Net_22, Mode=(Combinatorial) @ [UDB=(0,0)][LB=0][MC=2]
+LAB@[UDB=(2,1)][LB=1] #macrocells=2, #inputs=7, #pterms=6
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=Net_22, Mode=(Combinatorial) @ [UDB=(2,1)][LB=1][MC=1]
         Total # of inputs        : 1
         Total # of product terms : 1
             Clock Enable: True
@@ -1158,23 +1739,7 @@ LAB@[UDB=(0,0)][LB=0] #macrocells=4, #inputs=9, #pterms=8
         {
         }
 
-    [McSlotId=3]:     MacroCell: Name=\UART:BUART:tx_status_2\, Mode=(Combinatorial) @ [UDB=(0,0)][LB=0][MC=3]
-        Total # of inputs        : 1
-        Total # of product terms : 1
-            Clock Enable: True
-        Main Equation            : 1 pterm
-        (
-              !\UART:BUART:tx_fifo_notfull\
-        );
-        Output = \UART:BUART:tx_status_2\ (fanout=1)
-        Properties               : 
-        {
-        }
-}
-
-LAB@[UDB=(0,0)][LB=1] #macrocells=2, #inputs=9, #pterms=6
-{
-    [McSlotId=0]:     MacroCell: Name=\UART:BUART:txn\, Mode=(D-Register) @ [UDB=(0,0)][LB=1][MC=0]
+    [McSlotId=2]:     MacroCell: Name=\UART:BUART:txn\, Mode=(D-Register) @ [UDB=(2,1)][LB=1][MC=2]
         Total # of inputs        : 7
         Total # of product terms : 5
         List of special equations: 
@@ -1198,7 +1763,227 @@ LAB@[UDB=(0,0)][LB=1] #macrocells=2, #inputs=9, #pterms=6
         {
         }
 
-    [McSlotId=1]:     MacroCell: Name=\UART:BUART:tx_status_0\, Mode=(Combinatorial) @ [UDB=(0,0)][LB=1][MC=1]
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(2,2)] is empty.
+UDB [UDB=(2,3)] contents:
+LAB@[UDB=(2,3)][LB=0] #macrocells=4, #inputs=8, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:capt_fifo_load\, Mode=(Combinatorial) @ [UDB=(2,3)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\
+        );
+        Output = \Timer:TimerUDB:capt_fifo_load\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\Timer:TimerUDB:capture_last\, Mode=(D-Register) @ [UDB=(2,3)][LB=0][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39
+        );
+        Output = \Timer:TimerUDB:capture_last\ (fanout=5)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_40, Mode=(D-Register) @ [UDB=(2,3)][LB=0][MC=2]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\
+        );
+        Output = Net_40 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Timer:TimerUDB:int_capt_count_0\, Mode=(T-Register) @ [UDB=(2,3)][LB=0][MC=3]
+        Total # of inputs        : 8
+        Total # of product terms : 5
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 5 pterms
+        (
+              !Net_47 * \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_0\ * 
+              !\Timer:TimerUDB:capture_last\ * \Timer:TimerUDB:timer_enable\
+            + Net_39 * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+        );
+        Output = \Timer:TimerUDB:int_capt_count_0\ (fanout=3)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(2,3)][LB=1] #macrocells=2, #inputs=6, #pterms=5
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\UART:BUART:tx_state_1\, Mode=(T-Register) @ [UDB=(2,3)][LB=1][MC=1]
+        Total # of inputs        : 6
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (\UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              \UART:BUART:tx_state_1\ * \UART:BUART:tx_state_0\ * 
+              \UART:BUART:tx_bitclk_enable_pre\ * \UART:BUART:tx_state_2\
+            + \UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_2\ * 
+              \UART:BUART:tx_counter_dp\ * \UART:BUART:tx_bitclk\
+            + \UART:BUART:tx_state_0\ * !\UART:BUART:tx_state_2\ * 
+              \UART:BUART:tx_bitclk\
+        );
+        Output = \UART:BUART:tx_state_1\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\UART:BUART:tx_bitclk\, Mode=(D-Register) @ [UDB=(2,3)][LB=1][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (\UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
+              \UART:BUART:tx_state_2\
+            + !\UART:BUART:tx_bitclk_enable_pre\
+        );
+        Output = \UART:BUART:tx_bitclk\ (fanout=4)
+        Properties               : 
+        {
+        }
+}
+
+datapathcell: Name =\Timer:TimerUDB:sT16:timerdp:u0\
+    PORT MAP (
+        clock => Net_36 ,
+        cs_addr_2 => Net_46 ,
+        cs_addr_1 => \Timer:TimerUDB:trig_reg\ ,
+        cs_addr_0 => \Timer:TimerUDB:per_zero\ ,
+        f0_load => \Timer:TimerUDB:capt_fifo_load\ ,
+        chain_out => \Timer:TimerUDB:sT16:timerdp:carry\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111000000000000000000000001000000000000000000011000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+    Next in chain : \Timer:TimerUDB:sT16:timerdp:u1\
+
+UDB [UDB=(2,4)] contents:
+LAB@[UDB=(2,4)][LB=1] #macrocells=1, #inputs=4, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\UART:BUART:counter_load_not\, Mode=(Combinatorial) @ [UDB=(2,4)][LB=1][MC=0]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        !(
+              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
+              \UART:BUART:tx_bitclk_enable_pre\
+            + !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
+              !\UART:BUART:tx_state_2\
+        );
+        Output = \UART:BUART:counter_load_not\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+datapathcell: Name =\UART:BUART:sTX:sCLOCK:TxBitClkGen\
+    PORT MAP (
+        clock => \UART:Net_9\ ,
+        cs_addr_0 => \UART:BUART:counter_load_not\ ,
+        ce0_reg => \UART:BUART:tx_bitclk_enable_pre\ ,
+        ce1_reg => \UART:BUART:tx_counter_dp\ );
+    Properties:
+    {
+        a0_init = "00000000"
+        a1_init = "00000000"
+        ce0_sync = 1
+        ce1_sync = 1
+        cl0_sync = 1
+        cl1_sync = 1
+        cmsb_sync = 1
+        co_msb_sync = 1
+        cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+        d0_init = "00000000"
+        d1_init = "00000000"
+        f0_blk_sync = 1
+        f0_bus_sync = 1
+        f1_blk_sync = 1
+        f1_bus_sync = 1
+        ff0_sync = 1
+        ff1_sync = 1
+        ov_msb_sync = 1
+        so_sync = 1
+        z0_sync = 1
+        z1_sync = 1
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+UDB [UDB=(2,5)] is empty.
+UDB [UDB=(3,0)] is empty.
+UDB [UDB=(3,1)] contents:
+LAB@[UDB=(3,1)][LB=0] #macrocells=1, #inputs=5, #pterms=1
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\UART:BUART:tx_status_0\, Mode=(Combinatorial) @ [UDB=(3,1)][LB=0][MC=1]
         Total # of inputs        : 5
         Total # of product terms : 1
             Clock Enable: True
@@ -1209,6 +1994,59 @@ LAB@[UDB=(0,0)][LB=1] #macrocells=2, #inputs=9, #pterms=6
               \UART:BUART:tx_state_2\
         );
         Output = \UART:BUART:tx_status_0\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(3,1)][LB=1] #macrocells=2, #inputs=9, #pterms=5
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:capt_int_temp\, Mode=(D-Register) @ [UDB=(3,1)][LB=1][MC=0]
+        Total # of inputs        : 8
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\ * 
+              !\Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * !\Timer:TimerUDB:control_1\ * 
+              \Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              !\Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              !\Timer:TimerUDB:int_capt_count_0\
+            + Net_47 * Net_39 * \Timer:TimerUDB:control_1\ * 
+              \Timer:TimerUDB:control_0\ * !\Timer:TimerUDB:capture_last\ * 
+              \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:int_capt_count_1\ * 
+              \Timer:TimerUDB:int_capt_count_0\
+        );
+        Output = \Timer:TimerUDB:capt_int_temp\ (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\UART:BUART:tx_status_2\, Mode=(Combinatorial) @ [UDB=(3,1)][LB=1][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !\UART:BUART:tx_fifo_notfull\
+        );
+        Output = \UART:BUART:tx_status_2\ (fanout=1)
         Properties               : 
         {
         }
@@ -1269,15 +2107,36 @@ statusicell: Name =\UART:BUART:sTX:TxSts\
     Clock Polarity: Active High
     Clock Enable: True
 
-UDB [UDB=(0,1)] is empty.
-UDB [UDB=(0,2)] is empty.
-UDB [UDB=(0,3)] is empty.
-UDB [UDB=(0,4)] is empty.
-UDB [UDB=(0,5)] is empty.
-UDB [UDB=(1,0)] contents:
-LAB@[UDB=(1,0)][LB=1] #macrocells=3, #inputs=6, #pterms=8
+UDB [UDB=(3,2)] is empty.
+UDB [UDB=(3,3)] contents:
+LAB@[UDB=(3,3)][LB=0] #macrocells=2, #inputs=7, #pterms=8
 {
-    [McSlotId=0]:     MacroCell: Name=\UART:BUART:tx_state_2\, Mode=(T-Register) @ [UDB=(1,0)][LB=1][MC=0]
+    [McSlotId=0]:     MacroCell: Name=\UART:BUART:tx_state_0\, Mode=(T-Register) @ [UDB=(3,3)][LB=0][MC=0]
+        Total # of inputs        : 6
+        Total # of product terms : 4
+        List of special equations: 
+            Clock  = (\UART:Net_9\) => Global
+            Clock Enable: True
+        Main Equation            : 4 pterms
+        (
+              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
+              \UART:BUART:tx_bitclk_enable_pre\ * !\UART:BUART:tx_fifo_empty\
+            + !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
+              !\UART:BUART:tx_fifo_empty\ * !\UART:BUART:tx_state_2\
+            + \UART:BUART:tx_state_1\ * \UART:BUART:tx_state_0\ * 
+              \UART:BUART:tx_bitclk_enable_pre\ * \UART:BUART:tx_fifo_empty\ * 
+              \UART:BUART:tx_state_2\
+            + \UART:BUART:tx_state_0\ * !\UART:BUART:tx_state_2\ * 
+              \UART:BUART:tx_bitclk\
+        );
+        Output = \UART:BUART:tx_state_0\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\UART:BUART:tx_state_2\, Mode=(T-Register) @ [UDB=(3,3)][LB=0][MC=3]
         Total # of inputs        : 6
         Total # of product terms : 4
         List of special equations: 
@@ -1298,49 +2157,53 @@ LAB@[UDB=(1,0)][LB=1] #macrocells=3, #inputs=6, #pterms=8
         Properties               : 
         {
         }
+}
 
-    [McSlotId=1]:     MacroCell: Name=\UART:BUART:counter_load_not\, Mode=(Combinatorial) @ [UDB=(1,0)][LB=1][MC=1]
-        Total # of inputs        : 4
-        Total # of product terms : 2
-            Clock Enable: True
-        Main Equation            : 2 pterms
-        !(
-              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
-              \UART:BUART:tx_bitclk_enable_pre\
-            + !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
-              !\UART:BUART:tx_state_2\
-        );
-        Output = \UART:BUART:counter_load_not\ (fanout=1)
-        Properties               : 
-        {
-        }
-
-    [McSlotId=2]:     MacroCell: Name=\UART:BUART:tx_bitclk\, Mode=(D-Register) @ [UDB=(1,0)][LB=1][MC=2]
-        Total # of inputs        : 4
-        Total # of product terms : 2
+LAB@[UDB=(3,3)][LB=1] #macrocells=2, #inputs=3, #pterms=2
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:trig_last\, Mode=(D-Register) @ [UDB=(3,3)][LB=1][MC=0]
+        Total # of inputs        : 2
+        Total # of product terms : 1
         List of special equations: 
-            Clock  = (\UART:Net_9\) => Global
+            Clock  = (Net_36) => Global
             Clock Enable: True
-        Main Equation            : 2 pterms
+        Main Equation            : 1 pterm
         !(
-              !\UART:BUART:tx_state_1\ * !\UART:BUART:tx_state_0\ * 
-              \UART:BUART:tx_state_2\
-            + !\UART:BUART:tx_bitclk_enable_pre\
+              !Net_61 * !Net_57
         );
-        Output = \UART:BUART:tx_bitclk\ (fanout=4)
+        Output = \Timer:TimerUDB:trig_last\ (fanout=2)
         Properties               : 
         {
         }
 
+    [McSlotId=1]:     MacroCell: Name=Net_46, Mode=(Combinatorial) @ [UDB=(3,3)][LB=1][MC=1]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !Net_47
+        );
+        Output = Net_46 (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
     [McSlotId=3]: (empty)
 }
 
-datapathcell: Name =\UART:BUART:sTX:sCLOCK:TxBitClkGen\
+datapathcell: Name =\Timer:TimerUDB:sT16:timerdp:u1\
     PORT MAP (
-        clock => \UART:Net_9\ ,
-        cs_addr_0 => \UART:BUART:counter_load_not\ ,
-        ce0_reg => \UART:BUART:tx_bitclk_enable_pre\ ,
-        ce1_reg => \UART:BUART:tx_counter_dp\ );
+        clock => Net_36 ,
+        cs_addr_2 => Net_46 ,
+        cs_addr_1 => \Timer:TimerUDB:trig_reg\ ,
+        cs_addr_0 => \Timer:TimerUDB:per_zero\ ,
+        f0_load => \Timer:TimerUDB:capt_fifo_load\ ,
+        z0_comb => \Timer:TimerUDB:per_zero\ ,
+        f0_bus_stat_comb => \Timer:TimerUDB:status_3\ ,
+        f0_blk_stat_comb => \Timer:TimerUDB:status_2\ ,
+        chain_in => \Timer:TimerUDB:sT16:timerdp:carry\ );
     Properties:
     {
         a0_init = "00000000"
@@ -1351,7 +2214,7 @@ datapathcell: Name =\UART:BUART:sTX:sCLOCK:TxBitClkGen\
         cl1_sync = 1
         cmsb_sync = 1
         co_msb_sync = 1
-        cy_dpconfig = "1010100001000000001000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111000000001111111100000111001000000100000000000101111100000000000000001000"
+        cy_dpconfig = "0000000001000000000000000100000001000000010000000000000010000000000000001000000000000000100000000000000010000000000000001000000011111111000000001111111111111111100000110000000000000001000000110000000000011000"
         d0_init = "00000000"
         d1_init = "00000000"
         f0_blk_sync = 1
@@ -1367,23 +2230,197 @@ datapathcell: Name =\UART:BUART:sTX:sCLOCK:TxBitClkGen\
     }
     Clock Polarity: Active High
     Clock Enable: True
+    Previous in chain : \Timer:TimerUDB:sT16:timerdp:u0\
 
-UDB [UDB=(1,1)] is empty.
-UDB [UDB=(1,2)] is empty.
-UDB [UDB=(1,3)] is empty.
-UDB [UDB=(1,4)] is empty.
-UDB [UDB=(1,5)] is empty.
-UDB [UDB=(2,0)] is empty.
-UDB [UDB=(2,1)] is empty.
-UDB [UDB=(2,2)] is empty.
-UDB [UDB=(2,3)] is empty.
-UDB [UDB=(2,4)] is empty.
-UDB [UDB=(2,5)] is empty.
-UDB [UDB=(3,0)] is empty.
-UDB [UDB=(3,1)] is empty.
-UDB [UDB=(3,2)] is empty.
-UDB [UDB=(3,3)] is empty.
-UDB [UDB=(3,4)] is empty.
+UDB [UDB=(3,4)] contents:
+LAB@[UDB=(3,4)][LB=0] #macrocells=4, #inputs=11, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:trig_reg\, Mode=(Combinatorial) @ [UDB=(3,4)][LB=0][MC=0]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:timer_enable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:trig_reg\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\Timer:TimerUDB:timer_enable\, Mode=(D-Register) @ [UDB=(3,4)][LB=0][MC=1]
+        Total # of inputs        : 8
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:timer_enable\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:run_mode\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:per_zero\ * 
+              !\Timer:TimerUDB:trig_disable\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:timer_enable\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\Timer:TimerUDB:trig_rise_detected\, Mode=(D-Register) @ [UDB=(3,4)][LB=0][MC=2]
+        Total # of inputs        : 7
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              Net_61 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:trig_last\
+            + Net_57 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * !\Timer:TimerUDB:trig_last\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:trig_rise_detected\ (fanout=6)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Timer:TimerUDB:status_tc\, Mode=(Combinatorial) @ [UDB=(3,4)][LB=0][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = \Timer:TimerUDB:status_tc\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(3,4)][LB=1] #macrocells=4, #inputs=12, #pterms=6
+{
+    [McSlotId=0]:     MacroCell: Name=\Timer:TimerUDB:trig_disable\, Mode=(D-Register) @ [UDB=(3,4)][LB=1][MC=0]
+        Total # of inputs        : 7
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_47 * \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:timer_enable\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+            + Net_47 * \Timer:TimerUDB:trig_disable\
+        );
+        Output = \Timer:TimerUDB:trig_disable\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=Net_43, Mode=(D-Register) @ [UDB=(3,4)][LB=1][MC=1]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:run_mode\ * 
+              \Timer:TimerUDB:per_zero\ * \Timer:TimerUDB:trig_rise_detected\
+        );
+        Output = Net_43 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\Timer:TimerUDB:run_mode\, Mode=(D-Register) @ [UDB=(3,4)][LB=1][MC=2]
+        Total # of inputs        : 1
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \Timer:TimerUDB:control_7\
+        );
+        Output = \Timer:TimerUDB:run_mode\ (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\Timer:TimerUDB:trig_fall_detected\, Mode=(D-Register) @ [UDB=(3,4)][LB=1][MC=3]
+        Total # of inputs        : 7
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (Net_36) => Global
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              !Net_61 * !Net_57 * Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * \Timer:TimerUDB:trig_last\
+            + Net_47 * \Timer:TimerUDB:control_7\ * 
+              \Timer:TimerUDB:control_4\ * 
+              \Timer:TimerUDB:trig_fall_detected\
+        );
+        Output = \Timer:TimerUDB:trig_fall_detected\ (fanout=1)
+        Properties               : 
+        {
+        }
+}
+
+statusicell: Name =\Timer:TimerUDB:rstSts:stsreg\
+    PORT MAP (
+        reset => Net_47 ,
+        clock => Net_36 ,
+        status_3 => \Timer:TimerUDB:status_3\ ,
+        status_2 => \Timer:TimerUDB:status_2\ ,
+        status_1 => \Timer:TimerUDB:capt_int_temp\ ,
+        status_0 => \Timer:TimerUDB:status_tc\ );
+    Properties:
+    {
+        cy_force_order = 1
+        cy_int_mask = "1111111"
+        cy_md_select = "0000011"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
+controlcell: Name =\Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\
+    PORT MAP (
+        clock => Net_36 ,
+        control_7 => \Timer:TimerUDB:control_7\ ,
+        control_6 => \Timer:TimerUDB:control_6\ ,
+        control_5 => \Timer:TimerUDB:control_5\ ,
+        control_4 => \Timer:TimerUDB:control_4\ ,
+        control_3 => \Timer:TimerUDB:control_3\ ,
+        control_2 => \Timer:TimerUDB:control_2\ ,
+        control_1 => \Timer:TimerUDB:control_1\ ,
+        control_0 => \Timer:TimerUDB:control_0\ );
+    Properties:
+    {
+        cy_ctrl_mode_0 = "11111111"
+        cy_ctrl_mode_1 = "00000000"
+        cy_ext_reset = 0
+        cy_force_order = 1
+        cy_init_value = "00000000"
+    }
+    Clock Polarity: Active High
+    Clock Enable: True
+
 UDB [UDB=(3,5)] is empty.
 Intr container @ [IntrContainer=(0)]: 
   Intr@ [IntrContainer=(0)][IntrId=(0)] 
@@ -1398,7 +2435,16 @@ Intr container @ [IntrContainer=(0)]:
   Intr@ [IntrContainer=(0)][IntrId=(1)] 
     interrupt: Name =isr_p_sense
         PORT MAP (
-            interrupt => Net_4 );
+            interrupt => Net_40 );
+        Properties:
+        {
+            int_type = "00"
+            is_nmi = 0
+        }
+  Intr@ [IntrContainer=(0)][IntrId=(2)] 
+    interrupt: Name =isr_timeout
+        PORT MAP (
+            interrupt => Net_43 );
         Properties:
         {
             int_type = "00"
@@ -1441,7 +2487,7 @@ Pin : Name = P_sense(0)
         IO Voltage: 0
     PORT MAP (
         pa_out => P_sense(0)__PA ,
-        fb => Net_4 ,
+        fb => Net_39 ,
         pad => P_sense(0)_PAD );
     Properties:
     {
@@ -1559,11 +2605,12 @@ Pin : Name = P_charge_ref(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
         pa_out => P_charge_ref(0)__PA ,
+        fb => Net_57 ,
         pad => P_charge_ref(0)_PAD );
     Properties:
     {
@@ -1599,11 +2646,12 @@ Pin : Name = P_discharge(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
         pa_out => P_discharge(0)__PA ,
+        fb => Net_47 ,
         pad => P_discharge(0)_PAD );
     Properties:
     {
@@ -1685,11 +2733,12 @@ Pin : Name = P_charge(0)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 0
         IO Voltage: 0
     PORT MAP (
         pa_out => P_charge(0)__PA ,
+        fb => Net_61 ,
         pad => P_charge(0)_PAD );
     Properties:
     {
@@ -1718,8 +2767,10 @@ Clock group 0:
             aclk_0 => \ADC_SAR:Net_385_local\ ,
             clk_a_dig_glb_0 => \ADC_SAR:Net_381\ ,
             clk_a_dig_0 => \ADC_SAR:Net_381_local\ ,
-            dclk_glb_0 => \UART:Net_9\ ,
-            dclk_0 => \UART:Net_9_local\ );
+            dclk_glb_0 => Net_36 ,
+            dclk_0 => Net_36_local ,
+            dclk_glb_1 => \UART:Net_9\ ,
+            dclk_1 => \UART:Net_9_local\ );
         Properties:
         {
         }
@@ -1794,46 +2845,46 @@ Port Configuration report
      |     |       | Interrupt |                  |                     | 
 Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connections
 -----+-----+-------+-----------+------------------+---------------------+--------------------------
-   0 |   0 |     * |      NONE |     HI_Z_DIGITAL |          P_sense(0) | FB(Net_4)
+   0 |   0 |     * |      NONE |     HI_Z_DIGITAL |          P_sense(0) | FB(Net_39)
      |   1 |     * |      NONE |      HI_Z_ANALOG |            P_adc(0) | Analog(Net_28)
      |   2 |       |      NONE |      HI_Z_ANALOG | \ADC_SAR:Bypass(0)\ | Analog(\ADC_SAR:Net_210\)
-     |   6 |     * |      NONE |    OPEN_DRAIN_HI |     P_charge_ref(0) | 
-     |   7 |     * |      NONE |    OPEN_DRAIN_LO |      P_discharge(0) | 
+     |   6 |     * |      NONE |    OPEN_DRAIN_HI |     P_charge_ref(0) | FB(Net_57)
+     |   7 |     * |      NONE |    OPEN_DRAIN_LO |      P_discharge(0) | FB(Net_47)
 -----+-----+-------+-----------+------------------+---------------------+--------------------------
   12 |   7 |     * |      NONE |         CMOS_OUT |               tx(0) | In(Net_22)
 -----+-----+-------+-----------+------------------+---------------------+--------------------------
-  15 |   0 |     * |      NONE |    OPEN_DRAIN_HI |         P_charge(0) | 
+  15 |   0 |     * |      NONE |    OPEN_DRAIN_HI |         P_charge(0) | FB(Net_61)
 ---------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
 Digital component placer commit/Report: Elapsed time ==> 0s.031ms
-Digital Placement phase: Elapsed time ==> 1s.338ms
+Digital Placement phase: Elapsed time ==> 1s.390ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "Widerstandsmessung_Digital_r.vh2" --pcf-path "Widerstandsmessung_Digital.pco" --des-name "Widerstandsmessung_Digital" --dsf-path "Widerstandsmessung_Digital.dsf" --sdc-path "Widerstandsmessung_Digital.sdc" --lib-path "Widerstandsmessung_Digital_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 1s.324ms
+Digital Routing phase: Elapsed time ==> 2s.015ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.229ms
+Bitstream Generation phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.031ms
+Bitstream Verification phase: Elapsed time ==> 0s.046ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in Widerstandsmessung_Digital_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.385ms
+Static timing analysis phase: Elapsed time ==> 0s.406ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.285ms
+Design database save phase: Elapsed time ==> 0s.218ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 4s.282ms
+cydsfit: Elapsed time ==> 4s.921ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 4s.282ms
-API generation phase: Elapsed time ==> 1s.574ms
-Dependency generation phase: Elapsed time ==> 0s.015ms
+Fitter phase: Elapsed time ==> 4s.921ms
+API generation phase: Elapsed time ==> 1s.703ms
+Dependency generation phase: Elapsed time ==> 0s.031ms
 Cleanup phase: Elapsed time ==> 0s.000ms

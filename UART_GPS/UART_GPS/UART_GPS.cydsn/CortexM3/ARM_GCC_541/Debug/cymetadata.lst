@@ -1,0 +1,1258 @@
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 736
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 03       		.byte	3
+  34 0005 65       		.byte	101
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 64       		.byte	100
+  38 0009 14       		.byte	20
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 4C       		.byte	76
+  42 000d 15       		.byte	21
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 15       		.byte	21
+  46 0011 16       		.byte	22
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 38       		.byte	56
+  50 0015 17       		.byte	23
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 01       		.byte	1
+  54 0019 19       		.byte	25
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 04       		.byte	4
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 2
+
+
+  58 001d 49       		.byte	73
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 02       		.byte	2
+  62 0021 4C       		.byte	76
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 03       		.byte	3
+  66 0025 4D       		.byte	77
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 02       		.byte	2
+  70 0029 50       		.byte	80
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 60       		.byte	96
+  74 002d 80       		.byte	-128
+  75 002e 61       		.byte	97
+  76 002f 80       		.byte	-128
+  77 0030 84       		.byte	-124
+  78 0031 38       		.byte	56
+  79 0032 85       		.byte	-123
+  80 0033 0F       		.byte	15
+  81 0034 86       		.byte	-122
+  82 0035 72       		.byte	114
+  83 0036 04       		.byte	4
+  84 0037 09       		.byte	9
+  85 0038 05       		.byte	5
+  86 0039 80       		.byte	-128
+  87 003a 06       		.byte	6
+  88 003b D0       		.byte	-48
+  89 003c 07       		.byte	7
+  90 003d 13       		.byte	19
+  91 003e 0C       		.byte	12
+  92 003f 0C       		.byte	12
+  93 0040 0E       		.byte	14
+  94 0041 71       		.byte	113
+  95 0042 14       		.byte	20
+  96 0043 DC       		.byte	-36
+  97 0044 15       		.byte	21
+  98 0045 2C       		.byte	44
+  99 0046 16       		.byte	22
+ 100 0047 22       		.byte	34
+ 101 0048 17       		.byte	23
+ 102 0049 43       		.byte	67
+ 103 004a 1A       		.byte	26
+ 104 004b 03       		.byte	3
+ 105 004c 1B       		.byte	27
+ 106 004d 0C       		.byte	12
+ 107 004e 1C       		.byte	28
+ 108 004f 10       		.byte	16
+ 109 0050 1E       		.byte	30
+ 110 0051 AC       		.byte	-84
+ 111 0052 1F       		.byte	31
+ 112 0053 08       		.byte	8
+ 113 0054 20       		.byte	32
+ 114 0055 10       		.byte	16
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 3
+
+
+ 115 0056 21       		.byte	33
+ 116 0057 71       		.byte	113
+ 117 0058 22       		.byte	34
+ 118 0059 40       		.byte	64
+ 119 005a 23       		.byte	35
+ 120 005b 0E       		.byte	14
+ 121 005c 24       		.byte	36
+ 122 005d 14       		.byte	20
+ 123 005e 2A       		.byte	42
+ 124 005f 20       		.byte	32
+ 125 0060 2D       		.byte	45
+ 126 0061 71       		.byte	113
+ 127 0062 2F       		.byte	47
+ 128 0063 06       		.byte	6
+ 129 0064 30       		.byte	48
+ 130 0065 E0       		.byte	-32
+ 131 0066 33       		.byte	51
+ 132 0067 0F       		.byte	15
+ 133 0068 34       		.byte	52
+ 134 0069 1F       		.byte	31
+ 135 006a 35       		.byte	53
+ 136 006b C0       		.byte	-64
+ 137 006c 37       		.byte	55
+ 138 006d 30       		.byte	48
+ 139 006e 39       		.byte	57
+ 140 006f A0       		.byte	-96
+ 141 0070 3A       		.byte	58
+ 142 0071 02       		.byte	2
+ 143 0072 3B       		.byte	59
+ 144 0073 08       		.byte	8
+ 145 0074 3F       		.byte	63
+ 146 0075 40       		.byte	64
+ 147 0076 40       		.byte	64
+ 148 0077 01       		.byte	1
+ 149 0078 45       		.byte	69
+ 150 0079 40       		.byte	64
+ 151 007a 49       		.byte	73
+ 152 007b FF       		.byte	-1
+ 153 007c 4A       		.byte	74
+ 154 007d 07       		.byte	7
+ 155 007e 4B       		.byte	75
+ 156 007f FF       		.byte	-1
+ 157 0080 4C       		.byte	76
+ 158 0081 40       		.byte	64
+ 159 0082 4D       		.byte	77
+ 160 0083 20       		.byte	32
+ 161 0084 4E       		.byte	78
+ 162 0085 F0       		.byte	-16
+ 163 0086 4F       		.byte	79
+ 164 0087 05       		.byte	5
+ 165 0088 50       		.byte	80
+ 166 0089 08       		.byte	8
+ 167 008a 54       		.byte	84
+ 168 008b 18       		.byte	24
+ 169 008c 58       		.byte	88
+ 170 008d 04       		.byte	4
+ 171 008e 59       		.byte	89
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 4
+
+
+ 172 008f 04       		.byte	4
+ 173 0090 5A       		.byte	90
+ 174 0091 04       		.byte	4
+ 175 0092 5B       		.byte	91
+ 176 0093 04       		.byte	4
+ 177 0094 5D       		.byte	93
+ 178 0095 10       		.byte	16
+ 179 0096 5F       		.byte	95
+ 180 0097 01       		.byte	1
+ 181 0098 60       		.byte	96
+ 182 0099 40       		.byte	64
+ 183 009a 61       		.byte	97
+ 184 009b A8       		.byte	-88
+ 185 009c 62       		.byte	98
+ 186 009d 40       		.byte	64
+ 187 009e 63       		.byte	99
+ 188 009f 20       		.byte	32
+ 189 00a0 80       		.byte	-128
+ 190 00a1 13       		.byte	19
+ 191 00a2 82       		.byte	-126
+ 192 00a3 04       		.byte	4
+ 193 00a4 83       		.byte	-125
+ 194 00a5 01       		.byte	1
+ 195 00a6 86       		.byte	-122
+ 196 00a7 40       		.byte	64
+ 197 00a8 8A       		.byte	-118
+ 198 00a9 08       		.byte	8
+ 199 00aa 8B       		.byte	-117
+ 200 00ab 01       		.byte	1
+ 201 00ac 8E       		.byte	-114
+ 202 00ad 80       		.byte	-128
+ 203 00ae 92       		.byte	-110
+ 204 00af 20       		.byte	32
+ 205 00b0 94       		.byte	-108
+ 206 00b1 0A       		.byte	10
+ 207 00b2 96       		.byte	-106
+ 208 00b3 14       		.byte	20
+ 209 00b4 9A       		.byte	-102
+ 210 00b5 20       		.byte	32
+ 211 00b6 9C       		.byte	-100
+ 212 00b7 13       		.byte	19
+ 213 00b8 9E       		.byte	-98
+ 214 00b9 0C       		.byte	12
+ 215 00ba A2       		.byte	-94
+ 216 00bb 80       		.byte	-128
+ 217 00bc A4       		.byte	-92
+ 218 00bd 03       		.byte	3
+ 219 00be A6       		.byte	-90
+ 220 00bf 14       		.byte	20
+ 221 00c0 AA       		.byte	-86
+ 222 00c1 15       		.byte	21
+ 223 00c2 AD       		.byte	-83
+ 224 00c3 02       		.byte	2
+ 225 00c4 B0       		.byte	-80
+ 226 00c5 10       		.byte	16
+ 227 00c6 B1       		.byte	-79
+ 228 00c7 01       		.byte	1
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 5
+
+
+ 229 00c8 B2       		.byte	-78
+ 230 00c9 80       		.byte	-128
+ 231 00ca B3       		.byte	-77
+ 232 00cb 02       		.byte	2
+ 233 00cc B4       		.byte	-76
+ 234 00cd 60       		.byte	96
+ 235 00ce B6       		.byte	-74
+ 236 00cf 0F       		.byte	15
+ 237 00d0 BA       		.byte	-70
+ 238 00d1 80       		.byte	-128
+ 239 00d2 BE       		.byte	-66
+ 240 00d3 15       		.byte	21
+ 241 00d4 BF       		.byte	-65
+ 242 00d5 05       		.byte	5
+ 243 00d6 C0       		.byte	-64
+ 244 00d7 12       		.byte	18
+ 245 00d8 C1       		.byte	-63
+ 246 00d9 04       		.byte	4
+ 247 00da C6       		.byte	-58
+ 248 00db C0       		.byte	-64
+ 249 00dc C7       		.byte	-57
+ 250 00dd EB       		.byte	-21
+ 251 00de C8       		.byte	-56
+ 252 00df 38       		.byte	56
+ 253 00e0 C9       		.byte	-55
+ 254 00e1 FF       		.byte	-1
+ 255 00e2 CA       		.byte	-54
+ 256 00e3 FF       		.byte	-1
+ 257 00e4 CB       		.byte	-53
+ 258 00e5 FF       		.byte	-1
+ 259 00e6 CE       		.byte	-50
+ 260 00e7 F0       		.byte	-16
+ 261 00e8 CF       		.byte	-49
+ 262 00e9 44       		.byte	68
+ 263 00ea D0       		.byte	-48
+ 264 00eb 0C       		.byte	12
+ 265 00ec D4       		.byte	-44
+ 266 00ed 01       		.byte	1
+ 267 00ee D8       		.byte	-40
+ 268 00ef 04       		.byte	4
+ 269 00f0 D9       		.byte	-39
+ 270 00f1 04       		.byte	4
+ 271 00f2 DA       		.byte	-38
+ 272 00f3 04       		.byte	4
+ 273 00f4 DB       		.byte	-37
+ 274 00f5 04       		.byte	4
+ 275 00f6 DF       		.byte	-33
+ 276 00f7 01       		.byte	1
+ 277 00f8 E6       		.byte	-26
+ 278 00f9 C0       		.byte	-64
+ 279 00fa EA       		.byte	-22
+ 280 00fb 40       		.byte	64
+ 281 00fc EB       		.byte	-21
+ 282 00fd 02       		.byte	2
+ 283 00fe 00       		.byte	0
+ 284 00ff 48       		.byte	72
+ 285 0100 04       		.byte	4
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 6
+
+
+ 286 0101 80       		.byte	-128
+ 287 0102 05       		.byte	5
+ 288 0103 05       		.byte	5
+ 289 0104 07       		.byte	7
+ 290 0105 08       		.byte	8
+ 291 0106 09       		.byte	9
+ 292 0107 88       		.byte	-120
+ 293 0108 0A       		.byte	10
+ 294 0109 04       		.byte	4
+ 295 010a 0D       		.byte	13
+ 296 010b 98       		.byte	-104
+ 297 010c 0E       		.byte	14
+ 298 010d 40       		.byte	64
+ 299 010e 10       		.byte	16
+ 300 010f 80       		.byte	-128
+ 301 0110 11       		.byte	17
+ 302 0111 08       		.byte	8
+ 303 0112 12       		.byte	18
+ 304 0113 04       		.byte	4
+ 305 0114 14       		.byte	20
+ 306 0115 20       		.byte	32
+ 307 0116 15       		.byte	21
+ 308 0117 01       		.byte	1
+ 309 0118 16       		.byte	22
+ 310 0119 24       		.byte	36
+ 311 011a 18       		.byte	24
+ 312 011b 40       		.byte	64
+ 313 011c 19       		.byte	25
+ 314 011d 01       		.byte	1
+ 315 011e 1A       		.byte	26
+ 316 011f 0C       		.byte	12
+ 317 0120 1D       		.byte	29
+ 318 0121 C0       		.byte	-64
+ 319 0122 1E       		.byte	30
+ 320 0123 80       		.byte	-128
+ 321 0124 1F       		.byte	31
+ 322 0125 28       		.byte	40
+ 323 0126 20       		.byte	32
+ 324 0127 09       		.byte	9
+ 325 0128 21       		.byte	33
+ 326 0129 08       		.byte	8
+ 327 012a 22       		.byte	34
+ 328 012b 10       		.byte	16
+ 329 012c 23       		.byte	35
+ 330 012d 08       		.byte	8
+ 331 012e 26       		.byte	38
+ 332 012f 04       		.byte	4
+ 333 0130 27       		.byte	39
+ 334 0131 40       		.byte	64
+ 335 0132 28       		.byte	40
+ 336 0133 80       		.byte	-128
+ 337 0134 29       		.byte	41
+ 338 0135 41       		.byte	65
+ 339 0136 2F       		.byte	47
+ 340 0137 02       		.byte	2
+ 341 0138 30       		.byte	48
+ 342 0139 80       		.byte	-128
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 7
+
+
+ 343 013a 31       		.byte	49
+ 344 013b 08       		.byte	8
+ 345 013c 32       		.byte	50
+ 346 013d 10       		.byte	16
+ 347 013e 38       		.byte	56
+ 348 013f 08       		.byte	8
+ 349 0140 3C       		.byte	60
+ 350 0141 02       		.byte	2
+ 351 0142 3E       		.byte	62
+ 352 0143 10       		.byte	16
+ 353 0144 40       		.byte	64
+ 354 0145 01       		.byte	1
+ 355 0146 43       		.byte	67
+ 356 0147 30       		.byte	48
+ 357 0148 44       		.byte	68
+ 358 0149 80       		.byte	-128
+ 359 014a 45       		.byte	69
+ 360 014b 80       		.byte	-128
+ 361 014c 46       		.byte	70
+ 362 014d 04       		.byte	4
+ 363 014e 48       		.byte	72
+ 364 014f 80       		.byte	-128
+ 365 0150 50       		.byte	80
+ 366 0151 04       		.byte	4
+ 367 0152 52       		.byte	82
+ 368 0153 04       		.byte	4
+ 369 0154 55       		.byte	85
+ 370 0155 04       		.byte	4
+ 371 0156 56       		.byte	86
+ 372 0157 20       		.byte	32
+ 373 0158 57       		.byte	87
+ 374 0159 02       		.byte	2
+ 375 015a 5B       		.byte	91
+ 376 015b 01       		.byte	1
+ 377 015c 5C       		.byte	92
+ 378 015d 20       		.byte	32
+ 379 015e 5E       		.byte	94
+ 380 015f 8A       		.byte	-118
+ 381 0160 60       		.byte	96
+ 382 0161 02       		.byte	2
+ 383 0162 62       		.byte	98
+ 384 0163 20       		.byte	32
+ 385 0164 7A       		.byte	122
+ 386 0165 01       		.byte	1
+ 387 0166 7B       		.byte	123
+ 388 0167 02       		.byte	2
+ 389 0168 85       		.byte	-123
+ 390 0169 10       		.byte	16
+ 391 016a 88       		.byte	-120
+ 392 016b 02       		.byte	2
+ 393 016c 8B       		.byte	-117
+ 394 016d 08       		.byte	8
+ 395 016e 8E       		.byte	-114
+ 396 016f 20       		.byte	32
+ 397 0170 8F       		.byte	-113
+ 398 0171 40       		.byte	64
+ 399 0172 90       		.byte	-112
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 8
+
+
+ 400 0173 80       		.byte	-128
+ 401 0174 91       		.byte	-111
+ 402 0175 01       		.byte	1
+ 403 0176 92       		.byte	-110
+ 404 0177 50       		.byte	80
+ 405 0178 95       		.byte	-107
+ 406 0179 20       		.byte	32
+ 407 017a 96       		.byte	-106
+ 408 017b 08       		.byte	8
+ 409 017c 99       		.byte	-103
+ 410 017d 04       		.byte	4
+ 411 017e 9B       		.byte	-101
+ 412 017f 01       		.byte	1
+ 413 0180 9F       		.byte	-97
+ 414 0181 10       		.byte	16
+ 415 0182 A0       		.byte	-96
+ 416 0183 01       		.byte	1
+ 417 0184 C0       		.byte	-64
+ 418 0185 F5       		.byte	-11
+ 419 0186 C2       		.byte	-62
+ 420 0187 F7       		.byte	-9
+ 421 0188 C4       		.byte	-60
+ 422 0189 7E       		.byte	126
+ 423 018a CA       		.byte	-54
+ 424 018b 19       		.byte	25
+ 425 018c CC       		.byte	-52
+ 426 018d 0E       		.byte	14
+ 427 018e CE       		.byte	-50
+ 428 018f A2       		.byte	-94
+ 429 0190 D0       		.byte	-48
+ 430 0191 B8       		.byte	-72
+ 431 0192 D6       		.byte	-42
+ 432 0193 F1       		.byte	-15
+ 433 0194 D8       		.byte	-40
+ 434 0195 0C       		.byte	12
+ 435 0196 88       		.byte	-120
+ 436 0197 02       		.byte	2
+ 437 0198 8A       		.byte	-118
+ 438 0199 05       		.byte	5
+ 439 019a 8B       		.byte	-117
+ 440 019b 01       		.byte	1
+ 441 019c 90       		.byte	-112
+ 442 019d 14       		.byte	20
+ 443 019e 92       		.byte	-110
+ 444 019f 0A       		.byte	10
+ 445 01a0 94       		.byte	-108
+ 446 01a1 09       		.byte	9
+ 447 01a2 96       		.byte	-106
+ 448 01a3 12       		.byte	18
+ 449 01a4 98       		.byte	-104
+ 450 01a5 40       		.byte	64
+ 451 01a6 A4       		.byte	-92
+ 452 01a7 3F       		.byte	63
+ 453 01a8 A8       		.byte	-88
+ 454 01a9 3F       		.byte	63
+ 455 01aa AC       		.byte	-84
+ 456 01ab 20       		.byte	32
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 9
+
+
+ 457 01ac B0       		.byte	-80
+ 458 01ad 18       		.byte	24
+ 459 01ae B2       		.byte	-78
+ 460 01af 07       		.byte	7
+ 461 01b0 B4       		.byte	-76
+ 462 01b1 20       		.byte	32
+ 463 01b2 B6       		.byte	-74
+ 464 01b3 40       		.byte	64
+ 465 01b4 B7       		.byte	-73
+ 466 01b5 01       		.byte	1
+ 467 01b6 BE       		.byte	-66
+ 468 01b7 40       		.byte	64
+ 469 01b8 D8       		.byte	-40
+ 470 01b9 04       		.byte	4
+ 471 01ba D9       		.byte	-39
+ 472 01bb 04       		.byte	4
+ 473 01bc DC       		.byte	-36
+ 474 01bd 11       		.byte	17
+ 475 01be DF       		.byte	-33
+ 476 01bf 01       		.byte	1
+ 477 01c0 03       		.byte	3
+ 478 01c1 08       		.byte	8
+ 479 01c2 04       		.byte	4
+ 480 01c3 20       		.byte	32
+ 481 01c4 05       		.byte	5
+ 482 01c5 01       		.byte	1
+ 483 01c6 06       		.byte	6
+ 484 01c7 02       		.byte	2
+ 485 01c8 07       		.byte	7
+ 486 01c9 60       		.byte	96
+ 487 01ca 08       		.byte	8
+ 488 01cb 08       		.byte	8
+ 489 01cc 0A       		.byte	10
+ 490 01cd 48       		.byte	72
+ 491 01ce 0C       		.byte	12
+ 492 01cf 50       		.byte	80
+ 493 01d0 0D       		.byte	13
+ 494 01d1 A0       		.byte	-96
+ 495 01d2 0E       		.byte	14
+ 496 01d3 40       		.byte	64
+ 497 01d4 0F       		.byte	15
+ 498 01d5 20       		.byte	32
+ 499 01d6 10       		.byte	16
+ 500 01d7 2A       		.byte	42
+ 501 01d8 14       		.byte	20
+ 502 01d9 08       		.byte	8
+ 503 01da 15       		.byte	21
+ 504 01db 20       		.byte	32
+ 505 01dc 16       		.byte	22
+ 506 01dd 48       		.byte	72
+ 507 01de 17       		.byte	23
+ 508 01df 0A       		.byte	10
+ 509 01e0 18       		.byte	24
+ 510 01e1 20       		.byte	32
+ 511 01e2 19       		.byte	25
+ 512 01e3 44       		.byte	68
+ 513 01e4 1A       		.byte	26
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 10
+
+
+ 514 01e5 40       		.byte	64
+ 515 01e6 1B       		.byte	27
+ 516 01e7 18       		.byte	24
+ 517 01e8 1D       		.byte	29
+ 518 01e9 81       		.byte	-127
+ 519 01ea 1E       		.byte	30
+ 520 01eb 18       		.byte	24
+ 521 01ec 23       		.byte	35
+ 522 01ed 01       		.byte	1
+ 523 01ee 24       		.byte	36
+ 524 01ef 80       		.byte	-128
+ 525 01f0 25       		.byte	37
+ 526 01f1 20       		.byte	32
+ 527 01f2 26       		.byte	38
+ 528 01f3 0A       		.byte	10
+ 529 01f4 27       		.byte	39
+ 530 01f5 05       		.byte	5
+ 531 01f6 2C       		.byte	44
+ 532 01f7 50       		.byte	80
+ 533 01f8 2D       		.byte	45
+ 534 01f9 80       		.byte	-128
+ 535 01fa 2F       		.byte	47
+ 536 01fb 08       		.byte	8
+ 537 01fc 37       		.byte	55
+ 538 01fd 6A       		.byte	106
+ 539 01fe 39       		.byte	57
+ 540 01ff 20       		.byte	32
+ 541 0200 3E       		.byte	62
+ 542 0201 48       		.byte	72
+ 543 0202 3F       		.byte	63
+ 544 0203 21       		.byte	33
+ 545 0204 44       		.byte	68
+ 546 0205 40       		.byte	64
+ 547 0206 47       		.byte	71
+ 548 0207 14       		.byte	20
+ 549 0208 4D       		.byte	77
+ 550 0209 01       		.byte	1
+ 551 020a 4E       		.byte	78
+ 552 020b 02       		.byte	2
+ 553 020c 4F       		.byte	79
+ 554 020d 20       		.byte	32
+ 555 020e 54       		.byte	84
+ 556 020f 01       		.byte	1
+ 557 0210 5E       		.byte	94
+ 558 0211 08       		.byte	8
+ 559 0212 6C       		.byte	108
+ 560 0213 2A       		.byte	42
+ 561 0214 75       		.byte	117
+ 562 0215 80       		.byte	-128
+ 563 0216 76       		.byte	118
+ 564 0217 02       		.byte	2
+ 565 0218 77       		.byte	119
+ 566 0219 28       		.byte	40
+ 567 021a 86       		.byte	-122
+ 568 021b 48       		.byte	72
+ 569 021c 89       		.byte	-119
+ 570 021d 40       		.byte	64
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 11
+
+
+ 571 021e C0       		.byte	-64
+ 572 021f F2       		.byte	-14
+ 573 0220 C2       		.byte	-62
+ 574 0221 FE       		.byte	-2
+ 575 0222 C4       		.byte	-60
+ 576 0223 77       		.byte	119
+ 577 0224 CA       		.byte	-54
+ 578 0225 F0       		.byte	-16
+ 579 0226 CC       		.byte	-52
+ 580 0227 F0       		.byte	-16
+ 581 0228 CE       		.byte	-50
+ 582 0229 F4       		.byte	-12
+ 583 022a D0       		.byte	-48
+ 584 022b E0       		.byte	-32
+ 585 022c D2       		.byte	-46
+ 586 022d 30       		.byte	48
+ 587 022e D6       		.byte	-42
+ 588 022f 40       		.byte	64
+ 589 0230 E0       		.byte	-32
+ 590 0231 80       		.byte	-128
+ 591 0232 06       		.byte	6
+ 592 0233 10       		.byte	16
+ 593 0234 86       		.byte	-122
+ 594 0235 10       		.byte	16
+ 595 0236 C0       		.byte	-64
+ 596 0237 20       		.byte	32
+ 597 0238 E0       		.byte	-32
+ 598 0239 40       		.byte	64
+ 599 023a 88       		.byte	-120
+ 600 023b 01       		.byte	1
+ 601 023c E0       		.byte	-32
+ 602 023d 01       		.byte	1
+ 603 023e 74       		.byte	116
+ 604 023f 01       		.byte	1
+ 605 0240 A0       		.byte	-96
+ 606 0241 01       		.byte	1
+ 607 0242 DE       		.byte	-34
+ 608 0243 04       		.byte	4
+ 609 0244 10       		.byte	16
+ 610 0245 03       		.byte	3
+ 611 0246 1A       		.byte	26
+ 612 0247 03       		.byte	3
+ 613 0248 1F       		.byte	31
+ 614 0249 00       		.byte	0
+ 615 024a 60       		.byte	96
+ 616 024b 04       		.byte	4
+ 617 024c 0C       		.byte	12
+ 618 024d 44       		.byte	68
+ 619 024e 00       		.byte	0
+ 620 024f 00       		.byte	0
+ 621 0250 03       		.byte	3
+ 622 0251 00       		.byte	0
+ 623 0252 00       		.byte	0
+ 624 0253 E3       		.byte	-29
+ 625 0254 08       		.byte	8
+ 626 0255 80       		.byte	-128
+ 627 0256 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 12
+
+
+ 628 0257 00       		.byte	0
+ 629 0258 02       		.byte	2
+ 630 0259 3C       		.byte	60
+ 631 025a 00       		.byte	0
+ 632 025b C2       		.byte	-62
+ 633 025c 00       		.byte	0
+ 634 025d 08       		.byte	8
+ 635 025e 23       		.byte	35
+ 636 025f 00       		.byte	0
+ 637 0260 7F       		.byte	127
+ 638 0261 18       		.byte	24
+ 639 0262 00       		.byte	0
+ 640 0263 00       		.byte	0
+ 641 0264 73       		.byte	115
+ 642 0265 1C       		.byte	28
+ 643 0266 0C       		.byte	12
+ 644 0267 E1       		.byte	-31
+ 645 0268 1C       		.byte	28
+ 646 0269 E7       		.byte	-25
+ 647 026a 63       		.byte	99
+ 648 026b 18       		.byte	24
+ 649 026c 04       		.byte	4
+ 650 026d FF       		.byte	-1
+ 651 026e 00       		.byte	0
+ 652 026f 00       		.byte	0
+ 653 0270 01       		.byte	1
+ 654 0271 C0       		.byte	-64
+ 655 0272 00       		.byte	0
+ 656 0273 00       		.byte	0
+ 657 0274 00       		.byte	0
+ 658 0275 10       		.byte	16
+ 659 0276 00       		.byte	0
+ 660 0277 00       		.byte	0
+ 661 0278 2C       		.byte	44
+ 662 0279 38       		.byte	56
+ 663 027a 40       		.byte	64
+ 664 027b 1F       		.byte	31
+ 665 027c 10       		.byte	16
+ 666 027d 00       		.byte	0
+ 667 027e 0F       		.byte	15
+ 668 027f C0       		.byte	-64
+ 669 0280 08       		.byte	8
+ 670 0281 00       		.byte	0
+ 671 0282 82       		.byte	-126
+ 672 0283 28       		.byte	40
+ 673 0284 00       		.byte	0
+ 674 0285 00       		.byte	0
+ 675 0286 10       		.byte	16
+ 676 0287 00       		.byte	0
+ 677 0288 46       		.byte	70
+ 678 0289 03       		.byte	3
+ 679 028a 05       		.byte	5
+ 680 028b 00       		.byte	0
+ 681 028c 02       		.byte	2
+ 682 028d C0       		.byte	-64
+ 683 028e 00       		.byte	0
+ 684 028f E0       		.byte	-32
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 13
+
+
+ 685 0290 22       		.byte	34
+ 686 0291 FF       		.byte	-1
+ 687 0292 FF       		.byte	-1
+ 688 0293 FF       		.byte	-1
+ 689 0294 62       		.byte	98
+ 690 0295 A0       		.byte	-96
+ 691 0296 F0       		.byte	-16
+ 692 0297 41       		.byte	65
+ 693 0298 0C       		.byte	12
+ 694 0299 00       		.byte	0
+ 695 029a 00       		.byte	0
+ 696 029b 00       		.byte	0
+ 697 029c 00       		.byte	0
+ 698 029d 00       		.byte	0
+ 699 029e 02       		.byte	2
+ 700 029f 12       		.byte	18
+ 701 02a0 04       		.byte	4
+ 702 02a1 04       		.byte	4
+ 703 02a2 04       		.byte	4
+ 704 02a3 04       		.byte	4
+ 705 02a4 11       		.byte	17
+ 706 02a5 11       		.byte	17
+ 707 02a6 00       		.byte	0
+ 708 02a7 01       		.byte	1
+ 709 02a8 00       		.byte	0
+ 710 02a9 00       		.byte	0
+ 711 02aa 00       		.byte	0
+ 712 02ab 00       		.byte	0
+ 713 02ac 00       		.byte	0
+ 714 02ad 00       		.byte	0
+ 715 02ae 40       		.byte	64
+ 716 02af 02       		.byte	2
+ 717 02b0 00       		.byte	0
+ 718 02b1 10       		.byte	16
+ 719 02b2 30       		.byte	48
+ 720 02b3 10       		.byte	16
+ 721 02b4 00       		.byte	0
+ 722 02b5 10       		.byte	16
+ 723 02b6 10       		.byte	16
+ 724 02b7 12       		.byte	18
+ 725 02b8 00       		.byte	0
+ 726 02b9 00       		.byte	0
+ 727 02ba 00       		.byte	0
+ 728 02bb 00       		.byte	0
+ 729 02bc 00       		.byte	0
+ 730 02bd 00       		.byte	0
+ 731 02be 00       		.byte	0
+ 732 02bf 00       		.byte	0
+ 733 02c0 00       		.byte	0
+ 734 02c1 00       		.byte	0
+ 735 02c2 00       		.byte	0
+ 736 02c3 00       		.byte	0
+ 737 02c4 00       		.byte	0
+ 738 02c5 00       		.byte	0
+ 739 02c6 00       		.byte	0
+ 740 02c7 00       		.byte	0
+ 741 02c8 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 14
+
+
+ 742 02c9 80       		.byte	-128
+ 743 02ca 80       		.byte	-128
+ 744 02cb 00       		.byte	0
+ 745 02cc 80       		.byte	-128
+ 746 02cd 00       		.byte	0
+ 747 02ce 00       		.byte	0
+ 748 02cf 00       		.byte	0
+ 749 02d0 00       		.byte	0
+ 750 02d1 0B       		.byte	11
+ 751 02d2 0B       		.byte	11
+ 752 02d3 00       		.byte	0
+ 753 02d4 00       		.byte	0
+ 754 02d5 00       		.byte	0
+ 755 02d6 00       		.byte	0
+ 756 02d7 00       		.byte	0
+ 757 02d8 02       		.byte	2
+ 758 02d9 00       		.byte	0
+ 759 02da 00       		.byte	0
+ 760 02db 00       		.byte	0
+ 761 02dc 00       		.byte	0
+ 762 02dd 00       		.byte	0
+ 763 02de 00       		.byte	0
+ 764 02df 00       		.byte	0
+ 765              		.section	.cywolatch,"a",%progbits
+ 766              		.align	2
+ 767              		.type	cy_meta_wonvl, %object
+ 768              		.size	cy_meta_wonvl, 4
+ 769              	cy_meta_wonvl:
+ 770 0000 BC       		.byte	-68
+ 771 0001 90       		.byte	-112
+ 772 0002 AC       		.byte	-84
+ 773 0003 AF       		.byte	-81
+ 774              		.section	.cycustnvl,"a",%progbits
+ 775              		.align	2
+ 776              		.type	cy_meta_custnvl, %object
+ 777              		.size	cy_meta_custnvl, 4
+ 778              	cy_meta_custnvl:
+ 779 0000 00       		.byte	0
+ 780 0001 00       		.byte	0
+ 781 0002 40       		.byte	64
+ 782 0003 05       		.byte	5
+ 783              		.section	.cymeta,"a",%progbits
+ 784              		.align	2
+ 785              		.type	cy_metadata, %object
+ 786              		.size	cy_metadata, 12
+ 787              	cy_metadata:
+ 788 0000 00       		.byte	0
+ 789 0001 01       		.byte	1
+ 790 0002 2E       		.byte	46
+ 791 0003 16       		.byte	22
+ 792 0004 10       		.byte	16
+ 793 0005 69       		.byte	105
+ 794 0006 00       		.byte	0
+ 795 0007 01       		.byte	1
+ 796 0008 00       		.byte	0
+ 797 0009 00       		.byte	0
+ 798 000a 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 15
+
+
+ 799 000b 00       		.byte	0
+ 800              		.section	.cyflashprotect,"a",%progbits
+ 801              		.align	2
+ 802              		.type	cy_meta_flashprotect, %object
+ 803              		.size	cy_meta_flashprotect, 256
+ 804              	cy_meta_flashprotect:
+ 805 0000 00000000 		.space	256
+ 805      00000000 
+ 805      00000000 
+ 805      00000000 
+ 805      00000000 
+ 806              		.text
+ 807              	.Letext0:
+ 808              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 809              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 810              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 811              		.section	.debug_info,"",%progbits
+ 812              	.Ldebug_info0:
+ 813 0000 31010000 		.4byte	0x131
+ 814 0004 0400     		.2byte	0x4
+ 815 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 816 000a 04       		.byte	0x4
+ 817 000b 01       		.uleb128 0x1
+ 818 000c 59000000 		.4byte	.LASF17
+ 819 0010 0C       		.byte	0xc
+ 820 0011 B3010000 		.4byte	.LASF18
+ 821 0015 16000000 		.4byte	.LASF19
+ 822 0019 00000000 		.4byte	.Ldebug_line0
+ 823 001d 02       		.uleb128 0x2
+ 824 001e 01       		.byte	0x1
+ 825 001f 06       		.byte	0x6
+ 826 0020 A7010000 		.4byte	.LASF0
+ 827 0024 03       		.uleb128 0x3
+ 828 0025 00000000 		.4byte	.LASF9
+ 829 0029 01       		.byte	0x1
+ 830 002a 1D       		.byte	0x1d
+ 831 002b 2F000000 		.4byte	0x2f
+ 832 002f 02       		.uleb128 0x2
+ 833 0030 01       		.byte	0x1
+ 834 0031 08       		.byte	0x8
+ 835 0032 4B000000 		.4byte	.LASF1
+ 836 0036 02       		.uleb128 0x2
+ 837 0037 02       		.byte	0x2
+ 838 0038 05       		.byte	0x5
+ 839 0039 94010000 		.4byte	.LASF2
+ 840 003d 02       		.uleb128 0x2
+ 841 003e 02       		.byte	0x2
+ 842 003f 07       		.byte	0x7
+ 843 0040 F9000000 		.4byte	.LASF3
+ 844 0044 02       		.uleb128 0x2
+ 845 0045 04       		.byte	0x4
+ 846 0046 05       		.byte	0x5
+ 847 0047 9E010000 		.4byte	.LASF4
+ 848 004b 02       		.uleb128 0x2
+ 849 004c 04       		.byte	0x4
+ 850 004d 07       		.byte	0x7
+ 851 004e E7000000 		.4byte	.LASF5
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 16
+
+
+ 852 0052 02       		.uleb128 0x2
+ 853 0053 08       		.byte	0x8
+ 854 0054 05       		.byte	0x5
+ 855 0055 86010000 		.4byte	.LASF6
+ 856 0059 02       		.uleb128 0x2
+ 857 005a 08       		.byte	0x8
+ 858 005b 07       		.byte	0x7
+ 859 005c 3B010000 		.4byte	.LASF7
+ 860 0060 04       		.uleb128 0x4
+ 861 0061 04       		.byte	0x4
+ 862 0062 05       		.byte	0x5
+ 863 0063 696E7400 		.ascii	"int\000"
+ 864 0067 02       		.uleb128 0x2
+ 865 0068 04       		.byte	0x4
+ 866 0069 07       		.byte	0x7
+ 867 006a 2E010000 		.4byte	.LASF8
+ 868 006e 03       		.uleb128 0x3
+ 869 006f 52010000 		.4byte	.LASF10
+ 870 0073 02       		.byte	0x2
+ 871 0074 18       		.byte	0x18
+ 872 0075 24000000 		.4byte	0x24
+ 873 0079 05       		.uleb128 0x5
+ 874 007a 91000000 		.4byte	0x91
+ 875 007e 8A000000 		.4byte	0x8a
+ 876 0082 06       		.uleb128 0x6
+ 877 0083 8A000000 		.4byte	0x8a
+ 878 0087 DF02     		.2byte	0x2df
+ 879 0089 00       		.byte	0
+ 880 008a 02       		.uleb128 0x2
+ 881 008b 04       		.byte	0x4
+ 882 008c 07       		.byte	0x7
+ 883 008d 7D010000 		.4byte	.LASF11
+ 884 0091 07       		.uleb128 0x7
+ 885 0092 6E000000 		.4byte	0x6e
+ 886 0096 08       		.uleb128 0x8
+ 887 0097 1C010000 		.4byte	.LASF12
+ 888 009b 03       		.byte	0x3
+ 889 009c 1F       		.byte	0x1f
+ 890 009d A7000000 		.4byte	0xa7
+ 891 00a1 05       		.uleb128 0x5
+ 892 00a2 03       		.byte	0x3
+ 893 00a3 00000000 		.4byte	cy_meta_configecc
+ 894 00a7 07       		.uleb128 0x7
+ 895 00a8 79000000 		.4byte	0x79
+ 896 00ac 05       		.uleb128 0x5
+ 897 00ad 91000000 		.4byte	0x91
+ 898 00b1 BC000000 		.4byte	0xbc
+ 899 00b5 09       		.uleb128 0x9
+ 900 00b6 8A000000 		.4byte	0x8a
+ 901 00ba 03       		.byte	0x3
+ 902 00bb 00       		.byte	0
+ 903 00bc 08       		.uleb128 0x8
+ 904 00bd 0C010000 		.4byte	.LASF13
+ 905 00c1 03       		.byte	0x3
+ 906 00c2 88       		.byte	0x88
+ 907 00c3 CD000000 		.4byte	0xcd
+ 908 00c7 05       		.uleb128 0x5
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 17
+
+
+ 909 00c8 03       		.byte	0x3
+ 910 00c9 00000000 		.4byte	cy_meta_custnvl
+ 911 00cd 07       		.uleb128 0x7
+ 912 00ce AC000000 		.4byte	0xac
+ 913 00d2 08       		.uleb128 0x8
+ 914 00d3 6F010000 		.4byte	.LASF14
+ 915 00d7 03       		.byte	0x3
+ 916 00d8 96       		.byte	0x96
+ 917 00d9 E3000000 		.4byte	0xe3
+ 918 00dd 05       		.uleb128 0x5
+ 919 00de 03       		.byte	0x3
+ 920 00df 00000000 		.4byte	cy_meta_wonvl
+ 921 00e3 07       		.uleb128 0x7
+ 922 00e4 AC000000 		.4byte	0xac
+ 923 00e8 05       		.uleb128 0x5
+ 924 00e9 91000000 		.4byte	0x91
+ 925 00ed F8000000 		.4byte	0xf8
+ 926 00f1 09       		.uleb128 0x9
+ 927 00f2 8A000000 		.4byte	0x8a
+ 928 00f6 FF       		.byte	0xff
+ 929 00f7 00       		.byte	0
+ 930 00f8 08       		.uleb128 0x8
+ 931 00f9 5A010000 		.4byte	.LASF15
+ 932 00fd 03       		.byte	0x3
+ 933 00fe A4       		.byte	0xa4
+ 934 00ff 09010000 		.4byte	0x109
+ 935 0103 05       		.uleb128 0x5
+ 936 0104 03       		.byte	0x3
+ 937 0105 00000000 		.4byte	cy_meta_flashprotect
+ 938 0109 07       		.uleb128 0x7
+ 939 010a E8000000 		.4byte	0xe8
+ 940 010e 05       		.uleb128 0x5
+ 941 010f 91000000 		.4byte	0x91
+ 942 0113 1E010000 		.4byte	0x11e
+ 943 0117 09       		.uleb128 0x9
+ 944 0118 8A000000 		.4byte	0x8a
+ 945 011c 0B       		.byte	0xb
+ 946 011d 00       		.byte	0
+ 947 011e 08       		.uleb128 0x8
+ 948 011f 0A000000 		.4byte	.LASF16
+ 949 0123 03       		.byte	0x3
+ 950 0124 D1       		.byte	0xd1
+ 951 0125 2F010000 		.4byte	0x12f
+ 952 0129 05       		.uleb128 0x5
+ 953 012a 03       		.byte	0x3
+ 954 012b 00000000 		.4byte	cy_metadata
+ 955 012f 07       		.uleb128 0x7
+ 956 0130 0E010000 		.4byte	0x10e
+ 957 0134 00       		.byte	0
+ 958              		.section	.debug_abbrev,"",%progbits
+ 959              	.Ldebug_abbrev0:
+ 960 0000 01       		.uleb128 0x1
+ 961 0001 11       		.uleb128 0x11
+ 962 0002 01       		.byte	0x1
+ 963 0003 25       		.uleb128 0x25
+ 964 0004 0E       		.uleb128 0xe
+ 965 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 18
+
+
+ 966 0006 0B       		.uleb128 0xb
+ 967 0007 03       		.uleb128 0x3
+ 968 0008 0E       		.uleb128 0xe
+ 969 0009 1B       		.uleb128 0x1b
+ 970 000a 0E       		.uleb128 0xe
+ 971 000b 10       		.uleb128 0x10
+ 972 000c 17       		.uleb128 0x17
+ 973 000d 00       		.byte	0
+ 974 000e 00       		.byte	0
+ 975 000f 02       		.uleb128 0x2
+ 976 0010 24       		.uleb128 0x24
+ 977 0011 00       		.byte	0
+ 978 0012 0B       		.uleb128 0xb
+ 979 0013 0B       		.uleb128 0xb
+ 980 0014 3E       		.uleb128 0x3e
+ 981 0015 0B       		.uleb128 0xb
+ 982 0016 03       		.uleb128 0x3
+ 983 0017 0E       		.uleb128 0xe
+ 984 0018 00       		.byte	0
+ 985 0019 00       		.byte	0
+ 986 001a 03       		.uleb128 0x3
+ 987 001b 16       		.uleb128 0x16
+ 988 001c 00       		.byte	0
+ 989 001d 03       		.uleb128 0x3
+ 990 001e 0E       		.uleb128 0xe
+ 991 001f 3A       		.uleb128 0x3a
+ 992 0020 0B       		.uleb128 0xb
+ 993 0021 3B       		.uleb128 0x3b
+ 994 0022 0B       		.uleb128 0xb
+ 995 0023 49       		.uleb128 0x49
+ 996 0024 13       		.uleb128 0x13
+ 997 0025 00       		.byte	0
+ 998 0026 00       		.byte	0
+ 999 0027 04       		.uleb128 0x4
+ 1000 0028 24       		.uleb128 0x24
+ 1001 0029 00       		.byte	0
+ 1002 002a 0B       		.uleb128 0xb
+ 1003 002b 0B       		.uleb128 0xb
+ 1004 002c 3E       		.uleb128 0x3e
+ 1005 002d 0B       		.uleb128 0xb
+ 1006 002e 03       		.uleb128 0x3
+ 1007 002f 08       		.uleb128 0x8
+ 1008 0030 00       		.byte	0
+ 1009 0031 00       		.byte	0
+ 1010 0032 05       		.uleb128 0x5
+ 1011 0033 01       		.uleb128 0x1
+ 1012 0034 01       		.byte	0x1
+ 1013 0035 49       		.uleb128 0x49
+ 1014 0036 13       		.uleb128 0x13
+ 1015 0037 01       		.uleb128 0x1
+ 1016 0038 13       		.uleb128 0x13
+ 1017 0039 00       		.byte	0
+ 1018 003a 00       		.byte	0
+ 1019 003b 06       		.uleb128 0x6
+ 1020 003c 21       		.uleb128 0x21
+ 1021 003d 00       		.byte	0
+ 1022 003e 49       		.uleb128 0x49
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 19
+
+
+ 1023 003f 13       		.uleb128 0x13
+ 1024 0040 2F       		.uleb128 0x2f
+ 1025 0041 05       		.uleb128 0x5
+ 1026 0042 00       		.byte	0
+ 1027 0043 00       		.byte	0
+ 1028 0044 07       		.uleb128 0x7
+ 1029 0045 26       		.uleb128 0x26
+ 1030 0046 00       		.byte	0
+ 1031 0047 49       		.uleb128 0x49
+ 1032 0048 13       		.uleb128 0x13
+ 1033 0049 00       		.byte	0
+ 1034 004a 00       		.byte	0
+ 1035 004b 08       		.uleb128 0x8
+ 1036 004c 34       		.uleb128 0x34
+ 1037 004d 00       		.byte	0
+ 1038 004e 03       		.uleb128 0x3
+ 1039 004f 0E       		.uleb128 0xe
+ 1040 0050 3A       		.uleb128 0x3a
+ 1041 0051 0B       		.uleb128 0xb
+ 1042 0052 3B       		.uleb128 0x3b
+ 1043 0053 0B       		.uleb128 0xb
+ 1044 0054 49       		.uleb128 0x49
+ 1045 0055 13       		.uleb128 0x13
+ 1046 0056 3F       		.uleb128 0x3f
+ 1047 0057 19       		.uleb128 0x19
+ 1048 0058 02       		.uleb128 0x2
+ 1049 0059 18       		.uleb128 0x18
+ 1050 005a 00       		.byte	0
+ 1051 005b 00       		.byte	0
+ 1052 005c 09       		.uleb128 0x9
+ 1053 005d 21       		.uleb128 0x21
+ 1054 005e 00       		.byte	0
+ 1055 005f 49       		.uleb128 0x49
+ 1056 0060 13       		.uleb128 0x13
+ 1057 0061 2F       		.uleb128 0x2f
+ 1058 0062 0B       		.uleb128 0xb
+ 1059 0063 00       		.byte	0
+ 1060 0064 00       		.byte	0
+ 1061 0065 00       		.byte	0
+ 1062              		.section	.debug_aranges,"",%progbits
+ 1063 0000 14000000 		.4byte	0x14
+ 1064 0004 0200     		.2byte	0x2
+ 1065 0006 00000000 		.4byte	.Ldebug_info0
+ 1066 000a 04       		.byte	0x4
+ 1067 000b 00       		.byte	0
+ 1068 000c 0000     		.2byte	0
+ 1069 000e 0000     		.2byte	0
+ 1070 0010 00000000 		.4byte	0
+ 1071 0014 00000000 		.4byte	0
+ 1072              		.section	.debug_line,"",%progbits
+ 1073              	.Ldebug_line0:
+ 1074 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1074      02003701 
+ 1074      00000201 
+ 1074      FB0E0D00 
+ 1074      01010101 
+ 1075              	.LASF9:
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 20
+
+
+ 1076 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1076      6E74385F 
+ 1076      7400
+ 1077              	.LASF16:
+ 1078 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1078      65746164 
+ 1078      61746100 
+ 1079              	.LASF19:
+ 1080 0016 443A5C53 		.ascii	"D:\\Source\\Repos\\DIC\\UART_GPS\\UART_GPS\\UART_GP"
+ 1080      6F757263 
+ 1080      655C5265 
+ 1080      706F735C 
+ 1080      4449435C 
+ 1081 0043 532E6379 		.ascii	"S.cydsn\000"
+ 1081      64736E00 
+ 1082              	.LASF1:
+ 1083 004b 756E7369 		.ascii	"unsigned char\000"
+ 1083      676E6564 
+ 1083      20636861 
+ 1083      7200
+ 1084              	.LASF17:
+ 1085 0059 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1085      43313120 
+ 1085      352E342E 
+ 1085      31203230 
+ 1085      31363036 
+ 1086 008c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1086      20726576 
+ 1086      6973696F 
+ 1086      6E203233 
+ 1086      37373135 
+ 1087 00bf 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1087      66756E63 
+ 1087      74696F6E 
+ 1087      2D736563 
+ 1087      74696F6E 
+ 1088              	.LASF5:
+ 1089 00e7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1089      20756E73 
+ 1089      69676E65 
+ 1089      6420696E 
+ 1089      7400
+ 1090              	.LASF3:
+ 1091 00f9 73686F72 		.ascii	"short unsigned int\000"
+ 1091      7420756E 
+ 1091      7369676E 
+ 1091      65642069 
+ 1091      6E7400
+ 1092              	.LASF13:
+ 1093 010c 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1093      6574615F 
+ 1093      63757374 
+ 1093      6E766C00 
+ 1094              	.LASF12:
+ 1095 011c 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1095      6574615F 
+ 1095      636F6E66 
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\cco9huAQ.s 			page 21
+
+
+ 1095      69676563 
+ 1095      6300
+ 1096              	.LASF8:
+ 1097 012e 756E7369 		.ascii	"unsigned int\000"
+ 1097      676E6564 
+ 1097      20696E74 
+ 1097      00
+ 1098              	.LASF7:
+ 1099 013b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1099      206C6F6E 
+ 1099      6720756E 
+ 1099      7369676E 
+ 1099      65642069 
+ 1100              	.LASF10:
+ 1101 0152 75696E74 		.ascii	"uint8_t\000"
+ 1101      385F7400 
+ 1102              	.LASF15:
+ 1103 015a 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1103      6574615F 
+ 1103      666C6173 
+ 1103      6870726F 
+ 1103      74656374 
+ 1104              	.LASF14:
+ 1105 016f 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1105      6574615F 
+ 1105      776F6E76 
+ 1105      6C00
+ 1106              	.LASF11:
+ 1107 017d 73697A65 		.ascii	"sizetype\000"
+ 1107      74797065 
+ 1107      00
+ 1108              	.LASF6:
+ 1109 0186 6C6F6E67 		.ascii	"long long int\000"
+ 1109      206C6F6E 
+ 1109      6720696E 
+ 1109      7400
+ 1110              	.LASF2:
+ 1111 0194 73686F72 		.ascii	"short int\000"
+ 1111      7420696E 
+ 1111      7400
+ 1112              	.LASF4:
+ 1113 019e 6C6F6E67 		.ascii	"long int\000"
+ 1113      20696E74 
+ 1113      00
+ 1114              	.LASF0:
+ 1115 01a7 7369676E 		.ascii	"signed char\000"
+ 1115      65642063 
+ 1115      68617200 
+ 1116              	.LASF18:
+ 1117 01b3 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1117      72617465 
+ 1117      645F536F 
+ 1117      75726365 
+ 1117      5C50536F 
+ 1118              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

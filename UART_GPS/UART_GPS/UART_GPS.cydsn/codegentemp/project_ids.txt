@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|83633e69-46a1-4b7a-bb7d-50ada1ab9886
+C:\Users\hasel\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|ab108dfd-cef3-4804-95ee-1627ef3b23ee
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d896d7fb-d674-4286-92bf-753454b1261e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|4d685733-c243-4fef-9e20-a6d2c9fd7498
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|62bc28bf-5c1f-4ba8-b9cb-acf8ef7cf46a
+D:\Source\Repos\DIC\UART_GPS\UART_GPS\UART_GPS.cydsn\UART_GPS.cyprj|79834863-8bbd-46db-b4b5-f774322e700c

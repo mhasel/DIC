@@ -1,0 +1,10 @@
+D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/CortexM3/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cydevicegnu.inc D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+D:/Source/Repos/DIC/UART_GPS/UART_GPS/UART_GPS.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

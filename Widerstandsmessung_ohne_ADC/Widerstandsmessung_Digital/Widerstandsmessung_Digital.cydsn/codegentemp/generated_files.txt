@@ -44,6 +44,13 @@
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc_aliases.h" value="HEADER;;;;;P_adc" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc.c" value="SOURCE_C;CortexM3;;;;P_adc" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc.h" value="HEADER;;;;;P_adc" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\timer_clock.c" value="SOURCE_C;CortexM3;;;;timer_clock" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\timer_clock.h" value="HEADER;;;;;timer_clock" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\Timer.c" value="SOURCE_C;CortexM3;;;;Timer" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\Timer.h" value="HEADER;;;;;Timer" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\Timer_PM.c" value="SOURCE_C;CortexM3;;;;Timer" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\isr_timeout.c" value="SOURCE_C;CortexM3;;;;isr_timeout" />
+  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\isr_timeout.h" value="HEADER;;;;;isr_timeout" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_IRQ" />

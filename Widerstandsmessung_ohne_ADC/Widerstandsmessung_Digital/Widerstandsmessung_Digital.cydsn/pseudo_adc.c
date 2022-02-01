@@ -6,7 +6,7 @@ static void _measure(enum time);
 static void _set_discharge_pin(enum pin_state);
 static void _set_charge_ref_pin(enum pin_state);
 static void _set_charge_total_pin(enum pin_state);
-static void _read_sense_pin(enum pin_state);
+static void _read_sense_pin(void);
 static uint32_t _calculate_r (void); 
 
 // internal state machine. not exposed outside of this translation unit
@@ -21,7 +21,7 @@ struct _sm
     void (*discharge)(void);
     void (*measure)(enum time);
     void (*set_pin[3])(enum pin_state);    
-    void (*read_sense_pin)(enum pin_state);
+    void (*read_sense_pin)(void);
     uint32_t (*calculate_r)(void); 
 } _sm ;
 
@@ -51,9 +51,41 @@ uint8_t run_state_machine(void)
     {
         return 255;
     }
-    
-    
-    
-    
+         
     return 0;
+}
+
+static void _discharge(void)
+{
+
+}
+
+static void _measure(enum time time)
+{
+
+}
+
+static void _set_discharge_pin(enum pin_state pin_state)
+{
+
+}
+
+static void _set_charge_ref_pin(enum pin_state pin_state)
+{
+
+}
+
+static void _set_charge_total_pin(enum pin_state pin_state)
+{
+
+}
+
+static void _read_sense_pin(void)
+{
+
+}
+
+static uint32_t _calculate_r (void)
+{
+
 }

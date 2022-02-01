@@ -1,5 +1,5 @@
 # Widerstandsmessung_Digital
-# 2022-01-25 21:33:54Z
+# 2022-01-27 17:33:50Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0

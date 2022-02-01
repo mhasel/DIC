@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Widerstandsmessung_Digital.ctl generated from Widerstandsmessung_Digital
--- 01/25/2022 at 22:33
+-- 01/27/2022 at 18:33
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

@@ -1,6 +1,6 @@
 // ======================================================================
 // Widerstandsmessung_Digital.v generated from TopDesign.cysch
-// 01/25/2022 at 22:33
+// 01/27/2022 at 18:33
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -563,9 +563,125 @@ module ADC_SAR_v3_10_1 (
 
 endmodule
 
+// Component: not_v1_0
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v"
+`endif
+
+// Component: B_Timer_v2_80
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_Timer_v2_80\B_Timer_v2_80.v"
+`endif
+
+// Component: OneTerminal
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.v"
+`endif
+
+// Timer_v2_80(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=true, CaptureMode=1, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG16, CySetRegReplacementString=CY_SET_REG16, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=true, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=1, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=9999, RegDefReplacementString=reg16, RegSizeReplacementString=uint16, Resolution=16, RstStatusReplacementString=rstSts, RunMode=1, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=true, TriggerMode=1, UDB16=true, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT16, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMMENT=, CY_COMPONENT_NAME=Timer_v2_80, CY_CONFIG_TITLE=Timer, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Timer, CY_INSTANCE_SHORT_NAME=Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=80, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.4, INSTANCE_NAME=Timer, )
+module Timer_v2_80_2 (
+    capture,
+    capture_out,
+    clock,
+    enable,
+    interrupt,
+    reset,
+    tc,
+    trigger);
+    input       capture;
+    output      capture_out;
+    input       clock;
+    input       enable;
+    output      interrupt;
+    input       reset;
+    output      tc;
+    input       trigger;
+
+    parameter CaptureCount = 2;
+    parameter CaptureCounterEnabled = 0;
+    parameter DeviceFamily = "PSoC5";
+    parameter InterruptOnCapture = 1;
+    parameter InterruptOnTC = 1;
+    parameter Resolution = 16;
+    parameter SiliconRevision = "0";
+
+          wire  Net_260;
+          wire  Net_261;
+          wire  Net_266;
+          wire  Net_102;
+          wire  Net_55;
+          wire  Net_57;
+          wire  Net_53;
+          wire  Net_51;
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_260));
+
+	// VirtualMux_2 (cy_virtualmux_v1_0)
+	assign interrupt = Net_55;
+
+	// VirtualMux_3 (cy_virtualmux_v1_0)
+	assign tc = Net_53;
+
+    B_Timer_v2_80 TimerUDB (
+        .capture_in(capture),
+        .capture_out(capture_out),
+        .clock(clock),
+        .enable(enable),
+        .interrupt(Net_55),
+        .reset(reset),
+        .tc(Net_53),
+        .trigger(trigger));
+    defparam TimerUDB.Capture_Count = 2;
+    defparam TimerUDB.CaptureCounterEnabled = 0;
+    defparam TimerUDB.CaptureMode = 1;
+    defparam TimerUDB.EnableMode = 0;
+    defparam TimerUDB.InterruptOnCapture = 1;
+    defparam TimerUDB.Resolution = 16;
+    defparam TimerUDB.RunMode = 1;
+    defparam TimerUDB.TriggerMode = 1;
+
+    OneTerminal OneTerminal_1 (
+        .o(Net_102));
+
+	// VirtualMux_1 (cy_virtualmux_v1_0)
+	assign Net_266 = Net_102;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_43;
+          wire  Net_42;
+          wire  Net_41;
+          wire  Net_45;
     electrical  Net_29;
     electrical  Net_33;
           wire  Net_30;
@@ -587,15 +703,21 @@ module top ;
           wire  Net_14;
     electrical  Net_12;
     electrical  Net_6;
-          wire  Net_4;
+          wire  Net_40;
+          wire  Net_47;
+          wire  Net_36;
+          wire  Net_57;
+          wire  Net_44;
+          wire  Net_61;
+          wire  Net_39;
+    electrical  Net_62;
+    electrical  Net_38;
+          wire  Net_46;
     electrical  Net_28;
     electrical  Net_5;
-    electrical  Net_11;
-    electrical  Net_8;
     electrical  Net_10;
 
 	wire [0:0] tmpOE__P_charge_net;
-	wire [0:0] tmpFB_0__P_charge_net;
 	wire [0:0] tmpIO_0__P_charge_net;
 	wire [0:0] tmpINTERRUPT_0__P_charge_net;
 	electrical [0:0] tmpSIOVREF__P_charge_net;
@@ -656,7 +778,7 @@ module top ;
 		P_charge
 		 (.oe(tmpOE__P_charge_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__P_charge_net[0:0]}),
+		  .fb({Net_61}),
 		  .io({tmpIO_0__P_charge_net[0:0]}),
 		  .siovref(tmpSIOVREF__P_charge_net),
 		  .interrupt({tmpINTERRUPT_0__P_charge_net[0:0]}),
@@ -670,7 +792,6 @@ module top ;
 	assign tmpOE__P_charge_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__P_charge_ref_net;
-	wire [0:0] tmpFB_0__P_charge_ref_net;
 	wire [0:0] tmpIO_0__P_charge_ref_net;
 	wire [0:0] tmpINTERRUPT_0__P_charge_ref_net;
 	electrical [0:0] tmpSIOVREF__P_charge_ref_net;
@@ -731,7 +852,7 @@ module top ;
 		P_charge_ref
 		 (.oe(tmpOE__P_charge_ref_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__P_charge_ref_net[0:0]}),
+		  .fb({Net_57}),
 		  .io({tmpIO_0__P_charge_ref_net[0:0]}),
 		  .siovref(tmpSIOVREF__P_charge_ref_net),
 		  .interrupt({tmpINTERRUPT_0__P_charge_ref_net[0:0]}),
@@ -745,7 +866,6 @@ module top ;
 	assign tmpOE__P_charge_ref_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__P_discharge_net;
-	wire [0:0] tmpFB_0__P_discharge_net;
 	wire [0:0] tmpIO_0__P_discharge_net;
 	wire [0:0] tmpINTERRUPT_0__P_discharge_net;
 	electrical [0:0] tmpSIOVREF__P_discharge_net;
@@ -806,7 +926,7 @@ module top ;
 		P_discharge
 		 (.oe(tmpOE__P_discharge_net),
 		  .y({1'b0}),
-		  .fb({tmpFB_0__P_discharge_net[0:0]}),
+		  .fb({Net_47}),
 		  .io({tmpIO_0__P_discharge_net[0:0]}),
 		  .siovref(tmpSIOVREF__P_discharge_net),
 		  .interrupt({tmpINTERRUPT_0__P_discharge_net[0:0]}),
@@ -880,7 +1000,7 @@ module top ;
 		P_sense
 		 (.oe(tmpOE__P_sense_net),
 		  .y({1'b0}),
-		  .fb({Net_4}),
+		  .fb({Net_39}),
 		  .io({tmpIO_0__P_sense_net[0:0]}),
 		  .siovref(tmpSIOVREF__P_sense_net),
 		  .interrupt({tmpINTERRUPT_0__P_sense_net[0:0]}),
@@ -897,7 +1017,7 @@ module top ;
 	cy_isr_v1_0
 		#(.int_type(2'b00))
 		isr_p_sense
-		 (.int_signal(Net_4));
+		 (.int_signal(Net_40));
 
 
     cy_annotation_universal_v1_0 C_1 (
@@ -922,7 +1042,7 @@ module top ;
     cy_annotation_universal_v1_0 R_1 (
         .connect({
             Net_5,
-            Net_8
+            Net_38
         })
     );
     defparam R_1.comp_name = "Resistor_v1_0";
@@ -941,7 +1061,7 @@ module top ;
 
     cy_annotation_universal_v1_0 R_3 (
         .connect({
-            Net_11,
+            Net_62,
             Net_10,
             Net_12
         })
@@ -1136,6 +1256,48 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__P_adc_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+
+	cy_clock_v1_0
+		#(.id("c0fb34bd-1044-4931-9788-16b01ce89812"),
+		  .source_clock_id(""),
+		  .divisor(0),
+		  .period("1000000000"),
+		  .is_direct(0),
+		  .is_digital(1))
+		timer_clock
+		 (.clock_out(Net_36));
+
+
+
+    assign Net_46 = ~Net_47;
+
+    Timer_v2_80_2 Timer (
+        .capture(Net_39),
+        .capture_out(Net_40),
+        .clock(Net_36),
+        .enable(1'b1),
+        .interrupt(Net_42),
+        .reset(Net_46),
+        .tc(Net_43),
+        .trigger(Net_44));
+    defparam Timer.CaptureCount = 2;
+    defparam Timer.CaptureCounterEnabled = 0;
+    defparam Timer.DeviceFamily = "PSoC5";
+    defparam Timer.InterruptOnCapture = 1;
+    defparam Timer.InterruptOnTC = 1;
+    defparam Timer.Resolution = 16;
+    defparam Timer.SiliconRevision = "0";
+
+
+    assign Net_44 = Net_61 | Net_57;
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b00))
+		isr_timeout
+		 (.int_signal(Net_43));
+
 
 
 
