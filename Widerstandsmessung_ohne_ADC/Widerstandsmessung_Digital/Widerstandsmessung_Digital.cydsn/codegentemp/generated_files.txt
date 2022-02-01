@@ -37,22 +37,8 @@
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_PM.c" value="SOURCE_C;CortexM3;;;;UART" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_INT.c" value="SOURCE_C;CortexM3;;;;UART" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_BOOT.c" value="SOURCE_C;CortexM3;;;;UART" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR.h" value="HEADER;;;;;ADC_SAR" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_INT.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_PM.c" value="SOURCE_C;CortexM3;;;;ADC_SAR" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc_aliases.h" value="HEADER;;;;;P_adc" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc.c" value="SOURCE_C;CortexM3;;;;P_adc" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\P_adc.h" value="HEADER;;;;;P_adc" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_IRQ" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_IRQ.h" value="HEADER;;;;;ADC_SAR_IRQ" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_theACLK" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_theACLK.h" value="HEADER;;;;;ADC_SAR_theACLK" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_Bypass_aliases.h" value="HEADER;;;;;ADC_SAR_Bypass" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_Bypass.c" value="SOURCE_C;CortexM3;;;;ADC_SAR_Bypass" />
-  <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\ADC_SAR_Bypass.h" value="HEADER;;;;;ADC_SAR_Bypass" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />

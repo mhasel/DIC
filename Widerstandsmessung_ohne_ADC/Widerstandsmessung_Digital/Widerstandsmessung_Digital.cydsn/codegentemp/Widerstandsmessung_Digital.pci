@@ -1,5 +1,5 @@
 # Widerstandsmessung_Digital
-# 2022-01-25 21:33:54Z
+# 2022-02-01 18:26:02Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -11,7 +11,4 @@ set_io "P_charge(0)" iocell 15 0
 set_io "P_charge_ref(0)" iocell 0 6
 set_io "P_discharge(0)" iocell 0 7
 set_io "P_sense(0)" iocell 0 0
-set_io "\ADC_SAR:Bypass(0)\" iocell 0 2
 set_io "tx(0)" iocell 12 7
-set_io "P_adc(0)" iocell 0 1
-set_location "\ADC_SAR:ADC_SAR\" sarcell -1 -1 1
