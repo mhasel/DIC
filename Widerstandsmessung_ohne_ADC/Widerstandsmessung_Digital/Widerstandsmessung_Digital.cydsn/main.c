@@ -14,6 +14,7 @@ CY_ISR(measurement_capture)
 {
     trig = 1;
 }
+
 CY_ISR(measurement_timeout)
 {
     trig = 2;
@@ -22,7 +23,6 @@ CY_ISR(measurement_timeout)
 void init(void);
 void discharge(void);
 void measure(enum phase p, uint32_t* dst);
-void write_adc_val(void);
 uint32_t calculate_resistance(uint32_t* vals);
 
 int main(void)
@@ -72,8 +72,6 @@ void init()
     Timer_Start();
     UART_Start();
     UART_PutString("Starting...");
-//    ADC_SAR_Start();
-//    ADC_SAR_StartConvert();
 }
 
 void discharge()
@@ -114,17 +112,5 @@ void measure(enum phase p, uint32_t* out)
 
 uint32_t calculate_resistance(uint32_t* ticks)
 {
-    return ((ticks[REF] * R3) / ticks[RESULT]) - R3;
-}
-
-// used to verify charge/discharge logic. obsolete.
-void write_adc_val()
-{
-    static char adc_res[100];
-    if(ADC_SAR_IsEndConversion(ADC_SAR_WAIT_FOR_RESULT)!= 0) 
-    {        
-        int16 result = ADC_SAR_GetResult16();    
-        sprintf(adc_res, "ADC reading: %d\n\r", result);
-        UART_PutString(adc_res);
-    }
+    return ((ticks[RESULT] - ticks[REF]) / ticks[REF]) * R3;
 }
