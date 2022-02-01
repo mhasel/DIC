@@ -1,6 +1,6 @@
-D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Widerstandsmessung_Digital.cyprj|654a1a78-476b-457f-98d9-ffa2f1703a5c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d3f97f35-8ecd-480e-b1b3-08e0f6811a1b
-C:\Users\hasel\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|ee72d9a0-9ce6-4888-995a-c8c670fe217c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|73d81793-e3ee-4512-8e6c-031931fe3df0
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|88e58bf5-db81-49e6-8b92-bf7d486f9d71
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|576959ea-9859-4998-bb97-2ad876caf3c3
+D:\Source\Repos\DIC\Widerstandsmessung_ohne_ADC\Widerstandsmessung_Digital\Widerstandsmessung_Digital.cydsn\Widerstandsmessung_Digital.cyprj|318eb27c-de2a-4239-b555-d5d98bc69a25
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|74223ecf-6c85-4e9f-9dd4-dd921bec362c
+C:\Users\hasel\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|6ae40872-2529-4f80-9773-94f60d8774e4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|6aaaeca3-fe3f-439f-923b-c4d6dfda9196
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ab21d18e-1e0c-4702-9869-401320df0cf5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|3020a93f-c224-4d78-ba2c-2a2c7dece239

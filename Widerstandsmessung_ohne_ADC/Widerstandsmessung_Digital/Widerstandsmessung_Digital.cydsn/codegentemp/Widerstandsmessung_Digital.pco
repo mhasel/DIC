@@ -1,5 +1,5 @@
 # Widerstandsmessung_Digital
-# 2022-01-27 17:33:52Z
+# 2022-02-01 18:01:30Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -15,39 +15,39 @@ set_io "P_sense(0)" iocell 0 0
 set_io "\ADC_SAR:Bypass(0)\" iocell 0 2
 set_io "tx(0)" iocell 12 7
 set_io "P_adc(0)" iocell 0 1
-set_location "Net_22" 2 1 1 1
-set_location "\UART:BUART:counter_load_not\" 2 4 1 0
-set_location "\UART:BUART:tx_status_0\" 3 1 0 1
-set_location "\UART:BUART:tx_status_2\" 3 1 1 1
-set_location "Net_46" 3 3 1 1
-set_location "\Timer:TimerUDB:capt_fifo_load\" 2 3 0 0
-set_location "\Timer:TimerUDB:status_tc\" 3 4 0 3
-set_location "\Timer:TimerUDB:trig_reg\" 3 4 0 0
+set_location "Net_22" 2 2 0 1
+set_location "\UART:BUART:counter_load_not\" 3 4 0 1
+set_location "\UART:BUART:tx_status_0\" 2 4 0 1
+set_location "\UART:BUART:tx_status_2\" 2 3 1 0
+set_location "\Timer:TimerUDB:capt_fifo_load\" 2 4 0 2
+set_location "\Timer:TimerUDB:status_tc\" 3 3 0 3
+set_location "\Timer:TimerUDB:trig_reg\" 3 3 0 0
 set_location "isr_p_sense" interrupt -1 -1 1
-set_location "\UART:BUART:sTX:TxShifter:u0\" 3 1 2
-set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 2 4 2
-set_location "\UART:BUART:sTX:TxSts\" 3 1 4
+set_location "\UART:BUART:sTX:TxShifter:u0\" 2 4 2
+set_location "\UART:BUART:sTX:sCLOCK:TxBitClkGen\" 3 4 2
+set_location "\UART:BUART:sTX:TxSts\" 2 4 4
 set_location "\ADC_SAR:IRQ\" interrupt -1 -1 0
 set_location "\ADC_SAR:ADC_SAR\" sarcell -1 -1 1
-set_location "\Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 3 4 6
-set_location "\Timer:TimerUDB:rstSts:stsreg\" 3 4 4
+set_location "\Control_Reg:Sync:ctrl_reg\" 3 4 6
+set_location "\Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 3 3 6
+set_location "\Timer:TimerUDB:rstSts:stsreg\" 3 2 4
 set_location "\Timer:TimerUDB:sT16:timerdp:u0\" 2 3 2
 set_location "\Timer:TimerUDB:sT16:timerdp:u1\" 3 3 2
 set_location "isr_timeout" interrupt -1 -1 2
-set_location "\UART:BUART:txn\" 2 1 1 2
-set_location "\UART:BUART:tx_state_1\" 2 3 1 1
-set_location "\UART:BUART:tx_state_0\" 3 3 0 0
-set_location "\UART:BUART:tx_state_2\" 3 3 0 3
-set_location "\UART:BUART:tx_bitclk\" 2 3 1 3
-set_location "\Timer:TimerUDB:capture_last\" 2 3 0 1
-set_location "\Timer:TimerUDB:run_mode\" 3 4 1 2
-set_location "Net_43" 3 4 1 1
-set_location "Net_40" 2 3 0 2
-set_location "\Timer:TimerUDB:int_capt_count_1\" 2 1 0 0
-set_location "\Timer:TimerUDB:int_capt_count_0\" 2 3 0 3
-set_location "\Timer:TimerUDB:capt_int_temp\" 3 1 1 0
-set_location "\Timer:TimerUDB:timer_enable\" 3 4 0 1
-set_location "\Timer:TimerUDB:trig_disable\" 3 4 1 0
-set_location "\Timer:TimerUDB:trig_last\" 3 3 1 0
-set_location "\Timer:TimerUDB:trig_rise_detected\" 3 4 0 2
-set_location "\Timer:TimerUDB:trig_fall_detected\" 3 4 1 3
+set_location "\UART:BUART:txn\" 2 4 1 0
+set_location "\UART:BUART:tx_state_1\" 3 4 1 1
+set_location "\UART:BUART:tx_state_0\" 2 4 0 0
+set_location "\UART:BUART:tx_state_2\" 3 4 1 0
+set_location "\UART:BUART:tx_bitclk\" 2 4 1 1
+set_location "\Timer:TimerUDB:capture_last\" 2 3 0 0
+set_location "\Timer:TimerUDB:run_mode\" 3 2 0 0
+set_location "Net_43" 3 3 1 1
+set_location "Net_40" 2 2 0 2
+set_location "\Timer:TimerUDB:int_capt_count_1\" 2 2 1 0
+set_location "\Timer:TimerUDB:int_capt_count_0\" 3 2 1 3
+set_location "\Timer:TimerUDB:capt_int_temp\" 3 2 0 1
+set_location "\Timer:TimerUDB:timer_enable\" 3 3 0 1
+set_location "\Timer:TimerUDB:trig_disable\" 3 3 1 0
+set_location "\Timer:TimerUDB:trig_last\" 3 2 1 2
+set_location "\Timer:TimerUDB:trig_rise_detected\" 3 3 0 2
+set_location "\Timer:TimerUDB:trig_fall_detected\" 3 3 1 3

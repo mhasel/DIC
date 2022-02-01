@@ -1,10 +1,10 @@
-C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/CortexM3/ARM_GCC_541/Debug/CyBootAsmGnu.o : C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu.inc C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/CortexM3/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu.inc D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
 
-C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
 
-C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
 
-C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
 
-C:/Users/hasel/OneDrive/Dokumente/PSoC\ Creator/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+D:/Source/Repos/DIC/Widerstandsmessung_ohne_ADC/Widerstandsmessung_Digital/Widerstandsmessung_Digital.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
 

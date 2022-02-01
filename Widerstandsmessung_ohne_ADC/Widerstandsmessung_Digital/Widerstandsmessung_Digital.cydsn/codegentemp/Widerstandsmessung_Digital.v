@@ -1,6 +1,6 @@
 // ======================================================================
 // Widerstandsmessung_Digital.v generated from TopDesign.cysch
-// 01/27/2022 at 18:33
+// 02/01/2022 at 19:01
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -563,17 +563,17 @@ module ADC_SAR_v3_10_1 (
 
 endmodule
 
-// Component: not_v1_0
+// Component: CyControlReg_v1_80
 `ifdef CY_BLK_DIR
 `undef CY_BLK_DIR
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\not_v1_0\not_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v"
 `endif
 
 // Component: B_Timer_v2_80
@@ -681,6 +681,14 @@ module top ;
           wire  Net_43;
           wire  Net_42;
           wire  Net_41;
+          wire  Net_73;
+          wire  Net_71;
+          wire  Net_70;
+          wire  Net_69;
+          wire  Net_68;
+          wire  Net_67;
+          wire  Net_66;
+          wire  Net_65;
           wire  Net_45;
     electrical  Net_29;
     electrical  Net_33;
@@ -704,7 +712,6 @@ module top ;
     electrical  Net_12;
     electrical  Net_6;
           wire  Net_40;
-          wire  Net_47;
           wire  Net_36;
           wire  Net_57;
           wire  Net_44;
@@ -866,6 +873,7 @@ module top ;
 	assign tmpOE__P_charge_ref_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__P_discharge_net;
+	wire [0:0] tmpFB_0__P_discharge_net;
 	wire [0:0] tmpIO_0__P_discharge_net;
 	wire [0:0] tmpINTERRUPT_0__P_discharge_net;
 	electrical [0:0] tmpSIOVREF__P_discharge_net;
@@ -926,7 +934,7 @@ module top ;
 		P_discharge
 		 (.oe(tmpOE__P_discharge_net),
 		  .y({1'b0}),
-		  .fb({Net_47}),
+		  .fb({tmpFB_0__P_discharge_net[0:0]}),
 		  .io({tmpIO_0__P_discharge_net[0:0]}),
 		  .siovref(tmpSIOVREF__P_discharge_net),
 		  .interrupt({tmpINTERRUPT_0__P_discharge_net[0:0]}),
@@ -1269,8 +1277,29 @@ module top ;
 		 (.clock_out(Net_36));
 
 
-
-    assign Net_46 = ~Net_47;
+    CyControlReg_v1_80 Control_Reg (
+        .clock(Net_36),
+        .control_0(Net_46),
+        .control_1(Net_65),
+        .control_2(Net_66),
+        .control_3(Net_67),
+        .control_4(Net_68),
+        .control_5(Net_69),
+        .control_6(Net_70),
+        .control_7(Net_71),
+        .reset(1'b0));
+    defparam Control_Reg.Bit0Mode = 3;
+    defparam Control_Reg.Bit1Mode = 0;
+    defparam Control_Reg.Bit2Mode = 0;
+    defparam Control_Reg.Bit3Mode = 0;
+    defparam Control_Reg.Bit4Mode = 0;
+    defparam Control_Reg.Bit5Mode = 0;
+    defparam Control_Reg.Bit6Mode = 0;
+    defparam Control_Reg.Bit7Mode = 0;
+    defparam Control_Reg.BitValue = 0;
+    defparam Control_Reg.BusDisplay = 0;
+    defparam Control_Reg.ExtrReset = 1;
+    defparam Control_Reg.NumOutputs = 1;
 
     Timer_v2_80_2 Timer (
         .capture(Net_39),

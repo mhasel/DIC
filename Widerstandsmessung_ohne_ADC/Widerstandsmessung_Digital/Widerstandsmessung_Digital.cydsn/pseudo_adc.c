@@ -1,5 +1,6 @@
 #include "pseudo_adc.h"
 
+
 // static function prototypes
 static void _discharge(void);
 static void _measure(enum time);

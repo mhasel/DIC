@@ -1,0 +1,1575 @@
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"pseudo_adc.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text._discharge,"ax",%progbits
+  20              		.align	2
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	_discharge, %function
+  24              	_discharge:
+  25              	.LFB2:
+  26              		.file 1 "pseudo_adc.c"
+   1:pseudo_adc.c  **** #include "pseudo_adc.h"
+   2:pseudo_adc.c  **** 
+   3:pseudo_adc.c  **** 
+   4:pseudo_adc.c  **** // static function prototypes
+   5:pseudo_adc.c  **** static void _discharge(void);
+   6:pseudo_adc.c  **** static void _measure(enum time);
+   7:pseudo_adc.c  **** static void _set_discharge_pin(enum pin_state);
+   8:pseudo_adc.c  **** static void _set_charge_ref_pin(enum pin_state);
+   9:pseudo_adc.c  **** static void _set_charge_total_pin(enum pin_state);
+  10:pseudo_adc.c  **** static void _read_sense_pin(void);
+  11:pseudo_adc.c  **** static uint32_t _calculate_r (void); 
+  12:pseudo_adc.c  **** 
+  13:pseudo_adc.c  **** // internal state machine. not exposed outside of this translation unit
+  14:pseudo_adc.c  **** struct _sm 
+  15:pseudo_adc.c  **** {
+  16:pseudo_adc.c  ****     volatile state_t *state;
+  17:pseudo_adc.c  ****     volatile pin_state_t *pin_state;
+  18:pseudo_adc.c  ****     uint32_t *time_ref;
+  19:pseudo_adc.c  ****     uint32_t *time_total;
+  20:pseudo_adc.c  ****     uint8_t _is_initialized;
+  21:pseudo_adc.c  ****     
+  22:pseudo_adc.c  ****     void (*discharge)(void);
+  23:pseudo_adc.c  ****     void (*measure)(enum time);
+  24:pseudo_adc.c  ****     void (*set_pin[3])(enum pin_state);    
+  25:pseudo_adc.c  ****     void (*read_sense_pin)(void);
+  26:pseudo_adc.c  ****     uint32_t (*calculate_r)(void); 
+  27:pseudo_adc.c  **** } _sm ;
+  28:pseudo_adc.c  **** 
+  29:pseudo_adc.c  **** // 
+  30:pseudo_adc.c  **** void init_pseudo_adc(state_machine *sm_handle)
+  31:pseudo_adc.c  **** {
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 2
+
+
+  32:pseudo_adc.c  ****     _sm.state = &sm_handle->state;
+  33:pseudo_adc.c  ****     _sm.pin_state = &sm_handle->pin_state;
+  34:pseudo_adc.c  ****     _sm.time_ref = &sm_handle->time_ref;
+  35:pseudo_adc.c  ****     _sm.time_total = &sm_handle->time_total;
+  36:pseudo_adc.c  ****     
+  37:pseudo_adc.c  ****     // these functions don't need to be exposed to the handle
+  38:pseudo_adc.c  ****     _sm.discharge = _discharge;
+  39:pseudo_adc.c  ****     _sm.measure = _measure;
+  40:pseudo_adc.c  ****     _sm.set_pin[CHARGE_REF] = _set_charge_ref_pin;
+  41:pseudo_adc.c  ****     _sm.set_pin[CHARGE_TOTAL] = _set_charge_total_pin;
+  42:pseudo_adc.c  ****     _sm.set_pin[DRAIN] = _set_discharge_pin;
+  43:pseudo_adc.c  ****     _sm.read_sense_pin = _read_sense_pin;
+  44:pseudo_adc.c  ****     _sm.calculate_r = _calculate_r;  
+  45:pseudo_adc.c  ****     
+  46:pseudo_adc.c  ****     _sm._is_initialized = 1;
+  47:pseudo_adc.c  **** }
+  48:pseudo_adc.c  **** 
+  49:pseudo_adc.c  **** uint8_t run_state_machine(void)
+  50:pseudo_adc.c  **** {
+  51:pseudo_adc.c  ****     if (!_sm._is_initialized)
+  52:pseudo_adc.c  ****     {
+  53:pseudo_adc.c  ****         return 255;
+  54:pseudo_adc.c  ****     }
+  55:pseudo_adc.c  ****          
+  56:pseudo_adc.c  ****     return 0;
+  57:pseudo_adc.c  **** }
+  58:pseudo_adc.c  **** 
+  59:pseudo_adc.c  **** static void _discharge(void)
+  60:pseudo_adc.c  **** {
+  27              		.loc 1 60 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE2:
+  35              		.size	_discharge, .-_discharge
+  36 0002 00BF     		.section	.text._measure,"ax",%progbits
+  37              		.align	2
+  38              		.thumb
+  39              		.thumb_func
+  40              		.type	_measure, %function
+  41              	_measure:
+  42              	.LFB3:
+  61:pseudo_adc.c  **** 
+  62:pseudo_adc.c  **** }
+  63:pseudo_adc.c  **** 
+  64:pseudo_adc.c  **** static void _measure(enum time time)
+  65:pseudo_adc.c  **** {
+  43              		.loc 1 65 0
+  44              		.cfi_startproc
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47              		@ link register save eliminated.
+  48              	.LVL0:
+  49 0000 7047     		bx	lr
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 3
+
+
+  50              		.cfi_endproc
+  51              	.LFE3:
+  52              		.size	_measure, .-_measure
+  53 0002 00BF     		.section	.text._set_discharge_pin,"ax",%progbits
+  54              		.align	2
+  55              		.thumb
+  56              		.thumb_func
+  57              		.type	_set_discharge_pin, %function
+  58              	_set_discharge_pin:
+  59              	.LFB4:
+  66:pseudo_adc.c  **** 
+  67:pseudo_adc.c  **** }
+  68:pseudo_adc.c  **** 
+  69:pseudo_adc.c  **** static void _set_discharge_pin(enum pin_state pin_state)
+  70:pseudo_adc.c  **** {
+  60              		.loc 1 70 0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		@ link register save eliminated.
+  65              	.LVL1:
+  66 0000 7047     		bx	lr
+  67              		.cfi_endproc
+  68              	.LFE4:
+  69              		.size	_set_discharge_pin, .-_set_discharge_pin
+  70 0002 00BF     		.section	.text._set_charge_ref_pin,"ax",%progbits
+  71              		.align	2
+  72              		.thumb
+  73              		.thumb_func
+  74              		.type	_set_charge_ref_pin, %function
+  75              	_set_charge_ref_pin:
+  76              	.LFB5:
+  71:pseudo_adc.c  **** 
+  72:pseudo_adc.c  **** }
+  73:pseudo_adc.c  **** 
+  74:pseudo_adc.c  **** static void _set_charge_ref_pin(enum pin_state pin_state)
+  75:pseudo_adc.c  **** {
+  77              		.loc 1 75 0
+  78              		.cfi_startproc
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 0, uses_anonymous_args = 0
+  81              		@ link register save eliminated.
+  82              	.LVL2:
+  83 0000 7047     		bx	lr
+  84              		.cfi_endproc
+  85              	.LFE5:
+  86              		.size	_set_charge_ref_pin, .-_set_charge_ref_pin
+  87 0002 00BF     		.section	.text._set_charge_total_pin,"ax",%progbits
+  88              		.align	2
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	_set_charge_total_pin, %function
+  92              	_set_charge_total_pin:
+  93              	.LFB6:
+  76:pseudo_adc.c  **** 
+  77:pseudo_adc.c  **** }
+  78:pseudo_adc.c  **** 
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 4
+
+
+  79:pseudo_adc.c  **** static void _set_charge_total_pin(enum pin_state pin_state)
+  80:pseudo_adc.c  **** {
+  94              		.loc 1 80 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99              	.LVL3:
+ 100 0000 7047     		bx	lr
+ 101              		.cfi_endproc
+ 102              	.LFE6:
+ 103              		.size	_set_charge_total_pin, .-_set_charge_total_pin
+ 104 0002 00BF     		.section	.text._read_sense_pin,"ax",%progbits
+ 105              		.align	2
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	_read_sense_pin, %function
+ 109              	_read_sense_pin:
+ 110              	.LFB7:
+  81:pseudo_adc.c  **** 
+  82:pseudo_adc.c  **** }
+  83:pseudo_adc.c  **** 
+  84:pseudo_adc.c  **** static void _read_sense_pin(void)
+  85:pseudo_adc.c  **** {
+ 111              		.loc 1 85 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116 0000 7047     		bx	lr
+ 117              		.cfi_endproc
+ 118              	.LFE7:
+ 119              		.size	_read_sense_pin, .-_read_sense_pin
+ 120 0002 00BF     		.section	.text._calculate_r,"ax",%progbits
+ 121              		.align	2
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	_calculate_r, %function
+ 125              	_calculate_r:
+ 126              	.LFB8:
+  86:pseudo_adc.c  **** 
+  87:pseudo_adc.c  **** }
+  88:pseudo_adc.c  **** 
+  89:pseudo_adc.c  **** static uint32_t _calculate_r (void)
+  90:pseudo_adc.c  **** {
+ 127              		.loc 1 90 0
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+  91:pseudo_adc.c  **** 
+  92:pseudo_adc.c  **** }...
+ 132              		.loc 1 92 0
+ 133 0000 7047     		bx	lr
+ 134              		.cfi_endproc
+ 135              	.LFE8:
+ 136              		.size	_calculate_r, .-_calculate_r
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 5
+
+
+ 137 0002 00BF     		.section	.text.init_pseudo_adc,"ax",%progbits
+ 138              		.align	2
+ 139              		.global	init_pseudo_adc
+ 140              		.thumb
+ 141              		.thumb_func
+ 142              		.type	init_pseudo_adc, %function
+ 143              	init_pseudo_adc:
+ 144              	.LFB0:
+  31:pseudo_adc.c  **** {
+ 145              		.loc 1 31 0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              		@ link register save eliminated.
+ 150              	.LVL4:
+  32:pseudo_adc.c  ****     _sm.state = &sm_handle->state;
+ 151              		.loc 1 32 0
+ 152 0000 0C4B     		ldr	r3, .L9
+ 153 0002 1860     		str	r0, [r3]
+  33:pseudo_adc.c  ****     _sm.pin_state = &sm_handle->pin_state;
+ 154              		.loc 1 33 0
+ 155 0004 421C     		adds	r2, r0, #1
+ 156 0006 5A60     		str	r2, [r3, #4]
+  34:pseudo_adc.c  ****     _sm.time_ref = &sm_handle->time_ref;
+ 157              		.loc 1 34 0
+ 158 0008 021D     		adds	r2, r0, #4
+ 159 000a 9A60     		str	r2, [r3, #8]
+  35:pseudo_adc.c  ****     _sm.time_total = &sm_handle->time_total;
+ 160              		.loc 1 35 0
+ 161 000c 0830     		adds	r0, r0, #8
+ 162              	.LVL5:
+ 163 000e D860     		str	r0, [r3, #12]
+  38:pseudo_adc.c  ****     _sm.discharge = _discharge;
+ 164              		.loc 1 38 0
+ 165 0010 094A     		ldr	r2, .L9+4
+ 166 0012 5A61     		str	r2, [r3, #20]
+  39:pseudo_adc.c  ****     _sm.measure = _measure;
+ 167              		.loc 1 39 0
+ 168 0014 094A     		ldr	r2, .L9+8
+ 169 0016 9A61     		str	r2, [r3, #24]
+  40:pseudo_adc.c  ****     _sm.set_pin[CHARGE_REF] = _set_charge_ref_pin;
+ 170              		.loc 1 40 0
+ 171 0018 094A     		ldr	r2, .L9+12
+ 172 001a 1A62     		str	r2, [r3, #32]
+  41:pseudo_adc.c  ****     _sm.set_pin[CHARGE_TOTAL] = _set_charge_total_pin;
+ 173              		.loc 1 41 0
+ 174 001c 094A     		ldr	r2, .L9+16
+ 175 001e 5A62     		str	r2, [r3, #36]
+  42:pseudo_adc.c  ****     _sm.set_pin[DRAIN] = _set_discharge_pin;
+ 176              		.loc 1 42 0
+ 177 0020 094A     		ldr	r2, .L9+20
+ 178 0022 DA61     		str	r2, [r3, #28]
+  43:pseudo_adc.c  ****     _sm.read_sense_pin = _read_sense_pin;
+ 179              		.loc 1 43 0
+ 180 0024 094A     		ldr	r2, .L9+24
+ 181 0026 9A62     		str	r2, [r3, #40]
+  44:pseudo_adc.c  ****     _sm.calculate_r = _calculate_r;  
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 6
+
+
+ 182              		.loc 1 44 0
+ 183 0028 094A     		ldr	r2, .L9+28
+ 184 002a DA62     		str	r2, [r3, #44]
+  46:pseudo_adc.c  ****     _sm._is_initialized = 1;
+ 185              		.loc 1 46 0
+ 186 002c 0122     		movs	r2, #1
+ 187 002e 1A74     		strb	r2, [r3, #16]
+ 188 0030 7047     		bx	lr
+ 189              	.L10:
+ 190 0032 00BF     		.align	2
+ 191              	.L9:
+ 192 0034 00000000 		.word	_sm
+ 193 0038 00000000 		.word	_discharge
+ 194 003c 00000000 		.word	_measure
+ 195 0040 00000000 		.word	_set_charge_ref_pin
+ 196 0044 00000000 		.word	_set_charge_total_pin
+ 197 0048 00000000 		.word	_set_discharge_pin
+ 198 004c 00000000 		.word	_read_sense_pin
+ 199 0050 00000000 		.word	_calculate_r
+ 200              		.cfi_endproc
+ 201              	.LFE0:
+ 202              		.size	init_pseudo_adc, .-init_pseudo_adc
+ 203              		.section	.text.run_state_machine,"ax",%progbits
+ 204              		.align	2
+ 205              		.global	run_state_machine
+ 206              		.thumb
+ 207              		.thumb_func
+ 208              		.type	run_state_machine, %function
+ 209              	run_state_machine:
+ 210              	.LFB1:
+  50:pseudo_adc.c  **** {
+ 211              		.loc 1 50 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+  51:pseudo_adc.c  ****     if (!_sm._is_initialized)
+ 216              		.loc 1 51 0
+ 217 0000 034B     		ldr	r3, .L14
+ 218 0002 1B7C     		ldrb	r3, [r3, #16]	@ zero_extendqisi2
+ 219 0004 0BB9     		cbnz	r3, .L13
+  53:pseudo_adc.c  ****         return 255;
+ 220              		.loc 1 53 0
+ 221 0006 FF20     		movs	r0, #255
+ 222 0008 7047     		bx	lr
+ 223              	.L13:
+  56:pseudo_adc.c  ****     return 0;
+ 224              		.loc 1 56 0
+ 225 000a 0020     		movs	r0, #0
+  57:pseudo_adc.c  **** }
+ 226              		.loc 1 57 0
+ 227 000c 7047     		bx	lr
+ 228              	.L15:
+ 229 000e 00BF     		.align	2
+ 230              	.L14:
+ 231 0010 00000000 		.word	_sm
+ 232              		.cfi_endproc
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 7
+
+
+ 233              	.LFE1:
+ 234              		.size	run_state_machine, .-run_state_machine
+ 235              		.comm	_sm,48,4
+ 236              		.text
+ 237              	.Letext0:
+ 238              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 239              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 240              		.file 4 "pseudo_adc.h"
+ 241              		.section	.debug_info,"",%progbits
+ 242              	.Ldebug_info0:
+ 243 0000 86030000 		.4byte	0x386
+ 244 0004 0400     		.2byte	0x4
+ 245 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 246 000a 04       		.byte	0x4
+ 247 000b 01       		.uleb128 0x1
+ 248 000c B7020000 		.4byte	.LASF48
+ 249 0010 0C       		.byte	0xc
+ 250 0011 D6000000 		.4byte	.LASF49
+ 251 0015 9A010000 		.4byte	.LASF50
+ 252 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 253 001d 00000000 		.4byte	0
+ 254 0021 00000000 		.4byte	.Ldebug_line0
+ 255 0025 02       		.uleb128 0x2
+ 256 0026 01       		.byte	0x1
+ 257 0027 06       		.byte	0x6
+ 258 0028 59010000 		.4byte	.LASF0
+ 259 002c 03       		.uleb128 0x3
+ 260 002d EC000000 		.4byte	.LASF5
+ 261 0031 02       		.byte	0x2
+ 262 0032 1D       		.byte	0x1d
+ 263 0033 37000000 		.4byte	0x37
+ 264 0037 02       		.uleb128 0x2
+ 265 0038 01       		.byte	0x1
+ 266 0039 08       		.byte	0x8
+ 267 003a 37010000 		.4byte	.LASF1
+ 268 003e 02       		.uleb128 0x2
+ 269 003f 02       		.byte	0x2
+ 270 0040 05       		.byte	0x5
+ 271 0041 3F000000 		.4byte	.LASF2
+ 272 0045 02       		.uleb128 0x2
+ 273 0046 02       		.byte	0x2
+ 274 0047 07       		.byte	0x7
+ 275 0048 1C020000 		.4byte	.LASF3
+ 276 004c 02       		.uleb128 0x2
+ 277 004d 04       		.byte	0x4
+ 278 004e 05       		.byte	0x5
+ 279 004f E3000000 		.4byte	.LASF4
+ 280 0053 03       		.uleb128 0x3
+ 281 0054 5F000000 		.4byte	.LASF6
+ 282 0058 02       		.byte	0x2
+ 283 0059 41       		.byte	0x41
+ 284 005a 5E000000 		.4byte	0x5e
+ 285 005e 02       		.uleb128 0x2
+ 286 005f 04       		.byte	0x4
+ 287 0060 07       		.byte	0x7
+ 288 0061 6F020000 		.4byte	.LASF7
+ 289 0065 02       		.uleb128 0x2
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 8
+
+
+ 290 0066 08       		.byte	0x8
+ 291 0067 05       		.byte	0x5
+ 292 0068 C0000000 		.4byte	.LASF8
+ 293 006c 02       		.uleb128 0x2
+ 294 006d 08       		.byte	0x8
+ 295 006e 07       		.byte	0x7
+ 296 006f 65010000 		.4byte	.LASF9
+ 297 0073 04       		.uleb128 0x4
+ 298 0074 04       		.byte	0x4
+ 299 0075 05       		.byte	0x5
+ 300 0076 696E7400 		.ascii	"int\000"
+ 301 007a 02       		.uleb128 0x2
+ 302 007b 04       		.byte	0x4
+ 303 007c 07       		.byte	0x7
+ 304 007d 85010000 		.4byte	.LASF10
+ 305 0081 03       		.uleb128 0x3
+ 306 0082 6A000000 		.4byte	.LASF11
+ 307 0086 03       		.byte	0x3
+ 308 0087 18       		.byte	0x18
+ 309 0088 2C000000 		.4byte	0x2c
+ 310 008c 03       		.uleb128 0x3
+ 311 008d 7C010000 		.4byte	.LASF12
+ 312 0091 03       		.byte	0x3
+ 313 0092 30       		.byte	0x30
+ 314 0093 53000000 		.4byte	0x53
+ 315 0097 05       		.uleb128 0x5
+ 316 0098 01       		.byte	0x1
+ 317 0099 37000000 		.4byte	0x37
+ 318 009d 04       		.byte	0x4
+ 319 009e 07       		.byte	0x7
+ 320 009f CE000000 		.4byte	0xce
+ 321 00a3 06       		.uleb128 0x6
+ 322 00a4 27000000 		.4byte	.LASF13
+ 323 00a8 00       		.byte	0
+ 324 00a9 06       		.uleb128 0x6
+ 325 00aa 22010000 		.4byte	.LASF14
+ 326 00ae 01       		.byte	0x1
+ 327 00af 06       		.uleb128 0x6
+ 328 00b0 00000000 		.4byte	.LASF15
+ 329 00b4 02       		.byte	0x2
+ 330 00b5 06       		.uleb128 0x6
+ 331 00b6 08010000 		.4byte	.LASF16
+ 332 00ba 03       		.byte	0x3
+ 333 00bb 06       		.uleb128 0x6
+ 334 00bc 92010000 		.4byte	.LASF17
+ 335 00c0 04       		.byte	0x4
+ 336 00c1 06       		.uleb128 0x6
+ 337 00c2 CE000000 		.4byte	.LASF18
+ 338 00c6 05       		.byte	0x5
+ 339 00c7 06       		.uleb128 0x6
+ 340 00c8 8E000000 		.4byte	.LASF19
+ 341 00cc 06       		.byte	0x6
+ 342 00cd 00       		.byte	0
+ 343 00ce 03       		.uleb128 0x3
+ 344 00cf B8000000 		.4byte	.LASF20
+ 345 00d3 04       		.byte	0x4
+ 346 00d4 0F       		.byte	0xf
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 9
+
+
+ 347 00d5 97000000 		.4byte	0x97
+ 348 00d9 07       		.uleb128 0x7
+ 349 00da 93000000 		.4byte	.LASF23
+ 350 00de 01       		.byte	0x1
+ 351 00df 37000000 		.4byte	0x37
+ 352 00e3 04       		.byte	0x4
+ 353 00e4 11       		.byte	0x11
+ 354 00e5 F6000000 		.4byte	0xf6
+ 355 00e9 08       		.uleb128 0x8
+ 356 00ea 4C4F5700 		.ascii	"LOW\000"
+ 357 00ee 00       		.byte	0
+ 358 00ef 06       		.uleb128 0x6
+ 359 00f0 52000000 		.4byte	.LASF21
+ 360 00f4 01       		.byte	0x1
+ 361 00f5 00       		.byte	0
+ 362 00f6 03       		.uleb128 0x3
+ 363 00f7 F6000000 		.4byte	.LASF22
+ 364 00fb 04       		.byte	0x4
+ 365 00fc 15       		.byte	0x15
+ 366 00fd D9000000 		.4byte	0xd9
+ 367 0101 07       		.uleb128 0x7
+ 368 0102 AC020000 		.4byte	.LASF24
+ 369 0106 01       		.byte	0x1
+ 370 0107 37000000 		.4byte	0x37
+ 371 010b 04       		.byte	0x4
+ 372 010c 17       		.byte	0x17
+ 373 010d 1E010000 		.4byte	0x11e
+ 374 0111 08       		.uleb128 0x8
+ 375 0112 52454600 		.ascii	"REF\000"
+ 376 0116 00       		.byte	0
+ 377 0117 06       		.uleb128 0x6
+ 378 0118 B1020000 		.4byte	.LASF25
+ 379 011c 01       		.byte	0x1
+ 380 011d 00       		.byte	0
+ 381 011e 07       		.uleb128 0x7
+ 382 011f 8B020000 		.4byte	.LASF26
+ 383 0123 01       		.byte	0x1
+ 384 0124 37000000 		.4byte	0x37
+ 385 0128 04       		.byte	0x4
+ 386 0129 1D       		.byte	0x1d
+ 387 012a 41010000 		.4byte	0x141
+ 388 012e 06       		.uleb128 0x6
+ 389 012f 02010000 		.4byte	.LASF27
+ 390 0133 00       		.byte	0
+ 391 0134 06       		.uleb128 0x6
+ 392 0135 06020000 		.4byte	.LASF28
+ 393 0139 01       		.byte	0x1
+ 394 013a 06       		.uleb128 0x6
+ 395 013b 62020000 		.4byte	.LASF29
+ 396 013f 02       		.byte	0x2
+ 397 0140 00       		.byte	0
+ 398 0141 09       		.uleb128 0x9
+ 399 0142 0E000000 		.4byte	.LASF33
+ 400 0146 0C       		.byte	0xc
+ 401 0147 04       		.byte	0x4
+ 402 0148 24       		.byte	0x24
+ 403 0149 7E010000 		.4byte	0x17e
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 10
+
+
+ 404 014d 0A       		.uleb128 0xa
+ 405 014e 39000000 		.4byte	.LASF30
+ 406 0152 04       		.byte	0x4
+ 407 0153 26       		.byte	0x26
+ 408 0154 7E010000 		.4byte	0x17e
+ 409 0158 00       		.byte	0
+ 410 0159 0A       		.uleb128 0xa
+ 411 015a 93000000 		.4byte	.LASF23
+ 412 015e 04       		.byte	0x4
+ 413 015f 27       		.byte	0x27
+ 414 0160 83010000 		.4byte	0x183
+ 415 0164 01       		.byte	0x1
+ 416 0165 0A       		.uleb128 0xa
+ 417 0166 2E010000 		.4byte	.LASF31
+ 418 016a 04       		.byte	0x4
+ 419 016b 28       		.byte	0x28
+ 420 016c 8C000000 		.4byte	0x8c
+ 421 0170 04       		.byte	0x4
+ 422 0171 0A       		.uleb128 0xa
+ 423 0172 1C000000 		.4byte	.LASF32
+ 424 0176 04       		.byte	0x4
+ 425 0177 29       		.byte	0x29
+ 426 0178 8C000000 		.4byte	0x8c
+ 427 017c 08       		.byte	0x8
+ 428 017d 00       		.byte	0
+ 429 017e 0B       		.uleb128 0xb
+ 430 017f CE000000 		.4byte	0xce
+ 431 0183 0B       		.uleb128 0xb
+ 432 0184 F6000000 		.4byte	0xf6
+ 433 0188 03       		.uleb128 0x3
+ 434 0189 0E000000 		.4byte	.LASF33
+ 435 018d 04       		.byte	0x4
+ 436 018e 2A       		.byte	0x2a
+ 437 018f 41010000 		.4byte	0x141
+ 438 0193 0C       		.uleb128 0xc
+ 439 0194 5F736D00 		.ascii	"_sm\000"
+ 440 0198 30       		.byte	0x30
+ 441 0199 01       		.byte	0x1
+ 442 019a 0E       		.byte	0xe
+ 443 019b 18020000 		.4byte	0x218
+ 444 019f 0A       		.uleb128 0xa
+ 445 01a0 39000000 		.4byte	.LASF30
+ 446 01a4 01       		.byte	0x1
+ 447 01a5 10       		.byte	0x10
+ 448 01a6 18020000 		.4byte	0x218
+ 449 01aa 00       		.byte	0
+ 450 01ab 0A       		.uleb128 0xa
+ 451 01ac 93000000 		.4byte	.LASF23
+ 452 01b0 01       		.byte	0x1
+ 453 01b1 11       		.byte	0x11
+ 454 01b2 1E020000 		.4byte	0x21e
+ 455 01b6 04       		.byte	0x4
+ 456 01b7 0A       		.uleb128 0xa
+ 457 01b8 2E010000 		.4byte	.LASF31
+ 458 01bc 01       		.byte	0x1
+ 459 01bd 12       		.byte	0x12
+ 460 01be 24020000 		.4byte	0x224
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 11
+
+
+ 461 01c2 08       		.byte	0x8
+ 462 01c3 0A       		.uleb128 0xa
+ 463 01c4 1C000000 		.4byte	.LASF32
+ 464 01c8 01       		.byte	0x1
+ 465 01c9 13       		.byte	0x13
+ 466 01ca 24020000 		.4byte	0x224
+ 467 01ce 0C       		.byte	0xc
+ 468 01cf 0A       		.uleb128 0xa
+ 469 01d0 45030000 		.4byte	.LASF34
+ 470 01d4 01       		.byte	0x1
+ 471 01d5 14       		.byte	0x14
+ 472 01d6 81000000 		.4byte	0x81
+ 473 01da 10       		.byte	0x10
+ 474 01db 0A       		.uleb128 0xa
+ 475 01dc 81020000 		.4byte	.LASF35
+ 476 01e0 01       		.byte	0x1
+ 477 01e1 16       		.byte	0x16
+ 478 01e2 2B020000 		.4byte	0x22b
+ 479 01e6 14       		.byte	0x14
+ 480 01e7 0A       		.uleb128 0xa
+ 481 01e8 31000000 		.4byte	.LASF36
+ 482 01ec 01       		.byte	0x1
+ 483 01ed 17       		.byte	0x17
+ 484 01ee 3C020000 		.4byte	0x23c
+ 485 01f2 18       		.byte	0x18
+ 486 01f3 0A       		.uleb128 0xa
+ 487 01f4 57000000 		.4byte	.LASF37
+ 488 01f8 01       		.byte	0x1
+ 489 01f9 18       		.byte	0x18
+ 490 01fa 42020000 		.4byte	0x242
+ 491 01fe 1C       		.byte	0x1c
+ 492 01ff 0A       		.uleb128 0xa
+ 493 0200 72000000 		.4byte	.LASF38
+ 494 0204 01       		.byte	0x1
+ 495 0205 19       		.byte	0x19
+ 496 0206 2B020000 		.4byte	0x22b
+ 497 020a 28       		.byte	0x28
+ 498 020b 0A       		.uleb128 0xa
+ 499 020c A0020000 		.4byte	.LASF39
+ 500 0210 01       		.byte	0x1
+ 501 0211 1A       		.byte	0x1a
+ 502 0212 6F020000 		.4byte	0x26f
+ 503 0216 2C       		.byte	0x2c
+ 504 0217 00       		.byte	0
+ 505 0218 0D       		.uleb128 0xd
+ 506 0219 04       		.byte	0x4
+ 507 021a 7E010000 		.4byte	0x17e
+ 508 021e 0D       		.uleb128 0xd
+ 509 021f 04       		.byte	0x4
+ 510 0220 83010000 		.4byte	0x183
+ 511 0224 0D       		.uleb128 0xd
+ 512 0225 04       		.byte	0x4
+ 513 0226 8C000000 		.4byte	0x8c
+ 514 022a 0E       		.uleb128 0xe
+ 515 022b 0D       		.uleb128 0xd
+ 516 022c 04       		.byte	0x4
+ 517 022d 2A020000 		.4byte	0x22a
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 12
+
+
+ 518 0231 0F       		.uleb128 0xf
+ 519 0232 3C020000 		.4byte	0x23c
+ 520 0236 10       		.uleb128 0x10
+ 521 0237 01010000 		.4byte	0x101
+ 522 023b 00       		.byte	0
+ 523 023c 0D       		.uleb128 0xd
+ 524 023d 04       		.byte	0x4
+ 525 023e 31020000 		.4byte	0x231
+ 526 0242 11       		.uleb128 0x11
+ 527 0243 59020000 		.4byte	0x259
+ 528 0247 52020000 		.4byte	0x252
+ 529 024b 12       		.uleb128 0x12
+ 530 024c 52020000 		.4byte	0x252
+ 531 0250 02       		.byte	0x2
+ 532 0251 00       		.byte	0
+ 533 0252 02       		.uleb128 0x2
+ 534 0253 04       		.byte	0x4
+ 535 0254 07       		.byte	0x7
+ 536 0255 49000000 		.4byte	.LASF40
+ 537 0259 0D       		.uleb128 0xd
+ 538 025a 04       		.byte	0x4
+ 539 025b 5F020000 		.4byte	0x25f
+ 540 025f 0F       		.uleb128 0xf
+ 541 0260 6A020000 		.4byte	0x26a
+ 542 0264 10       		.uleb128 0x10
+ 543 0265 D9000000 		.4byte	0xd9
+ 544 0269 00       		.byte	0
+ 545 026a 13       		.uleb128 0x13
+ 546 026b 8C000000 		.4byte	0x8c
+ 547 026f 0D       		.uleb128 0xd
+ 548 0270 04       		.byte	0x4
+ 549 0271 6A020000 		.4byte	0x26a
+ 550 0275 14       		.uleb128 0x14
+ 551 0276 11020000 		.4byte	.LASF45
+ 552 027a 01       		.byte	0x1
+ 553 027b 3B       		.byte	0x3b
+ 554 027c 00000000 		.4byte	.LFB2
+ 555 0280 02000000 		.4byte	.LFE2-.LFB2
+ 556 0284 01       		.uleb128 0x1
+ 557 0285 9C       		.byte	0x9c
+ 558 0286 15       		.uleb128 0x15
+ 559 0287 AF000000 		.4byte	.LASF41
+ 560 028b 01       		.byte	0x1
+ 561 028c 40       		.byte	0x40
+ 562 028d 00000000 		.4byte	.LFB3
+ 563 0291 02000000 		.4byte	.LFE3-.LFB3
+ 564 0295 01       		.uleb128 0x1
+ 565 0296 9C       		.byte	0x9c
+ 566 0297 A9020000 		.4byte	0x2a9
+ 567 029b 16       		.uleb128 0x16
+ 568 029c AC020000 		.4byte	.LASF24
+ 569 02a0 01       		.byte	0x1
+ 570 02a1 40       		.byte	0x40
+ 571 02a2 01010000 		.4byte	0x101
+ 572 02a6 01       		.uleb128 0x1
+ 573 02a7 50       		.byte	0x50
+ 574 02a8 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 13
+
+
+ 575 02a9 15       		.uleb128 0x15
+ 576 02aa 2F020000 		.4byte	.LASF42
+ 577 02ae 01       		.byte	0x1
+ 578 02af 45       		.byte	0x45
+ 579 02b0 00000000 		.4byte	.LFB4
+ 580 02b4 02000000 		.4byte	.LFE4-.LFB4
+ 581 02b8 01       		.uleb128 0x1
+ 582 02b9 9C       		.byte	0x9c
+ 583 02ba CC020000 		.4byte	0x2cc
+ 584 02be 16       		.uleb128 0x16
+ 585 02bf 93000000 		.4byte	.LASF23
+ 586 02c3 01       		.byte	0x1
+ 587 02c4 45       		.byte	0x45
+ 588 02c5 D9000000 		.4byte	0xd9
+ 589 02c9 01       		.uleb128 0x1
+ 590 02ca 50       		.byte	0x50
+ 591 02cb 00       		.byte	0
+ 592 02cc 15       		.uleb128 0x15
+ 593 02cd 45010000 		.4byte	.LASF43
+ 594 02d1 01       		.byte	0x1
+ 595 02d2 4A       		.byte	0x4a
+ 596 02d3 00000000 		.4byte	.LFB5
+ 597 02d7 02000000 		.4byte	.LFE5-.LFB5
+ 598 02db 01       		.uleb128 0x1
+ 599 02dc 9C       		.byte	0x9c
+ 600 02dd EF020000 		.4byte	0x2ef
+ 601 02e1 16       		.uleb128 0x16
+ 602 02e2 93000000 		.4byte	.LASF23
+ 603 02e6 01       		.byte	0x1
+ 604 02e7 4A       		.byte	0x4a
+ 605 02e8 D9000000 		.4byte	0xd9
+ 606 02ec 01       		.uleb128 0x1
+ 607 02ed 50       		.byte	0x50
+ 608 02ee 00       		.byte	0
+ 609 02ef 15       		.uleb128 0x15
+ 610 02f0 42020000 		.4byte	.LASF44
+ 611 02f4 01       		.byte	0x1
+ 612 02f5 4F       		.byte	0x4f
+ 613 02f6 00000000 		.4byte	.LFB6
+ 614 02fa 02000000 		.4byte	.LFE6-.LFB6
+ 615 02fe 01       		.uleb128 0x1
+ 616 02ff 9C       		.byte	0x9c
+ 617 0300 12030000 		.4byte	0x312
+ 618 0304 16       		.uleb128 0x16
+ 619 0305 93000000 		.4byte	.LASF23
+ 620 0309 01       		.byte	0x1
+ 621 030a 4F       		.byte	0x4f
+ 622 030b D9000000 		.4byte	0xd9
+ 623 030f 01       		.uleb128 0x1
+ 624 0310 50       		.byte	0x50
+ 625 0311 00       		.byte	0
+ 626 0312 14       		.uleb128 0x14
+ 627 0313 12010000 		.4byte	.LASF46
+ 628 0317 01       		.byte	0x1
+ 629 0318 54       		.byte	0x54
+ 630 0319 00000000 		.4byte	.LFB7
+ 631 031d 02000000 		.4byte	.LFE7-.LFB7
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 14
+
+
+ 632 0321 01       		.uleb128 0x1
+ 633 0322 9C       		.byte	0x9c
+ 634 0323 17       		.uleb128 0x17
+ 635 0324 81000000 		.4byte	.LASF51
+ 636 0328 01       		.byte	0x1
+ 637 0329 59       		.byte	0x59
+ 638 032a 8C000000 		.4byte	0x8c
+ 639 032e 00000000 		.4byte	.LFB8
+ 640 0332 02000000 		.4byte	.LFE8-.LFB8
+ 641 0336 01       		.uleb128 0x1
+ 642 0337 9C       		.byte	0x9c
+ 643 0338 18       		.uleb128 0x18
+ 644 0339 90020000 		.4byte	.LASF52
+ 645 033d 01       		.byte	0x1
+ 646 033e 1E       		.byte	0x1e
+ 647 033f 00000000 		.4byte	.LFB0
+ 648 0343 54000000 		.4byte	.LFE0-.LFB0
+ 649 0347 01       		.uleb128 0x1
+ 650 0348 9C       		.byte	0x9c
+ 651 0349 5D030000 		.4byte	0x35d
+ 652 034d 19       		.uleb128 0x19
+ 653 034e 58020000 		.4byte	.LASF47
+ 654 0352 01       		.byte	0x1
+ 655 0353 1E       		.byte	0x1e
+ 656 0354 5D030000 		.4byte	0x35d
+ 657 0358 00000000 		.4byte	.LLST0
+ 658 035c 00       		.byte	0
+ 659 035d 0D       		.uleb128 0xd
+ 660 035e 04       		.byte	0x4
+ 661 035f 88010000 		.4byte	0x188
+ 662 0363 1A       		.uleb128 0x1a
+ 663 0364 9D000000 		.4byte	.LASF53
+ 664 0368 01       		.byte	0x1
+ 665 0369 31       		.byte	0x31
+ 666 036a 81000000 		.4byte	0x81
+ 667 036e 00000000 		.4byte	.LFB1
+ 668 0372 14000000 		.4byte	.LFE1-.LFB1
+ 669 0376 01       		.uleb128 0x1
+ 670 0377 9C       		.byte	0x9c
+ 671 0378 1B       		.uleb128 0x1b
+ 672 0379 5F736D00 		.ascii	"_sm\000"
+ 673 037d 01       		.byte	0x1
+ 674 037e 1B       		.byte	0x1b
+ 675 037f 93010000 		.4byte	0x193
+ 676 0383 05       		.uleb128 0x5
+ 677 0384 03       		.byte	0x3
+ 678 0385 00000000 		.4byte	_sm
+ 679 0389 00       		.byte	0
+ 680              		.section	.debug_abbrev,"",%progbits
+ 681              	.Ldebug_abbrev0:
+ 682 0000 01       		.uleb128 0x1
+ 683 0001 11       		.uleb128 0x11
+ 684 0002 01       		.byte	0x1
+ 685 0003 25       		.uleb128 0x25
+ 686 0004 0E       		.uleb128 0xe
+ 687 0005 13       		.uleb128 0x13
+ 688 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 15
+
+
+ 689 0007 03       		.uleb128 0x3
+ 690 0008 0E       		.uleb128 0xe
+ 691 0009 1B       		.uleb128 0x1b
+ 692 000a 0E       		.uleb128 0xe
+ 693 000b 55       		.uleb128 0x55
+ 694 000c 17       		.uleb128 0x17
+ 695 000d 11       		.uleb128 0x11
+ 696 000e 01       		.uleb128 0x1
+ 697 000f 10       		.uleb128 0x10
+ 698 0010 17       		.uleb128 0x17
+ 699 0011 00       		.byte	0
+ 700 0012 00       		.byte	0
+ 701 0013 02       		.uleb128 0x2
+ 702 0014 24       		.uleb128 0x24
+ 703 0015 00       		.byte	0
+ 704 0016 0B       		.uleb128 0xb
+ 705 0017 0B       		.uleb128 0xb
+ 706 0018 3E       		.uleb128 0x3e
+ 707 0019 0B       		.uleb128 0xb
+ 708 001a 03       		.uleb128 0x3
+ 709 001b 0E       		.uleb128 0xe
+ 710 001c 00       		.byte	0
+ 711 001d 00       		.byte	0
+ 712 001e 03       		.uleb128 0x3
+ 713 001f 16       		.uleb128 0x16
+ 714 0020 00       		.byte	0
+ 715 0021 03       		.uleb128 0x3
+ 716 0022 0E       		.uleb128 0xe
+ 717 0023 3A       		.uleb128 0x3a
+ 718 0024 0B       		.uleb128 0xb
+ 719 0025 3B       		.uleb128 0x3b
+ 720 0026 0B       		.uleb128 0xb
+ 721 0027 49       		.uleb128 0x49
+ 722 0028 13       		.uleb128 0x13
+ 723 0029 00       		.byte	0
+ 724 002a 00       		.byte	0
+ 725 002b 04       		.uleb128 0x4
+ 726 002c 24       		.uleb128 0x24
+ 727 002d 00       		.byte	0
+ 728 002e 0B       		.uleb128 0xb
+ 729 002f 0B       		.uleb128 0xb
+ 730 0030 3E       		.uleb128 0x3e
+ 731 0031 0B       		.uleb128 0xb
+ 732 0032 03       		.uleb128 0x3
+ 733 0033 08       		.uleb128 0x8
+ 734 0034 00       		.byte	0
+ 735 0035 00       		.byte	0
+ 736 0036 05       		.uleb128 0x5
+ 737 0037 04       		.uleb128 0x4
+ 738 0038 01       		.byte	0x1
+ 739 0039 0B       		.uleb128 0xb
+ 740 003a 0B       		.uleb128 0xb
+ 741 003b 49       		.uleb128 0x49
+ 742 003c 13       		.uleb128 0x13
+ 743 003d 3A       		.uleb128 0x3a
+ 744 003e 0B       		.uleb128 0xb
+ 745 003f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 16
+
+
+ 746 0040 0B       		.uleb128 0xb
+ 747 0041 01       		.uleb128 0x1
+ 748 0042 13       		.uleb128 0x13
+ 749 0043 00       		.byte	0
+ 750 0044 00       		.byte	0
+ 751 0045 06       		.uleb128 0x6
+ 752 0046 28       		.uleb128 0x28
+ 753 0047 00       		.byte	0
+ 754 0048 03       		.uleb128 0x3
+ 755 0049 0E       		.uleb128 0xe
+ 756 004a 1C       		.uleb128 0x1c
+ 757 004b 0B       		.uleb128 0xb
+ 758 004c 00       		.byte	0
+ 759 004d 00       		.byte	0
+ 760 004e 07       		.uleb128 0x7
+ 761 004f 04       		.uleb128 0x4
+ 762 0050 01       		.byte	0x1
+ 763 0051 03       		.uleb128 0x3
+ 764 0052 0E       		.uleb128 0xe
+ 765 0053 0B       		.uleb128 0xb
+ 766 0054 0B       		.uleb128 0xb
+ 767 0055 49       		.uleb128 0x49
+ 768 0056 13       		.uleb128 0x13
+ 769 0057 3A       		.uleb128 0x3a
+ 770 0058 0B       		.uleb128 0xb
+ 771 0059 3B       		.uleb128 0x3b
+ 772 005a 0B       		.uleb128 0xb
+ 773 005b 01       		.uleb128 0x1
+ 774 005c 13       		.uleb128 0x13
+ 775 005d 00       		.byte	0
+ 776 005e 00       		.byte	0
+ 777 005f 08       		.uleb128 0x8
+ 778 0060 28       		.uleb128 0x28
+ 779 0061 00       		.byte	0
+ 780 0062 03       		.uleb128 0x3
+ 781 0063 08       		.uleb128 0x8
+ 782 0064 1C       		.uleb128 0x1c
+ 783 0065 0B       		.uleb128 0xb
+ 784 0066 00       		.byte	0
+ 785 0067 00       		.byte	0
+ 786 0068 09       		.uleb128 0x9
+ 787 0069 13       		.uleb128 0x13
+ 788 006a 01       		.byte	0x1
+ 789 006b 03       		.uleb128 0x3
+ 790 006c 0E       		.uleb128 0xe
+ 791 006d 0B       		.uleb128 0xb
+ 792 006e 0B       		.uleb128 0xb
+ 793 006f 3A       		.uleb128 0x3a
+ 794 0070 0B       		.uleb128 0xb
+ 795 0071 3B       		.uleb128 0x3b
+ 796 0072 0B       		.uleb128 0xb
+ 797 0073 01       		.uleb128 0x1
+ 798 0074 13       		.uleb128 0x13
+ 799 0075 00       		.byte	0
+ 800 0076 00       		.byte	0
+ 801 0077 0A       		.uleb128 0xa
+ 802 0078 0D       		.uleb128 0xd
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 17
+
+
+ 803 0079 00       		.byte	0
+ 804 007a 03       		.uleb128 0x3
+ 805 007b 0E       		.uleb128 0xe
+ 806 007c 3A       		.uleb128 0x3a
+ 807 007d 0B       		.uleb128 0xb
+ 808 007e 3B       		.uleb128 0x3b
+ 809 007f 0B       		.uleb128 0xb
+ 810 0080 49       		.uleb128 0x49
+ 811 0081 13       		.uleb128 0x13
+ 812 0082 38       		.uleb128 0x38
+ 813 0083 0B       		.uleb128 0xb
+ 814 0084 00       		.byte	0
+ 815 0085 00       		.byte	0
+ 816 0086 0B       		.uleb128 0xb
+ 817 0087 35       		.uleb128 0x35
+ 818 0088 00       		.byte	0
+ 819 0089 49       		.uleb128 0x49
+ 820 008a 13       		.uleb128 0x13
+ 821 008b 00       		.byte	0
+ 822 008c 00       		.byte	0
+ 823 008d 0C       		.uleb128 0xc
+ 824 008e 13       		.uleb128 0x13
+ 825 008f 01       		.byte	0x1
+ 826 0090 03       		.uleb128 0x3
+ 827 0091 08       		.uleb128 0x8
+ 828 0092 0B       		.uleb128 0xb
+ 829 0093 0B       		.uleb128 0xb
+ 830 0094 3A       		.uleb128 0x3a
+ 831 0095 0B       		.uleb128 0xb
+ 832 0096 3B       		.uleb128 0x3b
+ 833 0097 0B       		.uleb128 0xb
+ 834 0098 01       		.uleb128 0x1
+ 835 0099 13       		.uleb128 0x13
+ 836 009a 00       		.byte	0
+ 837 009b 00       		.byte	0
+ 838 009c 0D       		.uleb128 0xd
+ 839 009d 0F       		.uleb128 0xf
+ 840 009e 00       		.byte	0
+ 841 009f 0B       		.uleb128 0xb
+ 842 00a0 0B       		.uleb128 0xb
+ 843 00a1 49       		.uleb128 0x49
+ 844 00a2 13       		.uleb128 0x13
+ 845 00a3 00       		.byte	0
+ 846 00a4 00       		.byte	0
+ 847 00a5 0E       		.uleb128 0xe
+ 848 00a6 15       		.uleb128 0x15
+ 849 00a7 00       		.byte	0
+ 850 00a8 27       		.uleb128 0x27
+ 851 00a9 19       		.uleb128 0x19
+ 852 00aa 00       		.byte	0
+ 853 00ab 00       		.byte	0
+ 854 00ac 0F       		.uleb128 0xf
+ 855 00ad 15       		.uleb128 0x15
+ 856 00ae 01       		.byte	0x1
+ 857 00af 27       		.uleb128 0x27
+ 858 00b0 19       		.uleb128 0x19
+ 859 00b1 01       		.uleb128 0x1
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 18
+
+
+ 860 00b2 13       		.uleb128 0x13
+ 861 00b3 00       		.byte	0
+ 862 00b4 00       		.byte	0
+ 863 00b5 10       		.uleb128 0x10
+ 864 00b6 05       		.uleb128 0x5
+ 865 00b7 00       		.byte	0
+ 866 00b8 49       		.uleb128 0x49
+ 867 00b9 13       		.uleb128 0x13
+ 868 00ba 00       		.byte	0
+ 869 00bb 00       		.byte	0
+ 870 00bc 11       		.uleb128 0x11
+ 871 00bd 01       		.uleb128 0x1
+ 872 00be 01       		.byte	0x1
+ 873 00bf 49       		.uleb128 0x49
+ 874 00c0 13       		.uleb128 0x13
+ 875 00c1 01       		.uleb128 0x1
+ 876 00c2 13       		.uleb128 0x13
+ 877 00c3 00       		.byte	0
+ 878 00c4 00       		.byte	0
+ 879 00c5 12       		.uleb128 0x12
+ 880 00c6 21       		.uleb128 0x21
+ 881 00c7 00       		.byte	0
+ 882 00c8 49       		.uleb128 0x49
+ 883 00c9 13       		.uleb128 0x13
+ 884 00ca 2F       		.uleb128 0x2f
+ 885 00cb 0B       		.uleb128 0xb
+ 886 00cc 00       		.byte	0
+ 887 00cd 00       		.byte	0
+ 888 00ce 13       		.uleb128 0x13
+ 889 00cf 15       		.uleb128 0x15
+ 890 00d0 00       		.byte	0
+ 891 00d1 27       		.uleb128 0x27
+ 892 00d2 19       		.uleb128 0x19
+ 893 00d3 49       		.uleb128 0x49
+ 894 00d4 13       		.uleb128 0x13
+ 895 00d5 00       		.byte	0
+ 896 00d6 00       		.byte	0
+ 897 00d7 14       		.uleb128 0x14
+ 898 00d8 2E       		.uleb128 0x2e
+ 899 00d9 00       		.byte	0
+ 900 00da 03       		.uleb128 0x3
+ 901 00db 0E       		.uleb128 0xe
+ 902 00dc 3A       		.uleb128 0x3a
+ 903 00dd 0B       		.uleb128 0xb
+ 904 00de 3B       		.uleb128 0x3b
+ 905 00df 0B       		.uleb128 0xb
+ 906 00e0 27       		.uleb128 0x27
+ 907 00e1 19       		.uleb128 0x19
+ 908 00e2 11       		.uleb128 0x11
+ 909 00e3 01       		.uleb128 0x1
+ 910 00e4 12       		.uleb128 0x12
+ 911 00e5 06       		.uleb128 0x6
+ 912 00e6 40       		.uleb128 0x40
+ 913 00e7 18       		.uleb128 0x18
+ 914 00e8 9742     		.uleb128 0x2117
+ 915 00ea 19       		.uleb128 0x19
+ 916 00eb 00       		.byte	0
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 19
+
+
+ 917 00ec 00       		.byte	0
+ 918 00ed 15       		.uleb128 0x15
+ 919 00ee 2E       		.uleb128 0x2e
+ 920 00ef 01       		.byte	0x1
+ 921 00f0 03       		.uleb128 0x3
+ 922 00f1 0E       		.uleb128 0xe
+ 923 00f2 3A       		.uleb128 0x3a
+ 924 00f3 0B       		.uleb128 0xb
+ 925 00f4 3B       		.uleb128 0x3b
+ 926 00f5 0B       		.uleb128 0xb
+ 927 00f6 27       		.uleb128 0x27
+ 928 00f7 19       		.uleb128 0x19
+ 929 00f8 11       		.uleb128 0x11
+ 930 00f9 01       		.uleb128 0x1
+ 931 00fa 12       		.uleb128 0x12
+ 932 00fb 06       		.uleb128 0x6
+ 933 00fc 40       		.uleb128 0x40
+ 934 00fd 18       		.uleb128 0x18
+ 935 00fe 9742     		.uleb128 0x2117
+ 936 0100 19       		.uleb128 0x19
+ 937 0101 01       		.uleb128 0x1
+ 938 0102 13       		.uleb128 0x13
+ 939 0103 00       		.byte	0
+ 940 0104 00       		.byte	0
+ 941 0105 16       		.uleb128 0x16
+ 942 0106 05       		.uleb128 0x5
+ 943 0107 00       		.byte	0
+ 944 0108 03       		.uleb128 0x3
+ 945 0109 0E       		.uleb128 0xe
+ 946 010a 3A       		.uleb128 0x3a
+ 947 010b 0B       		.uleb128 0xb
+ 948 010c 3B       		.uleb128 0x3b
+ 949 010d 0B       		.uleb128 0xb
+ 950 010e 49       		.uleb128 0x49
+ 951 010f 13       		.uleb128 0x13
+ 952 0110 02       		.uleb128 0x2
+ 953 0111 18       		.uleb128 0x18
+ 954 0112 00       		.byte	0
+ 955 0113 00       		.byte	0
+ 956 0114 17       		.uleb128 0x17
+ 957 0115 2E       		.uleb128 0x2e
+ 958 0116 00       		.byte	0
+ 959 0117 03       		.uleb128 0x3
+ 960 0118 0E       		.uleb128 0xe
+ 961 0119 3A       		.uleb128 0x3a
+ 962 011a 0B       		.uleb128 0xb
+ 963 011b 3B       		.uleb128 0x3b
+ 964 011c 0B       		.uleb128 0xb
+ 965 011d 27       		.uleb128 0x27
+ 966 011e 19       		.uleb128 0x19
+ 967 011f 49       		.uleb128 0x49
+ 968 0120 13       		.uleb128 0x13
+ 969 0121 11       		.uleb128 0x11
+ 970 0122 01       		.uleb128 0x1
+ 971 0123 12       		.uleb128 0x12
+ 972 0124 06       		.uleb128 0x6
+ 973 0125 40       		.uleb128 0x40
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 20
+
+
+ 974 0126 18       		.uleb128 0x18
+ 975 0127 9742     		.uleb128 0x2117
+ 976 0129 19       		.uleb128 0x19
+ 977 012a 00       		.byte	0
+ 978 012b 00       		.byte	0
+ 979 012c 18       		.uleb128 0x18
+ 980 012d 2E       		.uleb128 0x2e
+ 981 012e 01       		.byte	0x1
+ 982 012f 3F       		.uleb128 0x3f
+ 983 0130 19       		.uleb128 0x19
+ 984 0131 03       		.uleb128 0x3
+ 985 0132 0E       		.uleb128 0xe
+ 986 0133 3A       		.uleb128 0x3a
+ 987 0134 0B       		.uleb128 0xb
+ 988 0135 3B       		.uleb128 0x3b
+ 989 0136 0B       		.uleb128 0xb
+ 990 0137 27       		.uleb128 0x27
+ 991 0138 19       		.uleb128 0x19
+ 992 0139 11       		.uleb128 0x11
+ 993 013a 01       		.uleb128 0x1
+ 994 013b 12       		.uleb128 0x12
+ 995 013c 06       		.uleb128 0x6
+ 996 013d 40       		.uleb128 0x40
+ 997 013e 18       		.uleb128 0x18
+ 998 013f 9742     		.uleb128 0x2117
+ 999 0141 19       		.uleb128 0x19
+ 1000 0142 01       		.uleb128 0x1
+ 1001 0143 13       		.uleb128 0x13
+ 1002 0144 00       		.byte	0
+ 1003 0145 00       		.byte	0
+ 1004 0146 19       		.uleb128 0x19
+ 1005 0147 05       		.uleb128 0x5
+ 1006 0148 00       		.byte	0
+ 1007 0149 03       		.uleb128 0x3
+ 1008 014a 0E       		.uleb128 0xe
+ 1009 014b 3A       		.uleb128 0x3a
+ 1010 014c 0B       		.uleb128 0xb
+ 1011 014d 3B       		.uleb128 0x3b
+ 1012 014e 0B       		.uleb128 0xb
+ 1013 014f 49       		.uleb128 0x49
+ 1014 0150 13       		.uleb128 0x13
+ 1015 0151 02       		.uleb128 0x2
+ 1016 0152 17       		.uleb128 0x17
+ 1017 0153 00       		.byte	0
+ 1018 0154 00       		.byte	0
+ 1019 0155 1A       		.uleb128 0x1a
+ 1020 0156 2E       		.uleb128 0x2e
+ 1021 0157 00       		.byte	0
+ 1022 0158 3F       		.uleb128 0x3f
+ 1023 0159 19       		.uleb128 0x19
+ 1024 015a 03       		.uleb128 0x3
+ 1025 015b 0E       		.uleb128 0xe
+ 1026 015c 3A       		.uleb128 0x3a
+ 1027 015d 0B       		.uleb128 0xb
+ 1028 015e 3B       		.uleb128 0x3b
+ 1029 015f 0B       		.uleb128 0xb
+ 1030 0160 27       		.uleb128 0x27
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 21
+
+
+ 1031 0161 19       		.uleb128 0x19
+ 1032 0162 49       		.uleb128 0x49
+ 1033 0163 13       		.uleb128 0x13
+ 1034 0164 11       		.uleb128 0x11
+ 1035 0165 01       		.uleb128 0x1
+ 1036 0166 12       		.uleb128 0x12
+ 1037 0167 06       		.uleb128 0x6
+ 1038 0168 40       		.uleb128 0x40
+ 1039 0169 18       		.uleb128 0x18
+ 1040 016a 9742     		.uleb128 0x2117
+ 1041 016c 19       		.uleb128 0x19
+ 1042 016d 00       		.byte	0
+ 1043 016e 00       		.byte	0
+ 1044 016f 1B       		.uleb128 0x1b
+ 1045 0170 34       		.uleb128 0x34
+ 1046 0171 00       		.byte	0
+ 1047 0172 03       		.uleb128 0x3
+ 1048 0173 08       		.uleb128 0x8
+ 1049 0174 3A       		.uleb128 0x3a
+ 1050 0175 0B       		.uleb128 0xb
+ 1051 0176 3B       		.uleb128 0x3b
+ 1052 0177 0B       		.uleb128 0xb
+ 1053 0178 49       		.uleb128 0x49
+ 1054 0179 13       		.uleb128 0x13
+ 1055 017a 3F       		.uleb128 0x3f
+ 1056 017b 19       		.uleb128 0x19
+ 1057 017c 02       		.uleb128 0x2
+ 1058 017d 18       		.uleb128 0x18
+ 1059 017e 00       		.byte	0
+ 1060 017f 00       		.byte	0
+ 1061 0180 00       		.byte	0
+ 1062              		.section	.debug_loc,"",%progbits
+ 1063              	.Ldebug_loc0:
+ 1064              	.LLST0:
+ 1065 0000 00000000 		.4byte	.LVL4
+ 1066 0004 0E000000 		.4byte	.LVL5
+ 1067 0008 0100     		.2byte	0x1
+ 1068 000a 50       		.byte	0x50
+ 1069 000b 0E000000 		.4byte	.LVL5
+ 1070 000f 54000000 		.4byte	.LFE0
+ 1071 0013 0500     		.2byte	0x5
+ 1072 0015 03       		.byte	0x3
+ 1073 0016 00000000 		.4byte	_sm
+ 1074 001a 00000000 		.4byte	0
+ 1075 001e 00000000 		.4byte	0
+ 1076              		.section	.debug_aranges,"",%progbits
+ 1077 0000 5C000000 		.4byte	0x5c
+ 1078 0004 0200     		.2byte	0x2
+ 1079 0006 00000000 		.4byte	.Ldebug_info0
+ 1080 000a 04       		.byte	0x4
+ 1081 000b 00       		.byte	0
+ 1082 000c 0000     		.2byte	0
+ 1083 000e 0000     		.2byte	0
+ 1084 0010 00000000 		.4byte	.LFB2
+ 1085 0014 02000000 		.4byte	.LFE2-.LFB2
+ 1086 0018 00000000 		.4byte	.LFB3
+ 1087 001c 02000000 		.4byte	.LFE3-.LFB3
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 22
+
+
+ 1088 0020 00000000 		.4byte	.LFB4
+ 1089 0024 02000000 		.4byte	.LFE4-.LFB4
+ 1090 0028 00000000 		.4byte	.LFB5
+ 1091 002c 02000000 		.4byte	.LFE5-.LFB5
+ 1092 0030 00000000 		.4byte	.LFB6
+ 1093 0034 02000000 		.4byte	.LFE6-.LFB6
+ 1094 0038 00000000 		.4byte	.LFB7
+ 1095 003c 02000000 		.4byte	.LFE7-.LFB7
+ 1096 0040 00000000 		.4byte	.LFB8
+ 1097 0044 02000000 		.4byte	.LFE8-.LFB8
+ 1098 0048 00000000 		.4byte	.LFB0
+ 1099 004c 54000000 		.4byte	.LFE0-.LFB0
+ 1100 0050 00000000 		.4byte	.LFB1
+ 1101 0054 14000000 		.4byte	.LFE1-.LFB1
+ 1102 0058 00000000 		.4byte	0
+ 1103 005c 00000000 		.4byte	0
+ 1104              		.section	.debug_ranges,"",%progbits
+ 1105              	.Ldebug_ranges0:
+ 1106 0000 00000000 		.4byte	.LFB2
+ 1107 0004 02000000 		.4byte	.LFE2
+ 1108 0008 00000000 		.4byte	.LFB3
+ 1109 000c 02000000 		.4byte	.LFE3
+ 1110 0010 00000000 		.4byte	.LFB4
+ 1111 0014 02000000 		.4byte	.LFE4
+ 1112 0018 00000000 		.4byte	.LFB5
+ 1113 001c 02000000 		.4byte	.LFE5
+ 1114 0020 00000000 		.4byte	.LFB6
+ 1115 0024 02000000 		.4byte	.LFE6
+ 1116 0028 00000000 		.4byte	.LFB7
+ 1117 002c 02000000 		.4byte	.LFE7
+ 1118 0030 00000000 		.4byte	.LFB8
+ 1119 0034 02000000 		.4byte	.LFE8
+ 1120 0038 00000000 		.4byte	.LFB0
+ 1121 003c 54000000 		.4byte	.LFE0
+ 1122 0040 00000000 		.4byte	.LFB1
+ 1123 0044 14000000 		.4byte	.LFE1
+ 1124 0048 00000000 		.4byte	0
+ 1125 004c 00000000 		.4byte	0
+ 1126              		.section	.debug_line,"",%progbits
+ 1127              	.Ldebug_line0:
+ 1128 0000 D4010000 		.section	.debug_str,"MS",%progbits,1
+ 1128      02003001 
+ 1128      00000201 
+ 1128      FB0E0D00 
+ 1128      01010101 
+ 1129              	.LASF15:
+ 1130 0000 4D454153 		.ascii	"MEASURE_TOTAL\000"
+ 1130      5552455F 
+ 1130      544F5441 
+ 1130      4C00
+ 1131              	.LASF33:
+ 1132 000e 73746174 		.ascii	"state_machine\000"
+ 1132      655F6D61 
+ 1132      6368696E 
+ 1132      6500
+ 1133              	.LASF32:
+ 1134 001c 74696D65 		.ascii	"time_total\000"
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 23
+
+
+ 1134      5F746F74 
+ 1134      616C00
+ 1135              	.LASF13:
+ 1136 0027 44495343 		.ascii	"DISCHARGE\000"
+ 1136      48415247 
+ 1136      4500
+ 1137              	.LASF36:
+ 1138 0031 6D656173 		.ascii	"measure\000"
+ 1138      75726500 
+ 1139              	.LASF30:
+ 1140 0039 73746174 		.ascii	"state\000"
+ 1140      6500
+ 1141              	.LASF2:
+ 1142 003f 73686F72 		.ascii	"short int\000"
+ 1142      7420696E 
+ 1142      7400
+ 1143              	.LASF40:
+ 1144 0049 73697A65 		.ascii	"sizetype\000"
+ 1144      74797065 
+ 1144      00
+ 1145              	.LASF21:
+ 1146 0052 48494748 		.ascii	"HIGH\000"
+ 1146      00
+ 1147              	.LASF37:
+ 1148 0057 7365745F 		.ascii	"set_pin\000"
+ 1148      70696E00 
+ 1149              	.LASF6:
+ 1150 005f 5F5F7569 		.ascii	"__uint32_t\000"
+ 1150      6E743332 
+ 1150      5F7400
+ 1151              	.LASF11:
+ 1152 006a 75696E74 		.ascii	"uint8_t\000"
+ 1152      385F7400 
+ 1153              	.LASF38:
+ 1154 0072 72656164 		.ascii	"read_sense_pin\000"
+ 1154      5F73656E 
+ 1154      73655F70 
+ 1154      696E00
+ 1155              	.LASF51:
+ 1156 0081 5F63616C 		.ascii	"_calculate_r\000"
+ 1156      63756C61 
+ 1156      74655F72 
+ 1156      00
+ 1157              	.LASF19:
+ 1158 008e 49444C45 		.ascii	"IDLE\000"
+ 1158      00
+ 1159              	.LASF23:
+ 1160 0093 70696E5F 		.ascii	"pin_state\000"
+ 1160      73746174 
+ 1160      6500
+ 1161              	.LASF53:
+ 1162 009d 72756E5F 		.ascii	"run_state_machine\000"
+ 1162      73746174 
+ 1162      655F6D61 
+ 1162      6368696E 
+ 1162      6500
+ 1163              	.LASF41:
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 24
+
+
+ 1164 00af 5F6D6561 		.ascii	"_measure\000"
+ 1164      73757265 
+ 1164      00
+ 1165              	.LASF20:
+ 1166 00b8 73746174 		.ascii	"state_t\000"
+ 1166      655F7400 
+ 1167              	.LASF8:
+ 1168 00c0 6C6F6E67 		.ascii	"long long int\000"
+ 1168      206C6F6E 
+ 1168      6720696E 
+ 1168      7400
+ 1169              	.LASF18:
+ 1170 00ce 54494D45 		.ascii	"TIMEOUT\000"
+ 1170      4F555400 
+ 1171              	.LASF49:
+ 1172 00d6 70736575 		.ascii	"pseudo_adc.c\000"
+ 1172      646F5F61 
+ 1172      64632E63 
+ 1172      00
+ 1173              	.LASF4:
+ 1174 00e3 6C6F6E67 		.ascii	"long int\000"
+ 1174      20696E74 
+ 1174      00
+ 1175              	.LASF5:
+ 1176 00ec 5F5F7569 		.ascii	"__uint8_t\000"
+ 1176      6E74385F 
+ 1176      7400
+ 1177              	.LASF22:
+ 1178 00f6 70696E5F 		.ascii	"pin_state_t\000"
+ 1178      73746174 
+ 1178      655F7400 
+ 1179              	.LASF27:
+ 1180 0102 44524149 		.ascii	"DRAIN\000"
+ 1180      4E00
+ 1181              	.LASF16:
+ 1182 0108 54524947 		.ascii	"TRIGGERED\000"
+ 1182      47455245 
+ 1182      4400
+ 1183              	.LASF46:
+ 1184 0112 5F726561 		.ascii	"_read_sense_pin\000"
+ 1184      645F7365 
+ 1184      6E73655F 
+ 1184      70696E00 
+ 1185              	.LASF14:
+ 1186 0122 4D454153 		.ascii	"MEASURE_REF\000"
+ 1186      5552455F 
+ 1186      52454600 
+ 1187              	.LASF31:
+ 1188 012e 74696D65 		.ascii	"time_ref\000"
+ 1188      5F726566 
+ 1188      00
+ 1189              	.LASF1:
+ 1190 0137 756E7369 		.ascii	"unsigned char\000"
+ 1190      676E6564 
+ 1190      20636861 
+ 1190      7200
+ 1191              	.LASF43:
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 25
+
+
+ 1192 0145 5F736574 		.ascii	"_set_charge_ref_pin\000"
+ 1192      5F636861 
+ 1192      7267655F 
+ 1192      7265665F 
+ 1192      70696E00 
+ 1193              	.LASF0:
+ 1194 0159 7369676E 		.ascii	"signed char\000"
+ 1194      65642063 
+ 1194      68617200 
+ 1195              	.LASF9:
+ 1196 0165 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1196      206C6F6E 
+ 1196      6720756E 
+ 1196      7369676E 
+ 1196      65642069 
+ 1197              	.LASF12:
+ 1198 017c 75696E74 		.ascii	"uint32_t\000"
+ 1198      33325F74 
+ 1198      00
+ 1199              	.LASF10:
+ 1200 0185 756E7369 		.ascii	"unsigned int\000"
+ 1200      676E6564 
+ 1200      20696E74 
+ 1200      00
+ 1201              	.LASF17:
+ 1202 0192 43415054 		.ascii	"CAPTURE\000"
+ 1202      55524500 
+ 1203              	.LASF50:
+ 1204 019a 443A5C53 		.ascii	"D:\\Source\\Repos\\DIC\\Widerstandsmessung_ohne_ADC"
+ 1204      6F757263 
+ 1204      655C5265 
+ 1204      706F735C 
+ 1204      4449435C 
+ 1205 01c9 5C576964 		.ascii	"\\Widerstandsmessung_Digital\\Widerstandsmessung_Di"
+ 1205      65727374 
+ 1205      616E6473 
+ 1205      6D657373 
+ 1205      756E675F 
+ 1206 01fa 67697461 		.ascii	"gital.cydsn\000"
+ 1206      6C2E6379 
+ 1206      64736E00 
+ 1207              	.LASF28:
+ 1208 0206 43484152 		.ascii	"CHARGE_REF\000"
+ 1208      47455F52 
+ 1208      454600
+ 1209              	.LASF45:
+ 1210 0211 5F646973 		.ascii	"_discharge\000"
+ 1210      63686172 
+ 1210      676500
+ 1211              	.LASF3:
+ 1212 021c 73686F72 		.ascii	"short unsigned int\000"
+ 1212      7420756E 
+ 1212      7369676E 
+ 1212      65642069 
+ 1212      6E7400
+ 1213              	.LASF42:
+ 1214 022f 5F736574 		.ascii	"_set_discharge_pin\000"
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 26
+
+
+ 1214      5F646973 
+ 1214      63686172 
+ 1214      67655F70 
+ 1214      696E00
+ 1215              	.LASF44:
+ 1216 0242 5F736574 		.ascii	"_set_charge_total_pin\000"
+ 1216      5F636861 
+ 1216      7267655F 
+ 1216      746F7461 
+ 1216      6C5F7069 
+ 1217              	.LASF47:
+ 1218 0258 736D5F68 		.ascii	"sm_handle\000"
+ 1218      616E646C 
+ 1218      6500
+ 1219              	.LASF29:
+ 1220 0262 43484152 		.ascii	"CHARGE_TOTAL\000"
+ 1220      47455F54 
+ 1220      4F54414C 
+ 1220      00
+ 1221              	.LASF7:
+ 1222 026f 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1222      20756E73 
+ 1222      69676E65 
+ 1222      6420696E 
+ 1222      7400
+ 1223              	.LASF35:
+ 1224 0281 64697363 		.ascii	"discharge\000"
+ 1224      68617267 
+ 1224      6500
+ 1225              	.LASF26:
+ 1226 028b 70696E73 		.ascii	"pins\000"
+ 1226      00
+ 1227              	.LASF52:
+ 1228 0290 696E6974 		.ascii	"init_pseudo_adc\000"
+ 1228      5F707365 
+ 1228      75646F5F 
+ 1228      61646300 
+ 1229              	.LASF39:
+ 1230 02a0 63616C63 		.ascii	"calculate_r\000"
+ 1230      756C6174 
+ 1230      655F7200 
+ 1231              	.LASF24:
+ 1232 02ac 74696D65 		.ascii	"time\000"
+ 1232      00
+ 1233              	.LASF25:
+ 1234 02b1 544F5441 		.ascii	"TOTAL\000"
+ 1234      4C00
+ 1235              	.LASF48:
+ 1236 02b7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1236      43313120 
+ 1236      352E342E 
+ 1236      31203230 
+ 1236      31363036 
+ 1237 02ea 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1237      20726576 
+ 1237      6973696F 
+ 1237      6E203233 
+ARM GAS  C:\Users\hasel\AppData\Local\Temp\ccVHwset.s 			page 27
+
+
+ 1237      37373135 
+ 1238 031d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1238      66756E63 
+ 1238      74696F6E 
+ 1238      2D736563 
+ 1238      74696F6E 
+ 1239              	.LASF34:
+ 1240 0345 5F69735F 		.ascii	"_is_initialized\000"
+ 1240      696E6974 
+ 1240      69616C69 
+ 1240      7A656400 
+ 1241              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

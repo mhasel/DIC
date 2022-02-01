@@ -33,6 +33,7 @@
 #include "P_adc_aliases.h"
 #include "P_adc.h"
 #include "timer_clock.h"
+#include "Control_Reg.h"
 #include "Timer.h"
 #include "isr_timeout.h"
 #include "UART_IntClock.h"
